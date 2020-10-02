@@ -1,3 +1,7 @@
+import en.Hero;
+import hxd.Res;
+import hxd.res.Atlas;
+
 class Level extends dn.Process {
 	public var game(get,never) : Game; inline function get_game() return Game.ME;
 	public var fx(get,never) : Fx; inline function get_fx() return Game.ME.fx;
@@ -10,6 +14,8 @@ class Level extends dn.Process {
 
 	var marks : Map< LevelMark, Map<Int,Bool> > = new Map();
 	var invalidated = true;
+
+	var hero : Hero;
 
 	public function new(l:World.World_Level) {
 		super(Game.ME);
@@ -67,11 +73,26 @@ class Level extends dn.Process {
 
 		var tg = new h2d.TileGroup(tilesetSource, root);
 
-		var layer = level.l_Collisions;
-		for( autoTile in layer.autoTiles ) {
-			var tile = layer.tileset.getAutoLayerHeapsTile(tilesetSource, autoTile);
-			tg.add(autoTile.renderX, autoTile.renderY, tile);
+		var collisions = level.l_Collisions;
+		var tile = Res.atlas.tiles.get("cube");
+		for (x in 0...collisions.cWid)
+		for (y in 0...collisions.cHei){
+			if( collisions.getInt(x,y) == 0) {
+				var screen = getScreenPos(x,y);
+				tg.add(screen.x + Const.TILE_OFFSET_X, screen.y + Const.TILE_OFFSET_Y, tile);
+			}
 		}
+
+		for (e in level.l_Entities.all_Hero) {
+			hero = new Hero(e.cx, e.cy);
+		}
+	}
+
+	function getScreenPos(x:Int, y:Int) : Point {
+		var screen = new Point(0,0);
+		screen.x = (x - y) * Const.TILE_W_HALF;
+		screen.y = (x + y) * Const.TILE_H_HALF;
+		return screen;
 	}
 
 	override function postUpdate() {
