@@ -89,8 +89,8 @@ class Entity {
 	var invalidateDebugBounds = false;
 
 	// Coordinates getters, for easier gameplay coding
-	public var footX(get,never) : Float; inline function get_footX() return (cx - cy) * Const.TILE_W_HALF;
-	public var footY(get,never) : Float; inline function get_footY() return (cx + cy) * Const.TILE_H_HALF;
+	public var footX(get,never) : Float; inline function get_footX() return (cx+xr)*Const.GRID;
+	public var footY(get,never) : Float; inline function get_footY() return (cy+yr)*Const.GRID;
 	public var headX(get,never) : Float; inline function get_headX() return footX;
 	public var headY(get,never) : Float; inline function get_headY() return footY-hei;
 	public var centerX(get,never) : Float; inline function get_centerX() return footX;
