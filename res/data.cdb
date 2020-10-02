@@ -1,5 +1,32 @@
 {
-	"sheets": [],
+	"sheets": [
+		{
+			"name": "globals",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "16",
+					"name": "value",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"value": 0.05,
+					"id": "playerMoveSpeed"
+				},
+				{
+					"value": 4,
+					"id": "playerMaxMoveSpeed"
+				}
+			],
+			"separators": [],
+			"props": {}
+		}
+	],
 	"customTypes": [],
 	"compress": false
 }

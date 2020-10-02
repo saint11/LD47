@@ -1,9 +1,13 @@
+import h2d.Graphics;
+import hxd.Res;
+import en.Hero;
+
 class Level extends dn.Process {
 	public var game(get,never) : Game; inline function get_game() return Game.ME;
 	public var fx(get,never) : Fx; inline function get_fx() return Game.ME.fx;
 
-	public var wid(get,never) : Int; inline function get_wid() return level.l_Collisions.cWid;
-	public var hei(get,never) : Int; inline function get_hei() return level.l_Collisions.cHei;
+	public var wid(get,never) : Int; inline function get_wid() return level.l_Entities.cWid;
+	public var hei(get,never) : Int; inline function get_hei() return level.l_Entities.cHei;
 
 	public var level : World.World_Level;
 	var tilesetSource : h2d.Tile;
@@ -16,6 +20,9 @@ class Level extends dn.Process {
 		createRootInLayers(Game.ME.scroller, Const.DP_BG);
 		level = l;
 		tilesetSource = hxd.Res.world.tiles.toTile();
+
+		for (e in l.l_Entities.all_Hero)
+			new Hero(e.cx,e.cy);
 	}
 
 	/**
@@ -58,20 +65,22 @@ class Level extends dn.Process {
 
 	/** Return TRUE if "Collisions" layer contains a collision value **/
 	public inline function hasCollision(cx,cy) : Bool {
-		return !isValid(cx,cy) ? true : level.l_Collisions.getInt(cx,cy)==0;
+		return !isValid(cx,cy);
+		//return !isValid(cx,cy) ? true : level.l_Collisions.getInt(cx,cy)==0;
 	}
 
 	/** Render current level**/
 	function render() {
 		root.removeChildren();
 
-		var tg = new h2d.TileGroup(tilesetSource, root);
-
-		var layer = level.l_Collisions;
-		for( autoTile in layer.autoTiles ) {
-			var tile = layer.tileset.getAutoLayerHeapsTile(tilesetSource, autoTile);
-			tg.add(autoTile.renderX, autoTile.renderY, tile);
-		}
+		var g = new Graphics(root);
+		g.drawTile(0, 0, Res.atlas.tiles.get("bg_simple"));
+		
+		// var layer = level.l_Collisions;
+		// for( autoTile in layer.autoTiles ) {
+		// 	var tile = layer.tileset.getAutoLayerHeapsTile(tilesetSource, autoTile);
+		// 	tg.add(autoTile.renderX, autoTile.renderY, tile);
+		// }
 	}
 
 	override function postUpdate() {
