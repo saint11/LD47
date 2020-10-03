@@ -490,12 +490,17 @@ class Entity {
 		while( steps>0 ) {
 			xr+=step;
 			
-			if( xr>0.7 && level.hasCollision(cx+1,cy) ) {
-				xr = 0.7;
+			for (e in Entity.ALL) {
+				if (e!=this && (distCase(e) < radius + e.radius))
+					onTouchOtherX(e);
+			}
+
+			if( xr>0.6 && level.hasCollision(cx+1,cy) ) {
+				xr = 0.6;
 				dx-=0.05*tmod;
 				onTouchWallX();
 			}
-			if( xr>=0.6 && level.hasCollision(cx+1,cy) ) {
+			if( xr>=0.5 && level.hasCollision(cx+1,cy) ) {
 				dx-=0.03*tmod;
 			}
 			if( xr<0.3 && level.hasCollision(cx-1,cy) ) {
@@ -521,6 +526,11 @@ class Entity {
 		var step = dyTotal*tmod / steps;
 		while( steps>0 ) {
 			yr+=step;
+
+			for (e in Entity.ALL) {
+				if (e!=this && (distCase(e) < radius + e.radius))
+					onTouchOtherY(e);
+			}
 
 			if( yr>1 && level.hasCollision(cx,cy+1) ) {
 				yr = 1;
@@ -557,9 +567,21 @@ class Entity {
 	}
 	
 	function onTouchWallX() {
-		dx*=0.5;
+		dx*=0.2;
 	}
 	function onTouchWallY() {
-		dy*=0.5;
+		dy*=0.2;
+	}
+
+	function onTouchOtherX(other: Entity) {
+		dx*=0.2;
+	}
+
+	function onTouchOtherY(other: Entity) {
+		dy*=0.2;
+	}
+
+	public function takeHit() {
+		return false;
 	}
 }

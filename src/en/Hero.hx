@@ -39,7 +39,7 @@ class Hero extends Entity {
 
             if (Main.ME.mouse.leftClicked) {
                 trace("shoot");
-                new Projectile(footX, footY, angToMouse(), SimpleBullet);
+                new Projectile(footX, footY, angToMouse(), this, SimpleBullet);
             }
 
             dx = addClamped(dx, moveX * moveSpeed * tmod, maxSpeed);

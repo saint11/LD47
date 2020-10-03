@@ -95,6 +95,8 @@ class Main extends dn.Process {
 
     override function update() {
 		Assets.tiles.tmod = tmod;
+		if (ca.isKeyboardDown(Key.F1))
+			Console.ME.show();
         super.update();
 	}
 	

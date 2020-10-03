@@ -20,7 +20,7 @@ class Mouse {
             leftDown=true;
             leftClicked = true;
             
-            trace("X: " + x + ", Y: " +  y);
+            //trace("X: " + x + ", Y: " +  y);
         }
 
         
