@@ -1,3 +1,4 @@
+import en.inter.Scroll;
 import en.Door;
 import h2d.Interactive;
 import en.Mob;
@@ -31,7 +32,7 @@ class Level extends dn.Process {
 	var fastColl: Map<Int,Bool>;
 
 	public var hero:Hero;
-
+	public var scroll:Scroll;
 
 	public function new(l:World.World_Level) {
 		super(Game.ME);
@@ -62,6 +63,11 @@ class Level extends dn.Process {
 		if (l.l_Entities.all_Mob!=null)
 		for (m in l.l_Entities.all_Mob) {
 			new Mob(m.cx, m.cy, m);
+		}
+
+		if (l.l_Entities.all_Scroll!=null)
+		for	(e in l.l_Entities.all_Scroll) {
+			scroll = new Scroll(e.cx, e.cy);
 		}
 
 		new Door(16,doorY, 1);
@@ -147,7 +153,7 @@ class Level extends dn.Process {
 	}
 
 	public function isComplete() :Bool {
-		if (Mob.ALL.length==0) {
+		if (scroll == null && Mob.ALL.length==0) {
 			return true;
 		} else {
 			return false;

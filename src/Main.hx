@@ -6,12 +6,16 @@ class Main extends dn.Process {
 	public var controller : dn.heaps.Controller;
 	public var ca : dn.heaps.Controller.ControllerAccess;
 
-	public var mouse : Mouse;
+	var scene:h2d.Scene;
+
+	public var mouseX(get,never) : Float; function get_mouseX() return scene.mouseX - Game.ME.scroller.x;
+	public var mouseY(get,never) : Float; function get_mouseY() return scene.mouseY - Game.ME.scroller.y;
 
 	public function new(s:h2d.Scene) {
 		super();
 		ME = this;
-		
+		scene = s;
+
         createRoot(s);
 
 		// Engine settings
@@ -57,13 +61,11 @@ class Main extends dn.Process {
 		controller.bind(AXIS_LEFT_Y_NEG, Key.DOWN, Key.S);
 		controller.bind(AXIS_LEFT_Y_POS, Key.UP, Key.W);
 
-		controller.bind(X, Key.SPACE, Key.F, Key.E);
-		controller.bind(A, Key.Z);
-		controller.bind(B, Key.ENTER, Key.NUMPAD_ENTER);
+		controller.bind(A, Key.Z, Key.SPACE);
+		controller.bind(B, Key.ESCAPE, Key.BACKSPACE);
+		controller.bind(Y, Key.MOUSE_LEFT);
 		controller.bind(SELECT, Key.R);
 		controller.bind(START, Key.N);
-
-		mouse = new Mouse(s);
 
 		// Start
 		new dn.heaps.GameFocusHelper(Boot.ME.s2d, Assets.fontMedium);
@@ -103,10 +105,5 @@ class Main extends dn.Process {
 		#end
 
         super.update();
-	}
-	
-	override function postUpdate() {
-		super.postUpdate();
-		mouse.update();
 	}
 }

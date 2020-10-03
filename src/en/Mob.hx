@@ -19,6 +19,8 @@ class Mob extends Entity {
         
         data = Data.mobs.resolve(ref.f_MobType.getName());
         initLife(data.hp);
+
+        enableShadow();
     }
 
     override function update() {
@@ -47,6 +49,11 @@ class Mob extends Entity {
     override function hit(dmg:Damage, from:Null<Entity>) {
         super.hit(dmg, from);
         setAffectS(Stun, 0.4);
-        bumpAgainst(from, dmg.push);
+    }
+
+    override function onTouch(other:Entity) {
+        super.onTouch(other);
+        if (data.touchDamage!=null && other.is(Hero)) 
+             other.hit(data.touchDamage, this);
     }
 }
