@@ -203,6 +203,8 @@ class Game extends Process {
 
 	public function loadNextLevel() {
 		levelIndex++;
+		if (levelIndex>=levelLoop.length)
+			levelIndex = 0;
 		levelToLoad = levelLoop[levelIndex];
 	}
 

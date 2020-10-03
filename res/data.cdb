@@ -16,7 +16,11 @@
 			"lines": [
 				{
 					"value": 0.02,
-					"id": "playerMoveSpeed"
+					"id": "playerMoveSpeedX"
+				},
+				{
+					"id": "playerMoveSpeedY",
+					"value": 0.017
 				},
 				{
 					"value": 0.15,
@@ -113,8 +117,12 @@
 			],
 			"lines": [
 				{
-					"id": "hero_idle_d",
+					"id": "hero_idle",
 					"speed": 0.15
+				},
+				{
+					"id": "hero_walk",
+					"speed": 0.2
 				}
 			],
 			"separators": [],
