@@ -1,3 +1,7 @@
+import hxd.fmt.spine.Data.Bone;
+import en.Hole;
+import sys.ssl.Context.Config;
+import h2d.Flow.FlowAlign;
 import h2d.Graphics;
 import hxd.Res;
 import en.Hero;
@@ -6,8 +10,14 @@ class Level extends dn.Process {
 	public var game(get,never) : Game; inline function get_game() return Game.ME;
 	public var fx(get,never) : Fx; inline function get_fx() return Game.ME.fx;
 
-	public var wid(get,never) : Int; inline function get_wid() return level.l_Entities.cWid;
-	public var hei(get,never) : Int; inline function get_hei() return level.l_Entities.cHei;
+	public var wid(get,never) : Int; function get_wid() return level.l_Entities.cWid;
+	public var hei(get,never) : Int; function get_hei() return level.l_Entities.cHei;
+	
+	public var pxWid : Int = Const.AUTO_SCALE_TARGET_WID;
+	public var pxHei : Int = Const.AUTO_SCALE_TARGET_HEI;
+
+	public var offsetX = 0;
+	public var offsetY = 0;
 
 	public var level : World.World_Level;
 	var tilesetSource : h2d.Tile;
@@ -15,14 +25,27 @@ class Level extends dn.Process {
 	var marks : Map< LevelMark, Map<Int,Bool> > = new Map();
 	var invalidated = true;
 
+	var fastColl: Map<Int,Bool>;
+
 	public function new(l:World.World_Level) {
 		super(Game.ME);
 		createRootInLayers(Game.ME.scroller, Const.DP_BG);
+		
 		level = l;
 		tilesetSource = hxd.Res.world.tiles.toTile();
+		
+		render();
+		trace("Level loaded offset is at " + offsetX +", " + offsetY);
 
 		for (e in l.l_Entities.all_Hero)
-			new Hero(e.cx,e.cy);
+			new Hero(e.cx,e.cy);	
+
+
+		fastColl = [];
+		for (e in l.l_Entities.all_Hole) {
+			new Hole(e.cx,e.cy);
+			fastColl[coordId(e.cx, e.cy)] = true;
+		}
 	}
 
 	/**
@@ -65,7 +88,7 @@ class Level extends dn.Process {
 
 	/** Return TRUE if "Collisions" layer contains a collision value **/
 	public inline function hasCollision(cx,cy) : Bool {
-		return !isValid(cx,cy);
+		return !isValid(cx,cy) || fastColl[coordId(cx,cy)];
 		//return !isValid(cx,cy) ? true : level.l_Collisions.getInt(cx,cy)==0;
 	}
 
@@ -74,7 +97,16 @@ class Level extends dn.Process {
 		root.removeChildren();
 
 		var g = new Graphics(root);
-		g.drawTile(0, 0, Res.atlas.tiles.get("bg_simple"));
+		var bg = Res.atlas.tiles.get("bg_simple");
+		var floor = Res.atlas.tiles.get("floor_simple");
+
+		pxWid = M.round(bg.width);
+		pxHei = M.round(bg.height);
+		offsetX = M.round(((bg.width - floor.width)/ 2)/Const.GRID);
+		offsetY = M.round(((bg.height - floor.height)/ 2)/Const.GRID);
+
+		g.drawTile(-offsetX * Const.GRID, -offsetY * Const.GRID, bg);
+		g.drawTile(0, 0, floor);
 		
 		// var layer = level.l_Collisions;
 		// for( autoTile in layer.autoTiles ) {

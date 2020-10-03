@@ -478,8 +478,23 @@ class Entity {
 		var step = dxTotal*tmod / steps;
 		while( steps>0 ) {
 			xr+=step;
-
-			// [ add X collisions checks here ]
+			
+			if( xr>0.7 && level.hasCollision(cx+1,cy) ) {
+				xr = 0.7;
+				dx-=0.05*tmod;
+				onTouchWallX();
+			}
+			if( xr>=0.6 && level.hasCollision(cx+1,cy) ) {
+				dx-=0.03*tmod;
+			}
+			if( xr<0.3 && level.hasCollision(cx-1,cy) ) {
+				xr = 0.3;
+				dx+=0.05*tmod;
+				onTouchWallX();
+			}
+			if( xr<0.4 && level.hasCollision(cx-1,cy) ) {
+				dx+=0.03*tmod;
+			}
 
 			while( xr>1 ) { xr--; cx++; }
 			while( xr<0 ) { xr++; cx--; }
@@ -496,8 +511,14 @@ class Entity {
 		while( steps>0 ) {
 			yr+=step;
 
-			// [ add Y collisions checks here ]
-
+			if( yr>1 && level.hasCollision(cx,cy+1) ) {
+				yr = 1;
+				onTouchWallY();
+			}
+			if( yr<0.3 && level.hasCollision(cx,cy-1) ) {
+				yr = 0.3;
+				onTouchWallY();
+			}
 			while( yr>1 ) { yr--; cy++; }
 			while( yr<0 ) { yr++; cy--; }
 			steps--;
@@ -522,5 +543,12 @@ class Entity {
 		if( !ui.Console.ME.hasFlag("bounds") && debugBounds!=null )
 			disableBounds();
 		#end
-    }
+	}
+	
+	function onTouchWallX() {
+		dx*=0.5;
+	}
+	function onTouchWallY() {
+		dy*=0.5;
+	}
 }

@@ -9,9 +9,9 @@
 	"jsonVersion": "0.3.1",
 	"defaultPivotX": 0.5,
 	"defaultPivotY": 0.5,
-	"defaultGridSize": 16,
+	"defaultGridSize": 48,
 	"bgColor": "#1A212E",
-	"nextUid": 23,
+	"nextUid": 24,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -21,7 +21,7 @@
 				"identifier": "Entities",
 				"type": "Entities",
 				"uid": 20,
-				"gridSize": 16,
+				"gridSize": 48,
 				"displayOpacity": 1,
 				"intGridValues": [ { "identifier": null, "color": "#000000" } ],
 				"autoTilesetDefUid": null,
@@ -36,8 +36,8 @@
 			{
 				"identifier": "Hero",
 				"uid": 21,
-				"width": 16,
-				"height": 16,
+				"width": 48,
+				"height": 48,
 				"color": "#94D9B3",
 				"renderMode": "Rectangle",
 				"tilesetId": null,
@@ -52,9 +52,25 @@
 			{
 				"identifier": "Scroll",
 				"uid": 22,
-				"width": 16,
-				"height": 16,
+				"width": 48,
+				"height": 48,
 				"color": "#DA9595",
+				"renderMode": "Rectangle",
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0.5,
+				"pivotY": 0.5,
+				"fieldDefs": []
+			},
+			{
+				"identifier": "Hole",
+				"uid": 23,
+				"width": 48,
+				"height": 48,
+				"color": "#000000",
 				"renderMode": "Rectangle",
 				"tilesetId": null,
 				"tileId": null,
@@ -83,17 +99,17 @@
 		"externalEnums": [ { "identifier": "Affect", "uid": 3, "values": [ { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "9db08762d26a530552a55933bf6f3af4" } ]
 	},
 	"levels": [ {
-		"identifier": "FirstLevel",
+		"identifier": "ScrollChamber",
 		"uid": 0,
-		"pxWid": 272,
-		"pxHei": 272,
+		"pxWid": 736,
+		"pxHei": 736,
 		"layerInstances": [
 			{
 				"__identifier": "Entities",
 				"__type": "Entities",
-				"__cWid": 17,
-				"__cHei": 17,
-				"__gridSize": 16,
+				"__cWid": 16,
+				"__cHei": 16,
+				"__gridSize": 48,
 				"levelId": 0,
 				"layerDefUid": 20,
 				"pxOffsetX": 0,
@@ -103,8 +119,17 @@
 				"seed": 4233555,
 				"gridTiles": [],
 				"entityInstances": [
-					{ "__identifier": "Hero", "__cx": 8, "__cy": 13, "defUid": 21, "x": 136, "y": 216, "fieldInstances": [] },
-					{ "__identifier": "Scroll", "__cx": 8, "__cy": 3, "defUid": 22, "x": 136, "y": 56, "fieldInstances": [] }
+					{ "__identifier": "Scroll", "__cx": 7, "__cy": 2, "defUid": 22, "x": 360, "y": 120, "fieldInstances": [] },
+					{ "__identifier": "Hero", "__cx": 7, "__cy": 7, "defUid": 21, "x": 360, "y": 360, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 0, "__cy": 0, "defUid": 23, "x": 24, "y": 24, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 15, "__cy": 0, "defUid": 23, "x": 744, "y": 24, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 3, "__cy": 6, "defUid": 23, "x": 168, "y": 312, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 11, "__cy": 6, "defUid": 23, "x": 552, "y": 312, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 11, "__cy": 9, "defUid": 23, "x": 552, "y": 456, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 11, "__cy": 9, "defUid": 23, "x": 552, "y": 456, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 11, "__cy": 8, "defUid": 23, "x": 552, "y": 408, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 0, "__cy": 14, "defUid": 23, "x": 24, "y": 696, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 15, "__cy": 14, "defUid": 23, "x": 744, "y": 696, "fieldInstances": [] }
 				]
 			}
 		]
