@@ -1,0 +1,146 @@
+
+hero.png
+size: 256,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hero_idle_d_00
+  rotate: false
+  xy: 1, 88
+  size: 109, 88
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_01
+  rotate: false
+  xy: 1, 177
+  size: 96, 87
+  orig: 240, 240
+  offset: 62, 0
+  index: -1
+hero_idle_d_02
+  rotate: false
+  xy: 1, 265
+  size: 95, 86
+  orig: 240, 240
+  offset: 63, 0
+  index: -1
+hero_idle_d_03
+  rotate: false
+  xy: 1, 1
+  size: 113, 86
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_04
+  rotate: false
+  xy: 1, 88
+  size: 109, 88
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_05
+  rotate: false
+  xy: 1, 177
+  size: 96, 87
+  orig: 240, 240
+  offset: 62, 0
+  index: -1
+hero_idle_d_06
+  rotate: false
+  xy: 1, 265
+  size: 95, 86
+  orig: 240, 240
+  offset: 63, 0
+  index: -1
+hero_idle_d_07
+  rotate: false
+  xy: 1, 1
+  size: 113, 86
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_08
+  rotate: false
+  xy: 1, 88
+  size: 109, 88
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_09
+  rotate: false
+  xy: 1, 177
+  size: 96, 87
+  orig: 240, 240
+  offset: 62, 0
+  index: -1
+hero_idle_d_10
+  rotate: false
+  xy: 1, 265
+  size: 95, 86
+  orig: 240, 240
+  offset: 63, 0
+  index: -1
+hero_idle_d_11
+  rotate: false
+  xy: 1, 1
+  size: 113, 86
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_12
+  rotate: false
+  xy: 111, 88
+  size: 109, 88
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_13
+  rotate: false
+  xy: 98, 177
+  size: 96, 87
+  orig: 240, 240
+  offset: 62, 0
+  index: -1
+hero_idle_d_14
+  rotate: false
+  xy: 97, 265
+  size: 95, 86
+  orig: 240, 240
+  offset: 63, 0
+  index: -1
+hero_idle_d_15
+  rotate: false
+  xy: 115, 1
+  size: 113, 86
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_16
+  rotate: false
+  xy: 111, 88
+  size: 109, 88
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_17
+  rotate: false
+  xy: 1, 177
+  size: 96, 87
+  orig: 240, 240
+  offset: 62, 0
+  index: -1
+hero_idle_d_18
+  rotate: false
+  xy: 1, 265
+  size: 95, 86
+  orig: 240, 240
+  offset: 63, 0
+  index: -1
+hero_idle_d_19
+  rotate: false
+  xy: 1, 1
+  size: 113, 86
+  orig: 240, 240
+  offset: 53, 0
+  index: -1

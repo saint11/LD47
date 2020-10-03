@@ -1,138 +1,117 @@
 
 tiles.png
-size: 256,256
+size: 128,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 door
   rotate: false
-  xy: 111, 1
+  xy: 57, 1
   size: 48, 144
   orig: 48, 144
   offset: 0, 0
   index: -1
 empty
   rotate: false
-  xy: 42, 227
-  size: 3, 3
+  xy: 123, 5
+  size: 1, 1
   orig: 1, 1
-  offset: 0, -2
+  offset: 0, 0
   index: -1
 fxCircle0
   rotate: false
-  xy: 1, 235
+  xy: 106, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 46, 227
+  xy: 123, 1
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 34, 231
+  xy: 106, 18
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 1, 227
+  xy: 80, 146
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 1, 231
-  size: 32, 3
+  xy: 80, 150
+  size: 33, 3
   orig: 33, 3
-  offset: 1, 0
+  offset: 0, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 18, 235
+  xy: 50, 27
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 50, 178
+  xy: 1, 125
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 50, 223
+  xy: 46, 146
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
   index: -1
-hero_idle_d_00
-  rotate: false
-  xy: 1, 1
-  size: 109, 88
-  orig: 240, 240
-  offset: 53, 0
-  index: -1
-hero_idle_d_01
-  rotate: false
-  xy: 1, 90
-  size: 96, 87
-  orig: 240, 240
-  offset: 62, 0
-  index: -1
-hero_idle_d_02
-  rotate: false
-  xy: 160, 1
-  size: 95, 86
-  orig: 240, 240
-  offset: 63, 0
-  index: -1
-hero_idle_d_03
-  rotate: false
-  xy: 98, 146
-  size: 113, 86
-  orig: 240, 240
-  offset: 53, 0
-  index: -1
 pixel
   rotate: false
-  xy: 84, 223
+  xy: 125, 5
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
+shadow
+  rotate: false
+  xy: 1, 1
+  size: 55, 25
+  orig: 55, 25
+  offset: 0, 0
+  index: -1
 test_hole
   rotate: false
-  xy: 1, 178
+  xy: 1, 27
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 test_tile
   rotate: false
-  xy: 160, 88
+  xy: 1, 76
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 uiBar
   rotate: false
-  xy: 35, 227
+  xy: 50, 34
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 25, 235
+  xy: 46, 125
   size: 8, 5
   orig: 8, 5
   offset: 0, 0

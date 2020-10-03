@@ -18,6 +18,8 @@ class Hero extends Entity {
 
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
         moveSpeed = Data.globals.get(playerMoveSpeed).value;
+
+        spr.set(Assets.hero);
         spr.anim.registerStateAnim("hero_idle_d", 1, Data.animations.get(hero_idle_d).speed);
         spr.setCenterRatio(0.5, 1);
         

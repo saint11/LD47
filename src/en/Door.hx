@@ -9,9 +9,7 @@ class Door extends Entity {
 
         spr.set("door");
         spr.setCenterRatio();
-
-        if (flip)
-            spr.scaleX = -1;
+        
         
         hasColl = false;
     }

@@ -60,8 +60,8 @@ class Level extends dn.Process {
 			new Mob(m.cx, m.cy, m);
 		}
 
-		new Door(16,Data.globals.get(doorY).value, false);
-		new Door(0,Data.globals.get(doorY).value, true);
+		new Door(16,Data.globals.get(doorY).value, Right);
+		new Door(0,Data.globals.get(doorY).value, Left);
 	}
 
 	/**
