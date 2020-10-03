@@ -14,7 +14,7 @@ class Hero extends Entity {
 
     public function new(cx, cy) {
         super(cx, cy);
-        Game.ME.camera.target = this;
+        Game.ME.camera.trackTarget(this, true);
 
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
         moveSpeed = Data.globals.get(playerMoveSpeed).value;
@@ -90,7 +90,7 @@ class Hero extends Entity {
     public function enterDoor(door:Door) {
         hasColl=false;
         cd.setS("doorEnter",.5);
-        cd.onComplete("doorEnter", ()-> { destroy(); });
+        cd.onComplete("doorEnter", ()-> { game.loadNextLevel(); });
         dy = 0;
         dx = door.dir *0.2;
     }
