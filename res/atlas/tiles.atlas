@@ -1,110 +1,131 @@
 
 tiles.png
-size: 128,256
+size: 256,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 empty
   rotate: false
-  xy: 120, 35
+  xy: 251, 1
   size: 3, 3
   orig: 1, 1
   offset: 0, -2
   index: -1
 fxCircle0
   rotate: false
-  xy: 111, 1
+  xy: 225, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 124, 35
+  xy: 251, 5
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 111, 18
+  xy: 225, 18
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 80, 139
+  xy: 1, 237
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 80, 143
+  xy: 1, 241
   size: 32, 3
   orig: 33, 3
   offset: 1, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 120, 28
+  xy: 242, 7
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 1, 139
+  xy: 98, 90
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 46, 139
+  xy: 1, 225
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
   index: -1
 hero_idle_d_00
   rotate: false
-  xy: 1, 1
+  xy: 115, 1
   size: 109, 88
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
+hero_idle_d_01
+  rotate: false
+  xy: 1, 88
+  size: 96, 87
+  orig: 240, 240
+  offset: 62, 0
+  index: -1
+hero_idle_d_02
+  rotate: false
+  xy: 143, 90
+  size: 95, 86
+  orig: 240, 240
+  offset: 63, 0
+  index: -1
+hero_idle_d_03
+  rotate: false
+  xy: 1, 1
+  size: 113, 86
   orig: 240, 240
   offset: 53, 0
   index: -1
 pixel
   rotate: false
-  xy: 118, 34
+  xy: 249, 7
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 test_hole
   rotate: false
-  xy: 1, 90
+  xy: 1, 176
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 test_tile
   rotate: false
-  xy: 50, 90
+  xy: 50, 176
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 uiBar
   rotate: false
-  xy: 111, 34
+  xy: 249, 9
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 111, 28
+  xy: 242, 1
   size: 8, 5
   orig: 8, 5
   offset: 0, 0

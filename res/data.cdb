@@ -15,11 +15,11 @@
 			],
 			"lines": [
 				{
-					"value": 0.03,
+					"value": 0.02,
 					"id": "playerMoveSpeed"
 				},
 				{
-					"value": 0.2,
+					"value": 0.15,
 					"id": "playerMaxMoveSpeed"
 				}
 			],
@@ -49,7 +49,7 @@
 			"lines": [
 				{
 					"id": "SimpleBullet",
-					"speed": 0.3,
+					"speed": 0.7,
 					"friction": 1,
 					"lifespan": 3
 				}
@@ -79,6 +79,33 @@
 					"id": "MagicMissile",
 					"projectile": "SimpleBullet",
 					"interval": 0.5
+				},
+				{
+					"id": "DevilGun",
+					"projectile": "SimpleBullet",
+					"interval": 0.1
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "animations",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "speed"
+				}
+			],
+			"lines": [
+				{
+					"id": "hero_idle_d",
+					"speed": 0.15
 				}
 			],
 			"separators": [],
