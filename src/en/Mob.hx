@@ -37,4 +37,8 @@ class Mob extends Entity {
         super.dispose();
         ALL.remove(this);
     }
+
+    override function takeHit():Bool {
+        return true;
+    }
 }
