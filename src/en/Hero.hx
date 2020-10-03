@@ -13,10 +13,11 @@ class Hero extends Entity {
     public function new(cx, cy) {
         super(cx, cy);
         Game.ME.camera.target = this;
-        
+
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
         moveSpeed = Data.globals.get(playerMoveSpeed).value;
-        spr.setEmptyTexture(0x80FF00,16,16);
+        spr.setEmptyTexture(0x80FF00,48,48);
+        spr.setCenterRatio(0.5, 1);
     }
 
     override function update() {
@@ -26,13 +27,13 @@ class Hero extends Entity {
 
         moveX = moveY = 0;
 
-        if (ca.isKeyboardDown(Key.RIGHT))
-            moveX += 1;
-        if (ca.isKeyboardDown(Key.LEFT))
+        if (ca.leftDown())
             moveX -= 1;
-        if (ca.isKeyboardDown(Key.UP))
+        if (ca.rightDown())
+            moveX += 1;
+        if (ca.upDown())
             moveY -= 1;
-        if (ca.isKeyboardDown(Key.DOWN))
+        if (ca.downDown())
             moveY += 1;
 
         dx = addClamped(dx, moveX * moveSpeed * tmod, maxSpeed);

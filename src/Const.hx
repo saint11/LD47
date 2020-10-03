@@ -5,7 +5,7 @@ class Const {
 	public static var AUTO_SCALE_TARGET_HEI = 768; // -1 to disable auto-scaling on height
 	public static var SCALE = 1.0; // ignored if auto-scaling
 	public static var UI_SCALE = 1.0;
-	public static var GRID = 16;
+	public static var GRID = 48;
 
 	static var _uniq = 0;
 	public static var NEXT_UNIQ(get,never) : Int; static inline function get_NEXT_UNIQ() return _uniq++;

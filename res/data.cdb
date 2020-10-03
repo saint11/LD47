@@ -19,7 +19,7 @@
 					"id": "playerMoveSpeed"
 				},
 				{
-					"value": 4,
+					"value": 0.1,
 					"id": "playerMaxMoveSpeed"
 				}
 			],
