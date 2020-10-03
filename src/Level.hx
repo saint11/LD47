@@ -43,9 +43,13 @@ class Level extends dn.Process {
 		render();
 		trace("Level loaded offset is at " + offsetX +", " + offsetY);
 
+		var doorY:Int = Data.globals.get(doorY).value;
+
+		if (l.l_Entities.all_Hero!=null)
 		for (e in l.l_Entities.all_Hero)
 			hero = new Hero(e.cx,e.cy);	
-
+		if (hero==null)
+			hero = new Hero(1,doorY);
 
 		fastColl = [];
 
@@ -60,8 +64,8 @@ class Level extends dn.Process {
 			new Mob(m.cx, m.cy, m);
 		}
 
-		new Door(16,Data.globals.get(doorY).value, 1);
-		new Door(-1,Data.globals.get(doorY).value, -1);
+		new Door(16,doorY, 1);
+		new Door(-1,doorY, -1);
 	}
 
 	/**

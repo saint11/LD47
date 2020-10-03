@@ -31,6 +31,12 @@ class Game extends Process {
 	/** LEd world data **/
 	public var world : World;
 
+	var levelToLoad : World.World_Level;
+	public var levelLoop:Array<World.World_Level>;
+	public var levelIndex:Int;
+
+	var mask : h2d.Bitmap;
+
 	public function new() {
 		super(Main.ME);
 		ME = this;
@@ -47,7 +53,12 @@ class Game extends Process {
 		camera = new Camera();
 		fx = new Fx();
 		hud = new ui.Hud();
-		level = new Level(world.all_levels.ScrollChamber);
+		levelLoop = [world.all_levels.ScrollChamber, world.all_levels.ZombieRoom];
+		
+		mask = new h2d.Bitmap(h2d.Tile.fromColor(0x0));
+		root.add(mask, Const.DP_UI);
+
+		startLevel(levelLoop[0]);
 
 		Process.resizeAll();
 		trace(Lang.t._("Game is ready."));
@@ -62,6 +73,9 @@ class Game extends Process {
 	override function onResize() {
 		super.onResize();
 		scroller.setScale(Const.SCALE);
+
+		mask.scaleX = w();
+		mask.scaleY = h();
 	}
 
 
@@ -168,6 +182,9 @@ class Game extends Process {
 			if( !e.destroyed ) e.update();
 		}
 
+		if (levelToLoad!=null)
+			startLevel(levelToLoad);
+
 		if( !ui.Console.ME.isActive() && !ui.Modal.hasAny() ) {
 			#if hl
 			// Exit
@@ -182,6 +199,30 @@ class Game extends Process {
 			if( ca.selectPressed() )
 				Main.ME.startGame();
 		}
+	}
+
+	public function loadNextLevel() {
+		levelIndex++;
+		if (levelIndex>=levelLoop.length)
+			levelIndex = 0;
+		levelToLoad = levelLoop[levelIndex];
+	}
+
+	function startLevel(l : World.World_Level) {
+		for(e in Entity.ALL)
+			e.destroy();
+		gc();
+		fx.clear();
+		if( level!=null )
+			level.destroy();
+
+		level = new Level(l);
+		
+		Process.resizeAll();
+
+		levelToLoad=null;
+		mask.visible=true;
+		tw.createS(mask.alpha, 1>0, 0.6).end(()->mask.visible=false);
 	}
 }
 

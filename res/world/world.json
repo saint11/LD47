@@ -9,9 +9,9 @@
 	"jsonVersion": "0.3.1",
 	"defaultPivotX": 0.5,
 	"defaultPivotY": 0.5,
-	"defaultGridSize": 48,
+	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 38,
+	"nextUid": 39,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -21,7 +21,7 @@
 				"identifier": "Entities",
 				"type": "Entities",
 				"uid": 20,
-				"gridSize": 48,
+				"gridSize": 16,
 				"displayOpacity": 1,
 				"intGridValues": [ { "identifier": null, "color": "#000000" } ],
 				"autoTilesetDefUid": null,
@@ -36,8 +36,8 @@
 			{
 				"identifier": "Hero",
 				"uid": 21,
-				"width": 48,
-				"height": 48,
+				"width": 16,
+				"height": 16,
 				"color": "#94D9B3",
 				"renderMode": "Rectangle",
 				"tilesetId": null,
@@ -52,8 +52,8 @@
 			{
 				"identifier": "Scroll",
 				"uid": 22,
-				"width": 48,
-				"height": 48,
+				"width": 16,
+				"height": 16,
 				"color": "#DA9595",
 				"renderMode": "Rectangle",
 				"tilesetId": null,
@@ -68,8 +68,8 @@
 			{
 				"identifier": "Hole",
 				"uid": 23,
-				"width": 48,
-				"height": 48,
+				"width": 16,
+				"height": 16,
 				"color": "#000000",
 				"renderMode": "Rectangle",
 				"tilesetId": null,
@@ -84,8 +84,8 @@
 			{
 				"identifier": "Mob",
 				"uid": 24,
-				"width": 48,
-				"height": 48,
+				"width": 16,
+				"height": 16,
 				"color": "#BA1717",
 				"renderMode": "Rectangle",
 				"tilesetId": null,
@@ -134,50 +134,85 @@
 			{ "identifier": "MobType", "uid": 36, "values": [ { "id": "Zombie", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "a4cfe80f6575203dbe595040ba275aeb" }
 		]
 	},
-	"levels": [ {
-		"identifier": "ScrollChamber",
-		"uid": 0,
-		"pxWid": 736,
-		"pxHei": 688,
-		"layerInstances": [
-			{
-				"__identifier": "Entities",
-				"__type": "Entities",
-				"__cWid": 16,
-				"__cHei": 15,
-				"__gridSize": 48,
-				"levelId": 0,
-				"layerDefUid": 20,
-				"pxOffsetX": 0,
-				"pxOffsetY": 0,
-				"intGrid": [],
-				"autoTiles": [],
-				"seed": 4233555,
-				"gridTiles": [],
-				"entityInstances": [
-					{ "__identifier": "Mob", "__cx": 11, "__cy": 4, "defUid": 24, "x": 552, "y": 216, "fieldInstances": [ {
-						"__identifier": "MobType",
-						"__value": "Zombie",
-						"__type": "ExternEnum.MobType",
-						"defUid": 37,
-						"realEditorValues": [ {
-							"id": "V_String",
-							"params": [ "Zombie" ]
-						} ]
-					} ] },
-					{ "__identifier": "Mob", "__cx": 11, "__cy": 11, "defUid": 24, "x": 552, "y": 552, "fieldInstances": [ {
-						"__identifier": "MobType",
-						"__value": "Zombie",
-						"__type": "ExternEnum.MobType",
-						"defUid": 37,
-						"realEditorValues": [ {
-							"id": "V_String",
-							"params": [ "Zombie" ]
-						} ]
-					} ] },
-					{ "__identifier": "Hero", "__cx": 1, "__cy": 7, "defUid": 21, "x": 72, "y": 360, "fieldInstances": [] }
-				]
-			}
-		]
-	} ]
+	"levels": [
+		{
+			"identifier": "ScrollChamber",
+			"uid": 0,
+			"pxWid": 256,
+			"pxHei": 240,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 15,
+					"__gridSize": 16,
+					"levelId": 0,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 4233555,
+					"gridTiles": [],
+					"entityInstances": [ { "__identifier": "Hero", "__cx": 7, "__cy": 13, "defUid": 21, "x": 120, "y": 216, "fieldInstances": [] } ]
+				}
+			]
+		},
+		{
+			"identifier": "ZombieRoom",
+			"uid": 38,
+			"pxWid": 256,
+			"pxHei": 240,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 15,
+					"__gridSize": 16,
+					"levelId": 38,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 7590636,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "Mob", "__cx": 3, "__cy": 4, "defUid": 24, "x": 56, "y": 72, "fieldInstances": [ {
+							"__identifier": "MobType",
+							"__value": "Zombie",
+							"__type": "ExternEnum.MobType",
+							"defUid": 37,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": [ "Zombie" ]
+							} ]
+						} ] },
+						{ "__identifier": "Mob", "__cx": 11, "__cy": 2, "defUid": 24, "x": 184, "y": 40, "fieldInstances": [ {
+							"__identifier": "MobType",
+							"__value": "Zombie",
+							"__type": "ExternEnum.MobType",
+							"defUid": 37,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": [ "Zombie" ]
+							} ]
+						} ] },
+						{ "__identifier": "Mob", "__cx": 12, "__cy": 9, "defUid": 24, "x": 200, "y": 152, "fieldInstances": [ {
+							"__identifier": "MobType",
+							"__value": "Zombie",
+							"__type": "ExternEnum.MobType",
+							"defUid": 37,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": [ "Zombie" ]
+							} ]
+						} ] }
+					]
+				}
+			]
+		}
+	]
 }

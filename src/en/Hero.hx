@@ -8,19 +8,22 @@ class Hero extends Entity {
     var moveX:Float;
     var moveY:Float;
     var maxSpeed :Float;
-    var moveSpeed :Float;
+    var moveSpeedX :Float;
+    var moveSpeedY :Float;
 
     var weapon:Data.Weapons;
 
     public function new(cx, cy) {
         super(cx, cy);
-        Game.ME.camera.target = this;
+        Game.ME.camera.trackTarget(this, true);
 
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
-        moveSpeed = Data.globals.get(playerMoveSpeed).value;
+        moveSpeedX = Data.globals.get(playerMoveSpeedX).value;
+        moveSpeedY = Data.globals.get(playerMoveSpeedY).value;
 
         spr.set(Assets.hero);
-        spr.anim.registerStateAnim("hero_idle_d", 1, Data.animations.get(hero_idle_d).speed);
+        spr.anim.registerStateAnim("hero_idle_d", 0, Data.animations.get(hero_idle).speed);
+        spr.anim.registerStateAnim("hero_walk_d", 1, Data.animations.get(hero_walk).speed, ()-> moveX != 0 || moveY != 0);
         spr.setCenterRatio(0.5, 1);
         
         weapon = Data.weapons.get(MagicMissile);
@@ -52,8 +55,8 @@ class Hero extends Entity {
                 cd.setS("player_shoot", weapon.interval);
             }
 
-            dx = addClamped(dx, moveX * moveSpeed * tmod, maxSpeed);
-            dy = addClamped(dy, moveY * moveSpeed * tmod, maxSpeed);
+            dx = addClamped(dx, moveX * moveSpeedX * tmod, maxSpeed);
+            dy = addClamped(dy, moveY * moveSpeedY * tmod, maxSpeed);
             
             if (!hasAffect(Invulnerable)) {
                 spr.alpha = 1;
@@ -90,7 +93,7 @@ class Hero extends Entity {
     public function enterDoor(door:Door) {
         hasColl=false;
         cd.setS("doorEnter",.5);
-        cd.onComplete("doorEnter", ()-> { destroy(); });
+        cd.onComplete("doorEnter", ()-> { game.loadNextLevel(); });
         dy = 0;
         dx = door.dir *0.2;
     }
