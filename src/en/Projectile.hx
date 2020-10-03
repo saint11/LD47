@@ -21,8 +21,8 @@ class Projectile extends Entity {
         dx = Math.cos(angle)*tmod*data.speed;
         dy = Math.sin(angle)*tmod*data.speed;
 
-        spr.setEmptyTexture(0xff0000,16,16);
-        spr.setCenterRatio();
+        spr.set("test_tile");
+        //spr.setCenterRatio(1);
     }
 
     override function dispose() {
