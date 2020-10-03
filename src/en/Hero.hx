@@ -16,7 +16,7 @@ class Hero extends Entity {
 
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
         moveSpeed = Data.globals.get(playerMoveSpeed).value;
-        spr.setEmptyTexture(0x80FF00,48,48);
+        spr.set("test_tile");
         spr.setCenterRatio(0.5, 1);
     }
 

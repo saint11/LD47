@@ -4,6 +4,8 @@ class Hole extends Entity {
     public function new(x,y) {
         super(x,y);
 
-        spr.setEmptyTexture(0x000000,48,48);
+        spr.set("test_hole");
+
+        zPrio = -10000;
     }
 }

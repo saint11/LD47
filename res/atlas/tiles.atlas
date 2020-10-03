@@ -13,7 +13,7 @@ bg_simple
   index: -1
 empty
   rotate: false
-  xy: 46, 1620
+  xy: 46, 1669
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
@@ -27,84 +27,91 @@ floor_simple
   index: -1
 fxCircle0
   rotate: false
-  xy: 1, 1665
+  xy: 1, 1714
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 34, 1677
+  xy: 34, 1726
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 18, 1665
+  xy: 18, 1714
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 34, 1665
+  xy: 34, 1714
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 34, 1669
+  xy: 34, 1718
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 18, 1675
+  xy: 18, 1724
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 1, 1620
+  xy: 1, 1669
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 1, 1682
+  xy: 1, 1731
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
   index: -1
 pixel
   rotate: false
-  xy: 46, 1622
+  xy: 46, 1671
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
-test_tile
+test_hole
   rotate: false
   xy: 1, 1571
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
+test_tile
+  rotate: false
+  xy: 1, 1620
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
 uiBar
   rotate: false
-  xy: 34, 1673
+  xy: 34, 1722
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 25, 1675
+  xy: 25, 1724
   size: 8, 5
   orig: 8, 5
   offset: 0, 0

@@ -156,7 +156,15 @@ class Game extends Process {
 	override function update() {
 		super.update();
 
-		for(e in Entity.ALL) if( !e.destroyed ) e.update();
+		// Z sort
+		if( !cd.hasSetS("zsort",0.1) )
+			Entity.ALL.sort( function(a,b) return Reflect.compare(a.z, b.z) );
+
+
+		for(e in Entity.ALL) {
+			scroller.over(e.spr);
+			if( !e.destroyed ) e.update();
+		}
 
 		if( !ui.Console.ME.isActive() && !ui.Modal.hasAny() ) {
 			#if hl

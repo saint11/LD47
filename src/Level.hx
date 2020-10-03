@@ -27,6 +27,8 @@ class Level extends dn.Process {
 
 	var fastColl: Map<Int,Bool>;
 
+	var hero:Hero;
+
 	public function new(l:World.World_Level) {
 		super(Game.ME);
 		createRootInLayers(Game.ME.scroller, Const.DP_BG);
@@ -38,7 +40,7 @@ class Level extends dn.Process {
 		trace("Level loaded offset is at " + offsetX +", " + offsetY);
 
 		for (e in l.l_Entities.all_Hero)
-			new Hero(e.cx,e.cy);	
+			hero = new Hero(e.cx,e.cy);	
 
 
 		fastColl = [];
@@ -58,7 +60,7 @@ class Level extends dn.Process {
 	/**
 		Return TRUE if given coordinates are in level bounds
 	**/
-	public inline function isValid(cx,cy) return cx>=0 && cx<wid && cy>=0 && cy<hei;
+	public inline function isValid(cx,cy) return cx>=0 && cx<wid && cy>=0 && cy<hei-1;
 
 	/**
 		Transform coordinates into a coordId
@@ -117,6 +119,7 @@ class Level extends dn.Process {
 
 	override function postUpdate() {
 		super.postUpdate();
+
 
 		if( invalidated ) {
 			invalidated = false;

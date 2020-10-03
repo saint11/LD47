@@ -14,6 +14,8 @@ class Entity {
 
 	/** Cooldowns **/
 	public var cd : dn.Cooldown;
+	
+	public var zPrio = 0.;
 
 	/** Cooldowns, unaffected by slowmo (ie. always in realtime) **/
 	public var ucd : dn.Cooldown;
@@ -28,7 +30,9 @@ class Entity {
     public var cx = 0;
     public var cy = 0;
     public var xr = 0.5;
-    public var yr = 1.0;
+	public var yr = 1.0;
+
+	public var z(get,never) : Float; inline function get_z() return footY+zPrio;
 
 	// Velocities
     public var dx = 0.;
