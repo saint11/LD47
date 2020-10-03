@@ -15,11 +15,11 @@
 			],
 			"lines": [
 				{
-					"value": 0.05,
+					"value": 0.03,
 					"id": "playerMoveSpeed"
 				},
 				{
-					"value": 0.1,
+					"value": 0.2,
 					"id": "playerMaxMoveSpeed"
 				}
 			],
@@ -52,6 +52,33 @@
 					"speed": 0.3,
 					"friction": 1,
 					"lifespan": 3
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "weapons",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "6:projectiles",
+					"name": "projectile"
+				},
+				{
+					"typeStr": "4",
+					"name": "interval"
+				}
+			],
+			"lines": [
+				{
+					"id": "MagicMissile",
+					"projectile": "SimpleBullet",
+					"interval": 0.5
 				}
 			],
 			"separators": [],

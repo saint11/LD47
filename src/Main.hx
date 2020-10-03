@@ -95,8 +95,13 @@ class Main extends dn.Process {
 
     override function update() {
 		Assets.tiles.tmod = tmod;
+		#if(debug )
 		if (ca.isKeyboardDown(Key.F1))
 			Console.ME.show();
+		if (ca.isKeyboardDown(Key.F2))
+			Console.ME.setFlag("bounds", true);
+		#end
+
         super.update();
 	}
 	

@@ -49,7 +49,7 @@ class Level extends dn.Process {
 		fastColl = [];
 		for (e in l.l_Entities.all_Hole) {
 			new Hole(e.cx,e.cy);
-			fastColl[coordId(e.cx, e.cy)] = true;
+			//fastColl[coordId(e.cx, e.cy)] = true;
 		}
 
 		for (m in l.l_Entities.all_Mob) {

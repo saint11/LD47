@@ -40,6 +40,9 @@ class Entity {
 	// Velocities
     public var dx = 0.;
 	public var dy = 0.;
+	
+	public var weight = 1.;
+	public var imovable:Bool;
 
 	// Uncontrollable bump velocities, usually applied by external
 	// factors (think of a bumper in Sonic for example)
@@ -483,18 +486,43 @@ class Entity {
 
 	public function fixedUpdate() {} // runs at a "guaranteed" 30 fps
 
-    public function update() { // runs at an unknown fps
+	public function update() { // runs at an unknown fps
+		
+		// Circular collisions
+		if( hasCircColl() )
+			for(e in ALL)
+			if( e!=this && e.hasCircColl() && hasCircCollWith(e) && e.hasCircCollWith(this) ) {
+				var d = distPx(e);
+				if( d< radius+e.radius  ) {
+					
+					var repel = 0.05;
+					var a = Math.atan2(e.footY-footY, e.footX-footX);
+					
+					if (!imovable) {
+						var r = e.weight==weight ? 0.5 : e.weight / (weight+e.weight);
+						if( r<=0.1 ) r = 0;
+						dx-=Math.cos(a)*repel * r;
+						dy-=Math.sin(a)*repel * r;
+					}
+					if (!e.imovable) {
+						var r = e.weight==weight ? 0.5 : weight / (weight+e.weight);
+						if( r<=0.1 ) r = 0;
+						e.dx+=Math.cos(a)*repel * r;
+						e.dy+=Math.sin(a)*repel * r;
+					}
+					
+					onTouch(e);
+					e.onTouch(this);
+					
+				}
+			}
+
 		// X
 		var steps = M.ceil( M.fabs(dxTotal*tmod) );
 		var step = dxTotal*tmod / steps;
 		while( steps>0 ) {
 			xr+=step;
 			
-			for (e in Entity.ALL) {
-				if (e!=this && (distCase(e) < radius + e.radius))
-					onTouchOtherX(e);
-			}
-
 			if( xr>0.6 && level.hasCollision(cx+1,cy) ) {
 				xr = 0.6;
 				dx-=0.05*tmod;
@@ -527,17 +555,12 @@ class Entity {
 		while( steps>0 ) {
 			yr+=step;
 
-			for (e in Entity.ALL) {
-				if (e!=this && (distCase(e) < radius + e.radius))
-					onTouchOtherY(e);
-			}
-
 			if( yr>1 && level.hasCollision(cx,cy+1) ) {
 				yr = 1;
 				onTouchWallY();
 			}
-			if( yr<0.3 && level.hasCollision(cx,cy-1) ) {
-				yr = 0.3;
+			if( yr<0.8 && level.hasCollision(cx,cy-1) ) {
+				yr = 0.8;
 				onTouchWallY();
 			}
 			while( yr>1 ) { yr--; cy++; }
@@ -573,15 +596,20 @@ class Entity {
 		dy*=0.2;
 	}
 
-	function onTouchOtherX(other: Entity) {
-		dx*=0.2;
-	}
-
-	function onTouchOtherY(other: Entity) {
-		dy*=0.2;
+	function onTouch(other: Entity) {
+		
 	}
 
 	public function takeHit() {
 		return false;
 	}
+	
+	function hasCircColl() {
+		return !destroyed;
+	}
+	
+	function hasCircCollWith(e:Entity) {
+		return true;
+	}
+
 }

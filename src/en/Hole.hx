@@ -7,5 +7,6 @@ class Hole extends Entity {
         spr.set("test_hole");
 
         zPrio = -10000;
+        imovable = true;
     }
 }

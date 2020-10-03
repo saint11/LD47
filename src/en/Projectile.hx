@@ -6,7 +6,7 @@ class Projectile extends Entity {
 
     var owner:Entity;
 
-    public function new(x, y, angle, owner, kind: Data.ProjectilesKind) {
+    public function new(x, y, angle, owner, data: Data.Projectiles) {
         ALL.push(this);
         
         this.owner = owner;
@@ -15,15 +15,14 @@ class Projectile extends Entity {
 
         setPosPixel(x,y);
 
-        var data = Data.projectiles.get(kind);
-
         frictX = data.friction;
         frictY = data.friction;
 
         dx = Math.cos(angle)*tmod*data.speed;
         dy = Math.sin(angle)*tmod*data.speed;
 
-        spr.setEmptyTexture(0xff0000,8,8);
+        spr.setEmptyTexture(0xff0000,16,16);
+        spr.setCenterRatio();
     }
 
     override function dispose() {
@@ -39,20 +38,15 @@ class Projectile extends Entity {
         destroy();
     }
 
-    override function onTouchOtherX(other:Entity) {
-        touchOther(other);
-    }
-
-    override function onTouchOtherY(other:Entity) {
-        touchOther(other);
-    }
-
-    function touchOther(e) {
-        if (e != owner) {
-            if (e.takeHit()){
-                trace("I hit a " + e);
-                destroy();
-            }
+    override function onTouch(e:Entity) {
+        if (e.takeHit()) {
+            
         }
+        destroy();
     }
+
+    override function hasCircCollWith(e:Entity):Bool {
+        return e != owner;
+    }
+
 }

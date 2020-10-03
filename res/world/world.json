@@ -176,9 +176,6 @@
 					{ "__identifier": "Hole", "__cx": 15, "__cy": 0, "defUid": 23, "x": 744, "y": 24, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 3, "__cy": 6, "defUid": 23, "x": 168, "y": 312, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 11, "__cy": 6, "defUid": 23, "x": 552, "y": 312, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 11, "__cy": 9, "defUid": 23, "x": 552, "y": 456, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 11, "__cy": 9, "defUid": 23, "x": 552, "y": 456, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 11, "__cy": 8, "defUid": 23, "x": 552, "y": 408, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 0, "__cy": 14, "defUid": 23, "x": 24, "y": 696, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 15, "__cy": 14, "defUid": 23, "x": 744, "y": 696, "fieldInstances": [] },
 					{ "__identifier": "Hero", "__cx": 0, "__cy": 7, "defUid": 21, "x": 24, "y": 360, "fieldInstances": [] },
@@ -207,7 +204,9 @@
 							} ]
 						},
 						{ "__identifier": "MoveSpeed", "__value": 0.01, "__type": "Float", "defUid": 34, "realEditorValues": [] }
-					] }
+					] },
+					{ "__identifier": "Hole", "__cx": 11, "__cy": 7, "defUid": 23, "x": 552, "y": 360, "fieldInstances": [] },
+					{ "__identifier": "Hole", "__cx": 11, "__cy": 8, "defUid": 23, "x": 552, "y": 408, "fieldInstances": [] }
 				]
 			}
 		]

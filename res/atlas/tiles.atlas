@@ -1,103 +1,110 @@
 
 tiles.png
-size: 128,128
+size: 128,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 empty
   rotate: false
-  xy: 35, 115
-  size: 1, 1
+  xy: 120, 35
+  size: 3, 3
   orig: 1, 1
-  offset: 0, 0
+  offset: 0, -2
   index: -1
 fxCircle0
   rotate: false
-  xy: 1, 99
+  xy: 111, 1
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 34, 111
+  xy: 124, 35
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 18, 99
+  xy: 111, 18
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 34, 99
+  xy: 80, 139
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 34, 103
-  size: 33, 3
+  xy: 80, 143
+  size: 32, 3
   orig: 33, 3
-  offset: 0, 0
+  offset: 1, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 18, 109
+  xy: 120, 28
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 68, 1
+  xy: 1, 139
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 1, 116
+  xy: 46, 139
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
   index: -1
+hero_idle_d_00
+  rotate: false
+  xy: 1, 1
+  size: 109, 88
+  orig: 240, 240
+  offset: 53, 0
+  index: -1
 pixel
   rotate: false
-  xy: 35, 117
+  xy: 118, 34
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 test_hole
   rotate: false
-  xy: 1, 1
+  xy: 1, 90
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 test_tile
   rotate: false
-  xy: 1, 50
+  xy: 50, 90
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 uiBar
   rotate: false
-  xy: 34, 107
+  xy: 111, 34
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 25, 109
+  xy: 111, 28
   size: 8, 5
   orig: 8, 5
   offset: 0, 0

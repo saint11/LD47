@@ -15,16 +15,15 @@ class Mouse {
     public function new(scene : Scene) {
         var interactive = new Interactive(scene.width, scene.height, scene);
         this.scene = scene;
-
-        interactive.onClick = (e) -> {
+        
+        interactive.onPush = (e) -> {
             leftDown=true;
             leftClicked = true;
-            
             //trace("X: " + x + ", Y: " +  y);
         }
-
         
         interactive.onRelease = (e) -> {
+            //trace("Up!");
             leftDown=false;
         }
         
