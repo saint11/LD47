@@ -46,6 +46,10 @@
 					"name": "friction"
 				},
 				{
+					"typeStr": "6:damage",
+					"name": "dmg"
+				},
+				{
 					"typeStr": "4",
 					"name": "lifespan"
 				}
@@ -55,7 +59,8 @@
 					"id": "SimpleBullet",
 					"speed": 0.7,
 					"friction": 1,
-					"lifespan": 3
+					"lifespan": 3,
+					"dmg": "magic_missile"
 				}
 			],
 			"separators": [],
@@ -114,8 +119,118 @@
 			],
 			"separators": [],
 			"props": {}
+		},
+		{
+			"name": "mobs",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "ai",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "moveSpeed"
+				},
+				{
+					"typeStr": "3",
+					"name": "hp"
+				}
+			],
+			"lines": [
+				{
+					"id": "Zombie",
+					"ai": [
+						{
+							"ai": [
+								1
+							]
+						}
+					],
+					"hp": 3,
+					"moveSpeed": 0.01
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "mobs@ai",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "9:AI",
+					"name": "ai",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "damage",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "amount"
+				},
+				{
+					"typeStr": "4",
+					"name": "push",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "magic_missile",
+					"amount": 1,
+					"push": 0.2
+				},
+				{
+					"id": "zombie_touch",
+					"amount": 2,
+					"push": 0.4
+				},
+				{
+					"id": "insta_kill",
+					"amount": 9999,
+					"push": 0
+				}
+			],
+			"separators": [],
+			"props": {}
 		}
 	],
-	"customTypes": [],
+	"customTypes": [
+		{
+			"name": "AI",
+			"cases": [
+				{
+					"name": "Idle",
+					"args": []
+				},
+				{
+					"name": "Chase",
+					"args": []
+				},
+				{
+					"name": "Shoot",
+					"args": []
+				}
+			]
+		}
+	],
 	"compress": false
 }

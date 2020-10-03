@@ -5,7 +5,7 @@ class Projectile extends Entity {
     public var ALL:Array<Projectile> = [];
 
     var owner:Entity;
-
+    var data:Data.Projectiles;
     public function new(x, y, angle, owner, data: Data.Projectiles) {
         ALL.push(this);
         
@@ -23,6 +23,8 @@ class Projectile extends Entity {
 
         spr.set("test_tile");
         //spr.setCenterRatio(1);
+
+        this.data = data;
     }
 
     override function dispose() {
@@ -39,9 +41,7 @@ class Projectile extends Entity {
     }
 
     override function onTouch(e:Entity) {
-        if (e.takeHit()) {
-            
-        }
+        e.hit(data.dmg, this);
         destroy();
     }
 

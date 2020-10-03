@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 48,
 	"bgColor": "#1A212E",
-	"nextUid": 36,
+	"nextUid": 38,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -97,11 +97,11 @@
 				"pivotY": 0.5,
 				"fieldDefs": [
 					{
-						"identifier": "AI",
-						"__type": "Array<ExternEnum.MobBehaviour>",
-						"uid": 33,
-						"type": { "id": "F_Enum", "params": [ 31 ] },
-						"isArray": true,
+						"identifier": "MobType",
+						"__type": "ExternEnum.MobType",
+						"uid": 37,
+						"type": { "id": "F_Enum", "params": [ 36 ] },
+						"isArray": false,
 						"canBeNull": false,
 						"arrayMinLength": null,
 						"arrayMaxLength": null,
@@ -111,22 +111,6 @@
 						"min": null,
 						"max": null,
 						"defaultOverride": null
-					},
-					{
-						"identifier": "MoveSpeed",
-						"__type": "Float",
-						"uid": 34,
-						"type": "F_Float",
-						"isArray": false,
-						"canBeNull": false,
-						"arrayMinLength": null,
-						"arrayMaxLength": null,
-						"editorDisplayMode": "Hidden",
-						"editorDisplayPos": "Above",
-						"editorAlwaysShow": false,
-						"min": null,
-						"max": null,
-						"defaultOverride": { "id": "V_Float", "params": [ 0.01 ] }
 					}
 				]
 			}
@@ -146,8 +130,8 @@
 		],
 		"enums": [],
 		"externalEnums": [
-			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Invulnerable", "tileId": null }, { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "6df6d9ae74c78ef3a88028270164b3a0" },
-			{ "identifier": "MobBehaviour", "uid": 31, "values": [ { "id": "Chase", "tileId": null }, { "id": "Idle", "tileId": null }, { "id": "Shoot", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "6df6d9ae74c78ef3a88028270164b3a0" }
+			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Invulnerable", "tileId": null }, { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "a4cfe80f6575203dbe595040ba275aeb" },
+			{ "identifier": "MobType", "uid": 36, "values": [ { "id": "Zombie", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "a4cfe80f6575203dbe595040ba275aeb" }
 		]
 	},
 	"levels": [ {
@@ -171,33 +155,27 @@
 				"seed": 4233555,
 				"gridTiles": [],
 				"entityInstances": [
-					{ "__identifier": "Hero", "__cx": 0, "__cy": 7, "defUid": 21, "x": 24, "y": 360, "fieldInstances": [] },
-					{ "__identifier": "Mob", "__cx": 11, "__cy": 4, "defUid": 24, "x": 552, "y": 216, "fieldInstances": [
-						{
-							"__identifier": "AI",
-							"__value": [ "Shoot" ],
-							"__type": "Array<ExternEnum.MobBehaviour>",
-							"defUid": 33,
-							"realEditorValues": [ {
-								"id": "V_String",
-								"params": [ "Shoot" ]
-							} ]
-						},
-						{ "__identifier": "MoveSpeed", "__value": 0.01, "__type": "Float", "defUid": 34, "realEditorValues": [] }
-					] },
-					{ "__identifier": "Mob", "__cx": 11, "__cy": 11, "defUid": 24, "x": 552, "y": 552, "fieldInstances": [
-						{
-							"__identifier": "AI",
-							"__value": [ "Idle" ],
-							"__type": "Array<ExternEnum.MobBehaviour>",
-							"defUid": 33,
-							"realEditorValues": [ {
-								"id": "V_String",
-								"params": [ "Idle" ]
-							} ]
-						},
-						{ "__identifier": "MoveSpeed", "__value": 0.01, "__type": "Float", "defUid": 34, "realEditorValues": [] }
-					] }
+					{ "__identifier": "Mob", "__cx": 11, "__cy": 4, "defUid": 24, "x": 552, "y": 216, "fieldInstances": [ {
+						"__identifier": "MobType",
+						"__value": "Zombie",
+						"__type": "ExternEnum.MobType",
+						"defUid": 37,
+						"realEditorValues": [ {
+							"id": "V_String",
+							"params": [ "Zombie" ]
+						} ]
+					} ] },
+					{ "__identifier": "Mob", "__cx": 11, "__cy": 11, "defUid": 24, "x": 552, "y": 552, "fieldInstances": [ {
+						"__identifier": "MobType",
+						"__value": "Zombie",
+						"__type": "ExternEnum.MobType",
+						"defUid": 37,
+						"realEditorValues": [ {
+							"id": "V_String",
+							"params": [ "Zombie" ]
+						} ]
+					} ] },
+					{ "__identifier": "Hero", "__cx": 1, "__cy": 7, "defUid": 21, "x": 72, "y": 360, "fieldInstances": [] }
 				]
 			}
 		]

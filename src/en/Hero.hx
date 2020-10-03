@@ -29,7 +29,11 @@ class Hero extends Entity {
     override function update() {
         super.update();
 
-        if (!hasAffect(Stun)) {
+        if (cd.getRatio("doorEnter")>0) {
+            var d = cd.getRatio("doorEnter");
+            spr.alpha = d;
+            sprScaleX = sprScaleY = 0.8 + d * 0.2;
+        } else if (!hasAffect(Stun)) {
             var ca = Game.ME.ca;
 
             moveX = moveY = 0;
@@ -81,5 +85,13 @@ class Hero extends Entity {
             setAffectS(Stun, 0.4);
             setAffectS(Invulnerable, 1);
         }
+    }
+
+    public function enterDoor(door:Door) {
+        hasColl=false;
+        cd.setS("doorEnter",.5);
+        cd.onComplete("doorEnter", ()-> { destroy(); });
+        dy = 0;
+        dx = door.dir *0.2;
     }
 }
