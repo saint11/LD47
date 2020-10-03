@@ -28,11 +28,15 @@
 				},
 				{
 					"id": "playerHp",
-					"value": 10
+					"value": 3
 				},
 				{
 					"id": "doorY",
 					"value": 7
+				},
+				{
+					"id": "bloodPickUpRange",
+					"value": 4
 				}
 			],
 			"separators": [],
@@ -157,6 +161,11 @@
 				{
 					"typeStr": "3",
 					"name": "hp"
+				},
+				{
+					"typeStr": "16",
+					"name": "money",
+					"display": null
 				}
 			],
 			"lines": [
@@ -170,8 +179,12 @@
 						}
 					],
 					"hp": 3,
-					"moveSpeed": 0.01,
-					"touchDamage": "zombie_touch"
+					"moveSpeed": 0.003,
+					"touchDamage": "zombie_touch",
+					"money": [
+						2,
+						5
+					]
 				}
 			],
 			"separators": [],
@@ -265,18 +278,6 @@
 				}
 			],
 			"lines": [
-				{
-					"levelName": "ScrollChamber",
-					"price": 5,
-					"desc": "",
-					"icon": {
-						"file": "room_icons.png",
-						"size": 64,
-						"x": 0,
-						"y": 0
-					},
-					"title": "Scroll Chamber"
-				},
 				{
 					"levelName": "ZombieRoom",
 					"price": 2,

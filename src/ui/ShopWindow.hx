@@ -138,7 +138,7 @@ class ShopWindow extends dn.Process {
         var interact = () -> {
             Game.ME.levelLoop.push(Game.ME.world.resolveLevel(inf.levelName.toString()));
             Game.ME.level.scroll.destroy();
-            Game.ME.money-=cost;
+            Game.ME.addMoney(-cost);
             close();
         }
         var interactive = new Interactive(f.outerWidth, f.outerHeight, f);
