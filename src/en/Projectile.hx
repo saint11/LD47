@@ -22,7 +22,7 @@ class Projectile extends Entity {
         dy = Math.sin(angle)*tmod*data.speed;
 
         spr.set("test_tile");
-        //spr.setCenterRatio(1);
+        weight = 0;
 
         this.data = data;
     }

@@ -27,6 +27,10 @@
 					"id": "playerMaxMoveSpeed"
 				},
 				{
+					"id": "playerHp",
+					"value": 10
+				},
+				{
 					"id": "doorY",
 					"value": 7
 				}
@@ -146,6 +150,11 @@
 					"name": "moveSpeed"
 				},
 				{
+					"typeStr": "6:damage",
+					"name": "touchDamage",
+					"opt": true
+				},
+				{
 					"typeStr": "3",
 					"name": "hp"
 				}
@@ -161,7 +170,8 @@
 						}
 					],
 					"hp": 3,
-					"moveSpeed": 0.01
+					"moveSpeed": 0.01,
+					"touchDamage": "zombie_touch"
 				}
 			],
 			"separators": [],
@@ -198,23 +208,86 @@
 					"typeStr": "4",
 					"name": "push",
 					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "stunTime",
+					"display": null
 				}
 			],
 			"lines": [
 				{
 					"id": "magic_missile",
 					"amount": 1,
-					"push": 0.2
+					"push": 0.8,
+					"stunTime": 0
 				},
 				{
 					"id": "zombie_touch",
-					"amount": 2,
-					"push": 0.4
+					"amount": 1,
+					"push": 0.5,
+					"stunTime": 0
 				},
 				{
 					"id": "insta_kill",
 					"amount": 9999,
-					"push": 0
+					"push": 0,
+					"stunTime": 0
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "shop",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "levelName"
+				},
+				{
+					"typeStr": "1",
+					"name": "title",
+					"display": null
+				},
+				{
+					"typeStr": "14",
+					"name": "icon"
+				},
+				{
+					"typeStr": "3",
+					"name": "price",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "desc"
+				}
+			],
+			"lines": [
+				{
+					"levelName": "ScrollChamber",
+					"price": 5,
+					"desc": "",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					},
+					"title": "Scroll Chamber"
+				},
+				{
+					"levelName": "ZombieRoom",
+					"price": 2,
+					"desc": "Terrible tales are heard about the zombie room. There's no real evidence, though.",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					},
+					"title": "Zombie Room"
 				}
 			],
 			"separators": [],

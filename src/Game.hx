@@ -37,6 +37,8 @@ class Game extends Process {
 
 	var mask : h2d.Bitmap;
 
+	public var money = 12;
+
 	public function new() {
 		super(Main.ME);
 		ME = this;
@@ -53,7 +55,7 @@ class Game extends Process {
 		camera = new Camera();
 		fx = new Fx();
 		hud = new ui.Hud();
-		levelLoop = [world.all_levels.ScrollChamber, world.all_levels.ZombieRoom];
+		levelLoop = [world.all_levels.ScrollChamber];
 		
 		mask = new h2d.Bitmap(h2d.Tile.fromColor(0x0));
 		root.add(mask, Const.DP_UI);

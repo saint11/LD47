@@ -35,12 +35,16 @@ class Entity {
     public var cy = 0;
     public var xr = 0.5;
 	public var yr = 1.0;
+	public var gravity = 0.6;
+	public var altitude = 0.;
+	public var tall= false; // always collide when jumping
 
 	public var z(get,never) : Float; inline function get_z() return footY+zPrio;
 
 	// Velocities
     public var dx = 0.;
 	public var dy = 0.;
+	public var dalt = 0.;
 	
 	public var weight = 1.;
 	public var imovable:Bool;
@@ -58,6 +62,7 @@ class Entity {
 	// Multipliers applied on each frame to normal velocities
 	public var frictX = 0.82;
 	public var frictY = 0.82;
+	public var bounceFrict = 0.7;
 
 	// Multiplier applied on each frame to bump velocities
 	public var bumpFrict = 0.93;
@@ -90,6 +95,7 @@ class Entity {
 	inline function get_lastHitDirToSource() return lastDmgSource==null ? dir : dirTo(lastDmgSource);
 
 	// Visual components
+	public var shadow : Null<HSprite>;
     public var spr : HSprite;
 	public var baseColor : h3d.Vector;
 	public var blinkColor : h3d.Vector;
@@ -137,9 +143,11 @@ class Entity {
 	}
 
 	public function hit(dmg:Data.Damage, from:Null<Entity>) {
-		if( !isAlive() || dmg.amount<=0 )
+		if( !isAlive() || dmg.amount<=0 || hasAffect(Invulnerable))
 			return;
 
+		jump(2 + dmg.push );
+		bumpAgainst(from, dmg.push * 0.5);
 		life = M.iclamp(life-dmg.amount, 0, maxLife);
 		lastDmgSource = from;
 		onDamage(dmg.amount, from);
@@ -213,7 +221,7 @@ class Entity {
 	public inline function pretty(v,?p=1) return M.pretty(v,p);
 
 	public function angToMouse() {
-		return Math.atan2(Main.ME.mouse.y - footY, Main.ME.mouse.x - footX);
+		return Math.atan2(Main.ME.mouseY - footY, Main.ME.mouseX - footX);
 	}
 	public inline function angTo(e:Entity) return Math.atan2(e.footY-footY, e.footX-footX);
 	public inline function dirTo(e:Entity) return e.centerX<centerX ? -1 : 1;
@@ -237,6 +245,7 @@ class Entity {
 
     public function dispose() {
         ALL.remove(this);
+		cd.destroy();
 
 		baseColor = null;
 		blinkColor = null;
@@ -244,6 +253,9 @@ class Entity {
 
 		spr.remove();
 		spr = null;
+
+		if( shadow!=null )
+			shadow.remove();
 
 		if( debugLabel!=null ) {
 			debugLabel.remove();
@@ -439,6 +451,23 @@ class Entity {
 		sprSquashY = v;
 	}
 
+	public function enableShadow(?scale=1.0) {
+		if( shadow!=null )
+			shadow.remove();
+		shadow = Assets.tiles.h_get("shadow",0, 0.5,0.5);
+		game.scroller.add(shadow, Const.DP_BG);
+		shadow.scaleX = scale;
+		shadow.alpha = 0.3;
+	}
+
+	public function jump(pow:Float) {
+		if( pow<=0 )
+			return;
+
+		dalt = 4*pow;
+		altitude++;
+	}
+
     public function preUpdate() {
 		ucd.update(utmod);
 		cd.update(tmod);
@@ -448,10 +477,13 @@ class Entity {
 
     public function postUpdate() {
         spr.x = (cx+xr)*Const.GRID;
-        spr.y = (cy+yr)*Const.GRID;
+        spr.y = (cy+yr)*Const.GRID - altitude;
         spr.scaleX = dir*sprScaleX * sprSquashX;
         spr.scaleY = sprScaleY * sprSquashY;
 		spr.visible = entityVisible;
+		
+		if( shadow!=null )
+			shadow.setPos(spr.x, (cy+yr)*Const.GRID-2);
 
 		sprSquashX += (1-sprSquashX) * 0.2;
 		sprSquashY += (1-sprSquashY) * 0.2;
@@ -498,7 +530,7 @@ class Entity {
 		// Circular collisions
 		if(hasCircColl())
 			for(e in ALL)
-			if( e!=this && e.hasCircColl() && hasCircCollWith(e) && e.hasCircCollWith(this) ) {
+			if( e!=this && e.hasCircColl() && hasCircCollWith(e) && e.hasCircCollWith(this)) {
 				var d = distPx(e);
 				if( d< radius+e.radius  ) {
 					
@@ -520,7 +552,6 @@ class Entity {
 					
 					onTouch(e);
 					e.onTouch(this);
-					
 				}
 			}
 
@@ -583,6 +614,19 @@ class Entity {
 		if( M.fabs(dy)<=0.0005*tmod ) dy = 0;
 		if( M.fabs(bdy)<=0.0005*tmod ) bdy = 0;
 
+		// Gravity
+		if( altitude>0 || dalt!=0 ) {
+			dalt+=-gravity*tmod;
+			altitude+=dalt*tmod;
+			dalt*=Math.pow(0.95,tmod);
+			if( M.fabs(dalt)<=0.1*tmod )
+				dalt = 0;
+			if( altitude<=0 ) {
+				dalt = M.fabs(dalt)*bounceFrict;
+				onBounce( M.fclamp(M.fabs(dalt)/1.6, 0, 1) );
+				altitude = 0;
+			}
+		}
 
 		#if debug
 		if( ui.Console.ME.hasFlag("affect") ) {
@@ -607,12 +651,14 @@ class Entity {
 		dy*=0.2;
 	}
 
+	function onBounce(pow:Float) {}
+
 	function onTouch(other: Entity) {
 		
 	}
 
 	function hasCircColl() {
-		return !destroyed && hasColl;
+		return !destroyed && hasColl && (altitude<=8 || tall);
 	}
 	
 	function hasCircCollWith(e:Entity) {

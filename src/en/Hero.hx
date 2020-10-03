@@ -1,5 +1,6 @@
 package en;
 
+import Data.Damage;
 import hxd.Key;
 import hxd.Res;
 
@@ -16,7 +17,7 @@ class Hero extends Entity {
     public function new(cx, cy) {
         super(cx, cy);
         Game.ME.camera.trackTarget(this, true);
-
+        
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
         moveSpeedX = Data.globals.get(playerMoveSpeedX).value;
         moveSpeedY = Data.globals.get(playerMoveSpeedY).value;
@@ -27,6 +28,10 @@ class Hero extends Entity {
         spr.setCenterRatio(0.5, 1);
         
         weapon = Data.weapons.get(MagicMissile);
+        
+        initLife(Data.globals.get(playerHp).value);
+
+        enableShadow();
     }
 
     override function update() {
@@ -50,7 +55,7 @@ class Hero extends Entity {
             if (ca.downDown())
                 moveY += 1;
 
-            if (Main.ME.mouse.leftDown && cd.getS("player_shoot")==0) {
+            if (ca.yDown() && cd.getS("player_shoot")==0) {
                 new Projectile(centerX, centerY, angToMouse(), this, weapon.projectile);
                 cd.setS("player_shoot", weapon.interval);
             }
@@ -77,24 +82,25 @@ class Hero extends Entity {
             return value;
     }
 
-    override function onTouch(other:Entity) {
-        super.onTouch(other);
-
-        if (other.is(Mob)) {
-            var a = angTo(other);
-            dx = -Math.cos(a)*0.3;
-            dy = -Math.sin(a)*0.3;
-
-            setAffectS(Stun, 0.4);
-            setAffectS(Invulnerable, 1);
-        }
-    }
-
     public function enterDoor(door:Door) {
         hasColl=false;
         cd.setS("doorEnter",.5);
         cd.onComplete("doorEnter", ()-> { game.loadNextLevel(); });
         dy = 0;
         dx = door.dir *0.2;
+    }
+
+    override function hit(dmg:Damage, from:Null<Entity>) {
+        super.hit(dmg, from);
+        
+        setAffectS(Invulnerable, 1);
+        setAffectS(Stun, dmg.stunTime);
+
+        hud.invalidate();
+    }
+
+    public function stop() {
+        moveX = moveY = 0;
+        cancelVelocities();
     }
 }
