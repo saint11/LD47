@@ -1,3 +1,4 @@
+import ui.VictoryWindow;
 import h2d.col.Point;
 import h2d.Interactive;
 import dn.Process;
@@ -234,9 +235,7 @@ class Game extends Process {
 	}
 
 	public function win() {
-		tw.createS(mask.alpha, 1>0, 0.6).end(()->mask.visible=false);
-		pause();
-		trace("You won!");
+		new VictoryWindow();
 	}
 }
 

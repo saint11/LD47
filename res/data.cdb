@@ -305,7 +305,7 @@
 				{
 					"levelName": "EndGame",
 					"title": "Exit the Temple",
-					"price": 5000,
+					"price": 0,
 					"desc": "No one have ever escaped",
 					"icon": {
 						"file": "room_icons.png",
@@ -313,6 +313,28 @@
 						"x": 1,
 						"y": 0
 					}
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "text",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "1",
+					"name": "text",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "victory",
+					"text": "You have survived the temple. Press SPACE to restart."
 				}
 			],
 			"separators": [],
