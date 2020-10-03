@@ -1,117 +1,103 @@
 
 tiles.png
-size: 2048,2048
+size: 128,128
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-bg_simple
-  rotate: false
-  xy: 1, 1
-  size: 1366, 848
-  orig: 1366, 848
-  offset: 0, 0
-  index: -1
 empty
   rotate: false
-  xy: 46, 1669
+  xy: 35, 115
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
-floor_simple
-  rotate: false
-  xy: 1, 850
-  size: 768, 720
-  orig: 768, 720
-  offset: 0, 0
-  index: -1
 fxCircle0
   rotate: false
-  xy: 1, 1714
+  xy: 1, 99
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 34, 1726
+  xy: 34, 111
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 18, 1714
+  xy: 18, 99
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 34, 1714
+  xy: 34, 99
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 34, 1718
+  xy: 34, 103
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 18, 1724
+  xy: 18, 109
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 1, 1669
+  xy: 68, 1
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 1, 1731
+  xy: 1, 116
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
   index: -1
 pixel
   rotate: false
-  xy: 46, 1671
+  xy: 35, 117
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 test_hole
   rotate: false
-  xy: 1, 1571
+  xy: 1, 1
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 test_tile
   rotate: false
-  xy: 1, 1620
+  xy: 1, 50
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 uiBar
   rotate: false
-  xy: 34, 1722
+  xy: 34, 107
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 25, 1724
+  xy: 25, 109
   size: 8, 5
   orig: 8, 5
   offset: 0, 0

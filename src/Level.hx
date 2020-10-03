@@ -98,17 +98,19 @@ class Level extends dn.Process {
 	function render() {
 		root.removeChildren();
 
-		var g = new Graphics(root);
-		var bg = Res.atlas.tiles.get("bg_simple");
-		var floor = Res.atlas.tiles.get("floor_simple");
-
+		var bg = Res.bg.wall_simple01.toTile();
+		var floor = Res.bg.floor_simple01.toTile();
+		
 		pxWid = M.round(bg.width);
 		pxHei = M.round(bg.height);
-		offsetX = M.round(((bg.width - floor.width)/ 2)/Const.GRID);
-		offsetY = M.round(((bg.height - floor.height)/ 2)/Const.GRID);
-
-		g.drawTile(-offsetX * Const.GRID, -offsetY * Const.GRID, bg);
+		offsetX = M.round((bg.width - floor.width)/ 2);
+		offsetY = M.round((bg.height - floor.height)/ 2);
+		
+		var g = new Graphics(root);
 		g.drawTile(0, 0, floor);
+		
+		var g = new Graphics(root);
+		g.drawTile(-offsetX, -offsetY, bg);
 		
 		// var layer = level.l_Collisions;
 		// for( autoTile in layer.autoTiles ) {
