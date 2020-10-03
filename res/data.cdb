@@ -36,7 +36,7 @@
 				},
 				{
 					"id": "bloodPickUpRange",
-					"value": 4
+					"value": 7
 				}
 			],
 			"separators": [],
@@ -232,7 +232,7 @@
 				{
 					"id": "magic_missile",
 					"amount": 1,
-					"push": 0.8,
+					"push": 0.2,
 					"stunTime": 0
 				},
 				{
@@ -281,7 +281,7 @@
 				{
 					"levelName": "ZombieRoom",
 					"price": 2,
-					"desc": "Terrible tales are heard about the zombie room. There's no real evidence, though.",
+					"desc": "Up to 3 Zombies",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -289,6 +289,30 @@
 						"y": 0
 					},
 					"title": "Zombie Room"
+				},
+				{
+					"levelName": "CrowdedRoom",
+					"title": "Crowded Room",
+					"price": 5,
+					"desc": "10% blood increase on all rooms.",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"levelName": "EndGame",
+					"title": "Exit the Temple",
+					"price": 5000,
+					"desc": "No one have ever escaped",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 1,
+						"y": 0
+					}
 				}
 			],
 			"separators": [],

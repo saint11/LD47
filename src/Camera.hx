@@ -9,6 +9,9 @@ class Camera extends dn.Process {
 	var bumpOffX = 0.;
 	var bumpOffY = 0.;
 
+	var mouseLerpX:Float;
+	var mouseLerpY:Float;
+	
 	public function new() {
 		super(Game.ME);
 		x = y = 0;
@@ -55,7 +58,7 @@ class Camera extends dn.Process {
 		// Follow target entity
 		if( target!=null ) {
 			var s = 0.006;
-			var deadZone = 5;
+			var deadZone = 0;
 			var tx = target.footX;
 			var ty = target.footY;
 
@@ -130,6 +133,10 @@ class Camera extends dn.Process {
 			// Rounding
 			scroller.x = M.round(scroller.x);
 			scroller.y = M.round(scroller.y);
+
+			// MouseLerper
+			mouseLerpX = M.lerp(mouseLerpX, Main.ME.mouseX, 0.2);
+			mouseLerpY = M.lerp(mouseLerpY, Main.ME.mouseY, 0.9);
 		}
 	}
 }

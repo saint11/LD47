@@ -232,5 +232,11 @@ class Game extends Process {
 		hud.setMoney(money);
 		amount>0 ? hud.blinkWhite() : hud.blinkRed();
 	}
+
+	public function win() {
+		tw.createS(mask.alpha, 1>0, 0.6).end(()->mask.visible=false);
+		pause();
+		trace("You won!");
+	}
 }
 

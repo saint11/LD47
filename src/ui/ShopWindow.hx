@@ -110,40 +110,52 @@ class ShopWindow extends dn.Process {
         f.borderHeight = f.borderWidth = 16;
 		f.padding = 4;
 		f.maxWidth = f.minWidth = 290;
+		f.enableInteractive = true;
 
 		var icon = new h2d.Bitmap(dn.CdbHelper.getH2dTile(Assets.shopIcons, inf.icon), f);
 		
         var cost = inf.price;
         var money = Game.ME.money;
 
-        var tf = new h2d.Text(Assets.fontSmall, f);
+		var box = new h2d.Flow(f);
+		box.horizontalSpacing = 8;
+		box.padding = 8;
+        var tf = new h2d.Text(Assets.fontSmall, box);
 		tf.text = inf.title;
         tf.maxWidth = 190;
         tf.textColor = cost<= money ? 0xFFFFFF : 0xE77272;
         
         f.addSpacing(8);
         
-
 		if( cost>0 ) {
-			var tf = new h2d.Text(Assets.fontSmall, f);
+			var tf = new h2d.Text(Assets.fontSmall, box);
 			tf.text = "$"+cost;
 			tf.textColor = cost <= money ? 0xFF9900 : 0xD20000;
 		}
 		else {
-			var tf = new h2d.Text(Assets.fontSmall, f);
+			var tf = new h2d.Text(Assets.fontSmall, box);
 			tf.text = "FREE";
 			tf.textColor = 0x8CD12E;
         }
         
         var interact = () -> {
-            Game.ME.levelLoop.push(Game.ME.world.resolveLevel(inf.levelName.toString()));
-            Game.ME.level.scroll.destroy();
-            Game.ME.addMoney(-cost);
-            close();
-        }
-        var interactive = new Interactive(f.outerWidth, f.outerHeight, f);
-        interactive.onOver = (e)-> curIdx = index;
-        interactive.onClick = (e)-> interact();
+			if( Game.ME.money >= inf.price ) {
+				close();
+				if (inf.levelName == EndGame)
+				{
+					Game.ME.win();
+				}
+				else 
+				{
+					Game.ME.levelLoop.push(Game.ME.world.resolveLevel(inf.levelName.toString()));
+					Game.ME.level.scroll.destroy();
+					Game.ME.addMoney(-cost);
+				}
+			}
+		}
+		
+        f.interactive.onOver = (e)-> curIdx = index;
+        f.interactive.onClick = (e)-> interact();
         
 		items.push( {
 			f:f,
@@ -185,11 +197,9 @@ class ShopWindow extends dn.Process {
 			if( ca.upPressed() && curIdx>0 )
 				curIdx--;
 
-			if( !cd.has("lock") && ca.aPressed() ) {
-				if( Game.ME.money>=i.p ) {
-                    i.cb();
-				}
-			}
+			if( !cd.has("lock") && ca.aPressed() )
+				i.cb();
+			
 		}
 
 		if( ca.bPressed() || Key.isPressed(Key.ESCAPE) )

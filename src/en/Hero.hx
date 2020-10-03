@@ -24,8 +24,8 @@ class Hero extends Entity {
 
         spr.set(Assets.hero);
         spr.anim.registerStateAnim("hero_idle_d", 0, Data.animations.get(hero_idle).speed);
-        spr.anim.registerStateAnim("hero_walk_u", 1, Data.animations.get(hero_walk).speed, ()-> moveX != 0 || moveY < 0);
-        spr.anim.registerStateAnim("hero_walk_d", 1, Data.animations.get(hero_walk).speed, ()-> moveY > 0);
+        spr.anim.registerStateAnim("hero_walk_u", 1, Data.animations.get(hero_walk).speed, ()-> moveY < 0);
+        spr.anim.registerStateAnim("hero_walk_d", 1, Data.animations.get(hero_walk).speed, ()-> moveX != 0 || moveY > 0);
         spr.setCenterRatio(0.5, 1);
         
         weapon = Data.weapons.get(MagicMissile);

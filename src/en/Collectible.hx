@@ -5,7 +5,10 @@ class Collectible extends Entity {
         super(x,y);
 
         spr.set("blood");
-        hasColl=false;
+    }
+
+    override function hasCircCollWith(e:Entity):Bool {
+        return e.is(Collectible);
     }
 
     override function update() {
@@ -13,10 +16,11 @@ class Collectible extends Entity {
 
         if(distCase(level.hero) < Data.globals.get(bloodPickUpRange).value) {
             var a = angTo(level.hero);
-            dx = Math.cos(a);
-            dy = -Math.sin(a);
+            dx = Math.cos(a) * 0.3;
+            dy = Math.sin(a) * 0.3;
 
-            if (distPx(level.hero)<5) {
+           if (distPx(level.hero)<8) {
+                Game.ME.addMoney(1);
                 destroy();
             }
         }

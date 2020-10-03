@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 40,
+	"nextUid": 41,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -243,6 +243,109 @@
 								"defUid": 39,
 								"realEditorValues": [ null ]
 							}
+						] }
+					]
+				}
+			]
+		},
+		{
+			"identifier": "CrowdedRoom",
+			"uid": 40,
+			"pxWid": 256,
+			"pxHei": 256,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 16,
+					"__gridSize": 16,
+					"levelId": 40,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 5905352,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "Mob", "__cx": 8, "__cy": 5, "defUid": 24, "x": 136, "y": 88, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 13, "__cy": 3, "defUid": 24, "x": 216, "y": 56, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 13, "__cy": 13, "defUid": 24, "x": 216, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 2, "__cy": 13, "defUid": 24, "x": 40, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 7, "__cy": 11, "defUid": 24, "x": 120, "y": 184, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 2, "__cy": 3, "defUid": 24, "x": 40, "y": 56, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
 						] }
 					]
 				}
