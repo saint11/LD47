@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 48,
 	"bgColor": "#1A212E",
-	"nextUid": 35,
+	"nextUid": 36,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -146,21 +146,21 @@
 		],
 		"enums": [],
 		"externalEnums": [
-			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "b9ac351810205baf7727ea67d8998812" },
-			{ "identifier": "MobBehaviour", "uid": 31, "values": [ { "id": "Chase", "tileId": null }, { "id": "Idle", "tileId": null }, { "id": "Shoot", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "b9ac351810205baf7727ea67d8998812" }
+			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Invulnerable", "tileId": null }, { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "6df6d9ae74c78ef3a88028270164b3a0" },
+			{ "identifier": "MobBehaviour", "uid": 31, "values": [ { "id": "Chase", "tileId": null }, { "id": "Idle", "tileId": null }, { "id": "Shoot", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "6df6d9ae74c78ef3a88028270164b3a0" }
 		]
 	},
 	"levels": [ {
 		"identifier": "ScrollChamber",
 		"uid": 0,
 		"pxWid": 736,
-		"pxHei": 736,
+		"pxHei": 688,
 		"layerInstances": [
 			{
 				"__identifier": "Entities",
 				"__type": "Entities",
 				"__cWid": 16,
-				"__cHei": 16,
+				"__cHei": 15,
 				"__gridSize": 48,
 				"levelId": 0,
 				"layerDefUid": 20,
@@ -171,13 +171,6 @@
 				"seed": 4233555,
 				"gridTiles": [],
 				"entityInstances": [
-					{ "__identifier": "Scroll", "__cx": 7, "__cy": 2, "defUid": 22, "x": 360, "y": 120, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 0, "__cy": 0, "defUid": 23, "x": 24, "y": 24, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 15, "__cy": 0, "defUid": 23, "x": 744, "y": 24, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 3, "__cy": 6, "defUid": 23, "x": 168, "y": 312, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 11, "__cy": 6, "defUid": 23, "x": 552, "y": 312, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 0, "__cy": 14, "defUid": 23, "x": 24, "y": 696, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 15, "__cy": 14, "defUid": 23, "x": 744, "y": 696, "fieldInstances": [] },
 					{ "__identifier": "Hero", "__cx": 0, "__cy": 7, "defUid": 21, "x": 24, "y": 360, "fieldInstances": [] },
 					{ "__identifier": "Mob", "__cx": 11, "__cy": 4, "defUid": 24, "x": 552, "y": 216, "fieldInstances": [
 						{
@@ -204,9 +197,7 @@
 							} ]
 						},
 						{ "__identifier": "MoveSpeed", "__value": 0.01, "__type": "Float", "defUid": 34, "realEditorValues": [] }
-					] },
-					{ "__identifier": "Hole", "__cx": 11, "__cy": 7, "defUid": 23, "x": 552, "y": 360, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 11, "__cy": 8, "defUid": 23, "x": 552, "y": 408, "fieldInstances": [] }
+					] }
 				]
 			}
 		]

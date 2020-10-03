@@ -43,6 +43,7 @@ class Entity {
 	
 	public var weight = 1.;
 	public var imovable:Bool;
+	public var hasColl:Bool = true;
 
 	// Uncontrollable bump velocities, usually applied by external
 	// factors (think of a bumper in Sonic for example)
@@ -489,7 +490,7 @@ class Entity {
 	public function update() { // runs at an unknown fps
 		
 		// Circular collisions
-		if( hasCircColl() )
+		if(hasCircColl())
 			for(e in ALL)
 			if( e!=this && e.hasCircColl() && hasCircCollWith(e) && e.hasCircCollWith(this) ) {
 				var d = distPx(e);
@@ -523,21 +524,23 @@ class Entity {
 		while( steps>0 ) {
 			xr+=step;
 			
-			if( xr>0.6 && level.hasCollision(cx+1,cy) ) {
-				xr = 0.6;
-				dx-=0.05*tmod;
-				onTouchWallX();
-			}
-			if( xr>=0.5 && level.hasCollision(cx+1,cy) ) {
-				dx-=0.03*tmod;
-			}
-			if( xr<0.3 && level.hasCollision(cx-1,cy) ) {
-				xr = 0.3;
-				dx+=0.05*tmod;
-				onTouchWallX();
-			}
-			if( xr<0.4 && level.hasCollision(cx-1,cy) ) {
-				dx+=0.03*tmod;
+			if(hasColl) {
+				if( xr>0.6 && level.hasCollision(cx+1,cy) ) {
+					xr = 0.6;
+					dx-=0.05*tmod;
+					onTouchWallX();
+				}
+				if( xr>=0.5 && level.hasCollision(cx+1,cy) ) {
+					dx-=0.03*tmod;
+				}
+				if( xr<0.3 && level.hasCollision(cx-1,cy) ) {
+					xr = 0.3;
+					dx+=0.05*tmod;
+					onTouchWallX();
+				}
+				if( xr<0.4 && level.hasCollision(cx-1,cy) ) {
+					dx+=0.03*tmod;
+				}
 			}
 
 			while( xr>1 ) { xr--; cx++; }
@@ -554,15 +557,17 @@ class Entity {
 		var step = dyTotal*tmod / steps;
 		while( steps>0 ) {
 			yr+=step;
-
-			if( yr>1 && level.hasCollision(cx,cy+1) ) {
-				yr = 1;
-				onTouchWallY();
+			if (hasColl) {
+				if( yr>1 && level.hasCollision(cx,cy+1) ) {
+					yr = 1;
+					onTouchWallY();
+				}
+				if( yr<0.8 && level.hasCollision(cx,cy-1) ) {
+					yr = 0.8;
+					onTouchWallY();
+				}
 			}
-			if( yr<0.8 && level.hasCollision(cx,cy-1) ) {
-				yr = 0.8;
-				onTouchWallY();
-			}
+			
 			while( yr>1 ) { yr--; cy++; }
 			while( yr<0 ) { yr++; cy--; }
 			steps--;
@@ -605,7 +610,7 @@ class Entity {
 	}
 	
 	function hasCircColl() {
-		return !destroyed;
+		return !destroyed && hasColl;
 	}
 	
 	function hasCircCollWith(e:Entity) {

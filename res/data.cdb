@@ -21,6 +21,10 @@
 				{
 					"value": 0.15,
 					"id": "playerMaxMoveSpeed"
+				},
+				{
+					"id": "doorY",
+					"value": 7
 				}
 			],
 			"separators": [],

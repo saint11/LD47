@@ -1,3 +1,4 @@
+import en.Door;
 import h2d.Interactive;
 import en.Mob;
 import hxd.fmt.spine.Data.Bone;
@@ -47,14 +48,20 @@ class Level extends dn.Process {
 
 
 		fastColl = [];
+
+		if (l.l_Entities.all_Hole!=null)
 		for (e in l.l_Entities.all_Hole) {
 			new Hole(e.cx,e.cy);
 			//fastColl[coordId(e.cx, e.cy)] = true;
 		}
 
+		if (l.l_Entities.all_Mob!=null)
 		for (m in l.l_Entities.all_Mob) {
 			new Mob(m.cx, m.cy, m);
 		}
+
+		new Door(16,Data.globals.get(doorY).value, false);
+		new Door(0,Data.globals.get(doorY).value, true);
 	}
 
 	/**
@@ -67,7 +74,7 @@ class Level extends dn.Process {
 	/**
 		Return TRUE if given coordinates are in level bounds
 	**/
-	public inline function isValid(cx,cy) return cx>=0 && cx<wid && cy>=0 && cy<hei-1;
+	public inline function isValid(cx,cy) return cx>=0 && cx<wid && cy>=0 && cy<hei;
 
 	/**
 		Transform coordinates into a coordId
