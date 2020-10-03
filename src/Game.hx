@@ -1,3 +1,5 @@
+import h2d.col.Point;
+import h2d.Interactive;
 import dn.Process;
 import hxd.Key;
 
@@ -129,7 +131,7 @@ class Game extends Process {
 
 	override function preUpdate() {
 		super.preUpdate();
-
+		
 		for(e in Entity.ALL) if( !e.destroyed ) e.preUpdate();
 	}
 

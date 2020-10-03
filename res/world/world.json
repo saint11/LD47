@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 48,
 	"bgColor": "#1A212E",
-	"nextUid": 24,
+	"nextUid": 35,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -80,6 +80,55 @@
 				"pivotX": 0.5,
 				"pivotY": 0.5,
 				"fieldDefs": []
+			},
+			{
+				"identifier": "Mob",
+				"uid": 24,
+				"width": 48,
+				"height": 48,
+				"color": "#BA1717",
+				"renderMode": "Rectangle",
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0.5,
+				"pivotY": 0.5,
+				"fieldDefs": [
+					{
+						"identifier": "AI",
+						"__type": "Array<ExternEnum.MobBehaviour>",
+						"uid": 33,
+						"type": { "id": "F_Enum", "params": [ 31 ] },
+						"isArray": true,
+						"canBeNull": false,
+						"arrayMinLength": null,
+						"arrayMaxLength": null,
+						"editorDisplayMode": "ValueOnly",
+						"editorDisplayPos": "Above",
+						"editorAlwaysShow": false,
+						"min": null,
+						"max": null,
+						"defaultOverride": null
+					},
+					{
+						"identifier": "MoveSpeed",
+						"__type": "Float",
+						"uid": 34,
+						"type": "F_Float",
+						"isArray": false,
+						"canBeNull": false,
+						"arrayMinLength": null,
+						"arrayMaxLength": null,
+						"editorDisplayMode": "Hidden",
+						"editorDisplayPos": "Above",
+						"editorAlwaysShow": false,
+						"min": null,
+						"max": null,
+						"defaultOverride": { "id": "V_Float", "params": [ 0.01 ] }
+					}
+				]
 			}
 		],
 		"tilesets": [
@@ -96,7 +145,10 @@
 			}
 		],
 		"enums": [],
-		"externalEnums": [ { "identifier": "Affect", "uid": 3, "values": [ { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "9db08762d26a530552a55933bf6f3af4" } ]
+		"externalEnums": [
+			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "b9ac351810205baf7727ea67d8998812" },
+			{ "identifier": "MobBehaviour", "uid": 31, "values": [ { "id": "Chase", "tileId": null }, { "id": "Idle", "tileId": null }, { "id": "Shoot", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "b9ac351810205baf7727ea67d8998812" }
+		]
 	},
 	"levels": [ {
 		"identifier": "ScrollChamber",
@@ -120,7 +172,6 @@
 				"gridTiles": [],
 				"entityInstances": [
 					{ "__identifier": "Scroll", "__cx": 7, "__cy": 2, "defUid": 22, "x": 360, "y": 120, "fieldInstances": [] },
-					{ "__identifier": "Hero", "__cx": 7, "__cy": 7, "defUid": 21, "x": 360, "y": 360, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 0, "__cy": 0, "defUid": 23, "x": 24, "y": 24, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 15, "__cy": 0, "defUid": 23, "x": 744, "y": 24, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 3, "__cy": 6, "defUid": 23, "x": 168, "y": 312, "fieldInstances": [] },
@@ -129,7 +180,34 @@
 					{ "__identifier": "Hole", "__cx": 11, "__cy": 9, "defUid": 23, "x": 552, "y": 456, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 11, "__cy": 8, "defUid": 23, "x": 552, "y": 408, "fieldInstances": [] },
 					{ "__identifier": "Hole", "__cx": 0, "__cy": 14, "defUid": 23, "x": 24, "y": 696, "fieldInstances": [] },
-					{ "__identifier": "Hole", "__cx": 15, "__cy": 14, "defUid": 23, "x": 744, "y": 696, "fieldInstances": [] }
+					{ "__identifier": "Hole", "__cx": 15, "__cy": 14, "defUid": 23, "x": 744, "y": 696, "fieldInstances": [] },
+					{ "__identifier": "Hero", "__cx": 0, "__cy": 7, "defUid": 21, "x": 24, "y": 360, "fieldInstances": [] },
+					{ "__identifier": "Mob", "__cx": 11, "__cy": 4, "defUid": 24, "x": 552, "y": 216, "fieldInstances": [
+						{
+							"__identifier": "AI",
+							"__value": [ "Shoot" ],
+							"__type": "Array<ExternEnum.MobBehaviour>",
+							"defUid": 33,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": [ "Shoot" ]
+							} ]
+						},
+						{ "__identifier": "MoveSpeed", "__value": 0.01, "__type": "Float", "defUid": 34, "realEditorValues": [] }
+					] },
+					{ "__identifier": "Mob", "__cx": 11, "__cy": 11, "defUid": 24, "x": 552, "y": 552, "fieldInstances": [
+						{
+							"__identifier": "AI",
+							"__value": [ "Idle" ],
+							"__type": "Array<ExternEnum.MobBehaviour>",
+							"defUid": 33,
+							"realEditorValues": [ {
+								"id": "V_String",
+								"params": [ "Idle" ]
+							} ]
+						},
+						{ "__identifier": "MoveSpeed", "__value": 0.01, "__type": "Float", "defUid": 34, "realEditorValues": [] }
+					] }
 				]
 			}
 		]

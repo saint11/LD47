@@ -6,10 +6,12 @@ class Main extends dn.Process {
 	public var controller : dn.heaps.Controller;
 	public var ca : dn.heaps.Controller.ControllerAccess;
 
+	public var mouse : Mouse;
+
 	public function new(s:h2d.Scene) {
 		super();
 		ME = this;
-
+		
         createRoot(s);
 
 		// Engine settings
@@ -56,10 +58,12 @@ class Main extends dn.Process {
 		controller.bind(AXIS_LEFT_Y_POS, Key.UP, Key.W);
 
 		controller.bind(X, Key.SPACE, Key.F, Key.E);
-		controller.bind(A, Key.UP, Key.Z, Key.W);
+		controller.bind(A, Key.Z);
 		controller.bind(B, Key.ENTER, Key.NUMPAD_ENTER);
 		controller.bind(SELECT, Key.R);
 		controller.bind(START, Key.N);
+
+		mouse = new Mouse(s);
 
 		// Start
 		new dn.heaps.GameFocusHelper(Boot.ME.s2d, Assets.fontMedium);
@@ -92,5 +96,10 @@ class Main extends dn.Process {
     override function update() {
 		Assets.tiles.tmod = tmod;
         super.update();
-    }
+	}
+	
+	override function postUpdate() {
+		super.postUpdate();
+		mouse.update();
+	}
 }

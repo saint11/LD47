@@ -25,6 +25,37 @@
 			],
 			"separators": [],
 			"props": {}
+		},
+		{
+			"name": "projectiles",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "4",
+					"name": "speed"
+				},
+				{
+					"typeStr": "4",
+					"name": "friction"
+				},
+				{
+					"typeStr": "4",
+					"name": "lifespan"
+				}
+			],
+			"lines": [
+				{
+					"id": "SimpleBullet",
+					"speed": 0.3,
+					"friction": 1,
+					"lifespan": 3
+				}
+			],
+			"separators": [],
+			"props": {}
 		}
 	],
 	"customTypes": [],

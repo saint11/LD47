@@ -1,3 +1,6 @@
+import hxd.SceneEvents.Interactive;
+import hxd.Cursor;
+
 class Entity {
     public static var ALL : Array<Entity> = [];
     public static var GC : Array<Entity> = [];
@@ -199,6 +202,10 @@ class Entity {
 	public inline function irnd(min,max,?sign) return Lib.irnd(min,max,sign);
 	public inline function pretty(v,?p=1) return M.pretty(v,p);
 
+	public function angToMouse() {
+		return Math.atan2(Main.ME.mouse.y - footY, Main.ME.mouse.x - footX);
+	}
+	public inline function angTo(e:Entity) return Math.atan2(e.footY-footY, e.footX-footX);
 	public inline function dirTo(e:Entity) return e.centerX<centerX ? -1 : 1;
 	public inline function dirToAng() return dir==1 ? 0. : M.PI;
 	public inline function getMoveAng() return Math.atan2(dyTotal,dxTotal);

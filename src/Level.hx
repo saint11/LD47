@@ -1,3 +1,5 @@
+import h2d.Interactive;
+import en.Mob;
 import hxd.fmt.spine.Data.Bone;
 import en.Hole;
 import sys.ssl.Context.Config;
@@ -27,7 +29,8 @@ class Level extends dn.Process {
 
 	var fastColl: Map<Int,Bool>;
 
-	var hero:Hero;
+	public var hero:Hero;
+
 
 	public function new(l:World.World_Level) {
 		super(Game.ME);
@@ -47,6 +50,10 @@ class Level extends dn.Process {
 		for (e in l.l_Entities.all_Hole) {
 			new Hole(e.cx,e.cy);
 			fastColl[coordId(e.cx, e.cy)] = true;
+		}
+
+		for (m in l.l_Entities.all_Mob) {
+			new Mob(m.cx, m.cy, m);
 		}
 	}
 
@@ -90,8 +97,7 @@ class Level extends dn.Process {
 
 	/** Return TRUE if "Collisions" layer contains a collision value **/
 	public inline function hasCollision(cx,cy) : Bool {
-		return !isValid(cx,cy) || fastColl[coordId(cx,cy)];
-		//return !isValid(cx,cy) ? true : level.l_Collisions.getInt(cx,cy)==0;
+		return !isValid(cx,cy) ? true : fastColl[coordId(cx,cy)];
 	}
 
 	/** Render current level**/
