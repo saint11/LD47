@@ -6,8 +6,6 @@ enum Affect {
 enum LevelMark {
 }
 
-enum MobBehaviour {
-	Idle;
-	Chase;
-	Shoot;
+enum MobType {
+	Zombie;
 }

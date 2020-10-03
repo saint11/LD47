@@ -1,3 +1,4 @@
+import hxd.Math;
 import hxd.SceneEvents.Interactive;
 import hxd.Cursor;
 
@@ -135,20 +136,20 @@ class Entity {
 		life = maxLife = v;
 	}
 
-	public function hit(dmg:Int, from:Null<Entity>) {
-		if( !isAlive() || dmg<=0 )
+	public function hit(dmg:Data.Damage, from:Null<Entity>) {
+		if( !isAlive() || dmg.amount<=0 )
 			return;
 
-		life = M.iclamp(life-dmg, 0, maxLife);
+		life = M.iclamp(life-dmg.amount, 0, maxLife);
 		lastDmgSource = from;
-		onDamage(dmg, from);
+		onDamage(dmg.amount, from);
 		if( life<=0 )
 			onDie();
 	}
 
 	public function kill(by:Null<Entity>) {
 		if( isAlive() )
-			hit(life,by);
+			hit(Data.damage.get(insta_kill),by);
 	}
 
 	function onDamage(dmg:Int, from:Entity) {
@@ -187,6 +188,11 @@ class Entity {
 			prevFrameFootX = footX;
 			prevFrameFootY = footY;
 		}
+	}
+
+	public function bumpAgainst(e:Entity, amount:Float) {
+		var a = Math.atan2(e.centerY-centerY, e.centerX-centerX);
+		bump(-Math.cos(a) * amount, -Math.sin(a) * amount);
 	}
 
 	public function bump(x:Float,y:Float) {
@@ -605,10 +611,6 @@ class Entity {
 		
 	}
 
-	public function takeHit() {
-		return false;
-	}
-	
 	function hasCircColl() {
 		return !destroyed && hasColl;
 	}

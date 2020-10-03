@@ -5,6 +5,10 @@ import hxd.Direction;
 
 
 class Door extends Entity {
+
+
+    var open:Bool = false;
+
     public function new(x,y, dir) {
         super(x,y);
 
@@ -21,11 +25,20 @@ class Door extends Entity {
     override function update() {
         super.update();
 
-        if (level.hero.hasColl && distCase(level.hero, 0, 0.25)<1.12) {
-            level.hero.enterDoor(this);
-            spr.color = new Vec(0.1,1,0.1);
+        if (level.isComplete()){
+            if (open==false) {
+                open = true;
+                sprSquashX = 2;
+                spr.alpha = 1;
+            }
+
+            if (level.hero.hasColl && distCase(level.hero, 0, 0.25)<1.12) {
+                level.hero.enterDoor(this);
+            }
         }
         else 
-            spr.color = new Vec(1,1,1);
+        {
+            spr.alpha = 0;           
+        }
     }
 }

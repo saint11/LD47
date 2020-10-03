@@ -141,4 +141,12 @@ class Level extends dn.Process {
 			render();
 		}
 	}
+
+	public function isComplete() :Bool {
+		if (Mob.ALL.length==0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
