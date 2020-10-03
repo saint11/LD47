@@ -1,125 +1,195 @@
 
 tiles.png
-size: 256,256
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+blood
+  rotate: false
+  xy: 144, 991
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
 door
   rotate: false
-  xy: 1, 1
+  xy: 965, 1
   size: 48, 144
   orig: 48, 144
   offset: 0, 0
   index: -1
 empty
   rotate: false
-  xy: 35, 253
+  xy: 17, 1021
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 fxCircle0
   rotate: false
-  xy: 95, 125
+  xy: 169, 991
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 60, 251
+  xy: 65, 1018
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 35, 243
+  xy: 1, 1014
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 58, 243
+  xy: 24, 1020
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 60, 247
+  xy: 33, 1014
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 51, 243
+  xy: 17, 1014
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 50, 99
+  xy: 99, 965
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 1, 243
+  xy: 99, 1010
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
   index: -1
 pixel
   rotate: false
-  xy: 37, 253
+  xy: 19, 1021
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 scroll
   rotate: false
-  xy: 1, 146
+  xy: 242, 483
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
   index: -1
 shadow
   rotate: false
-  xy: 95, 99
+  xy: 144, 965
   size: 55, 25
   orig: 55, 25
   offset: 0, 0
   index: -1
 test_hole
   rotate: false
-  xy: 50, 1
+  xy: 1, 965
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 test_tile
   rotate: false
-  xy: 50, 50
+  xy: 50, 965
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 uiBar
   rotate: false
-  xy: 92, 243
+  xy: 58, 1018
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 51, 250
+  xy: 24, 1014
   size: 8, 5
   orig: 8, 5
+  offset: 0, 0
+  index: -1
+zombie_idle_00
+  rotate: false
+  xy: 1, 1
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_00
+  rotate: false
+  xy: 1, 1
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_01
+  rotate: false
+  xy: 1, 242
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_02
+  rotate: false
+  xy: 1, 483
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_03
+  rotate: false
+  xy: 1, 724
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_04
+  rotate: false
+  xy: 242, 1
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_05
+  rotate: false
+  xy: 483, 1
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_06
+  rotate: false
+  xy: 724, 1
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+zombie_walk_07
+  rotate: false
+  xy: 242, 242
+  size: 240, 240
+  orig: 240, 240
   offset: 0, 0
   index: -1

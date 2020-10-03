@@ -37,7 +37,7 @@ class Game extends Process {
 
 	var mask : h2d.Bitmap;
 
-	public var money = 12;
+	public var money:Int = 12;
 
 	public function new() {
 		super(Main.ME);
@@ -225,6 +225,12 @@ class Game extends Process {
 		levelToLoad=null;
 		mask.visible=true;
 		tw.createS(mask.alpha, 1>0, 0.6).end(()->mask.visible=false);
+	}
+
+	public function addMoney(amount:Int) {
+		money += amount;
+		hud.setMoney(money);
+		amount>0 ? hud.blinkWhite() : hud.blinkRed();
 	}
 }
 
