@@ -171,7 +171,6 @@
 				"seed": 4233555,
 				"gridTiles": [],
 				"entityInstances": [
-					{ "__identifier": "Hero", "__cx": 0, "__cy": 7, "defUid": 21, "x": 24, "y": 360, "fieldInstances": [] },
 					{ "__identifier": "Mob", "__cx": 11, "__cy": 4, "defUid": 24, "x": 552, "y": 216, "fieldInstances": [
 						{
 							"__identifier": "AI",
@@ -197,7 +196,8 @@
 							} ]
 						},
 						{ "__identifier": "MoveSpeed", "__value": 0.01, "__type": "Float", "defUid": 34, "realEditorValues": [] }
-					] }
+					] },
+					{ "__identifier": "Hero", "__cx": 1, "__cy": 7, "defUid": 21, "x": 72, "y": 360, "fieldInstances": [] }
 				]
 			}
 		]

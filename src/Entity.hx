@@ -214,7 +214,7 @@ class Entity {
 	public inline function dirToAng() return dir==1 ? 0. : M.PI;
 	public inline function getMoveAng() return Math.atan2(dyTotal,dxTotal);
 
-	public inline function distCase(e:Entity) return M.dist(cx+xr, cy+yr, e.cx+e.xr, e.cy+e.yr);
+	public inline function distCase(e:Entity, ?cxOffset=0., ?cyOffset=0.) return M.dist(cx+xr+cxOffset, cy+yr+cyOffset, e.cx+e.xr, e.cy+e.yr);
 	public inline function distCaseFree(tcx:Int, tcy:Int, ?txr=0.5, ?tyr=0.5) return M.dist(cx+xr, cy+yr, tcx+txr, tcy+tyr);
 
 	public inline function distPx(e:Entity) return M.dist(footX, footY, e.footX, e.footY);
