@@ -36,7 +36,11 @@
 				},
 				{
 					"id": "bloodPickUpRange",
-					"value": 7
+					"value": 3
+				},
+				{
+					"id": "startingMoney",
+					"value": 30
 				}
 			],
 			"separators": [],
@@ -209,10 +213,28 @@
 					"moveSpeed": 0.01,
 					"hp": 1,
 					"money": [
-						5,
-						10
+						2,
+						4
 					],
 					"explosion": "bomb"
+				},
+				{
+					"id": "Shooter",
+					"ai": [
+						{
+							"ai": [
+								2,
+								1,
+								2
+							]
+						}
+					],
+					"moveSpeed": 0,
+					"hp": 3,
+					"money": [
+						5,
+						10
+					]
 				}
 			],
 			"separators": [],
@@ -349,6 +371,18 @@
 					}
 				},
 				{
+					"levelName": "ShooterRoom",
+					"title": "Shooter Room",
+					"price": 15,
+					"desc": "+2% chance of a chest on all rooms",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 1,
+						"y": 1
+					}
+				},
+				{
 					"levelName": "EndGame",
 					"title": "Exit the Temple",
 					"price": 5000,
@@ -411,11 +445,34 @@
 				},
 				{
 					"name": "Shoot",
-					"args": []
+					"args": [
+						{
+							"name": "intervalMin",
+							"typeStr": "4"
+						},
+						{
+							"name": "intervalMax",
+							"typeStr": "4"
+						}
+					]
 				},
 				{
 					"name": "Explode",
 					"args": []
+				}
+			]
+		},
+		{
+			"name": "BonusTypes",
+			"cases": [
+				{
+					"name": "ExtraGold",
+					"args": [
+						{
+							"name": "percent",
+							"typeStr": "4"
+						}
+					]
 				}
 			]
 		}

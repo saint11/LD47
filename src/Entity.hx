@@ -142,14 +142,18 @@ class Entity {
 		life = maxLife = v;
 	}
 
-	public function hit(dmg:Data.Damage, from:Null<Entity>) {
+	public function hit(dmg:Data.Damage, from:Null<Entity>, reduction:Float = 1) {
 		if( !isAlive() || dmg.amount<=0 || hasAffect(Invulnerable))
 			return;
 
-		jump(2 + dmg.push );
-		bumpAgainst(from, dmg.push * 0.5);
-		life = M.iclamp(life-dmg.amount, 0, maxLife);
+		jump(2 + dmg.push*reduction );
+		bumpAgainst(from, dmg.push * 0.5 * reduction);
+		life = M.iclamp(life- M.ceil(dmg.amount * reduction), 0, maxLife);
 		lastDmgSource = from;
+		
+		if (dmg.stunTime>0)
+			setAffectS(Stun,dmg.stunTime);
+		
 		onDamage(dmg.amount, from);
 		if( life<=0 )
 			onDie();
@@ -457,6 +461,7 @@ class Entity {
 		shadow = Assets.tiles.h_get("shadow",0, 0.5,0.5);
 		game.scroller.add(shadow, Const.DP_BG);
 		shadow.scaleX = scale;
+		shadow.scaleY = 0.8 + scale * 0.2;
 		shadow.alpha = 0.3;
 	}
 

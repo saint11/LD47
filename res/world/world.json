@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 42,
+	"nextUid": 45,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -146,8 +146,8 @@
 		],
 		"enums": [],
 		"externalEnums": [
-			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Invulnerable", "tileId": null }, { "id": "Sleep", "tileId": null }, { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "2c06a9c2cf7acfb691490ebc5f957705" },
-			{ "identifier": "MobType", "uid": 36, "values": [ { "id": "Explosive", "tileId": null }, { "id": "Zombie", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "2c06a9c2cf7acfb691490ebc5f957705" }
+			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Invulnerable", "tileId": null }, { "id": "Sleep", "tileId": null }, { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "d017b274c7ae612fc7936ac51ff48568" },
+			{ "identifier": "MobType", "uid": 36, "values": [ { "id": "Explosive", "tileId": null }, { "id": "Shooter", "tileId": null }, { "id": "Zombie", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "d017b274c7ae612fc7936ac51ff48568" }
 		]
 	},
 	"levels": [
@@ -252,13 +252,13 @@
 			"identifier": "CrowdedRoom",
 			"uid": 40,
 			"pxWid": 256,
-			"pxHei": 256,
+			"pxHei": 240,
 			"layerInstances": [
 				{
 					"__identifier": "Entities",
 					"__type": "Entities",
 					"__cWid": 16,
-					"__cHei": 16,
+					"__cHei": 15,
 					"__gridSize": 16,
 					"levelId": 40,
 					"layerDefUid": 20,
@@ -355,13 +355,13 @@
 			"identifier": "BombRoom",
 			"uid": 41,
 			"pxWid": 256,
-			"pxHei": 256,
+			"pxHei": 240,
 			"layerInstances": [
 				{
 					"__identifier": "Entities",
 					"__type": "Entities",
 					"__cWid": 16,
-					"__cHei": 16,
+					"__cHei": 15,
 					"__gridSize": 16,
 					"levelId": 41,
 					"layerDefUid": 20,
@@ -420,6 +420,96 @@
 								"realEditorValues": [ {
 									"id": "V_String",
 									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] }
+					]
+				}
+			]
+		},
+		{
+			"identifier": "ShooterRoom",
+			"uid": 43,
+			"pxWid": 256,
+			"pxHei": 240,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 15,
+					"__gridSize": 16,
+					"levelId": 43,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 6282858,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "Mob", "__cx": 13, "__cy": 2, "defUid": 24, "x": 216, "y": 40, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 13, "__cy": 8, "defUid": 24, "x": 216, "y": 136, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 13, "__cy": 13, "defUid": 24, "x": 216, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 9, "__cy": 5, "defUid": 24, "x": 152, "y": 88, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 9, "__cy": 10, "defUid": 24, "x": 152, "y": 168, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
 								} ]
 							},
 							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }

@@ -26,9 +26,11 @@ class Hero extends Entity {
         spr.set(Assets.hero);
         spr.anim.registerStateAnim("hero_idle_d", 0, Data.animations.get(hero_idle).speed);
         spr.anim.registerStateAnim("hero_walk_u", 1, Data.animations.get(hero_walk).speed, ()-> moveY < 0);
-        spr.anim.registerStateAnim("hero_walk_d", 1, Data.animations.get(hero_walk).speed, ()-> moveX != 0 || moveY > 0);
+        spr.anim.registerStateAnim("hero_walk_d", 1, Data.animations.get(hero_walk).speed, ()-> moveY > 0);
+        spr.anim.registerStateAnim("hero_walk_r", 2, Data.animations.get(hero_walk).speed  * 0.8, ()-> moveX != 0);
+
         spr.setCenterRatio(0.5, 1);
-        
+
         weapon = Data.weapons.get(MagicMissile);
         
         initLife(Game.ME.playerMaxLife);
@@ -49,14 +51,19 @@ class Hero extends Entity {
 
             moveX = moveY = 0;
 
-            if (ca.leftDown())
+            if (ca.leftDown()) {
+                dir = -1;
                 moveX -= 1;
-            if (ca.rightDown())
+            }
+            if (ca.rightDown()) {
+                dir = 1;
                 moveX += 1;
+            }
             if (ca.upDown())
                 moveY -= 1;
             if (ca.downDown())
                 moveY += 1;
+
 
             if (ca.yDown() && cd.getS("player_shoot")==0) {
                 new Projectile(centerX, centerY, angToMouse(), this, weapon.projectile);
@@ -90,13 +97,16 @@ class Hero extends Entity {
     public function enterDoor(door:Door) {
         hasColl=false;
         cd.setS("doorEnter",.5);
-        cd.onComplete("doorEnter", ()-> { game.loadNextLevel(); });
+        cd.onComplete("doorEnter", ()-> {
+            entityVisible = false;
+            game.loadNextLevel();
+        });
         dy = 0;
         dx = door.dir *0.2;
     }
 
-    override function hit(dmg:Damage, from:Null<Entity>) {
-        super.hit(dmg, from);
+    override function hit(dmg:Damage, from:Null<Entity>, reduction: Float = 1) {
+        super.hit(dmg, from, reduction);
         
         Game.ME.playerLife=life;
         hud.invalidate();

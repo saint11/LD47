@@ -41,7 +41,7 @@ class Game extends Process {
 
 	var mask : h2d.Bitmap;
 
-	public var money:Int = 12;
+	public var money:Int = 0;
 
 	// Player stuff
 	public var hero:Hero;
@@ -71,6 +71,8 @@ class Game extends Process {
 		
 		mask = new h2d.Bitmap(h2d.Tile.fromColor(0x0));
 		root.add(mask, Const.DP_UI);
+
+		money = Data.globals.get(startingMoney).value;
 
 		startLevel(levelLoop[0]);
 
@@ -215,11 +217,15 @@ class Game extends Process {
 	}
 
 	public function loadNextLevel() {
-		levelIndex++;
-		if (levelIndex>=levelLoop.length)
-			levelIndex = 0;
+		
+		mask.visible=true;
+		tw.createS(mask.alpha, 0>1, 0.6).end(()-> {
+			levelIndex++;
+			if (levelIndex>=levelLoop.length)
+				levelIndex = 0;
 
-		levelToLoad = levelLoop[levelIndex];
+			levelToLoad = levelLoop[levelIndex];
+		});
 	}
 
 	function startLevel(l : World.World_Level) {
