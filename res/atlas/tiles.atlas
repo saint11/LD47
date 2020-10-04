@@ -6,14 +6,14 @@ filter: Linear,Linear
 repeat: none
 aim
   rotate: false
-  xy: 398, 717
+  xy: 529, 990
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 blood
   rotate: false
-  xy: 376, 882
+  xy: 301, 888
   size: 20, 24
   orig: 24, 24
   offset: 2, 0
@@ -60,9 +60,23 @@ empty
   orig: 1, 1
   offset: 0, -2
   index: -1
+fountain_00
+  rotate: false
+  xy: 301, 762
+  size: 131, 125
+  orig: 147, 129
+  offset: 3, 2
+  index: -1
+fountain_expired_00
+  rotate: false
+  xy: 362, 888
+  size: 131, 125
+  orig: 147, 129
+  offset: 3, 2
+  index: -1
 fxCircle0
   rotate: false
-  xy: 362, 1007
+  xy: 322, 900
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -76,7 +90,7 @@ fxDot0
   index: -1
 fxImpact0
   rotate: false
-  xy: 360, 750
+  xy: 362, 1014
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
@@ -97,7 +111,7 @@ fxLineDir0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 376, 750
+  xy: 301, 913
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
@@ -111,7 +125,7 @@ fxSmoke0
   index: -1
 fxTail0
   rotate: false
-  xy: 326, 750
+  xy: 322, 888
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
@@ -202,28 +216,28 @@ ghost_idle_11
   index: -1
 p_simple_00
   rotate: false
-  xy: 337, 882
+  xy: 362, 717
   size: 38, 32
   orig: 48, 48
   offset: 4, 8
   index: -1
 p_simple_01
   rotate: false
-  xy: 363, 717
+  xy: 494, 990
   size: 34, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 p_simple_02
   rotate: false
-  xy: 301, 882
+  xy: 326, 717
   size: 35, 34
   orig: 48, 48
   offset: 6, 8
   index: -1
 p_simple_03
   rotate: false
-  xy: 326, 717
+  xy: 401, 717
   size: 36, 32
   orig: 48, 48
   offset: 6, 9
@@ -244,7 +258,7 @@ scroll
   index: -1
 shadow
   rotate: false
-  xy: 397, 882
+  xy: 562, 990
   size: 53, 20
   orig: 55, 25
   offset: 0, 2
@@ -265,49 +279,49 @@ test_tile
   index: -1
 trap_floor_0000
   rotate: false
-  xy: 301, 762
+  xy: 433, 750
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0001
   rotate: false
-  xy: 418, 750
+  xy: 494, 870
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0002
   rotate: false
-  xy: 454, 870
+  xy: 406, 1
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0003
   rotate: false
-  xy: 406, 1
+  xy: 406, 121
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0004
   rotate: false
-  xy: 406, 121
+  xy: 416, 241
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0005
   rotate: false
-  xy: 416, 241
+  xy: 523, 1
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_stop_0000
   rotate: false
-  xy: 523, 1
+  xy: 523, 121
   size: 112, 112
   orig: 120, 120
   offset: 5, 5
@@ -349,28 +363,28 @@ zombie_walk_00
   index: -1
 zombie_walk_01
   rotate: false
-  xy: 523, 114
+  xy: 432, 453
   size: 98, 86
   orig: 240, 240
   offset: 79, 1
   index: -1
 zombie_walk_02
   rotate: false
-  xy: 362, 915
+  xy: 432, 361
   size: 91, 91
   orig: 240, 240
   offset: 74, 0
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 636, 1
+  xy: 524, 361
   size: 85, 83
   orig: 240, 240
   offset: 62, 0
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 722, 1
+  xy: 533, 234
   size: 79, 81
   orig: 240, 240
   offset: 65, 0

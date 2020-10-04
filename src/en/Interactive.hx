@@ -6,7 +6,8 @@ class Interactive extends Entity {
 	public function new(x,y) {
 		super(x,y);
 		ALL.push(this);
-        weight = -1;
+		weight = -1;
+		imovable=true;
 	}
 
 	function onActivate(by:Hero) {

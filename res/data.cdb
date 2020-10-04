@@ -403,7 +403,7 @@
 				{
 					"levelName": "TrapRoom",
 					"title": "Trap Room",
-					"price": 0,
+					"price": 30,
 					"desc": "+2% dropped blood and treasure chance on all rooms",
 					"icon": {
 						"file": "room_icons.png",
@@ -469,7 +469,7 @@
 				{
 					"levelName": "FountainRoom",
 					"title": "Fountain Room",
-					"price": 80,
+					"price": 0,
 					"desc": "-2% dropped blood on all rooms",
 					"icon": {
 						"file": "room_icons.png",
