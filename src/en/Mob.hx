@@ -24,12 +24,12 @@ class Mob extends Entity {
         ALL.push(this);
 
         spr.anim.registerStateAnim("zombie_idle", 0);
-        spr.anim.registerStateAnim("zombie_walk", 1, 0.15, ()-> moving>0);
+        spr.anim.registerStateAnim("zombie_walk", 1, 0.15, ()-> moving!=0);
         spr.anim.registerStateAnim("zombie_hit", 1, 0.15, ()-> hasAffect(Stun));
         
-        setAffectS(Sleep, rnd(0.5, 2));
-
         data = Data.mobs.resolve(ref.f_MobType.getName());
+        
+        setAffectS(Sleep, rnd(0.5, 2) + data.sleep);
         initLife(data.hp);
         if (data.money!=null) {
             moneyMin = data.money[0];
@@ -60,7 +60,7 @@ class Mob extends Entity {
                 dir = -dirTo(game.hero);
             case Shoot(min,max):
                 if (!cd.hasSetS("shooter", rnd(min,max))) {
-                    var p = new Projectile(centerX, centerY, angTo(game.hero), this, Data.projectiles.get(EnemyFire));
+                    var p = new Projectile(centerX, centerY, angTo(game.hero), this, data.projectile);
                     p.spr.color = new Vec(0.3,1,0.3);
                 }
             }

@@ -1,8 +1,12 @@
 package en;
 
+import hxsl.Types.Vec;
 import h2d.Anim;
 
 class FloorTrap extends Entity {
+
+    public var color:Vec;
+
     public function new(x,y) {
         super(x,y);
         hasColl=false;
@@ -15,6 +19,7 @@ class FloorTrap extends Entity {
     }
 
     override function update() {
+        spr.color = color;
         super.update();
         if (spr.frame == 3 || spr.frame == 4) {
             for (e in Entity.ALL)

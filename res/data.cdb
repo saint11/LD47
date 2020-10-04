@@ -83,6 +83,21 @@
 					"name": "dmg"
 				},
 				{
+					"typeStr": "2",
+					"name": "explode",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "dmgOnTouch",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "breakOnWall",
+					"display": null
+				},
+				{
 					"typeStr": "4",
 					"name": "lifespan"
 				}
@@ -90,13 +105,16 @@
 			"lines": [
 				{
 					"id": "SimpleBullet",
-					"speed": 0.4,
-					"friction": 1,
-					"lifespan": 300,
+					"speed": 0.37,
+					"friction": 0.99,
+					"lifespan": 30,
 					"dmg": "magic_missile",
 					"jump": 0,
 					"gravity": 0,
-					"startAltitude": 16
+					"startAltitude": 32,
+					"explode": false,
+					"dmgOnTouch": true,
+					"breakOnWall": true
 				},
 				{
 					"id": "EnemyFire",
@@ -106,7 +124,23 @@
 					"lifespan": 300,
 					"jump": 0,
 					"gravity": 0,
-					"startAltitude": 16
+					"startAltitude": 32,
+					"explode": false,
+					"dmgOnTouch": true,
+					"breakOnWall": true
+				},
+				{
+					"id": "Bomb",
+					"speed": 0.2,
+					"friction": 0.975,
+					"jump": 5,
+					"gravity": 0.6,
+					"startAltitude": 4,
+					"dmg": "bomb",
+					"lifespan": 250,
+					"explode": true,
+					"dmgOnTouch": true,
+					"breakOnWall": false
 				}
 			],
 			"separators": [],
@@ -208,6 +242,16 @@
 					"name": "hp"
 				},
 				{
+					"typeStr": "4",
+					"name": "sleep",
+					"display": null
+				},
+				{
+					"typeStr": "6:projectiles",
+					"name": "projectile",
+					"opt": true
+				},
+				{
 					"typeStr": "16",
 					"name": "money",
 					"display": null
@@ -229,7 +273,8 @@
 					"money": [
 						2,
 						5
-					]
+					],
+					"sleep": 1
 				},
 				{
 					"id": "Explosive",
@@ -246,7 +291,8 @@
 						2,
 						4
 					],
-					"explosion": "bomb"
+					"explosion": "bomb",
+					"sleep": 0
 				},
 				{
 					"id": "Shooter",
@@ -264,7 +310,35 @@
 					"money": [
 						5,
 						10
-					]
+					],
+					"projectile": "EnemyFire",
+					"sleep": 0
+				},
+				{
+					"id": "Bomber",
+					"ai": [
+						{
+							"ai": [
+								1
+							]
+						},
+						{
+							"ai": [
+								2,
+								2,
+								4
+							]
+						}
+					],
+					"moveSpeed": -0.008,
+					"hp": 3,
+					"explosion": "bomb",
+					"money": [
+						10,
+						15
+					],
+					"projectile": "Bomb",
+					"sleep": 2
 				}
 			],
 			"separators": [],
@@ -467,6 +541,26 @@
 					]
 				},
 				{
+					"levelName": "ExplosiveRoom",
+					"title": "Explosive Room",
+					"price": 10,
+					"bonus": [
+						{
+							"bonus": [
+								0,
+								15
+							]
+						}
+					],
+					"desc": "+15% dropped blood on all rooms",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
 					"levelName": "ShooterRoom",
 					"title": "Shooter Room",
 					"price": 15,
@@ -489,8 +583,8 @@
 				{
 					"levelName": "FountainRoom",
 					"title": "Fountain Room",
-					"price": 80,
-					"desc": "-2% dropped blood on all rooms",
+					"price": 50,
+					"desc": "-5% dropped blood on all rooms",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -501,7 +595,7 @@
 						{
 							"bonus": [
 								0,
-								-2
+								-5
 							]
 						}
 					]

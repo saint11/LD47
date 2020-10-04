@@ -24,12 +24,14 @@ class Projectile extends Entity {
         dy = Math.sin(angle)*tmod*data.speed;
 
         spr.anim.registerStateAnim("p_simple", 0, 0.1);
+        spr.setCenterRatio();
         weight = 0;
 
         enableShadow(0.5);
         tall = true;
-        gravity=0;
-        altitude = 16;
+        gravity= data.gravity;
+        altitude = data.startAltitude;
+        jump(data.jump);
         this.data = data;
     }
 
@@ -39,18 +41,20 @@ class Projectile extends Entity {
     }
     
     override function onTouchWallX() {
-        if (lifeSpan>0.1)
+        if (lifeSpan>0.1 && data.breakOnWall)
             explode();
     }
 
     override function onTouchWallY() {
-        if (lifeSpan>0.1)
+        if (lifeSpan>0.1 && data.breakOnWall)
             explode();
     }
 
     override function onTouch(e:Entity) {
-        e.hit(data.dmg, this);
-        explode();
+        if (data.dmgOnTouch) {
+            e.hit(data.dmg, this);
+            explode();
+        }
     }
 
     override function hasCircCollWith(e:Entity):Bool {
@@ -59,7 +63,19 @@ class Projectile extends Entity {
 
 
     public function explode() {
-        fx.explode(centerX,centerY, "explosion_green");
+        if (data.explode) {
+            fx.explode(centerX , centerY - 64, "explosion_big", 1.2);
+            for (e in Entity.ALL) {
+                if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 2) {
+                    e.hit(data.dmg,this);
+                } else if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 3) {
+                    e.hit(data.dmg,this, 0.5);
+                }
+            }
+        } else {
+            fx.explode(centerX,centerY, "explosion_green");
+        }
+
         destroy();
     }
 
