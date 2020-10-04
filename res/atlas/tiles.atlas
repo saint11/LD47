@@ -6,7 +6,7 @@ filter: Linear,Linear
 repeat: none
 aim
   rotate: false
-  xy: 100, 276
+  xy: 96, 410
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
@@ -62,14 +62,14 @@ fxImpact0
   index: -1
 fxLine0
   rotate: false
-  xy: 100, 272
+  xy: 96, 406
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 100, 309
+  xy: 96, 443
   size: 32, 3
   orig: 33, 3
   offset: 1, 0
@@ -90,7 +90,7 @@ fxSmoke0
   index: -1
 fxTail0
   rotate: false
-  xy: 100, 260
+  xy: 96, 394
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
@@ -115,6 +115,34 @@ ghost_idle_02
   size: 150, 154
   orig: 240, 240
   offset: 37, 6
+  index: -1
+p_simple_00
+  rotate: false
+  xy: 100, 260
+  size: 38, 32
+  orig: 48, 48
+  offset: 4, 8
+  index: -1
+p_simple_01
+  rotate: false
+  xy: 96, 361
+  size: 34, 32
+  orig: 48, 48
+  offset: 7, 7
+  index: -1
+p_simple_02
+  rotate: false
+  xy: 100, 326
+  size: 35, 34
+  orig: 48, 48
+  offset: 6, 8
+  index: -1
+p_simple_03
+  rotate: false
+  xy: 100, 293
+  size: 36, 32
+  orig: 48, 48
+  offset: 6, 9
   index: -1
 pixel
   rotate: false

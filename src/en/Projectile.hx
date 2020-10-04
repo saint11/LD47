@@ -21,7 +21,7 @@ class Projectile extends Entity {
         dx = Math.cos(angle)*tmod*data.speed;
         dy = Math.sin(angle)*tmod*data.speed;
 
-        spr.set("test_tile");
+        spr.anim.registerStateAnim("p_simple", 0, 0.1);
         weight = 0;
 
         this.data = data;
