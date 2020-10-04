@@ -19,6 +19,11 @@ class Fountain extends Interactive {
             expired = true;
 
             by.heal(1);
+
+            sprSquashX = 1.3;
+            sprSquashY = 0.8;
+
+            fx.flashBangS(0xFF99AA, 0.25);
         }
     }
 
