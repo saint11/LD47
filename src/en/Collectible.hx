@@ -7,6 +7,9 @@ class Collectible extends Entity {
         radius = 0.2;
         spr.set("blood");
         jump(rnd(2,4));
+        bounceFrict = 0.6;
+
+        cd.setS("cooldown",0.6);
     }
 
     override function hasCircCollWith(e:Entity):Bool {
@@ -16,6 +19,7 @@ class Collectible extends Entity {
     override function update() {
         super.update();
 
+        if (!cd.has("cooldown"))
         if(distCase(game.hero) < Data.globals.get(bloodPickUpRange).value) {
             var a = angTo(game.hero);
             dx = Math.cos(a) * 0.3;

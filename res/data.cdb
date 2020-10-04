@@ -611,7 +611,7 @@
 				{
 					"levelName": "TreasureRoom",
 					"title": "Treasure Room",
-					"price": 60,
+					"price": 0,
 					"bonus": [],
 					"desc": "Not suspicious at all",
 					"icon": {

@@ -6,7 +6,7 @@ filter: Linear,Linear
 repeat: none
 aim
   rotate: false
-  xy: 530, 990
+  xy: 406, 276
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
@@ -223,7 +223,7 @@ p_simple_00
   index: -1
 p_simple_01
   rotate: false
-  xy: 495, 990
+  xy: 406, 243
   size: 34, 32
   orig: 48, 48
   offset: 7, 7
@@ -258,7 +258,7 @@ scroll
   index: -1
 shadow
   rotate: false
-  xy: 563, 990
+  xy: 495, 992
   size: 53, 20
   orig: 55, 25
   offset: 0, 2
@@ -279,52 +279,87 @@ test_tile
   index: -1
 trap_floor_0000
   rotate: false
-  xy: 434, 750
+  xy: 508, 243
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0001
   rotate: false
-  xy: 495, 870
+  xy: 432, 522
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0002
   rotate: false
-  xy: 406, 1
+  xy: 549, 522
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0003
   rotate: false
-  xy: 406, 121
+  xy: 573, 726
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0004
   rotate: false
-  xy: 416, 241
+  xy: 571, 363
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0005
   rotate: false
-  xy: 523, 1
+  xy: 666, 483
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_stop_0000
   rotate: false
-  xy: 523, 121
+  xy: 634, 846
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
+  index: -1
+treasure_off
+  rotate: false
+  xy: 434, 750
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_00
+  rotate: false
+  xy: 495, 871
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_01
+  rotate: false
+  xy: 406, 1
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_02
+  rotate: false
+  xy: 406, 122
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_03
+  rotate: false
+  xy: 432, 401
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
   index: -1
 uiBar
   rotate: false
@@ -363,28 +398,28 @@ zombie_walk_00
   index: -1
 zombie_walk_01
   rotate: false
-  xy: 432, 453
+  xy: 438, 642
   size: 98, 86
   orig: 240, 240
   offset: 79, 1
   index: -1
 zombie_walk_02
   rotate: false
-  xy: 432, 361
+  xy: 416, 309
   size: 91, 91
   orig: 240, 240
   offset: 74, 0
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 524, 361
+  xy: 537, 642
   size: 85, 83
   orig: 240, 240
   offset: 62, 0
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 533, 241
+  xy: 623, 642
   size: 79, 81
   orig: 240, 240
   offset: 65, 0

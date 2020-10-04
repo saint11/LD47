@@ -1,7 +1,5 @@
 package en.inter;
 
-import Data.Damage;
-
 class Scroll extends Interactive {
     var seed:Int = 0;
     public function new(x,y) {
@@ -25,10 +23,6 @@ class Scroll extends Interactive {
         spr.alpha = 0.5 + Math.sin(ftime * 0.02) * 0.2;
     }
     
-    override function hit(dmg:Damage, from:Null<Entity>, reduction: Float = 1) {
-        
-    }
-
     override function dispose() {
         super.dispose();
         level.scroll=null;
