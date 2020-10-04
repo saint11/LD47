@@ -1,3 +1,4 @@
+
 import ui.EndWindow;
 import ui.ShopWindow;
 import Data;
@@ -69,7 +70,7 @@ class Main extends dn.Process {
 		controller.bind(AXIS_LEFT_Y_POS, Key.UP, Key.W);
 
 		controller.bind(A, Key.Z, Key.SPACE);
-		controller.bind(B, Key.ESCAPE, Key.BACKSPACE);
+		controller.bind(B, Key.ESCAPE, Key.BACKSPACE, Key.MOUSE_RIGHT);
 		controller.bind(Y, Key.MOUSE_LEFT);
 		controller.bind(SELECT, Key.R);
 		controller.bind(START, Key.N);

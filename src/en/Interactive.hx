@@ -45,4 +45,10 @@ class Interactive extends Entity {
 	override public function update() {
 		super.update();
 	}
+
+	
+    override function hit(dmg:Data.Damage, from:Null<Entity>, reduction: Float = 1) {
+        
+    }
+
 }

@@ -1,3 +1,6 @@
+import hxd.Cursor.CustomCursor;
+import hxd.Res;
+
 class Boot extends hxd.App {
 	public static var ME : Boot;
 
@@ -7,9 +10,12 @@ class Boot extends hxd.App {
 	}
 
 	// Engine ready
+	@:access(h2d.Scene)
 	override function init() {
 		ME = this;
+
 		new Main(s2d);
+		s2d.events.defaultCursor = Cursor.Custom(new CustomCursor([Res.cursor.toBitmap()], 0, 16, 16));
 		onResize();
 	}
 

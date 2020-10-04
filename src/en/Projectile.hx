@@ -7,7 +7,7 @@ class Projectile extends Entity {
     var owner:Entity;
     var data:Data.Projectiles;
     var lifeSpan = 0.;
-
+    var maxLifespan = 0.;
     public function new(x, y, angle, owner, data: Data.Projectiles) {
         ALL.push(this);
         
@@ -23,7 +23,8 @@ class Projectile extends Entity {
         dx = Math.cos(angle)*tmod*data.speed;
         dy = Math.sin(angle)*tmod*data.speed;
 
-        spr.anim.registerStateAnim("p_simple", 0, 0.1);
+        var imgs = ["simple", "shrapnel"];
+        spr.anim.registerStateAnim("p_" + imgs[data.image.toInt()], 0, 0.1);
         spr.setCenterRatio();
         weight = 0;
 
@@ -31,6 +32,8 @@ class Projectile extends Entity {
         tall = true;
         gravity= data.gravity;
         altitude = data.startAltitude;
+        maxLifespan = data.lifespan + rnd(-data.lifespanVar, data.lifespanVar);
+
         jump(data.jump);
         this.data = data;
     }
@@ -41,12 +44,12 @@ class Projectile extends Entity {
     }
     
     override function onTouchWallX() {
-        if (lifeSpan>0.1 && data.breakOnWall)
+        if (lifeSpan>0.05 && data.breakOnWall)
             explode();
     }
 
     override function onTouchWallY() {
-        if (lifeSpan>0.1 && data.breakOnWall)
+        if (lifeSpan>0.05 && data.breakOnWall)
             explode();
     }
 
@@ -86,7 +89,7 @@ class Projectile extends Entity {
     override function update() {
         super.update();
         lifeSpan += tmod;
-        if (lifeSpan>data.lifespan)
+        if (lifeSpan>maxLifespan)
             explode();
     }
 

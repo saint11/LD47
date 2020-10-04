@@ -1,4 +1,4 @@
-package en;
+package en.inter;
 
 class Fountain extends Interactive {
     var expired : Bool = false;

@@ -253,6 +253,7 @@ class Game extends Process {
 
 	public function addMoney(amount:Int) {
 		money += amount;
+		
 		hud.setMoney(money);
 		amount>0 ? hud.blinkWhite() : hud.blinkRed();
 	}

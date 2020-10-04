@@ -1,4 +1,5 @@
-import en.Fountain;
+import en.inter.Treasure;
+import en.inter.Fountain;
 import en.FloorTrap;
 import h2d.Tile;
 import hxd.res.Image;
@@ -101,7 +102,7 @@ class Level extends dn.Process {
 		if (l.l_Entities.all_TrapFloor!=null)
 		for (e in l.l_Entities.all_TrapFloor) {
 			if (level.range(1) < e.f_Chance + e.f_ChanceIncrease * level.loop) {
-				var trap = new FloorTrap(e.cx, e.cy);
+				var trap = new FloorTrap(e.cx, e.cy, e);
 				trap.color = floorColor;
 			}
 		}
@@ -109,6 +110,11 @@ class Level extends dn.Process {
 		if (l.l_Entities.all_Fountain!=null)
 		for (e in l.l_Entities.all_Fountain) {
 			new Fountain(e.cx, e.cy);
+		}
+
+		if (l.l_Entities.all_Chest!=null)
+		for (e in l.l_Entities.all_Chest) {
+			new Treasure(e.cx, e.cy,e);
 		}
 
 		var dR =new Door(16,doorY, 1);

@@ -31,7 +31,7 @@ class Hero extends Entity {
 
         spr.setCenterRatio(0.5, 1);
 
-        weapon = Data.weapons.get(MagicMissile);
+        weapon = Data.weapons.get(Shotgun);
         
         initLife(Game.ME.playerMaxLife);
         life = Game.ME.playerLife;
@@ -68,10 +68,7 @@ class Hero extends Entity {
 
             if (ca.yDown() && cd.getS("player_shoot")==0) {
                 var helper = cy<2? 8: cy>level.hei-2? -4: 0;
-                new Projectile(footX, footY + helper, angToMouse(0,helper), this, weapon.projectile);
-                cd.setS("player_shoot", weapon.interval);
-                setAffectS(Stun, weapon.stun);
-                cancelVelocities();
+                shoot(footX,footY, 0, helper);
             }
 
             dx = addClamped(dx, moveX * moveSpeedX * tmod, maxSpeed);
@@ -85,6 +82,16 @@ class Hero extends Entity {
                 spr.alpha = 0.5 + Math.sin(ftime) * 0.25;
             }
         }
+    }
+
+    function shoot(x:Float,y:Float, offX:Float, offY:Float) {
+        for (i in 0...weapon.bullets){
+            new Projectile(x + offX,y + offY, angToMouse(offX,offY) + rnd(-weapon.spread, weapon.spread) * M.DEG_RAD, this, weapon.projectile);
+        }
+        
+        cd.setS("player_shoot", weapon.interval);
+        setAffectS(Stun, weapon.stun);
+        cancelVelocities();
     }
 
     function addClamped(value: Float, x: Float, max:Float) : Float {

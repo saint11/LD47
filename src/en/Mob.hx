@@ -81,10 +81,13 @@ class Mob extends Entity {
         }
         // Drop loot
         if (loot)
-        for (i in moneyMin... M.ceil(moneyMax * Game.ME.bonusMoney)) {
-            var c = new Collectible(cx,cy);
-            c.dx = rnd(-0.5, 0.5);
-            c.dy = rnd(-0.5, 0.5);
+        {
+            var droppedBlood = M.ceil(M.randRange(moneyMin, moneyMax) * Game.ME.bonusMoney);
+            for (i in 0...droppedBlood) {
+                var c = new Collectible(cx,cy);
+                c.dx = rnd(-0.5, 0.5);
+                c.dy = rnd(-0.5, 0.5);
+            }
         }
     }
 

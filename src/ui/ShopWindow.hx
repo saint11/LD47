@@ -1,5 +1,6 @@
 package ui;
 
+import dn.Rand;
 import h2d.Interactive;
 import h3d.scene.World;
 import h2d.Text;
@@ -21,7 +22,7 @@ class ShopWindow extends dn.Process {
 
 	var items : Array<{ f:h2d.Flow, p:Int, desc:String, cb:Void->Void } >;
 
-    public function new() {
+    public function new(seed:Int) {
         super(Main.ME);
 		ME = this;
         ca = Main.ME.controller.createAccess("shop", true);
@@ -57,26 +58,31 @@ class ShopWindow extends dn.Process {
         tf.textColor = 0xFFA8A2;
         
         cd.setS("lock", 0.2);
-        refresh();
+        refresh(seed);
         onResize();
         Game.ME.pause();
     }
 
-    function refresh() {
+    function refresh(seed) {
         items = [];
         iFlow.removeChildren();
-        
+		
+		var rnd= new Rand(seed);
 		var i = 0;
 		var rooms = Data.shop.all.toArrayCopy();
 
-		addItem(rooms[0], i++);
+		var tooPricey = true;
 		for	(n in 0...3) {
-			var rn = rooms[irnd(1,rooms.length-2)];
+			var rn = rooms[rnd.irange(0,rooms.length-2)];
 			addItem(rn, i++);
+			if (rn.price<=Game.ME.money)
+				tooPricey=false;
 			rooms.remove(rn);
 		}
-		
-		addItem(rooms[rooms.length - 1], i++);
+		if (tooPricey)
+			addItem(rooms[0], i++);
+		else 
+			addItem(rooms[rooms.length - 1], i++);
 		
         cursor = Assets.ui.h_get("cursor",0, 0.5,0.5, iFlow);
     }
