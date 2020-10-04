@@ -4,7 +4,8 @@ import h2d.Text;
 
 
 class VictoryWindow extends dn.Process {
-    
+    public static var ME:VictoryWindow;
+
     var mask : h2d.Graphics;
     var masterFlow : h2d.Flow;
     
@@ -12,7 +13,8 @@ class VictoryWindow extends dn.Process {
     
     public function new() {
         super(Main.ME);
-        
+        ME = this;
+
         ca = Main.ME.controller.createAccess("win", true);
         
         createRootInLayers(Main.ME.root, Const.DP_UI);
@@ -40,10 +42,11 @@ class VictoryWindow extends dn.Process {
 
     override function update() {
         if (!cd.has("lock")){
-            
+            if (ca.aDown()) {
+                Main.ME.restartGame=true;
+            }
         }
     }
-
     
     override function onResize() {
         super.onResize();
@@ -56,4 +59,12 @@ class VictoryWindow extends dn.Process {
 		masterFlow.x = Std.int( Main.ME.w()*0.5 - masterFlow.outerWidth*0.5);
         masterFlow.y = Std.int( Main.ME.h()*0.5 - masterFlow.outerHeight*0.5);
     }
+
+    override public function onDispose() {
+		super.onDispose();
+		if( ME==this )
+			ME = null;
+		ca.dispose();
+		Game.ME.resume();
+	}
 }

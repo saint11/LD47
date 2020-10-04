@@ -43,6 +43,7 @@ class Game extends Process {
 	public function new() {
 		super(Main.ME);
 		ME = this;
+
 		ca = Main.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);
@@ -199,7 +200,7 @@ class Game extends Process {
 			#end
 
 			// Restart
-			if( ca.selectPressed() )
+			if( ca.selectPressed())
 				Main.ME.startGame();
 		}
 	}

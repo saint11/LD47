@@ -1,3 +1,5 @@
+import ui.VictoryWindow;
+import ui.ShopWindow;
 import Data;
 import hxd.Key;
 
@@ -10,6 +12,8 @@ class Main extends dn.Process {
 
 	public var mouseX(get,never) : Float; function get_mouseX() return scene.mouseX - Game.ME.scroller.x;
 	public var mouseY(get,never) : Float; function get_mouseY() return scene.mouseY - Game.ME.scroller.y;
+
+	public var restartGame:Bool;
 
 	public function new(s:h2d.Scene) {
 		super();
@@ -73,6 +77,12 @@ class Main extends dn.Process {
 	}
 
 	public function startGame() {
+		if(ShopWindow.ME!=null)
+			ShopWindow.ME.destroy();
+
+		if (VictoryWindow.ME!=null)
+			VictoryWindow.ME.destroy();
+
 		if( Game.ME!=null ) {
 			Game.ME.destroy();
 			delayer.addF(function() {
@@ -104,6 +114,11 @@ class Main extends dn.Process {
 			Console.ME.setFlag("bounds", true);
 		#end
 
-        super.update();
+		super.update();
+		
+		if (restartGame) {
+			restartGame=false;
+			startGame();
+		}
 	}
 }
