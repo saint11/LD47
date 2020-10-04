@@ -23,7 +23,7 @@ class Mob extends Entity {
         spr.anim.registerStateAnim("zombie_walk", 1, 0.15, ()-> moving>0);
         spr.anim.registerStateAnim("zombie_hit", 1, 0.15, ()-> hasAffect(Stun));
         
-        setAffectS(Sleep, rnd(0.5, 1));
+        setAffectS(Sleep, rnd(0.5, 2));
 
         data = Data.mobs.resolve(ref.f_MobType.getName());
         initLife(data.hp);

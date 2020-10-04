@@ -4,6 +4,13 @@ size: 512,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+aim
+  rotate: false
+  xy: 100, 276
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
 blood
   rotate: false
   xy: 125, 157
@@ -62,7 +69,7 @@ fxLine0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 100, 276
+  xy: 100, 309
   size: 32, 3
   orig: 33, 3
   offset: 1, 0

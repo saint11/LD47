@@ -1,3 +1,5 @@
+import h2d.Bitmap;
+import h2d.Graphics;
 import en.Hero;
 import ui.EndWindow;
 import h2d.col.Point;
@@ -73,7 +75,6 @@ class Game extends Process {
 		startLevel(levelLoop[0]);
 
 		Process.resizeAll();
-
 		//trace(Lang.t._("Game is ready."));
 	}
 
@@ -188,7 +189,6 @@ class Game extends Process {
 		// Z sort
 		if( !cd.hasSetS("zsort",0.1) )
 			Entity.ALL.sort( function(a,b) return Reflect.compare(a.z, b.z) );
-
 
 		for(e in Entity.ALL) {
 			scroller.over(e.spr);

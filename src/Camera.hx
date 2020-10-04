@@ -97,8 +97,8 @@ class Camera extends dn.Process {
 			var scroller = Game.ME.scroller;
 
 			// Update scroller
-			scroller.x = -x + wid*0.5;
-			scroller.y = -y + hei*0.5;
+			scroller.x = (-x + wid*0.5);
+			scroller.y =  M.lerp(-y, -Game.ME.level.pxWid/2, 0.5) + hei*0.5;
 
 			scroller.x = M.fclamp(scroller.x, -Game.ME.level.offsetX + Game.ME.level.pxWid * 0.75, Game.ME.level.offsetX);
 			scroller.y = M.fclamp(scroller.y, -Game.ME.level.offsetY, Game.ME.level.offsetY);

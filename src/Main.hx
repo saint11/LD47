@@ -10,8 +10,8 @@ class Main extends dn.Process {
 
 	var scene:h2d.Scene;
 
-	public var mouseX(get,never) : Float; function get_mouseX() return scene.mouseX - Game.ME.scroller.x;
-	public var mouseY(get,never) : Float; function get_mouseY() return scene.mouseY - Game.ME.scroller.y;
+	public var mouseX(get,never) : Float; function get_mouseX() return (scene.mouseX - Game.ME.scroller.x)/ Const.SCALE;
+	public var mouseY(get,never) : Float; function get_mouseY() return (scene.mouseY - Game.ME.scroller.y)/ Const.SCALE;
 
 	public var restartGame:Bool;
 
