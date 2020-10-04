@@ -1,3 +1,4 @@
+import ui.VictoryWindow;
 import h2d.col.Point;
 import h2d.Interactive;
 import dn.Process;
@@ -42,6 +43,7 @@ class Game extends Process {
 	public function new() {
 		super(Main.ME);
 		ME = this;
+
 		ca = Main.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);
@@ -198,7 +200,7 @@ class Game extends Process {
 			#end
 
 			// Restart
-			if( ca.selectPressed() )
+			if( ca.selectPressed())
 				Main.ME.startGame();
 		}
 	}
@@ -231,6 +233,10 @@ class Game extends Process {
 		money += amount;
 		hud.setMoney(money);
 		amount>0 ? hud.blinkWhite() : hud.blinkRed();
+	}
+
+	public function win() {
+		new VictoryWindow();
 	}
 }
 
