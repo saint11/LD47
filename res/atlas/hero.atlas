@@ -6,225 +6,225 @@ filter: Linear,Linear
 repeat: none
 hero_idle_d_00
   rotate: false
-  xy: 1, 88
+  xy: 229, 162
   size: 109, 88
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_01
   rotate: false
-  xy: 1, 244
+  xy: 188, 254
   size: 96, 87
   orig: 240, 240
   offset: 62, 0
   index: -1
 hero_idle_d_02
   rotate: false
-  xy: 375, 246
+  xy: 285, 251
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
   index: -1
 hero_idle_d_03
   rotate: false
-  xy: 1, 1
+  xy: 1, 83
   size: 113, 86
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_04
   rotate: false
-  xy: 1, 88
+  xy: 229, 162
   size: 109, 88
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_05
   rotate: false
-  xy: 1, 244
+  xy: 188, 254
   size: 96, 87
   orig: 240, 240
   offset: 62, 0
   index: -1
 hero_idle_d_06
   rotate: false
-  xy: 375, 246
+  xy: 285, 251
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
   index: -1
 hero_idle_d_07
   rotate: false
-  xy: 1, 1
+  xy: 1, 83
   size: 113, 86
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_08
   rotate: false
-  xy: 1, 88
+  xy: 229, 162
   size: 109, 88
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_09
   rotate: false
-  xy: 1, 244
+  xy: 188, 254
   size: 96, 87
   orig: 240, 240
   offset: 62, 0
   index: -1
 hero_idle_d_10
   rotate: false
-  xy: 375, 246
+  xy: 285, 251
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
   index: -1
 hero_idle_d_11
   rotate: false
-  xy: 1, 1
+  xy: 1, 83
   size: 113, 86
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_12
   rotate: false
-  xy: 111, 88
+  xy: 339, 162
   size: 109, 88
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_13
   rotate: false
-  xy: 98, 244
+  xy: 188, 342
   size: 96, 87
   orig: 240, 240
   offset: 62, 0
   index: -1
 hero_idle_d_14
   rotate: false
-  xy: 375, 333
+  xy: 381, 251
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
   index: -1
 hero_idle_d_15
   rotate: false
-  xy: 115, 1
+  xy: 115, 83
   size: 113, 86
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_16
   rotate: false
-  xy: 111, 88
+  xy: 339, 162
   size: 109, 88
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_idle_d_17
   rotate: false
-  xy: 1, 244
+  xy: 188, 254
   size: 96, 87
   orig: 240, 240
   offset: 62, 0
   index: -1
 hero_idle_d_18
   rotate: false
-  xy: 375, 246
+  xy: 285, 251
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
   index: -1
 hero_idle_d_19
   rotate: false
-  xy: 1, 1
+  xy: 1, 83
   size: 113, 86
   orig: 240, 240
   offset: 53, 0
   index: -1
 hero_walk_d_00
   rotate: false
-  xy: 229, 79
-  size: 109, 90
+  xy: 237, 1
+  size: 114, 92
   orig: 240, 240
   offset: 59, 0
   index: -1
 hero_walk_d_01
   rotate: false
-  xy: 229, 1
-  size: 110, 77
+  xy: 1, 1
+  size: 117, 81
   orig: 240, 240
-  offset: 56, 3
+  offset: 55, 2
   index: -1
 hero_walk_d_02
   rotate: false
-  xy: 1, 177
-  size: 104, 66
+  xy: 341, 94
+  size: 110, 67
   orig: 240, 240
   offset: 71, 0
   index: -1
 hero_walk_d_03
   rotate: false
-  xy: 339, 79
-  size: 109, 90
+  xy: 352, 1
+  size: 114, 92
   orig: 240, 240
   offset: 73, 0
   index: -1
 hero_walk_d_04
   rotate: false
-  xy: 340, 1
-  size: 110, 77
+  xy: 119, 1
+  size: 117, 81
   orig: 240, 240
-  offset: 73, 3
+  offset: 72, 2
   index: -1
 hero_walk_d_05
   rotate: false
-  xy: 106, 177
-  size: 104, 66
+  xy: 229, 94
+  size: 111, 67
   orig: 240, 240
-  offset: 62, 0
+  offset: 60, 0
   index: -1
 hero_walk_u_00
   rotate: false
-  xy: 1, 332
+  xy: 1, 254
   size: 90, 97
   orig: 240, 240
   offset: 78, 2
   index: -1
 hero_walk_u_01
   rotate: false
-  xy: 183, 332
-  size: 95, 93
+  xy: 92, 254
+  size: 95, 95
   orig: 240, 240
   offset: 72, 0
   index: -1
 hero_walk_u_02
   rotate: false
-  xy: 221, 170
-  size: 104, 75
+  xy: 1, 170
+  size: 104, 83
   orig: 240, 240
   offset: 66, 1
   index: -1
 hero_walk_u_03
   rotate: false
-  xy: 92, 332
+  xy: 1, 352
   size: 90, 97
   orig: 240, 240
   offset: 68, 2
   index: -1
 hero_walk_u_04
   rotate: false
-  xy: 279, 246
-  size: 95, 93
+  xy: 92, 350
+  size: 95, 95
   orig: 240, 240
   offset: 69, 0
   index: -1
 hero_walk_u_05
   rotate: false
-  xy: 326, 170
-  size: 104, 75
+  xy: 106, 170
+  size: 104, 83
   orig: 240, 240
   offset: 66, 1
   index: -1

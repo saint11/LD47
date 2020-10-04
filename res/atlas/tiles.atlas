@@ -1,82 +1,89 @@
 
 tiles.png
-size: 1024,1024
+size: 512,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 blood
   rotate: false
-  xy: 144, 991
-  size: 24, 24
+  xy: 125, 157
+  size: 20, 24
   orig: 24, 24
-  offset: 0, 0
+  offset: 2, 0
   index: -1
 door
   rotate: false
-  xy: 965, 1
-  size: 48, 144
-  orig: 48, 144
-  offset: 0, 0
+  xy: 153, 156
+  size: 139, 354
+  orig: 300, 475
+  offset: 104, 19
+  index: -1
+door_top
+  rotate: false
+  xy: 1, 347
+  size: 94, 354
+  orig: 300, 475
+  offset: 149, 19
   index: -1
 empty
   rotate: false
-  xy: 17, 1021
-  size: 1, 1
+  xy: 503, 39
+  size: 3, 3
   orig: 1, 1
-  offset: 0, 0
+  offset: 0, -2
   index: -1
 fxCircle0
   rotate: false
-  xy: 169, 991
+  xy: 125, 182
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 65, 1018
+  xy: 507, 39
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 1, 1014
+  xy: 125, 199
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 24, 1020
+  xy: 100, 272
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 33, 1014
-  size: 33, 3
+  xy: 100, 276
+  size: 32, 3
   orig: 33, 3
-  offset: 0, 0
+  offset: 1, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 17, 1014
+  xy: 503, 28
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 99, 965
+  xy: 454, 120
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 99, 1010
+  xy: 100, 260
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
@@ -84,140 +91,140 @@ fxTail0
 ghost_idle_00
   rotate: false
   xy: 1, 1
-  size: 240, 240
+  size: 151, 155
   orig: 240, 240
-  offset: 0, 0
+  offset: 37, 5
   index: -1
 ghost_idle_01
   rotate: false
-  xy: 1, 242
-  size: 240, 240
+  xy: 304, 1
+  size: 149, 156
   orig: 240, 240
-  offset: 0, 0
+  offset: 39, 5
   index: -1
 ghost_idle_02
   rotate: false
-  xy: 1, 483
-  size: 240, 240
+  xy: 153, 1
+  size: 150, 154
   orig: 240, 240
-  offset: 0, 0
+  offset: 37, 6
   index: -1
 pixel
   rotate: false
-  xy: 19, 1021
+  xy: 509, 1
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 scroll
   rotate: false
-  xy: 483, 483
-  size: 96, 96
+  xy: 385, 165
+  size: 88, 93
   orig: 96, 96
-  offset: 0, 0
+  offset: 5, 0
   index: -1
 shadow
   rotate: false
-  xy: 144, 965
-  size: 55, 25
+  xy: 454, 1
+  size: 54, 20
   orig: 55, 25
-  offset: 0, 0
+  offset: 1, 2
   index: -1
 test_hole
   rotate: false
-  xy: 1, 965
+  xy: 454, 22
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 test_tile
   rotate: false
-  xy: 50, 965
+  xy: 454, 71
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 uiBar
   rotate: false
-  xy: 58, 1018
+  xy: 503, 35
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 24, 1014
+  xy: 503, 22
   size: 8, 5
   orig: 8, 5
   offset: 0, 0
   index: -1
 zombie_hit_00
   rotate: false
-  xy: 1, 724
-  size: 240, 240
+  xy: 1, 157
+  size: 123, 102
   orig: 240, 240
-  offset: 0, 0
+  offset: 73, 5
   index: -1
 zombie_idle_00
   rotate: false
-  xy: 242, 1
-  size: 240, 240
+  xy: 293, 334
+  size: 78, 97
   orig: 240, 240
-  offset: 0, 0
+  offset: 81, 0
   index: -1
 zombie_walk_00
   rotate: false
-  xy: 242, 1
-  size: 240, 240
+  xy: 293, 334
+  size: 78, 97
   orig: 240, 240
-  offset: 0, 0
+  offset: 81, 0
   index: -1
 zombie_walk_01
   rotate: false
-  xy: 483, 1
-  size: 240, 240
+  xy: 1, 260
+  size: 98, 86
   orig: 240, 240
-  offset: 0, 0
+  offset: 79, 1
   index: -1
 zombie_walk_02
   rotate: false
-  xy: 724, 1
-  size: 240, 240
+  xy: 293, 158
+  size: 91, 91
   orig: 240, 240
-  offset: 0, 0
+  offset: 74, 0
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 242, 242
-  size: 240, 240
+  xy: 293, 250
+  size: 85, 83
   orig: 240, 240
-  offset: 0, 0
+  offset: 62, 0
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 242, 483
-  size: 240, 240
+  xy: 379, 259
+  size: 79, 81
   orig: 240, 240
-  offset: 0, 0
+  offset: 65, 0
   index: -1
 zombie_walk_05
   rotate: false
-  xy: 242, 724
-  size: 240, 240
+  xy: 372, 439
+  size: 69, 93
   orig: 240, 240
-  offset: 0, 0
+  offset: 85, 0
   index: -1
 zombie_walk_06
   rotate: false
-  xy: 483, 242
-  size: 240, 240
+  xy: 372, 341
+  size: 78, 97
   orig: 240, 240
-  offset: 0, 0
+  offset: 81, 0
   index: -1
 zombie_walk_07
   rotate: false
-  xy: 724, 242
-  size: 240, 240
+  xy: 293, 432
+  size: 78, 97
   orig: 240, 240
-  offset: 0, 0
+  offset: 81, 0
   index: -1

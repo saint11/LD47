@@ -98,9 +98,9 @@ class Main extends dn.Process {
 
 		// Auto scaling
 		if( Const.AUTO_SCALE_TARGET_WID>0 )
-			Const.SCALE = M.ceil( w()/Const.AUTO_SCALE_TARGET_WID );
+			Const.SCALE = ( w()/Const.AUTO_SCALE_TARGET_WID );
 		else if( Const.AUTO_SCALE_TARGET_HEI>0 )
-			Const.SCALE = M.ceil( h()/Const.AUTO_SCALE_TARGET_HEI );
+			Const.SCALE = ( h()/Const.AUTO_SCALE_TARGET_HEI );
 
 		Const.UI_SCALE = Const.SCALE;
 	}

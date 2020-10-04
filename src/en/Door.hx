@@ -9,12 +9,22 @@ class Door extends Entity {
 
     var open:Bool = false;
 
+    var doorTop:Entity;
+
     public function new(x,y, dir) {
         super(x,y);
 
         spr.set("door");
         spr.setCenterRatio();
         
+        doorTop = new Entity(x,y);
+        doorTop.hasColl = false;
+        doorTop.spr.set("door_top");
+        doorTop.spr.setCenterRatio();
+        doorTop.zPrio= 1000;
+        doorTop.entityVisible=false;
+        doorTop.dir= dir;
+
         this.dir = dir;
         
         hasColl = false;
@@ -30,6 +40,8 @@ class Door extends Entity {
                 open = true;
                 sprSquashX = 2;
                 spr.alpha = 1;
+                doorTop.entityVisible=true;
+                doorTop.sprSquashX = 2;
             }
 
             if (game.hero.hasColl && distCase(game.hero, 0, 0.25)<1.12) {

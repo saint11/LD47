@@ -17,8 +17,8 @@ class Level extends dn.Process {
 	public var wid(get,never) : Int; function get_wid() return level.l_Entities.cWid;
 	public var hei(get,never) : Int; function get_hei() return level.l_Entities.cHei;
 	
-	public var pxWid : Int = Const.AUTO_SCALE_TARGET_WID;
-	public var pxHei : Int = Const.AUTO_SCALE_TARGET_HEI;
+	public var pxWid(get,never) : Int; function get_pxWid() return level.l_Entities.cWid * Const.GRID;
+	public var pxHei(get,never) : Int; function get_pxHei() return level.l_Entities.cHei * Const.GRID;
 
 	public var offsetX = 0;
 	public var offsetY = 0;
@@ -124,8 +124,6 @@ class Level extends dn.Process {
 		var bg = Res.bg.wall_simple01.toTile();
 		var floor = Res.bg.floor_simple01.toTile();
 		
-		pxWid = M.round(bg.width);
-		pxHei = M.round(bg.height);
 		offsetX = M.round((bg.width - floor.width)/ 2);
 		offsetY = M.round((bg.height - floor.height)/ 2);
 		

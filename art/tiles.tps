@@ -169,7 +169,7 @@
             <key>trimMargin</key>
             <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">None</enum>
+            <enum type="SpriteSettings::TrimMode">Trim</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -181,6 +181,21 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">export_tiles/blood.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>6,6,12,12</rect>
+                <key>scale9Paddings</key>
+                <rect>6,6,12,12</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">export_tiles/door.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -193,6 +208,21 @@
                 <rect>12,36,24,72</rect>
                 <key>scale9Paddings</key>
                 <rect>12,36,24,72</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">export_tiles/door_top.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>342,212,683,424</rect>
+                <key>scale9Paddings</key>
+                <rect>342,212,683,424</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -329,6 +359,48 @@
                 <rect>8,3,17,5</rect>
                 <key>scale9Paddings</key>
                 <rect>8,3,17,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">export_tiles/ghost_idle_00.png</key>
+            <key type="filename">export_tiles/ghost_idle_01.png</key>
+            <key type="filename">export_tiles/ghost_idle_02.png</key>
+            <key type="filename">export_tiles/zombie_hit_00.png</key>
+            <key type="filename">export_tiles/zombie_idle_00.png</key>
+            <key type="filename">export_tiles/zombie_walk_00.png</key>
+            <key type="filename">export_tiles/zombie_walk_01.png</key>
+            <key type="filename">export_tiles/zombie_walk_02.png</key>
+            <key type="filename">export_tiles/zombie_walk_03.png</key>
+            <key type="filename">export_tiles/zombie_walk_04.png</key>
+            <key type="filename">export_tiles/zombie_walk_05.png</key>
+            <key type="filename">export_tiles/zombie_walk_06.png</key>
+            <key type="filename">export_tiles/zombie_walk_07.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>60,60,120,120</rect>
+                <key>scale9Paddings</key>
+                <rect>60,60,120,120</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">export_tiles/scroll.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>24,24,48,48</rect>
+                <key>scale9Paddings</key>
+                <rect>24,24,48,48</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
