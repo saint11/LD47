@@ -7,15 +7,16 @@ class FloorTrap extends Entity {
 
     public var color:Vec;
 
-    public function new(x,y) {
+    public function new(x,y, data:World.Entity_TrapFloor) {
         super(x,y);
         hasColl=false;
 
         zPrio = -1000;
-        spr.anim.registerStateAnim("trap_floor_stop", 5, 0.2, level.isComplete);
+        if (!data.f_Auto)
+            spr.anim.registerStateAnim("trap_floor_stop", 5, 0.2, level.isComplete);
         spr.anim.registerStateAnim("trap_floor", 0, 0.2);
 
-        spr.setCenterRatio(0.5, 0.75);
+        spr.setCenterRatio(0.5, 0.6);
     }
 
     override function update() {

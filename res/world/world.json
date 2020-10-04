@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 55,
+	"nextUid": 57,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -217,6 +217,22 @@
 				"width": 16,
 				"height": 16,
 				"color": "#00AAFF",
+				"renderMode": "Cross",
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0.5,
+				"pivotY": 0.5,
+				"fieldDefs": []
+			},
+			{
+				"identifier": "Chest",
+				"uid": 56,
+				"width": 32,
+				"height": 32,
+				"color": "#2C972B",
 				"renderMode": "Cross",
 				"tilesetId": null,
 				"tileId": null,
@@ -1353,7 +1369,8 @@
 								"__type": "Float",
 								"defUid": 39,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.2 ] } ]
-							}
+							},
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 12, "__cy": 12, "defUid": 24, "x": 200, "y": 200, "fieldInstances": [
 							{
@@ -1372,7 +1389,8 @@
 								"__type": "Float",
 								"defUid": 39,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.2 ] } ]
-							}
+							},
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 2, "__cy": 12, "defUid": 24, "x": 40, "y": 200, "fieldInstances": [
 							{
@@ -1391,6 +1409,371 @@
 								"__type": "Float",
 								"defUid": 39,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.2 ] } ]
+							},
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 1, "defUid": 45, "x": 104, "y": 24, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 3, "defUid": 45, "x": 104, "y": 56, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 5, "defUid": 45, "x": 104, "y": 88, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 7, "defUid": 45, "x": 104, "y": 120, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 7, "defUid": 45, "x": 136, "y": 120, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 9, "defUid": 45, "x": 104, "y": 152, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 5, "defUid": 45, "x": 136, "y": 88, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 11, "defUid": 45, "x": 104, "y": 184, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 13, "defUid": 45, "x": 104, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 13, "defUid": 45, "x": 136, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 11, "defUid": 45, "x": 136, "y": 184, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 9, "defUid": 45, "x": 136, "y": 152, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 1, "defUid": 45, "x": 136, "y": 24, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 3, "defUid": 45, "x": 136, "y": 56, "fieldInstances": [
+							{
+								"__identifier": "Auto",
+								"__value": true,
+								"__type": "Bool",
+								"defUid": 46,
+								"realEditorValues": [ {
+									"id": "V_Bool",
+									"params": [ true ]
+								} ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
 							}
 						] }
 					]
@@ -2199,6 +2582,458 @@
 								"__type": "Float",
 								"defUid": 51,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] }
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TreasureRoom",
+			"uid": 55,
+			"pxWid": 256,
+			"pxHei": 240,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 15,
+					"__gridSize": 16,
+					"levelId": 55,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 9682074,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "Chest", "__cx": 8, "__cy": 7, "defUid": 56, "x": 136, "y": 120, "fieldInstances": [] },
+						{ "__identifier": "Mob", "__cx": 14, "__cy": 1, "defUid": 24, "x": 232, "y": 24, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Bomber",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Bomber" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 14, "__cy": 13, "defUid": 24, "x": 232, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Bomber",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Bomber" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 1, "__cy": 13, "defUid": 24, "x": 24, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Bomber",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Bomber" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 1, "__cy": 1, "defUid": 24, "x": 24, "y": 24, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Bomber",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Bomber" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 8, "__cy": 1, "defUid": 24, "x": 136, "y": 24, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Bomber",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Bomber" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 8, "__cy": 13, "defUid": 24, "x": 136, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Bomber",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Bomber" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 3, "__cy": 3, "defUid": 45, "x": 56, "y": 56, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 50, "realEditorValues": [] },
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 51, "realEditorValues": [] }
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 12, "__cy": 3, "defUid": 45, "x": 200, "y": 56, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 50, "realEditorValues": [] },
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 51, "realEditorValues": [] }
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 12, "__cy": 11, "defUid": 45, "x": 200, "y": 184, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 50, "realEditorValues": [] },
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 51, "realEditorValues": [] }
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 3, "__cy": 11, "defUid": 45, "x": 56, "y": 184, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 50, "realEditorValues": [] },
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 51, "realEditorValues": [] }
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 3, "__cy": 7, "defUid": 45, "x": 56, "y": 120, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.05,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.05 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 3, "defUid": 45, "x": 136, "y": 56, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.05,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.05 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 12, "__cy": 7, "defUid": 45, "x": 200, "y": 120, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.05,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.05 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 11, "defUid": 45, "x": 136, "y": 184, "fieldInstances": [
+							{ "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] },
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.05,
+								"__type": "Float",
+								"defUid": 50,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.05 ] } ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 51,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 5, "__cy": 5, "defUid": 24, "x": 88, "y": 88, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.03,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 10, "__cy": 5, "defUid": 24, "x": 168, "y": 88, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.03,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 10, "__cy": 9, "defUid": 24, "x": 168, "y": 152, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.03,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 5, "__cy": 9, "defUid": 24, "x": 88, "y": 152, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Shooter",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Shooter" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.03,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 5, "__cy": 7, "defUid": 24, "x": 88, "y": 120, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.03,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 8, "__cy": 5, "defUid": 24, "x": 136, "y": 88, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.03,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
+							}
+						] },
+						{ "__identifier": "Mob", "__cx": 8, "__cy": 9, "defUid": 24, "x": 136, "y": 152, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 39,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrease",
+								"__value": 0.03,
+								"__type": "Float",
+								"defUid": 52,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
 							}
 						] }
 					]

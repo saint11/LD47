@@ -1,6 +1,8 @@
-package en;
+package en.inter;
 
-class Fountain extends Interactive {
+import dn.Delayer;
+
+class Treasure extends Interactive {
     var expired : Bool = false;
 
     public function new(x,y) {
@@ -18,10 +20,17 @@ class Fountain extends Interactive {
         if (!expired) {
             expired = true;
 
-            by.heal(1);
+            
+        var d = new Delayer(30);
+        var droppedBlood = M.ceil(M.randRange(Data.globals.get(fountainMoneyMin).value, Data.globals.get(fountainMoneyMax).value) * Game.ME.bonusMoney);
+        for (i in 0...droppedBlood) {
+            
+            var c = new Collectible(cx,cy);
+            c.dx = rnd(-0.5, 0.5);
+            c.dy = rnd(-0.5, 0.5);
+        }
+
         }
     }
-
-
 
 }

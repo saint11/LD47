@@ -1,6 +1,5 @@
 import hxd.Math;
 import hxd.SceneEvents.Interactive;
-import hxd.Cursor;
 
 class Entity {
     public static var ALL : Array<Entity> = [];

@@ -45,6 +45,14 @@
 				{
 					"id": "colorVariation",
 					"value": 0.15
+				},
+				{
+					"id": "fountainMoneyMin",
+					"value": 50
+				},
+				{
+					"id": "fountainMoneyMax",
+					"value": 100
 				}
 			],
 			"separators": [],
@@ -564,7 +572,7 @@
 					"levelName": "ShooterRoom",
 					"title": "Shooter Room",
 					"price": 15,
-					"desc": "+2% chance of a chest on all rooms",
+					"desc": "+8% chance of a chest on all rooms",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -575,7 +583,7 @@
 						{
 							"bonus": [
 								1,
-								2
+								8
 							]
 						}
 					]
@@ -601,6 +609,19 @@
 					]
 				},
 				{
+					"levelName": "TreasureRoom",
+					"title": "Treasure Room",
+					"price": 60,
+					"bonus": [],
+					"desc": "Not suspicious at all",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 7,
+						"y": 0
+					}
+				},
+				{
 					"levelName": "EndGame",
 					"title": "Exit the Temple",
 					"price": 5000,
@@ -614,7 +635,9 @@
 					"bonus": []
 				}
 			],
-			"separators": [],
+			"separators": [
+				9
+			],
 			"props": {}
 		},
 		{
