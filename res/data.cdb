@@ -404,14 +404,27 @@
 					"levelName": "TrapRoom",
 					"title": "Trap Room",
 					"price": 0,
-					"desc": "",
+					"desc": "+2% dropped blood and treasure chance on all rooms",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
 						"x": 4,
 						"y": 0
 					},
-					"bonus": []
+					"bonus": [
+						{
+							"bonus": [
+								0,
+								2
+							]
+						},
+						{
+							"bonus": [
+								1,
+								2
+							]
+						}
+					]
 				},
 				{
 					"levelName": "BombRoom",
