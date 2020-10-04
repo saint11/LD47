@@ -6,15 +6,15 @@ filter: Linear,Linear
 repeat: none
 aim
   rotate: false
-  xy: 530, 990
+  xy: 398, 717
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 blood
   rotate: false
-  xy: 301, 888
-  size: 20, 24
+  xy: 376, 884
+  size: 19, 24
   orig: 24, 24
   offset: 2, 0
   index: -1
@@ -63,20 +63,34 @@ empty
 fountain_00
   rotate: false
   xy: 301, 762
-  size: 132, 125
+  size: 141, 121
   orig: 147, 129
-  offset: 2, 2
+  offset: 6, 2
+  index: -1
+fountain_01
+  rotate: false
+  xy: 443, 734
+  size: 141, 121
+  orig: 147, 129
+  offset: 6, 2
+  index: -1
+fountain_02
+  rotate: false
+  xy: 454, 856
+  size: 141, 121
+  orig: 147, 129
+  offset: 6, 2
   index: -1
 fountain_expired_00
   rotate: false
-  xy: 362, 888
-  size: 132, 125
+  xy: 406, 1
+  size: 141, 121
   orig: 147, 129
-  offset: 2, 2
+  offset: 6, 2
   index: -1
 fxCircle0
   rotate: false
-  xy: 322, 900
+  xy: 431, 717
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -90,7 +104,7 @@ fxDot0
   index: -1
 fxImpact0
   rotate: false
-  xy: 362, 1014
+  xy: 360, 750
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
@@ -111,7 +125,7 @@ fxLineDir0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 301, 913
+  xy: 376, 750
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
@@ -125,7 +139,7 @@ fxSmoke0
   index: -1
 fxTail0
   rotate: false
-  xy: 322, 888
+  xy: 326, 750
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
@@ -216,28 +230,28 @@ ghost_idle_11
   index: -1
 p_simple_00
   rotate: false
-  xy: 362, 717
+  xy: 337, 884
   size: 38, 32
   orig: 48, 48
   offset: 4, 8
   index: -1
 p_simple_01
   rotate: false
-  xy: 495, 990
+  xy: 363, 717
   size: 34, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 p_simple_02
   rotate: false
-  xy: 326, 717
+  xy: 301, 884
   size: 35, 34
   orig: 48, 48
   offset: 6, 8
   index: -1
 p_simple_03
   rotate: false
-  xy: 401, 717
+  xy: 326, 717
   size: 36, 32
   orig: 48, 48
   offset: 6, 9
@@ -258,7 +272,7 @@ scroll
   index: -1
 shadow
   rotate: false
-  xy: 563, 990
+  xy: 396, 884
   size: 53, 20
   orig: 55, 25
   offset: 0, 2
@@ -279,52 +293,87 @@ test_tile
   index: -1
 trap_floor_0000
   rotate: false
-  xy: 434, 750
+  xy: 826, 1
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0001
   rotate: false
-  xy: 495, 870
+  xy: 826, 121
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0002
   rotate: false
-  xy: 406, 1
+  xy: 684, 122
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0003
   rotate: false
-  xy: 406, 121
+  xy: 801, 241
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0004
   rotate: false
-  xy: 416, 241
+  xy: 684, 242
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_0005
   rotate: false
-  xy: 523, 1
+  xy: 448, 365
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
   index: -1
 trap_floor_stop_0000
   rotate: false
-  xy: 523, 121
+  xy: 801, 361
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
+  index: -1
+treasure_off
+  rotate: false
+  xy: 406, 123
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_00
+  rotate: false
+  xy: 416, 244
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_01
+  rotate: false
+  xy: 545, 123
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_02
+  rotate: false
+  xy: 548, 1
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
+  index: -1
+treasure_on_03
+  rotate: false
+  xy: 687, 1
+  size: 138, 120
+  orig: 147, 129
+  offset: 5, 2
   index: -1
 uiBar
   rotate: false
@@ -363,28 +412,28 @@ zombie_walk_00
   index: -1
 zombie_walk_01
   rotate: false
-  xy: 432, 453
+  xy: 585, 244
   size: 98, 86
   orig: 240, 240
   offset: 79, 1
   index: -1
 zombie_walk_02
   rotate: false
-  xy: 432, 361
+  xy: 362, 917
   size: 91, 91
   orig: 240, 240
   offset: 74, 0
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 524, 361
+  xy: 596, 331
   size: 85, 83
   orig: 240, 240
   offset: 62, 0
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 533, 241
+  xy: 943, 1
   size: 79, 81
   orig: 240, 240
   offset: 65, 0
