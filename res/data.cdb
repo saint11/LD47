@@ -131,7 +131,7 @@
 					"speed": 0.37,
 					"friction": 0.99,
 					"lifespan": 30,
-					"dmg": "magic_missile",
+					"dmg": "player_bullet",
 					"jump": 0,
 					"gravity": 0,
 					"startAltitude": 32,
@@ -143,10 +143,26 @@
 					"lifespanVar": 0
 				},
 				{
+					"id": "SmallBullet",
+					"scale": 0.5,
+					"image": 0,
+					"speed": 0.4,
+					"friction": 0.98,
+					"jump": 2,
+					"gravity": 0.5,
+					"startAltitude": 24,
+					"dmg": "machine_gun_bullet",
+					"explode": false,
+					"dmgOnTouch": true,
+					"breakOnWall": true,
+					"lifespan": 30,
+					"lifespanVar": 3
+				},
+				{
 					"id": "EnemyFire",
 					"speed": 0.1,
 					"friction": 1,
-					"dmg": "magic_missile",
+					"dmg": "enemy_bullet",
 					"lifespan": 300,
 					"jump": 0,
 					"gravity": 0,
@@ -170,7 +186,7 @@
 					"explode": true,
 					"dmgOnTouch": true,
 					"breakOnWall": false,
-					"scale": 2,
+					"scale": 1.5,
 					"image": 0,
 					"lifespanVar": 30
 				},
@@ -181,12 +197,12 @@
 					"jump": 0,
 					"gravity": 0,
 					"startAltitude": 32,
-					"dmg": "magic_missile",
+					"dmg": "machine_gun_bullet",
 					"explode": false,
 					"dmgOnTouch": true,
 					"breakOnWall": true,
 					"lifespan": 10,
-					"scale": 0.2,
+					"scale": 0.5,
 					"image": 1,
 					"lifespanVar": 4
 				}
@@ -235,11 +251,11 @@
 				},
 				{
 					"id": "DevilGun",
-					"projectile": "SimpleBullet",
+					"projectile": "SmallBullet",
 					"interval": 0.1,
 					"stun": 0,
 					"bullets": 1,
-					"spread": 5
+					"spread": 6
 				},
 				{
 					"id": "Shotgun",
@@ -274,6 +290,10 @@
 				{
 					"id": "hero_walk",
 					"speed": 0.2
+				},
+				{
+					"id": "fountain",
+					"speed": 0.1
 				}
 			],
 			"separators": [],
@@ -336,7 +356,7 @@
 							]
 						}
 					],
-					"hp": 3,
+					"hp": 6,
 					"moveSpeed": 0.003,
 					"touchDamage": "zombie_touch",
 					"money": [
@@ -355,7 +375,7 @@
 						}
 					],
 					"moveSpeed": 0.01,
-					"hp": 1,
+					"hp": 2,
 					"money": [
 						2,
 						4
@@ -375,7 +395,7 @@
 						}
 					],
 					"moveSpeed": 0,
-					"hp": 3,
+					"hp": 6,
 					"money": [
 						5,
 						10
@@ -394,13 +414,13 @@
 						{
 							"ai": [
 								2,
-								2,
-								4
+								3,
+								5
 							]
 						}
 					],
 					"moveSpeed": -0.008,
-					"hp": 3,
+					"hp": 7,
 					"explosion": "bomb",
 					"money": [
 						10,
@@ -408,6 +428,32 @@
 					],
 					"projectile": "Bomb",
 					"sleep": 2
+				},
+				{
+					"id": "Tank",
+					"ai": [
+						{
+							"ai": [
+								1
+							]
+						},
+						{
+							"ai": [
+								2,
+								6,
+								8
+							]
+						}
+					],
+					"moveSpeed": 0.005,
+					"hp": 12,
+					"sleep": 2,
+					"touchDamage": "zombie_touch",
+					"projectile": "EnemyFire",
+					"money": [
+						20,
+						30
+					]
 				}
 			],
 			"separators": [],
@@ -453,10 +499,22 @@
 			],
 			"lines": [
 				{
-					"id": "magic_missile",
-					"amount": 1,
+					"id": "player_bullet",
+					"amount": 2,
 					"push": 0.2,
-					"stunTime": 0
+					"stunTime": 0.3
+				},
+				{
+					"id": "machine_gun_bullet",
+					"amount": 1,
+					"push": 0.1,
+					"stunTime": 0.05
+				},
+				{
+					"id": "enemy_bullet",
+					"amount": 1,
+					"push": 0.1,
+					"stunTime": 0.2
 				},
 				{
 					"id": "zombie_touch",

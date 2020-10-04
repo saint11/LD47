@@ -13,8 +13,6 @@ class Hero extends Entity {
     var moveSpeedX :Float;
     var moveSpeedY :Float;
 
-    var weapon:Data.Weapons;
-
     public function new(cx, cy) {
         super(cx, cy);
         Game.ME.camera.trackTarget(this, true);
@@ -30,8 +28,6 @@ class Hero extends Entity {
         spr.anim.registerStateAnim("hero_walk_r", 2, Data.animations.get(hero_walk).speed  * 0.8, ()-> moveX != 0);
 
         spr.setCenterRatio(0.5, 1);
-
-        weapon = Data.weapons.get(Shotgun);
         
         initLife(Game.ME.playerMaxLife);
         life = Game.ME.playerLife;
@@ -85,10 +81,12 @@ class Hero extends Entity {
     }
 
     function shoot(x:Float,y:Float, offX:Float, offY:Float) {
+        var weapon = Game.ME.weapon;
+        
         for (i in 0...weapon.bullets){
             new Projectile(x + offX,y + offY, angToMouse(offX,offY) + rnd(-weapon.spread, weapon.spread) * M.DEG_RAD, this, weapon.projectile);
         }
-        
+
         cd.setS("player_shoot", weapon.interval);
         setAffectS(Stun, weapon.stun);
         cancelVelocities();

@@ -8,8 +8,8 @@ class Fountain extends Interactive {
 
         weight = 1000;
         radius = 1.5 * Const.GRID;
-        spr.anim.registerStateAnim("fountain",0,0.2, ()->!expired);
-        spr.anim.registerStateAnim("fountain_expired",0,0.2, ()->expired);
+        spr.anim.registerStateAnim("fountain",0,Data.animations.get(fountain).speed, ()->!expired);
+        spr.anim.registerStateAnim("fountain_expired",0,Data.animations.get(fountain).speed, ()->expired);
         spr.setCenterRatio();
     }
 
