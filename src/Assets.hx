@@ -12,6 +12,7 @@ class Assets {
 	public static var tiles : SpriteLib;
 	public static var hero : SpriteLib;
 	public static var ui : SpriteLib;
+	public static var fx : SpriteLib;
 
 	public static var shopIcons : Tile;
 
@@ -33,5 +34,6 @@ class Assets {
 		tiles = dn.heaps.assets.Atlas.load("atlas/tiles.atlas");
 		hero = dn.heaps.assets.Atlas.load("atlas/hero.atlas");
 		ui = dn.heaps.assets.Atlas.load("atlas/ui.atlas");
+		fx = dn.heaps.assets.Atlas.load("atlas/fx.atlas");
 	}
 }

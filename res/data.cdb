@@ -92,6 +92,10 @@
 				},
 				{
 					"typeStr": "4",
+					"name": "stun"
+				},
+				{
+					"typeStr": "4",
 					"name": "interval"
 				}
 			],
@@ -99,12 +103,14 @@
 				{
 					"id": "MagicMissile",
 					"projectile": "SimpleBullet",
-					"interval": 0.5
+					"interval": 0.5,
+					"stun": 0.2
 				},
 				{
 					"id": "DevilGun",
 					"projectile": "SimpleBullet",
-					"interval": 0.1
+					"interval": 0.1,
+					"stun": 0
 				}
 			],
 			"separators": [],
@@ -159,6 +165,11 @@
 					"opt": true
 				},
 				{
+					"typeStr": "6:damage",
+					"name": "explosion",
+					"opt": true
+				},
+				{
 					"typeStr": "3",
 					"name": "hp"
 				},
@@ -185,6 +196,23 @@
 						2,
 						5
 					]
+				},
+				{
+					"id": "Explosive",
+					"ai": [
+						{
+							"ai": [
+								1
+							]
+						}
+					],
+					"moveSpeed": 0.01,
+					"hp": 1,
+					"money": [
+						5,
+						10
+					],
+					"explosion": "bomb"
 				}
 			],
 			"separators": [],
@@ -239,13 +267,19 @@
 					"id": "zombie_touch",
 					"amount": 1,
 					"push": 0.5,
-					"stunTime": 0
+					"stunTime": 0.2
 				},
 				{
 					"id": "insta_kill",
 					"amount": 9999,
 					"push": 0,
 					"stunTime": 0
+				},
+				{
+					"id": "bomb",
+					"amount": 2,
+					"push": 1,
+					"stunTime": 0.4
 				}
 			],
 			"separators": [],
@@ -294,7 +328,7 @@
 					"levelName": "CrowdedRoom",
 					"title": "Crowded Room",
 					"price": 5,
-					"desc": "10% blood increase on all rooms.",
+					"desc": "Up to 6 Zombies",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -303,9 +337,21 @@
 					}
 				},
 				{
+					"levelName": "BombRoom",
+					"title": "Bomb Room",
+					"price": 10,
+					"desc": "+5% dropped blood on all rooms",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 2,
+						"y": 0
+					}
+				},
+				{
 					"levelName": "EndGame",
 					"title": "Exit the Temple",
-					"price": 0,
+					"price": 5000,
 					"desc": "No one have ever escaped",
 					"icon": {
 						"file": "room_icons.png",
@@ -329,16 +375,22 @@
 					"typeStr": "1",
 					"name": "text",
 					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "stun"
 				}
 			],
 			"lines": [
 				{
 					"id": "victory",
-					"text": "You have survived the temple. Press SPACE to restart."
+					"text": "You have survived the temple. Press SPACE to restart.",
+					"stun": 0
 				},
 				{
 					"id": "game_over",
-					"text": "You have been consumed by the temple. Press SPACE to restart;"
+					"text": "You have been consumed by the temple. Press SPACE to restart;",
+					"stun": 0
 				}
 			],
 			"separators": [],
@@ -359,6 +411,10 @@
 				},
 				{
 					"name": "Shoot",
+					"args": []
+				},
+				{
+					"name": "Explode",
 					"args": []
 				}
 			]

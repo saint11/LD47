@@ -147,4 +147,12 @@ class Fx extends dn.Process {
 
 		pool.update(game.tmod);
 	}
+
+	
+    public function explode(centerX,centerY, explosionName, scale=1.) {
+		var tile = Assets.fx.tile;
+		var p = allocTopNormal(tile, centerX, centerY);
+        p.playAnimAndKill(Assets.fx, explosionName, 0.3);
+        p.scale = scale;
+    }
 }

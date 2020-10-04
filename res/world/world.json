@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 41,
+	"nextUid": 42,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -146,8 +146,8 @@
 		],
 		"enums": [],
 		"externalEnums": [
-			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Invulnerable", "tileId": null }, { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "a4cfe80f6575203dbe595040ba275aeb" },
-			{ "identifier": "MobType", "uid": 36, "values": [ { "id": "Zombie", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "a4cfe80f6575203dbe595040ba275aeb" }
+			{ "identifier": "Affect", "uid": 3, "values": [ { "id": "Invulnerable", "tileId": null }, { "id": "Sleep", "tileId": null }, { "id": "Stun", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "2c06a9c2cf7acfb691490ebc5f957705" },
+			{ "identifier": "MobType", "uid": 36, "values": [ { "id": "Explosive", "tileId": null }, { "id": "Zombie", "tileId": null } ], "iconTilesetUid": null, "externalRelPath": "../../src/Types.hx", "externalFileChecksum": "2c06a9c2cf7acfb691490ebc5f957705" }
 		]
 	},
 	"levels": [
@@ -335,6 +335,83 @@
 							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 2, "__cy": 3, "defUid": 24, "x": 40, "y": 56, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] }
+					]
+				}
+			]
+		},
+		{
+			"identifier": "BombRoom",
+			"uid": 41,
+			"pxWid": 256,
+			"pxHei": 256,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 16,
+					"__gridSize": 16,
+					"levelId": 41,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 7055297,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "Mob", "__cx": 4, "__cy": 1, "defUid": 24, "x": 72, "y": 24, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Explosive",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Explosive" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 12, "__cy": 6, "defUid": 24, "x": 200, "y": 104, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Explosive",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Explosive" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 4, "__cy": 13, "defUid": 24, "x": 72, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Explosive",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Explosive" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 6, "__cy": 7, "defUid": 24, "x": 104, "y": 120, "fieldInstances": [
 							{
 								"__identifier": "MobType",
 								"__value": "Zombie",

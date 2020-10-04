@@ -187,8 +187,8 @@ class Game extends Process {
 		super.update();
 
 		// Z sort
-		if( !cd.hasSetS("zsort",0.1) )
-			Entity.ALL.sort( function(a,b) return Reflect.compare(a.z, b.z) );
+		//if( !cd.hasSetS("zsort",0.1) )
+		Entity.ALL.sort( function(a,b) return Reflect.compare(a.z, b.z) );
 
 		for(e in Entity.ALL) {
 			scroller.over(e.spr);
@@ -223,7 +223,6 @@ class Game extends Process {
 	}
 
 	function startLevel(l : World.World_Level) {
-		trace("Loading new level...");
 		for(e in Entity.ALL)
 			e.destroy();
 		gc();

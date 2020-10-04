@@ -14,6 +14,10 @@ class Mob extends Entity {
 
     var moneyMin =0;
     var moneyMax =0;
+
+    var loot = true;
+
+    var ai: Array<Data.AI>;
     public function new(x,y, ref : World.Entity_Mob) {
         super(x,y);
 
@@ -32,6 +36,10 @@ class Mob extends Entity {
             moneyMax = data.money[1];
         }
 
+        ai = [];
+        for (a in data.ai)
+            ai.push(a.ai);
+
         enableShadow();
     }
 
@@ -40,9 +48,9 @@ class Mob extends Entity {
 
         moving=0;
         if (!hasAffect(Stun) && !hasAffect(Sleep)) {
-            for (ai in data.ai)
-            switch ai.ai {
-            case Idle:
+            for (ai in ai)
+            switch ai {
+            case Idle, Explode:
                 
             case Chase:
                 var a = angTo(game.hero);
@@ -57,8 +65,16 @@ class Mob extends Entity {
 
     override function onDie() {
         super.onDie();
-        
+        if (data.explosion!=null) {
+            fx.explode(centerX , centerY - 64, "explosion_big", 1.2);
+            for (e in Entity.ALL) {
+                if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 2) {
+                    e.hit(data.explosion,this);
+                }
+            }
+        }
         // Drop loot
+        if (loot)
         for (i in moneyMin...moneyMax) {
             var c = new Collectible(cx,cy);
             c.dx = rnd(-0.5, 0.5);
@@ -78,7 +94,15 @@ class Mob extends Entity {
 
     override function onTouch(other:Entity) {
         super.onTouch(other);
-        if (data.touchDamage!=null && other.is(Hero)) 
-             other.hit(data.touchDamage, this);
+        if (other.is(Hero)) {
+            if(data.touchDamage!=null) {
+                other.hit(data.touchDamage, this);
+            }
+
+            if (data.explosion!=null){
+                kill(this);
+                loot=false;
+            }
+        }
     }
 }

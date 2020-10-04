@@ -70,7 +70,6 @@ class Level extends dn.Process {
 		}
 
 		new Door(16,doorY, 1);
-		new Door(-1,doorY, -1);
 	}
 
 	/**

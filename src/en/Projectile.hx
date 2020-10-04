@@ -24,6 +24,10 @@ class Projectile extends Entity {
         spr.anim.registerStateAnim("p_simple", 0, 0.1);
         weight = 0;
 
+        enableShadow(0.5);
+        tall = true;
+        gravity=0;
+        altitude = 16;
         this.data = data;
     }
 
@@ -31,22 +35,28 @@ class Projectile extends Entity {
         super.dispose();
         ALL.remove(this);
     }
-
+    
     override function onTouchWallX() {
-        destroy();
+        explode();
     }
 
     override function onTouchWallY() {
-        destroy();
+        explode();
     }
 
     override function onTouch(e:Entity) {
         e.hit(data.dmg, this);
-        destroy();
+        explode();
     }
 
     override function hasCircCollWith(e:Entity):Bool {
         return e != owner;
+    }
+
+
+    public function explode() {
+        fx.explode(centerX,centerY, "explosion_green");
+        destroy();
     }
 
 }

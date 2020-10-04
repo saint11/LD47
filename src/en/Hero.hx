@@ -61,6 +61,8 @@ class Hero extends Entity {
             if (ca.yDown() && cd.getS("player_shoot")==0) {
                 new Projectile(centerX, centerY, angToMouse(), this, weapon.projectile);
                 cd.setS("player_shoot", weapon.interval);
+                setAffectS(Stun, weapon.stun);
+                cancelVelocities();
             }
 
             dx = addClamped(dx, moveX * moveSpeedX * tmod, maxSpeed);
@@ -96,11 +98,11 @@ class Hero extends Entity {
     override function hit(dmg:Damage, from:Null<Entity>) {
         super.hit(dmg, from);
         
-        setAffectS(Invulnerable, 1);
-        setAffectS(Stun, dmg.stunTime);
-
         Game.ME.playerLife=life;
         hud.invalidate();
+        
+        setAffectS(Invulnerable, 1);
+        setAffectS(Stun, dmg.stunTime);
     }
 
     public function stop() {
