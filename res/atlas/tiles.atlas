@@ -322,9 +322,9 @@ trap_floor_0005
 trap_floor_stop_0000
   rotate: false
   xy: 523, 121
-  size: 112, 112
+  size: 116, 119
   orig: 120, 120
-  offset: 5, 5
+  offset: 4, 1
   index: -1
 uiBar
   rotate: false
@@ -384,7 +384,7 @@ zombie_walk_03
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 533, 234
+  xy: 533, 241
   size: 79, 81
   orig: 240, 240
   offset: 65, 0
