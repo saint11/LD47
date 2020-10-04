@@ -98,13 +98,13 @@ class ShopWindow extends dn.Process {
 
 		var titleBox = new h2d.Flow(f);
 		titleBox.horizontalSpacing = 8;
-		titleBox.minWidth = 100;
+		titleBox.maxWidth = titleBox.minWidth = 180;
 		titleBox.padding = 8;
 		titleBox.verticalAlign = Middle;
 		
-		var tf = new h2d.Text(Assets.fontSmall, titleBox);
+		var tf = new h2d.Text(Assets.fontMedium, titleBox);
 		tf.text = inf.title;
-        tf.maxWidth = 100;
+        tf.maxWidth = 180;
 		tf.textColor = cost<= money ? 0xFFFFFF : 0xE77272;
 
 		var box = new h2d.Flow(f);
@@ -127,12 +127,12 @@ class ShopWindow extends dn.Process {
         f.addSpacing(8);
         
 		if( cost>0 ) {
-			var tf = new h2d.Text(Assets.fontSmall, priceBox);
+			var tf = new h2d.Text(Assets.fontMedium, priceBox);
 			tf.text = "$"+cost;
 			tf.textColor = cost <= money ? 0xFF9900 : 0xD20000;
 		}
 		else {
-			var tf = new h2d.Text(Assets.fontSmall, priceBox);
+			var tf = new h2d.Text(Assets.fontMedium, priceBox);
 			tf.text = "FREE";
 			tf.textColor = 0x8CD12E;
         }
@@ -168,8 +168,8 @@ class ShopWindow extends dn.Process {
     
 	function close() {
 		cd.setS("closing", 99999);
-		tw.createS(root.alpha, 0, 0.1);
-		tw.createS(masterFlow.y, -masterFlow.outerHeight,0.1).end( function() {
+		tw.createS(root.alpha, 0, 0.4);
+		tw.createS(masterFlow.y, -masterFlow.outerHeight,0.4).end( function() {
 			destroy();
 		});
     }
