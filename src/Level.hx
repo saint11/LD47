@@ -1,3 +1,7 @@
+import en.FloorTrap;
+import h2d.Tile;
+import hxd.res.Image;
+import h2d.Layers;
 import en.inter.Scroll;
 import en.Door;
 import h2d.Interactive;
@@ -31,6 +35,10 @@ class Level extends dn.Process {
 	var fastColl: Map<Int,Bool>;
 
 	public var scroll:Scroll;
+
+	var fgLeft: h2d.Graphics;
+	var fgRight: h2d.Graphics;
+	var parallax:Float = 0.3;
 
 	public function new(l:World.World_Level) {
 		super(Game.ME);
@@ -69,9 +77,33 @@ class Level extends dn.Process {
 			scroll = new Scroll(e.cx, e.cy);
 		}
 
+		if (l.l_Entities.all_TrapFloor!=null)
+		for (e in l.l_Entities.all_TrapFloor) {
+			new FloorTrap(e.cx, e.cy);
+		}
+
+
 		new Door(16,doorY, 1);
+		var d = new Door(-1,doorY, -1);
+		d.locked = true;
+
+		fgLeft = new h2d.Graphics();
+		fgRight = new h2d.Graphics();
+		game.scroller.add(fgLeft, Const.DP_TOP);
+		game.scroller.add(fgRight, Const.DP_TOP);
+		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26, - offsetY, getRandomForeground());
+		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75, -offsetY, getRandomForeground());
+		fgRight.scaleX = -1;
 	}
 
+	function getRandomFloor():Tile {
+		var list: Array<Image> = [Res.bg.floor_simple01, Res.bg.floor_simple02];
+		return list[M.rand(list.length)].toTile();
+	}
+	function getRandomForeground():Tile {
+		var list: Array<Image> = [Res.bg.foreground01, Res.bg.foreground02, Res.bg.foreground03, Res.bg.foreground04];
+		return list[M.rand(list.length)].toTile();
+	}
 	/**
 		Mark the level for re-render at the end of current frame (before display)
 	**/
@@ -120,7 +152,7 @@ class Level extends dn.Process {
 		root.removeChildren();
 
 		var bg = Res.bg.wall_simple01.toTile();
-		var floor = Res.bg.floor_simple01.toTile();
+		var floor = getRandomFloor();
 		
 		offsetX = M.round((bg.width - floor.width)/ 2);
 		offsetY = M.round((bg.height - floor.height)/ 2);
@@ -141,10 +173,20 @@ class Level extends dn.Process {
 	override function postUpdate() {
 		super.postUpdate();
 
+		fgLeft.x = Game.ME.scroller.x * (1 - parallax);
+		fgRight.x = Game.ME.scroller.x * (1 - parallax);
+		//fgLeft.y = Game.ME.scroller.y * (1 - parallax);
+
 		if( invalidated ) {
 			invalidated = false;
 			render();
 		}
+	}
+
+	override function onDispose() {
+		super.onDispose();
+		fgLeft.remove();
+		fgRight.remove();
 	}
 
 	public function isComplete() :Bool {

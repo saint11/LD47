@@ -3,8 +3,10 @@ package en;
 class Collectible extends Entity {
     public function new(x,y) {
         super(x,y);
-
+        enableShadow(0.3);
+        radius = 0.2;
         spr.set("blood");
+        jump(rnd(2,4));
     }
 
     override function hasCircCollWith(e:Entity):Bool {

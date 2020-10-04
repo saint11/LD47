@@ -35,5 +35,7 @@ class Assets {
 		hero = dn.heaps.assets.Atlas.load("atlas/hero.atlas");
 		ui = dn.heaps.assets.Atlas.load("atlas/ui.atlas");
 		fx = dn.heaps.assets.Atlas.load("atlas/fx.atlas");
+
+		tiles.defineAnim("trap_floor", "0(35),1,2,3,4(10)");
 	}
 }

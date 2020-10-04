@@ -10,4 +10,5 @@ enum LevelMark {
 enum MobType {
 	Zombie;
 	Explosive;
+	Shooter;
 }

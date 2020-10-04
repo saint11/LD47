@@ -58,7 +58,11 @@ class Mob extends Entity {
                 dx += Math.cos(a)*tmod*data.moveSpeed;
                 dy += Math.sin(a)*tmod*data.moveSpeed;
                 dir = -dirTo(game.hero);
-            case Shoot:
+            case Shoot(min,max):
+                if (!cd.hasSetS("shooter", rnd(min,max))) {
+                    var p = new Projectile(centerX, centerY, angTo(game.hero), this, Data.projectiles.get(EnemyFire));
+                    p.spr.color = new Vec(0.3,1,0.3);
+                }
             }
         }
     }
@@ -70,6 +74,8 @@ class Mob extends Entity {
             for (e in Entity.ALL) {
                 if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 2) {
                     e.hit(data.explosion,this);
+                } else if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 3) {
+                    e.hit(data.explosion,this, 0.5);
                 }
             }
         }
@@ -85,11 +91,6 @@ class Mob extends Entity {
     override function dispose() {
         super.dispose();
         ALL.remove(this);
-    }
-
-    override function hit(dmg:Damage, from:Null<Entity>) {
-        super.hit(dmg, from);
-        setAffectS(Stun, 0.4);
     }
 
     override function onTouch(other:Entity) {

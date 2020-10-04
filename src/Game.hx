@@ -36,12 +36,12 @@ class Game extends Process {
 	public var world : World;
 
 	var levelToLoad : World.World_Level;
-	public var levelLoop:Array<World.World_Level>;
+	public var levelLoop:Array<World.World_Level>; // TODO: Make sure rooms have a seed
 	public var levelIndex:Int = 0;
 
 	var mask : h2d.Bitmap;
 
-	public var money:Int = 12;
+	public var money:Int = 0;
 
 	// Player stuff
 	public var hero:Hero;
@@ -71,6 +71,8 @@ class Game extends Process {
 		
 		mask = new h2d.Bitmap(h2d.Tile.fromColor(0x0));
 		root.add(mask, Const.DP_UI);
+
+		money = Data.globals.get(startingMoney).value;
 
 		startLevel(levelLoop[0]);
 
@@ -197,7 +199,7 @@ class Game extends Process {
 
 		if (levelToLoad!=null)
 			startLevel(levelToLoad);
-
+		#if debug
 		if( !ui.Console.ME.isActive() && !ui.Modal.hasAny() ) {
 			#if hl
 			// Exit
@@ -212,14 +214,19 @@ class Game extends Process {
 			if( ca.selectPressed())
 				Main.ME.startGame();
 		}
+		#end
 	}
 
 	public function loadNextLevel() {
-		levelIndex++;
-		if (levelIndex>=levelLoop.length)
-			levelIndex = 0;
+		
+		mask.visible=true;
+		tw.createS(mask.alpha, 0>1, 0.6).end(()-> {
+			levelIndex++;
+			if (levelIndex>=levelLoop.length)
+				levelIndex = 0;
 
-		levelToLoad = levelLoop[levelIndex];
+			levelToLoad = levelLoop[levelIndex];
+		});
 	}
 
 	function startLevel(l : World.World_Level) {
