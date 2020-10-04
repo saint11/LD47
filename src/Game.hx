@@ -1,4 +1,5 @@
-import ui.VictoryWindow;
+import en.Hero;
+import ui.EndWindow;
 import h2d.col.Point;
 import h2d.Interactive;
 import dn.Process;
@@ -40,6 +41,11 @@ class Game extends Process {
 
 	public var money:Int = 12;
 
+	// Player stuff
+	public var hero:Hero;
+	public var playerLife: Int;
+	public var playerMaxLife: Int;
+
 	public function new() {
 		super(Main.ME);
 		ME = this;
@@ -53,6 +59,8 @@ class Game extends Process {
 		root.add(scroller, Const.DP_BG);
 		scroller.filter = new h2d.filter.ColorMatrix(); // force rendering for pixel perfect
 
+		playerLife = playerMaxLife = Data.globals.get(playerHp).value;
+
 		world = new World();
 		camera = new Camera();
 		fx = new Fx();
@@ -65,7 +73,8 @@ class Game extends Process {
 		startLevel(levelLoop[0]);
 
 		Process.resizeAll();
-		trace(Lang.t._("Game is ready."));
+
+		//trace(Lang.t._("Game is ready."));
 	}
 
 	/**
@@ -236,7 +245,7 @@ class Game extends Process {
 	}
 
 	public function win() {
-		new VictoryWindow();
+		new EndWindow(Data.text.get(victory).text);
 	}
 }
 

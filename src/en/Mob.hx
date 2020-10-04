@@ -21,8 +21,9 @@ class Mob extends Entity {
 
         spr.anim.registerStateAnim("zombie_idle", 0);
         spr.anim.registerStateAnim("zombie_walk", 1, 0.15, ()-> moving>0);
+        spr.anim.registerStateAnim("zombie_hit", 1, 0.15, ()-> hasAffect(Stun));
         
-        setAffectS(Stun, rnd(0.5, 1));
+        setAffectS(Sleep, rnd(0.5, 1));
 
         data = Data.mobs.resolve(ref.f_MobType.getName());
         initLife(data.hp);
@@ -38,17 +39,17 @@ class Mob extends Entity {
         super.update();
 
         moving=0;
-        if (!hasAffect(Stun)) {
+        if (!hasAffect(Stun) && !hasAffect(Sleep)) {
             for (ai in data.ai)
             switch ai.ai {
             case Idle:
                 
             case Chase:
-                var a = angTo(level.hero);
+                var a = angTo(game.hero);
                 moving=data.moveSpeed;
                 dx += Math.cos(a)*tmod*data.moveSpeed;
                 dy += Math.sin(a)*tmod*data.moveSpeed;
-                dir = -dirTo(level.hero);
+                dir = -dirTo(game.hero);
             case Shoot:
             }
         }

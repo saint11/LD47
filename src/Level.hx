@@ -31,7 +31,6 @@ class Level extends dn.Process {
 
 	var fastColl: Map<Int,Bool>;
 
-	public var hero:Hero;
 	public var scroll:Scroll;
 
 	public function new(l:World.World_Level) {
@@ -42,15 +41,16 @@ class Level extends dn.Process {
 		tilesetSource = hxd.Res.world.tiles.toTile();
 		
 		render();
-		trace("Level loaded offset is at " + offsetX +", " + offsetY);
+		//trace("Level loaded offset is at " + offsetX +", " + offsetY);
 
 		var doorY:Int = Data.globals.get(doorY).value;
 
 		if (l.l_Entities.all_Hero!=null)
 		for (e in l.l_Entities.all_Hero)
-			hero = new Hero(e.cx,e.cy);	
-		if (hero==null)
-			hero = new Hero(1,doorY);
+			Game.ME.hero = new Hero(e.cx,e.cy);	
+		else 
+			Game.ME.hero = new Hero(1,doorY);
+		
 
 		fastColl = [];
 

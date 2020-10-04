@@ -173,7 +173,7 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{ "__identifier": "Hero", "__cx": 7, "__cy": 13, "defUid": 21, "x": 120, "y": 216, "fieldInstances": [] },
-						{ "__identifier": "Scroll", "__cx": 7, "__cy": 3, "defUid": 22, "x": 120, "y": 56, "fieldInstances": [] }
+						{ "__identifier": "Scroll", "__cx": 7, "__cy": 6, "defUid": 22, "x": 120, "y": 104, "fieldInstances": [] }
 					]
 				}
 			]

@@ -1,4 +1,4 @@
-import ui.VictoryWindow;
+import ui.EndWindow;
 import ui.ShopWindow;
 import Data;
 import hxd.Key;
@@ -80,8 +80,8 @@ class Main extends dn.Process {
 		if(ShopWindow.ME!=null)
 			ShopWindow.ME.destroy();
 
-		if (VictoryWindow.ME!=null)
-			VictoryWindow.ME.destroy();
+		if (EndWindow.ME!=null)
+			EndWindow.ME.destroy();
 
 		if( Game.ME!=null ) {
 			Game.ME.destroy();

@@ -1,6 +1,7 @@
 enum Affect {
 	Stun;
 	Invulnerable;
+	Sleep;
 }
 
 enum LevelMark {

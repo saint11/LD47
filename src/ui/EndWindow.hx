@@ -3,15 +3,15 @@ package ui;
 import h2d.Text;
 
 
-class VictoryWindow extends dn.Process {
-    public static var ME:VictoryWindow;
+class EndWindow extends dn.Process {
+    public static var ME:EndWindow;
 
     var mask : h2d.Graphics;
     var masterFlow : h2d.Flow;
     
     public var ca : dn.heaps.Controller.ControllerAccess;
     
-    public function new() {
+    public function new(text) {
         super(Main.ME);
         ME = this;
 
@@ -32,7 +32,7 @@ class VictoryWindow extends dn.Process {
 
         
         var t = new Text(Assets.fontMedium, masterFlow);
-        t.text = Data.text.get(victory).text;
+        t.text = text;
 
         cd.setS("lock",1.5);
 

@@ -25,8 +25,9 @@ class Hud extends dn.Process {
 		flow.layout = Vertical;
 		
 		var mBox = new h2d.Flow(flow);
-		mBox.padding = 8;
-		money = new Text(Assets.fontMedium, mBox);
+		mBox.padding = 10;
+		mBox.paddingTop = 24;
+		money = new Text(Assets.fontLarge, mBox);
 		money.dropShadow  = {dx: 2, dy: 2, color:0x0, alpha:0.9};
 		cAdd = new h3d.Vector();
 		money.colorAdd = cAdd;
@@ -44,26 +45,26 @@ class Hud extends dn.Process {
 	public inline function invalidate() invalidated = true;
 
 	function render() {
-		var hero = Game.ME.level.hero;
+		var hero = Game.ME.hero;
 		life.removeChildren();
 		for(i in 0...hero.maxLife)
 			Assets.ui.h_get(i+1<=hero.life ? "lifeOn" : "lifeOff", life);
 	}
 
 	public function setMoney(v:Int) {
-		money.text = "$"+v;
+		money.text = Std.string(v);
 		money.textColor = 0xFFB300;
 	}
 	
 	public function blinkWhite() {
-		cd.setS("shake", 1);
+		cd.setS("moneyShake", 1);
 		cAdd.r = 0.9;
 		cAdd.g = 0.9;
 		cAdd.b = 0.9;
 	}
 
 	public function blinkRed() {
-		cd.setS("shake", 1);
+		cd.setS("moneyShake", 1);
 		cAdd.r = 1;
 		cAdd.g = 0;
 		cAdd.b = -.3;
@@ -71,8 +72,8 @@ class Hud extends dn.Process {
 
 	override public function update() {
 		super.update();
-		if( cd.has("shake") )
-			flow.y = Math.cos(ftime*0.7)*2 * cd.getRatio("shake");
+		if( cd.has("moneyShake") )
+			money.y = Math.cos(ftime*0.7)*2 * cd.getRatio("moneyShake");
 		cAdd.r*=0.8;
 		cAdd.g*=0.8;
 		cAdd.b*=0.8;

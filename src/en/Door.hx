@@ -32,8 +32,8 @@ class Door extends Entity {
                 spr.alpha = 1;
             }
 
-            if (level.hero.hasColl && distCase(level.hero, 0, 0.25)<1.12) {
-                level.hero.enterDoor(this);
+            if (game.hero.hasColl && distCase(game.hero, 0, 0.25)<1.12) {
+                game.hero.enterDoor(this);
             }
         }
         else 

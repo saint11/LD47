@@ -1,5 +1,6 @@
 package en;
 
+import ui.EndWindow;
 import Data.Damage;
 import hxd.Key;
 import hxd.Res;
@@ -30,8 +31,9 @@ class Hero extends Entity {
         
         weapon = Data.weapons.get(MagicMissile);
         
-        initLife(Data.globals.get(playerHp).value);
-
+        initLife(Game.ME.playerMaxLife);
+        life = Game.ME.playerLife;
+		
         enableShadow();
     }
 
@@ -97,11 +99,23 @@ class Hero extends Entity {
         setAffectS(Invulnerable, 1);
         setAffectS(Stun, dmg.stunTime);
 
+        Game.ME.playerLife=life;
         hud.invalidate();
     }
 
     public function stop() {
         moveX = moveY = 0;
         cancelVelocities();
+    }
+
+    override function onDie() {
+        super.onDie();
+
+        new EndWindow(Data.text.get(game_over).text);
+    }
+
+    override function dispose() {
+        super.dispose();
+        Game.ME.playerLife=life;
     }
 }

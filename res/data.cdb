@@ -69,7 +69,7 @@
 			"lines": [
 				{
 					"id": "SimpleBullet",
-					"speed": 0.7,
+					"speed": 0.4,
 					"friction": 1,
 					"lifespan": 3,
 					"dmg": "magic_missile"
@@ -335,6 +335,10 @@
 				{
 					"id": "victory",
 					"text": "You have survived the temple. Press SPACE to restart."
+				},
+				{
+					"id": "game_over",
+					"text": "You have been consumed by the temple. Press SPACE to restart;"
 				}
 			],
 			"separators": [],

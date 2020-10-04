@@ -81,6 +81,27 @@ fxTail0
   orig: 33, 11
   offset: 0, 0
   index: -1
+ghost_idle_00
+  rotate: false
+  xy: 1, 1
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+ghost_idle_01
+  rotate: false
+  xy: 1, 242
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
+ghost_idle_02
+  rotate: false
+  xy: 1, 483
+  size: 240, 240
+  orig: 240, 240
+  offset: 0, 0
+  index: -1
 pixel
   rotate: false
   xy: 19, 1021
@@ -90,7 +111,7 @@ pixel
   index: -1
 scroll
   rotate: false
-  xy: 242, 724
+  xy: 483, 483
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
@@ -132,70 +153,70 @@ uiBarBg
   index: -1
 zombie_hit_00
   rotate: false
-  xy: 1, 1
+  xy: 1, 724
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_idle_00
   rotate: false
-  xy: 1, 242
+  xy: 242, 1
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_00
   rotate: false
-  xy: 1, 242
+  xy: 242, 1
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_01
   rotate: false
-  xy: 1, 483
+  xy: 483, 1
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_02
   rotate: false
-  xy: 1, 724
+  xy: 724, 1
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 242, 1
+  xy: 242, 242
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 483, 1
+  xy: 242, 483
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_05
   rotate: false
-  xy: 724, 1
+  xy: 242, 724
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_06
   rotate: false
-  xy: 242, 242
+  xy: 483, 242
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
   index: -1
 zombie_walk_07
   rotate: false
-  xy: 242, 483
+  xy: 724, 242
   size: 240, 240
   orig: 240, 240
   offset: 0, 0
