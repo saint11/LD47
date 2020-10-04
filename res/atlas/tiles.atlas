@@ -6,7 +6,7 @@ filter: Linear,Linear
 repeat: none
 aim
   rotate: false
-  xy: 406, 276
+  xy: 445, 243
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
@@ -214,30 +214,51 @@ ghost_idle_11
   orig: 240, 240
   offset: 37, 6
   index: -1
+p_shrapnel_00
+  rotate: false
+  xy: 326, 717
+  size: 30, 38
+  orig: 48, 48
+  offset: 7, 6
+  index: -1
+p_shrapnel_01
+  rotate: false
+  xy: 357, 717
+  size: 30, 38
+  orig: 48, 48
+  offset: 7, 6
+  index: -1
+p_shrapnel_02
+  rotate: false
+  xy: 388, 717
+  size: 30, 38
+  orig: 48, 48
+  offset: 7, 6
+  index: -1
 p_simple_00
   rotate: false
-  xy: 362, 717
+  xy: 406, 243
   size: 38, 32
   orig: 48, 48
   offset: 4, 8
   index: -1
 p_simple_01
   rotate: false
-  xy: 406, 243
+  xy: 443, 276
   size: 34, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 p_simple_02
   rotate: false
-  xy: 326, 717
+  xy: 419, 717
   size: 35, 34
   orig: 48, 48
   offset: 6, 8
   index: -1
 p_simple_03
   rotate: false
-  xy: 401, 717
+  xy: 406, 276
   size: 36, 32
   orig: 48, 48
   offset: 6, 9
@@ -258,7 +279,7 @@ scroll
   index: -1
 shadow
   rotate: false
-  xy: 495, 992
+  xy: 495, 994
   size: 53, 20
   orig: 55, 25
   offset: 0, 2
@@ -328,14 +349,14 @@ trap_floor_stop_0000
   index: -1
 treasure_off
   rotate: false
-  xy: 434, 750
+  xy: 434, 752
   size: 138, 120
   orig: 147, 129
   offset: 5, 2
   index: -1
 treasure_on_00
   rotate: false
-  xy: 495, 871
+  xy: 495, 873
   size: 138, 120
   orig: 147, 129
   offset: 5, 2
@@ -398,7 +419,7 @@ zombie_walk_00
   index: -1
 zombie_walk_01
   rotate: false
-  xy: 438, 642
+  xy: 455, 642
   size: 98, 86
   orig: 240, 240
   offset: 79, 1
@@ -412,14 +433,14 @@ zombie_walk_02
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 537, 642
+  xy: 554, 642
   size: 85, 83
   orig: 240, 240
   offset: 62, 0
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 623, 642
+  xy: 640, 642
   size: 79, 81
   orig: 240, 240
   offset: 65, 0

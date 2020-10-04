@@ -67,6 +67,16 @@
 				},
 				{
 					"typeStr": "4",
+					"name": "scale",
+					"display": null
+				},
+				{
+					"typeStr": "5:simple,shrapnel",
+					"name": "image",
+					"display": null
+				},
+				{
+					"typeStr": "4",
 					"name": "speed"
 				},
 				{
@@ -108,6 +118,11 @@
 				{
 					"typeStr": "4",
 					"name": "lifespan"
+				},
+				{
+					"typeStr": "4",
+					"name": "lifespanVar",
+					"display": null
 				}
 			],
 			"lines": [
@@ -122,7 +137,10 @@
 					"startAltitude": 32,
 					"explode": false,
 					"dmgOnTouch": true,
-					"breakOnWall": true
+					"breakOnWall": true,
+					"scale": 1,
+					"image": 0,
+					"lifespanVar": 0
 				},
 				{
 					"id": "EnemyFire",
@@ -135,7 +153,10 @@
 					"startAltitude": 32,
 					"explode": false,
 					"dmgOnTouch": true,
-					"breakOnWall": true
+					"breakOnWall": true,
+					"scale": 1.2,
+					"image": 0,
+					"lifespanVar": 0
 				},
 				{
 					"id": "Bomb",
@@ -145,10 +166,29 @@
 					"gravity": 0.6,
 					"startAltitude": 4,
 					"dmg": "bomb",
-					"lifespan": 250,
+					"lifespan": 215,
 					"explode": true,
 					"dmgOnTouch": true,
-					"breakOnWall": false
+					"breakOnWall": false,
+					"scale": 2,
+					"image": 0,
+					"lifespanVar": 30
+				},
+				{
+					"id": "Shrapnel",
+					"speed": 1.2,
+					"friction": 0.9,
+					"jump": 0,
+					"gravity": 0,
+					"startAltitude": 32,
+					"dmg": "magic_missile",
+					"explode": false,
+					"dmgOnTouch": true,
+					"breakOnWall": true,
+					"lifespan": 10,
+					"scale": 0.2,
+					"image": 1,
+					"lifespanVar": 4
 				}
 			],
 			"separators": [],
@@ -173,6 +213,15 @@
 				{
 					"typeStr": "4",
 					"name": "interval"
+				},
+				{
+					"typeStr": "3",
+					"name": "bullets"
+				},
+				{
+					"typeStr": "4",
+					"name": "spread",
+					"display": null
 				}
 			],
 			"lines": [
@@ -180,13 +229,25 @@
 					"id": "MagicMissile",
 					"projectile": "SimpleBullet",
 					"interval": 0.5,
-					"stun": 0.2
+					"stun": 0.2,
+					"bullets": 1,
+					"spread": 0
 				},
 				{
 					"id": "DevilGun",
 					"projectile": "SimpleBullet",
 					"interval": 0.1,
-					"stun": 0
+					"stun": 0,
+					"bullets": 1,
+					"spread": 5
+				},
+				{
+					"id": "Shotgun",
+					"projectile": "Shrapnel",
+					"stun": 0.3,
+					"interval": 1,
+					"bullets": 4,
+					"spread": 15
 				}
 			],
 			"separators": [],
@@ -420,6 +481,12 @@
 					"amount": 1,
 					"push": 0.1,
 					"stunTime": 0.1
+				},
+				{
+					"id": "shrapnel",
+					"amount": 1,
+					"push": 0.1,
+					"stunTime": 0.1
 				}
 			],
 			"separators": [],
@@ -611,7 +678,7 @@
 				{
 					"levelName": "TreasureRoom",
 					"title": "Treasure Room",
-					"price": 0,
+					"price": 80,
 					"bonus": [],
 					"desc": "Not suspicious at all",
 					"icon": {

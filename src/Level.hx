@@ -114,7 +114,7 @@ class Level extends dn.Process {
 
 		if (l.l_Entities.all_Chest!=null)
 		for (e in l.l_Entities.all_Chest) {
-			new Treasure(e.cx, e.cy);
+			new Treasure(e.cx, e.cy,e);
 		}
 
 		var dR =new Door(16,doorY, 1);

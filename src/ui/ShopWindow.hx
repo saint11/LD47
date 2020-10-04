@@ -71,14 +71,18 @@ class ShopWindow extends dn.Process {
 		var i = 0;
 		var rooms = Data.shop.all.toArrayCopy();
 
-		addItem(rooms[0], i++);
+		var tooPricey = true;
 		for	(n in 0...3) {
-			var rn = rooms[rnd.irange(1,rooms.length-2)];
+			var rn = rooms[rnd.irange(0,rooms.length-2)];
 			addItem(rn, i++);
+			if (rn.price<=Game.ME.money)
+				tooPricey=false;
 			rooms.remove(rn);
 		}
-		
-		addItem(rooms[rooms.length - 1], i++);
+		if (tooPricey)
+			addItem(rooms[0], i++);
+		else 
+			addItem(rooms[rooms.length - 1], i++);
 		
         cursor = Assets.ui.h_get("cursor",0, 0.5,0.5, iFlow);
     }
