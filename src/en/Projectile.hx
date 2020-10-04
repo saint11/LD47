@@ -50,7 +50,7 @@ class Projectile extends Entity {
     }
 
     override function hasCircCollWith(e:Entity):Bool {
-        return e != owner;
+        return e != owner && !e.is(Projectile);
     }
 
 

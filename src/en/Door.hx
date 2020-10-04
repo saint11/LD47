@@ -6,7 +6,7 @@ import hxd.Direction;
 
 class Door extends Entity {
 
-
+    public var locked = false;
     var open:Bool = false;
 
     var doorTop:Entity;
@@ -14,7 +14,12 @@ class Door extends Entity {
     public function new(x,y, dir) {
         super(x,y);
 
-        spr.set("door");
+        if (dir == 1) {
+            spr.set("door_exit");
+        } else {
+            spr.set("door_entrance");
+        }
+
         spr.setCenterRatio();
         
         doorTop = new Entity(x,y);
@@ -35,22 +40,19 @@ class Door extends Entity {
     override function update() {
         super.update();
 
-        if (level.isComplete()){
+        if (!locked && level.isComplete()){
             if (open==false) {
                 open = true;
-                sprSquashX = 2;
+                spr.set("door_open");
+                sprSquashX = 1.25;
                 spr.alpha = 1;
                 doorTop.entityVisible=true;
-                doorTop.sprSquashX = 2;
+                doorTop.sprSquashX = 1.25;
             }
 
             if (game.hero.hasColl && distCase(game.hero, 0, 0.25)<1.12) {
                 game.hero.enterDoor(this);
             }
-        }
-        else 
-        {
-            spr.alpha = 0;           
         }
     }
 }

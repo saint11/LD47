@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 45,
+	"nextUid": 48,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -39,7 +39,7 @@
 				"width": 16,
 				"height": 16,
 				"color": "#94D9B3",
-				"renderMode": "Rectangle",
+				"renderMode": "Ellipse",
 				"tilesetId": null,
 				"tileId": null,
 				"tileRenderMode": "Stretch",
@@ -87,7 +87,7 @@
 				"width": 16,
 				"height": 16,
 				"color": "#BA1717",
-				"renderMode": "Rectangle",
+				"renderMode": "Ellipse",
 				"tilesetId": null,
 				"tileId": null,
 				"tileRenderMode": "Stretch",
@@ -127,6 +127,39 @@
 						"min": 0,
 						"max": 1,
 						"defaultOverride": { "id": "V_Float", "params": [ 1 ] }
+					}
+				]
+			},
+			{
+				"identifier": "TrapFloor",
+				"uid": 45,
+				"width": 16,
+				"height": 16,
+				"color": "#954B7E",
+				"renderMode": "Rectangle",
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0.5,
+				"pivotY": 0.5,
+				"fieldDefs": [
+					{
+						"identifier": "Auto",
+						"__type": "Bool",
+						"uid": 46,
+						"type": "F_Bool",
+						"isArray": false,
+						"canBeNull": false,
+						"arrayMinLength": null,
+						"arrayMaxLength": null,
+						"editorDisplayMode": "Hidden",
+						"editorDisplayPos": "Above",
+						"editorAlwaysShow": false,
+						"min": null,
+						"max": null,
+						"defaultOverride": null
 					}
 				]
 			}
@@ -491,17 +524,87 @@
 						{ "__identifier": "Mob", "__cx": 9, "__cy": 5, "defUid": 24, "x": 152, "y": 88, "fieldInstances": [
 							{
 								"__identifier": "MobType",
-								"__value": "Shooter",
+								"__value": "Zombie",
 								"__type": "ExternEnum.MobType",
 								"defUid": 37,
 								"realEditorValues": [ {
 									"id": "V_String",
-									"params": [ "Shooter" ]
+									"params": [ "Zombie" ]
 								} ]
 							},
 							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 9, "__cy": 10, "defUid": 24, "x": 152, "y": 168, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] }
+					]
+				}
+			]
+		},
+		{
+			"identifier": "TrapRoom",
+			"uid": 47,
+			"pxWid": 256,
+			"pxHei": 240,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 15,
+					"__gridSize": 16,
+					"levelId": 47,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 4632363,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "TrapFloor", "__cx": 3, "__cy": 2, "defUid": 45, "x": 56, "y": 40, "fieldInstances": [ { "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] } ] },
+						{ "__identifier": "TrapFloor", "__cx": 3, "__cy": 12, "defUid": 45, "x": 56, "y": 200, "fieldInstances": [ { "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] } ] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 9, "defUid": 45, "x": 104, "y": 152, "fieldInstances": [ { "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] } ] },
+						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 5, "defUid": 45, "x": 104, "y": 88, "fieldInstances": [ { "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] } ] },
+						{ "__identifier": "TrapFloor", "__cx": 10, "__cy": 5, "defUid": 45, "x": 168, "y": 88, "fieldInstances": [ { "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] } ] },
+						{ "__identifier": "TrapFloor", "__cx": 10, "__cy": 9, "defUid": 45, "x": 168, "y": 152, "fieldInstances": [ { "__identifier": "Auto", "__value": false, "__type": "Bool", "defUid": 46, "realEditorValues": [] } ] },
+						{ "__identifier": "Mob", "__cx": 13, "__cy": 1, "defUid": 24, "x": 216, "y": 24, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Explosive",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Explosive" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 13, "__cy": 13, "defUid": 24, "x": 216, "y": 216, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Explosive",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Explosive" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 14, "__cy": 10, "defUid": 24, "x": 232, "y": 168, "fieldInstances": [
 							{
 								"__identifier": "MobType",
 								"__value": "Shooter",

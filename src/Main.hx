@@ -54,9 +54,7 @@ class Main extends dn.Process {
 
 		// Assets & data init
 		Assets.init();
-		#if debug
 		new ui.Console(Assets.fontTiny, s);
-		#end
 		
 		Lang.init("en");
 		Data.load( hxd.Res.data.entry.getText() );

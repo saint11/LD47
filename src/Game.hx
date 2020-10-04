@@ -36,7 +36,7 @@ class Game extends Process {
 	public var world : World;
 
 	var levelToLoad : World.World_Level;
-	public var levelLoop:Array<World.World_Level>;
+	public var levelLoop:Array<World.World_Level>; // TODO: Make sure rooms have a seed
 	public var levelIndex:Int = 0;
 
 	var mask : h2d.Bitmap;
@@ -199,7 +199,7 @@ class Game extends Process {
 
 		if (levelToLoad!=null)
 			startLevel(levelToLoad);
-
+		#if debug
 		if( !ui.Console.ME.isActive() && !ui.Modal.hasAny() ) {
 			#if hl
 			// Exit
@@ -214,6 +214,7 @@ class Game extends Process {
 			if( ca.selectPressed())
 				Main.ME.startGame();
 		}
+		#end
 	}
 
 	public function loadNextLevel() {

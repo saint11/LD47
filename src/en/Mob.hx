@@ -60,7 +60,8 @@ class Mob extends Entity {
                 dir = -dirTo(game.hero);
             case Shoot(min,max):
                 if (!cd.hasSetS("shooter", rnd(min,max))) {
-                    new Projectile(centerX, centerY, angTo(game.hero), this, Data.projectiles.get(SimpleBullet));
+                    var p = new Projectile(centerX, centerY, angTo(game.hero), this, Data.projectiles.get(EnemyFire));
+                    p.spr.color = new Vec(0.3,1,0.3);
                 }
             }
         }

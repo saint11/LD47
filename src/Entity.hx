@@ -133,7 +133,7 @@ class Entity {
 		blinkColor = new h3d.Vector();
 		spr.colorMatrix = colorMatrix = h3d.Matrix.I();
 		spr.setCenterRatio(0.5,1);
-
+		
 		if( ui.Console.ME.hasFlag("bounds") )
 			enableBounds();
     }
@@ -224,8 +224,8 @@ class Entity {
 	public inline function irnd(min,max,?sign) return Lib.irnd(min,max,sign);
 	public inline function pretty(v,?p=1) return M.pretty(v,p);
 
-	public function angToMouse() {
-		return Math.atan2(Main.ME.mouseY - footY, Main.ME.mouseX - footX);
+	public function angToMouse(offX, offY) {
+		return Math.atan2(Main.ME.mouseY - centerY + offY, Main.ME.mouseX - centerX + offY);
 	}
 	public inline function angTo(e:Entity) return Math.atan2(e.footY-footY, e.footX-footX);
 	public inline function dirTo(e:Entity) return e.centerX<centerX ? -1 : 1;
@@ -574,6 +574,7 @@ class Entity {
 				}
 				if( xr>=0.5 && level.hasCollision(cx+1,cy) ) {
 					dx-=0.03*tmod;
+					onTouchWallX();
 				}
 				if( xr<0.3 && level.hasCollision(cx-1,cy) ) {
 					xr = 0.3;
@@ -582,6 +583,7 @@ class Entity {
 				}
 				if( xr<0.4 && level.hasCollision(cx-1,cy) ) {
 					dx+=0.03*tmod;
+					onTouchWallX();
 				}
 			}
 
@@ -633,7 +635,6 @@ class Entity {
 			}
 		}
 
-		#if debug
 		if( ui.Console.ME.hasFlag("affect") ) {
 			var all = [];
 			for(k in affects.keys())
@@ -646,7 +647,6 @@ class Entity {
 
 		if( !ui.Console.ME.hasFlag("bounds") && debugBounds!=null )
 			disableBounds();
-		#end
 	}
 	
 	function onTouchWallX() {

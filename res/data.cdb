@@ -77,6 +77,13 @@
 					"friction": 1,
 					"lifespan": 3,
 					"dmg": "magic_missile"
+				},
+				{
+					"id": "EnemyFire",
+					"speed": 0.1,
+					"friction": 1,
+					"dmg": "magic_missile",
+					"lifespan": 3
 				}
 			],
 			"separators": [],
@@ -336,7 +343,7 @@
 			"lines": [
 				{
 					"levelName": "ZombieRoom",
-					"price": 2,
+					"price": 0,
 					"desc": "Up to 3 Zombies",
 					"icon": {
 						"file": "room_icons.png",
@@ -349,12 +356,24 @@
 				{
 					"levelName": "CrowdedRoom",
 					"title": "Crowded Room",
-					"price": 5,
+					"price": 3,
 					"desc": "Up to 6 Zombies",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
 						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"levelName": "TrapRoom",
+					"title": "Trap Room",
+					"price": 0,
+					"desc": "",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 4,
 						"y": 0
 					}
 				},
@@ -378,8 +397,8 @@
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
-						"x": 1,
-						"y": 1
+						"x": 3,
+						"y": 0
 					}
 				},
 				{
