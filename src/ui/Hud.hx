@@ -14,6 +14,8 @@ class Hud extends dn.Process {
 	public var money : Text;
 
 	var cAdd : h3d.Vector;
+
+	var aim:h2d.Bitmap;
 	
 	public function new() {
 		super(Game.ME);
@@ -35,6 +37,8 @@ class Hud extends dn.Process {
 
 		life = new h2d.Flow(flow);
 		life.layout = Vertical;
+		
+		aim = new h2d.Bitmap(Assets.tiles.h_get("aim", 0.5, 0.5).tile, root);
 	}
 
 	override function onResize() {
@@ -81,6 +85,8 @@ class Hud extends dn.Process {
 
 	override function postUpdate() {
 		super.postUpdate();
+
+		aim.setPosition(Main.ME.rawMouseX, Main.ME.rawMouseY);
 
 		if( invalidated ) {
 			invalidated = false;

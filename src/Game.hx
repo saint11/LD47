@@ -37,7 +37,7 @@ class Game extends Process {
 
 	var levelToLoad : World.World_Level;
 	public var levelLoop:Array<World.World_Level>;
-	public var levelIndex:Int;
+	public var levelIndex:Int = 0;
 
 	var mask : h2d.Bitmap;
 
@@ -218,10 +218,12 @@ class Game extends Process {
 		levelIndex++;
 		if (levelIndex>=levelLoop.length)
 			levelIndex = 0;
+
 		levelToLoad = levelLoop[levelIndex];
 	}
 
 	function startLevel(l : World.World_Level) {
+		trace("Loading new level...");
 		for(e in Entity.ALL)
 			e.destroy();
 		gc();
