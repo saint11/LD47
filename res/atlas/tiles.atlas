@@ -6,91 +6,91 @@ filter: Linear,Linear
 repeat: none
 aim
   rotate: false
-  xy: 96, 410
+  xy: 475, 405
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 blood
   rotate: false
-  xy: 125, 157
+  xy: 491, 266
   size: 20, 24
   orig: 24, 24
   offset: 2, 0
   index: -1
 door
   rotate: false
-  xy: 153, 156
+  xy: 301, 311
   size: 139, 354
   orig: 300, 475
   offset: 104, 19
   index: -1
 door_top
   rotate: false
-  xy: 1, 347
+  xy: 1, 666
   size: 94, 354
   orig: 300, 475
   offset: 149, 19
   index: -1
 empty
   rotate: false
-  xy: 503, 39
+  xy: 505, 33
   size: 3, 3
   orig: 1, 1
   offset: 0, -2
   index: -1
 fxCircle0
   rotate: false
-  xy: 125, 182
+  xy: 495, 165
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fxDot0
   rotate: false
-  xy: 507, 39
+  xy: 505, 37
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
   index: -1
 fxImpact0
   rotate: false
-  xy: 125, 199
+  xy: 495, 182
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
   index: -1
 fxLine0
   rotate: false
-  xy: 96, 406
+  xy: 441, 405
   size: 33, 3
   orig: 33, 3
   offset: 0, 0
   index: -1
 fxLineDir0
   rotate: false
-  xy: 96, 443
+  xy: 441, 409
   size: 32, 3
   orig: 33, 3
   offset: 1, 0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 503, 28
+  xy: 505, 22
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
   index: -1
 fxSmoke0
   rotate: false
-  xy: 454, 120
+  xy: 456, 120
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 fxTail0
   rotate: false
-  xy: 96, 394
+  xy: 456, 299
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
@@ -104,161 +104,224 @@ ghost_idle_00
   index: -1
 ghost_idle_01
   rotate: false
-  xy: 304, 1
+  xy: 1, 157
   size: 149, 156
   orig: 240, 240
   offset: 39, 5
   index: -1
 ghost_idle_02
   rotate: false
+  xy: 305, 1
+  size: 150, 154
+  orig: 240, 240
+  offset: 37, 6
+  index: -1
+ghost_idle_03
+  rotate: false
+  xy: 1, 1
+  size: 151, 155
+  orig: 240, 240
+  offset: 37, 5
+  index: -1
+ghost_idle_04
+  rotate: false
+  xy: 1, 157
+  size: 149, 156
+  orig: 240, 240
+  offset: 39, 5
+  index: -1
+ghost_idle_05
+  rotate: false
+  xy: 305, 1
+  size: 150, 154
+  orig: 240, 240
+  offset: 37, 6
+  index: -1
+ghost_idle_06
+  rotate: false
+  xy: 1, 1
+  size: 151, 155
+  orig: 240, 240
+  offset: 37, 5
+  index: -1
+ghost_idle_07
+  rotate: false
+  xy: 1, 157
+  size: 149, 156
+  orig: 240, 240
+  offset: 39, 5
+  index: -1
+ghost_idle_08
+  rotate: false
+  xy: 305, 1
+  size: 150, 154
+  orig: 240, 240
+  offset: 37, 6
+  index: -1
+ghost_idle_09
+  rotate: false
   xy: 153, 1
+  size: 151, 155
+  orig: 240, 240
+  offset: 37, 5
+  index: -1
+ghost_idle_10
+  rotate: false
+  xy: 151, 157
+  size: 149, 156
+  orig: 240, 240
+  offset: 39, 5
+  index: -1
+ghost_idle_11
+  rotate: false
+  xy: 305, 156
   size: 150, 154
   orig: 240, 240
   offset: 37, 6
   index: -1
 p_simple_00
   rotate: false
-  xy: 100, 260
+  xy: 456, 165
   size: 38, 32
   orig: 48, 48
   offset: 4, 8
   index: -1
 p_simple_01
   rotate: false
-  xy: 96, 361
+  xy: 456, 266
   size: 34, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 p_simple_02
   rotate: false
-  xy: 100, 326
+  xy: 456, 231
   size: 35, 34
   orig: 48, 48
   offset: 6, 8
   index: -1
 p_simple_03
   rotate: false
-  xy: 100, 293
+  xy: 456, 198
   size: 36, 32
   orig: 48, 48
   offset: 6, 9
   index: -1
 pixel
   rotate: false
-  xy: 509, 1
+  xy: 509, 33
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 scroll
   rotate: false
-  xy: 385, 165
+  xy: 1, 406
   size: 88, 93
   orig: 96, 96
   offset: 5, 0
   index: -1
 shadow
   rotate: false
-  xy: 454, 1
+  xy: 456, 1
   size: 54, 20
   orig: 55, 25
   offset: 1, 2
   index: -1
 test_hole
   rotate: false
-  xy: 454, 22
+  xy: 456, 22
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 test_tile
   rotate: false
-  xy: 454, 71
+  xy: 456, 71
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 uiBar
   rotate: false
-  xy: 503, 35
+  xy: 505, 29
   size: 6, 3
   orig: 6, 3
   offset: 0, 0
   index: -1
 uiBarBg
   rotate: false
-  xy: 503, 22
+  xy: 501, 120
   size: 8, 5
   orig: 8, 5
   offset: 0, 0
   index: -1
 zombie_hit_00
   rotate: false
-  xy: 1, 157
+  xy: 96, 314
   size: 123, 102
   orig: 240, 240
   offset: 73, 5
   index: -1
 zombie_idle_00
   rotate: false
-  xy: 293, 334
+  xy: 220, 396
   size: 78, 97
   orig: 240, 240
   offset: 81, 0
   index: -1
 zombie_walk_00
   rotate: false
-  xy: 293, 334
+  xy: 220, 396
   size: 78, 97
   orig: 240, 240
   offset: 81, 0
   index: -1
 zombie_walk_01
   rotate: false
-  xy: 1, 260
+  xy: 96, 417
   size: 98, 86
   orig: 240, 240
   offset: 79, 1
   index: -1
 zombie_walk_02
   rotate: false
-  xy: 293, 158
+  xy: 1, 314
   size: 91, 91
   orig: 240, 240
   offset: 74, 0
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 293, 250
+  xy: 1, 500
   size: 85, 83
   orig: 240, 240
   offset: 62, 0
   index: -1
 zombie_walk_04
   rotate: false
-  xy: 379, 259
+  xy: 220, 314
   size: 79, 81
   orig: 240, 240
   offset: 65, 0
   index: -1
 zombie_walk_05
   rotate: false
-  xy: 372, 439
+  xy: 441, 311
   size: 69, 93
   orig: 240, 240
   offset: 85, 0
   index: -1
 zombie_walk_06
   rotate: false
-  xy: 372, 341
+  xy: 195, 494
   size: 78, 97
   orig: 240, 240
   offset: 81, 0
   index: -1
 zombie_walk_07
   rotate: false
-  xy: 293, 432
+  xy: 96, 504
   size: 78, 97
   orig: 240, 240
   offset: 81, 0
