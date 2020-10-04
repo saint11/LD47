@@ -33,6 +33,7 @@ class Projectile extends Entity {
         gravity= data.gravity;
         altitude = data.startAltitude;
         maxLifespan = data.lifespan + rnd(-data.lifespanVar, data.lifespanVar);
+        sprScaleY = sprScaleX = data.scale;
 
         jump(data.jump);
         this.data = data;
