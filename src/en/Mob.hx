@@ -81,7 +81,7 @@ class Mob extends Entity {
         }
         // Drop loot
         if (loot)
-        for (i in moneyMin...moneyMax) {
+        for (i in moneyMin... M.ceil(moneyMax * Game.ME.bonusMoney)) {
             var c = new Collectible(cx,cy);
             c.dx = rnd(-0.5, 0.5);
             c.dy = rnd(-0.5, 0.5);

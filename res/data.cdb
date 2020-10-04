@@ -36,7 +36,7 @@
 				},
 				{
 					"id": "bloodPickUpRange",
-					"value": 3
+					"value": 5
 				},
 				{
 					"id": "startingMoney",
@@ -377,7 +377,7 @@
 				{
 					"levelName": "ZombieRoom",
 					"price": 0,
-					"desc": "Up to 3 Zombies",
+					"desc": "A few zombies won't hurt, right?",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -391,7 +391,7 @@
 					"levelName": "CrowdedRoom",
 					"title": "Crowded Room",
 					"price": 3,
-					"desc": "Up to 6 Zombies",
+					"desc": "They must be having a party",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -399,6 +399,26 @@
 						"y": 0
 					},
 					"bonus": []
+				},
+				{
+					"levelName": "EvolvingRoom",
+					"title": "Evolving Room",
+					"price": 5,
+					"bonus": [
+						{
+							"bonus": [
+								0,
+								10
+							]
+						}
+					],
+					"desc": "+10% dropped blood no all rooms, this room gets more dangerous with time",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 6,
+						"y": 0
+					}
 				},
 				{
 					"levelName": "TrapRoom",
@@ -469,7 +489,7 @@
 				{
 					"levelName": "FountainRoom",
 					"title": "Fountain Room",
-					"price": 0,
+					"price": 80,
 					"desc": "-2% dropped blood on all rooms",
 					"icon": {
 						"file": "room_icons.png",

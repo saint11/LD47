@@ -43,6 +43,10 @@ class Game extends Process {
 
 	public var money:Int = 0;
 
+	// Bonuses
+	public var bonusMoney:Float = 0;
+	public var bonusTreasure:Float = 0;
+
 	// Player stuff
 	public var hero:Hero;
 	public var playerLife: Int;
@@ -67,12 +71,12 @@ class Game extends Process {
 		camera = new Camera();
 		fx = new Fx();
 		hud = new ui.Hud();
-		levelLoop = [new LevelSeed(world.all_levels.ScrollChamber)];
+		levelLoop = [new LevelSeed(world.all_levels.ScrollChamber, null)];
 		
 		mask = new h2d.Bitmap(h2d.Tile.fromColor(0x0));
 		root.add(mask, Const.DP_UI);
 
-		money = Data.globals.get(startingMoney).value;
+		addMoney(Data.globals.get(startingMoney).value);
 
 		startLevel(levelLoop[0]);
 
@@ -230,7 +234,7 @@ class Game extends Process {
 	}
 
 	function startLevel(l : LevelSeed) {
-		
+
 		for(e in Entity.ALL)
 			e.destroy();
 		gc();
@@ -255,6 +259,27 @@ class Game extends Process {
 
 	public function win() {
 		new EndWindow(Data.text.get(victory).text);
+	}
+
+	public function addLevel(data:Data.Shop) {
+		var level = Game.ME.world.resolveLevel(data.levelName.toString());
+		var lSeed = new LevelSeed(level, data);
+		levelLoop.push(lSeed);
+		updateBonuses();
+	}
+
+	function updateBonuses() {
+		bonusMoney = 1;
+		for (l in levelLoop)
+		if (l.data!=null)
+		for (b in l.data.bonus) {
+			switch (b.bonus) {
+				case Money(chance):
+					bonusMoney += chance/100;
+				case Treasure(chance):
+					bonusTreasure += chance/100;
+			}
+		}
 	}
 }
 

@@ -5,16 +5,22 @@ import dn.Rand;
 
 class LevelSeed {
     public var seed:Int;
-    public var rand:Rand;
+    var rand:Rand;
 
     var level : World.World_Level;
+    public var data : Data.Shop;
 
-    public function new(level:World.World_Level) {
+    public var loop:Int;
+
+    public function new(level:World.World_Level, data:Data.Shop) {
         this.level = level;
+        this.data = data;
+        loop = -1;
         seed = M.rand();
     }
 
     public function getLevel():World.World_Level {
+        loop++;
         return level;
     }
 
@@ -26,7 +32,15 @@ class LevelSeed {
         return rand.irange(0,max-1);
     }
 
+    public function range(max) {
+        return rand.range(0,max);
+    }
+
     public function rcolor(base, variation) {
         return new Vec(base + rand.range(0, variation), base + rand.range(0, variation), base+ rand.range(0, variation));
+    }
+
+    public function getDir() {
+        return rand.irange(1,1,true);
     }
 }
