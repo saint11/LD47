@@ -41,6 +41,10 @@
 				{
 					"id": "startingMoney",
 					"value": 30
+				},
+				{
+					"id": "colorVariation",
+					"value": 0.15
 				}
 			],
 			"separators": [],
@@ -62,6 +66,19 @@
 					"name": "friction"
 				},
 				{
+					"typeStr": "4",
+					"name": "jump"
+				},
+				{
+					"typeStr": "4",
+					"name": "gravity",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "startAltitude"
+				},
+				{
 					"typeStr": "6:damage",
 					"name": "dmg"
 				},
@@ -75,15 +92,21 @@
 					"id": "SimpleBullet",
 					"speed": 0.4,
 					"friction": 1,
-					"lifespan": 3,
-					"dmg": "magic_missile"
+					"lifespan": 300,
+					"dmg": "magic_missile",
+					"jump": 0,
+					"gravity": 0,
+					"startAltitude": 16
 				},
 				{
 					"id": "EnemyFire",
 					"speed": 0.1,
 					"friction": 1,
 					"dmg": "magic_missile",
-					"lifespan": 3
+					"lifespan": 300,
+					"jump": 0,
+					"gravity": 0,
+					"startAltitude": 16
 				}
 			],
 			"separators": [],
@@ -309,6 +332,12 @@
 					"amount": 2,
 					"push": 1,
 					"stunTime": 0.4
+				},
+				{
+					"id": "trap_damage",
+					"amount": 1,
+					"push": 0.1,
+					"stunTime": 0.1
 				}
 			],
 			"separators": [],

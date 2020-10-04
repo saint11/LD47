@@ -66,7 +66,8 @@ class Hero extends Entity {
 
 
             if (ca.yDown() && cd.getS("player_shoot")==0) {
-                new Projectile(centerX, centerY, angToMouse(0,0), this, weapon.projectile);
+                var helper = cy<2? 8: cy>level.hei-2? -4: 0;
+                new Projectile(footX, footY + helper, angToMouse(0,helper), this, weapon.projectile);
                 cd.setS("player_shoot", weapon.interval);
                 setAffectS(Stun, weapon.stun);
                 cancelVelocities();

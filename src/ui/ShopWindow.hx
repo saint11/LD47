@@ -147,7 +147,9 @@ class ShopWindow extends dn.Process {
 				}
 				else 
 				{
-					Game.ME.levelLoop.push(Game.ME.world.resolveLevel(inf.levelName.toString()));
+					Game.ME.levelLoop.push(
+						new LevelSeed(Game.ME.world.resolveLevel(inf.levelName.toString()))
+						);
 					Game.ME.level.scroll.destroy();
 					Game.ME.addMoney(-cost);
 				}

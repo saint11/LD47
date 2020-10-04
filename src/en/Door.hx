@@ -55,4 +55,9 @@ class Door extends Entity {
             }
         }
     }
+
+    public function setColor(c) {
+        spr.color = c;
+        doorTop.spr.color = c;
+    }
 }
