@@ -12,6 +12,8 @@ class Main extends dn.Process {
 
 	public var mouseX(get,never) : Float; function get_mouseX() return (scene.mouseX - Game.ME.scroller.x)/ Const.SCALE;
 	public var mouseY(get,never) : Float; function get_mouseY() return (scene.mouseY - Game.ME.scroller.y)/ Const.SCALE;
+	public var rawMouseX(get,never) : Float; function get_rawMouseX() return (scene.mouseX)/ Const.SCALE;
+	public var rawMouseY(get,never) : Float; function get_rawMouseY() return (scene.mouseY)/ Const.SCALE;
 
 	public var restartGame:Bool;
 
@@ -52,7 +54,10 @@ class Main extends dn.Process {
 
 		// Assets & data init
 		Assets.init();
+		#if debug
 		new ui.Console(Assets.fontTiny, s);
+		#end
+		
 		Lang.init("en");
 		Data.load( hxd.Res.data.entry.getText() );
 

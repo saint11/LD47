@@ -32,8 +32,6 @@ class Level extends dn.Process {
 
 	public var scroll:Scroll;
 
-	var aim:h2d.Bitmap;
-
 	public function new(l:World.World_Level) {
 		super(Game.ME);
 		createRootInLayers(Game.ME.scroller, Const.DP_BG);
@@ -73,9 +71,6 @@ class Level extends dn.Process {
 
 		new Door(16,doorY, 1);
 		new Door(-1,doorY, -1);
-
-		
-		aim = new h2d.Bitmap(Assets.tiles.h_get("aim", 0.5, 0.5).tile, Game.ME.scroller);
 	}
 
 	/**
@@ -147,8 +142,6 @@ class Level extends dn.Process {
 	override function postUpdate() {
 		super.postUpdate();
 
-		aim.setPosition(Main.ME.mouseX, Main.ME.mouseY);
-
 		if( invalidated ) {
 			invalidated = false;
 			render();
@@ -161,10 +154,5 @@ class Level extends dn.Process {
 		} else {
 			return false;
 		}
-	}
-
-	override function onDispose() {
-		super.onDispose();
-		aim.remove();
 	}
 }
