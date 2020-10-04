@@ -58,13 +58,19 @@ class Level extends dn.Process {
 		var colorVariation:Float = Data.globals.get(colorVariation).value;
 		var g = new Graphics(root);
 		g.drawTile(0, 0, floor);
-		g.color = level.rcolor(1 - colorVariation, colorVariation);
+		var floorColor = g.color = level.rcolor(1 - colorVariation, colorVariation);
+		g.scaleX = level.getDir();
+		if (g.scaleX<0)
+			g.x += g.tile.width;
 
 		var g = new Graphics(root);
 		g.drawTile(-offsetX, -offsetY, bg);
 		var doorY:Int = Data.globals.get(doorY).value;
 		var wallTint = level.rcolor(1 - colorVariation, colorVariation);
 		g.color = wallTint;
+		g.scaleX = level.getDir();
+		if (g.scaleX<0)
+			g.x += offsetX/2 + g.tile.width/4;
 
 		if (l.l_Entities.all_Hero!=null)
 		for (e in l.l_Entities.all_Hero)
@@ -83,7 +89,8 @@ class Level extends dn.Process {
 
 		if (l.l_Entities.all_Mob!=null)
 		for (m in l.l_Entities.all_Mob) {
-			new Mob(m.cx, m.cy, m);
+			if (level.range(1) < m.f_Chance + m.f_ChanceIncrease * level.loop)
+				new Mob(m.cx, m.cy, m);
 		}
 
 		if (l.l_Entities.all_Scroll!=null)
@@ -93,7 +100,10 @@ class Level extends dn.Process {
 
 		if (l.l_Entities.all_TrapFloor!=null)
 		for (e in l.l_Entities.all_TrapFloor) {
-			new FloorTrap(e.cx, e.cy);
+			if (level.range(1) < e.f_Chance + e.f_ChanceIncrease * level.loop) {
+				var trap = new FloorTrap(e.cx, e.cy);
+				trap.color = floorColor;
+			}
 		}
 
 		if (l.l_Entities.all_Fountain!=null)
@@ -112,13 +122,13 @@ class Level extends dn.Process {
 		fgRight = new h2d.Graphics();
 		game.scroller.add(fgLeft, Const.DP_TOP);
 		game.scroller.add(fgRight, Const.DP_TOP);
-		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26, - offsetY * (2-parallax), getRandomForeground(level));
-		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75, -offsetY * (2-parallax), getRandomForeground(level));
+		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26 - 200, - offsetY * (2-parallax), getRandomForeground(level));
+		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75 - 200, -offsetY * (2-parallax), getRandomForeground(level));
 		fgRight.scaleX = -1;
 	}
 
 	function getRandomFloor(level:LevelSeed):Tile {
-		var list: Array<Image> = [Res.bg.floor_simple01, Res.bg.floor_simple02];
+		var list: Array<Image> = [Res.bg.floor_simple01, Res.bg.floor_simple02, Res.bg.floor_simple03, Res.bg.floor_simple04];
 		return list[level.irange(list.length)].toTile();
 	}
 	function getRandomForeground(level:LevelSeed):Tile {

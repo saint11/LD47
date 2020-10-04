@@ -44,6 +44,7 @@ class Hero extends Entity {
 
         if (cd.getRatio("doorEnter")>0) {
             var d = cd.getRatio("doorEnter");
+            shadow.alpha = d;
             spr.alpha = d;
             sprScaleX = sprScaleY = 0.8 + d * 0.2;
         } else if (!hasAffect(Stun)) {
@@ -84,8 +85,6 @@ class Hero extends Entity {
                 spr.alpha = 0.5 + Math.sin(ftime) * 0.25;
             }
         }
-
-        
     }
 
     function addClamped(value: Float, x: Float, max:Float) : Float {

@@ -11,4 +11,5 @@ enum MobType {
 	Zombie;
 	Explosive;
 	Shooter;
+	Bomber;
 }

@@ -39,8 +39,8 @@ class ShopWindow extends dn.Process {
 		masterFlow.backgroundTile = Assets.ui.getTile("window");
         masterFlow.borderHeight = masterFlow.borderWidth = 32;
 
-		money = new h2d.Text(Assets.fontMedium, masterFlow);
-		money.textColor = 0xFF4410;
+		money = new h2d.Text(Assets.fontLarge, masterFlow);
+		money.textColor = 0xFF3333;
 		masterFlow.getProperties(money).paddingBottom = 32;
         
 		iFlow = new h2d.Flow(masterFlow);
@@ -54,7 +54,7 @@ class ShopWindow extends dn.Process {
 		else
             tf.text = "SPACE to buy, ESCAPE to cancel";
         
-        tf.textColor = 0x805337;
+        tf.textColor = 0xFFA8A2;
         
         cd.setS("lock", 0.2);
         refresh();
@@ -66,15 +66,18 @@ class ShopWindow extends dn.Process {
         items = [];
         iFlow.removeChildren();
         
-        var i = 0;
-        for(item in Data.shop.all) {
-            // {
-            //     addLocked(i.id, "Item locked (need "+i.cond.name+")");
-            //     continue;
-            // }
-            addItem(item, i++);
-        }
+		var i = 0;
+		var rooms = Data.shop.all.toArrayCopy();
 
+		addItem(rooms[0], i++);
+		for	(n in 0...3) {
+			var rn = rooms[irnd(1,rooms.length-2)];
+			addItem(rn, i++);
+			rooms.remove(rn);
+		}
+		
+		addItem(rooms[rooms.length - 1], i++);
+		
         cursor = Assets.ui.h_get("cursor",0, 0.5,0.5, iFlow);
     }
 
@@ -146,9 +149,7 @@ class ShopWindow extends dn.Process {
 				}
 				else 
 				{
-					Game.ME.levelLoop.push(
-						new LevelSeed(Game.ME.world.resolveLevel(inf.levelName.toString()))
-						);
+					Game.ME.addLevel(inf);
 					Game.ME.level.scroll.destroy();
 					Game.ME.addMoney(-cost);
 				}
