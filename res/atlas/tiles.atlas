@@ -6,14 +6,14 @@ filter: Linear,Linear
 repeat: none
 aim
   rotate: false
-  xy: 398, 717
+  xy: 411, 884
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 blood
   rotate: false
-  xy: 376, 884
+  xy: 444, 884
   size: 19, 24
   orig: 24, 24
   offset: 2, 0
@@ -69,14 +69,14 @@ fountain_00
   index: -1
 fountain_01
   rotate: false
-  xy: 443, 734
+  xy: 443, 762
   size: 141, 121
   orig: 147, 129
   offset: 6, 2
   index: -1
 fountain_02
   rotate: false
-  xy: 454, 856
+  xy: 464, 884
   size: 141, 121
   orig: 147, 129
   offset: 6, 2
@@ -90,7 +90,7 @@ fountain_expired_00
   index: -1
 fxCircle0
   rotate: false
-  xy: 431, 717
+  xy: 454, 1006
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -104,7 +104,7 @@ fxDot0
   index: -1
 fxImpact0
   rotate: false
-  xy: 360, 750
+  xy: 453, 750
   size: 15, 9
   orig: 15, 9
   offset: 0, 0
@@ -125,7 +125,7 @@ fxLineDir0
   index: -1
 fxSmallCircle0
   rotate: false
-  xy: 376, 750
+  xy: 444, 909
   size: 6, 6
   orig: 6, 6
   offset: 0, 0
@@ -139,7 +139,7 @@ fxSmoke0
   index: -1
 fxTail0
   rotate: false
-  xy: 326, 750
+  xy: 419, 750
   size: 33, 11
   orig: 33, 11
   offset: 0, 0
@@ -228,6 +228,27 @@ ghost_idle_11
   orig: 240, 240
   offset: 37, 6
   index: -1
+p_shrapnel_00
+  rotate: false
+  xy: 326, 717
+  size: 30, 38
+  orig: 48, 48
+  offset: 7, 6
+  index: -1
+p_shrapnel_01
+  rotate: false
+  xy: 357, 717
+  size: 30, 38
+  orig: 48, 48
+  offset: 7, 6
+  index: -1
+p_shrapnel_02
+  rotate: false
+  xy: 388, 717
+  size: 30, 38
+  orig: 48, 48
+  offset: 7, 6
+  index: -1
 p_simple_00
   rotate: false
   xy: 337, 884
@@ -237,7 +258,7 @@ p_simple_00
   index: -1
 p_simple_01
   rotate: false
-  xy: 363, 717
+  xy: 376, 884
   size: 34, 32
   orig: 48, 48
   offset: 7, 7
@@ -251,7 +272,7 @@ p_simple_02
   index: -1
 p_simple_03
   rotate: false
-  xy: 326, 717
+  xy: 419, 717
   size: 36, 32
   orig: 48, 48
   offset: 6, 9
@@ -272,7 +293,7 @@ scroll
   index: -1
 shadow
   rotate: false
-  xy: 396, 884
+  xy: 416, 365
   size: 53, 20
   orig: 55, 25
   offset: 0, 2
@@ -328,7 +349,7 @@ trap_floor_0004
   index: -1
 trap_floor_0005
   rotate: false
-  xy: 448, 365
+  xy: 555, 331
   size: 116, 119
   orig: 120, 120
   offset: 4, 1
@@ -426,7 +447,7 @@ zombie_walk_02
   index: -1
 zombie_walk_03
   rotate: false
-  xy: 596, 331
+  xy: 469, 386
   size: 85, 83
   orig: 240, 240
   offset: 62, 0
