@@ -142,6 +142,12 @@ class Entity {
 		life = maxLife = v;
 	}
 
+	public function heal(v) {
+		life = M.iclamp(life + 1, 0, maxLife);
+		if( life<=0 )
+			onDie();
+	}
+
 	public function hit(dmg:Data.Damage, from:Null<Entity>, reduction:Float = 1) {
 		if( !isAlive() || dmg.amount<=0 || hasAffect(Invulnerable))
 			return;
@@ -315,7 +321,7 @@ class Entity {
 
 		// Radius
 		debugBounds.lineStyle(1, c, 0.8);
-		debugBounds.drawCircle(0,-radius,radius);
+		debugBounds.drawCircle(0, 0,radius);
 
 		// Hei
 		debugBounds.lineStyle(1, c, 0.5);

@@ -106,6 +106,12 @@ class Hero extends Entity {
         dx = door.dir *0.2;
     }
 
+    override  function heal(v) {
+        super.heal(v);
+        Game.ME.playerLife=life;
+        hud.invalidate();
+    }
+
     override function hit(dmg:Damage, from:Null<Entity>, reduction: Float = 1) {
         super.hit(dmg, from, reduction);
         

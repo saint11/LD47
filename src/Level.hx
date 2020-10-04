@@ -1,3 +1,4 @@
+import en.Fountain;
 import en.FloorTrap;
 import h2d.Tile;
 import hxd.res.Image;
@@ -95,6 +96,10 @@ class Level extends dn.Process {
 			new FloorTrap(e.cx, e.cy);
 		}
 
+		if (l.l_Entities.all_Fountain!=null)
+		for (e in l.l_Entities.all_Fountain) {
+			new Fountain(e.cx, e.cy);
+		}
 
 		var dR =new Door(16,doorY, 1);
 		var dL = new Door(-1,doorY, -1);

@@ -9,13 +9,10 @@ class ShopWindow extends dn.Process {
 	public static var ME : ShopWindow;
 
 	var mask : h2d.Graphics;
-	var masterFlow : h2d.Flow;
 	var iFlow : h2d.Flow;
-	var wFlow : h2d.Flow;
-    var descFlow : h2d.Flow;
+	var masterFlow : h2d.Flow;
     
     var money : h2d.Text;
-    var description : h2d.Text;
     
     public var ca : dn.heaps.Controller.ControllerAccess;
     
@@ -34,43 +31,24 @@ class ShopWindow extends dn.Process {
 		mask = new h2d.Graphics(root);
         tw.createS(mask.alpha, 0>1, 0.3);
         
-        masterFlow = new h2d.Flow(root);
-        masterFlow.padding = 32;
-        //masterFlow.backgroundTile = Assets.ui.getTile("window");
-        masterFlow.layout = Horizontal;
-        masterFlow.verticalAlign = Middle;
+
+		masterFlow = new h2d.Flow(root);
+		masterFlow.padding = 32;
+		masterFlow.layout = Vertical;
+		masterFlow.horizontalAlign = Middle;
+		masterFlow.backgroundTile = Assets.ui.getTile("window");
         masterFlow.borderHeight = masterFlow.borderWidth = 32;
-        masterFlow.horizontalSpacing = 8;
 
-		wFlow = new h2d.Flow(masterFlow);
-		wFlow.padding = 32;
-		wFlow.layout = Vertical;
-		wFlow.horizontalAlign = Middle;
-		wFlow.backgroundTile = Assets.ui.getTile("window");
-        wFlow.borderHeight = wFlow.borderWidth = 32;
+		money = new h2d.Text(Assets.fontMedium, masterFlow);
+		money.textColor = 0xFF4410;
+		masterFlow.getProperties(money).paddingBottom = 32;
         
-        descFlow = new h2d.Flow(masterFlow);
-		descFlow.padding = 32;
-		descFlow.layout = Vertical;
-		descFlow.horizontalAlign = Middle;
-        descFlow.backgroundTile = Assets.ui.getTile("window");
-        descFlow.minWidth = descFlow.maxWidth = 350;
-        
-        descFlow.borderHeight = descFlow.borderWidth = 32;
-
-        description = new Text(Assets.fontMedium, descFlow);
-        description.maxWidth = 350;
-
-		money = new h2d.Text(Assets.fontMedium, wFlow);
-		money.textColor = 0xFF9900;
-        wFlow.getProperties(money).paddingBottom = 32;
-        
-		iFlow = new h2d.Flow(wFlow);
+		iFlow = new h2d.Flow(masterFlow);
 		iFlow.layout = Vertical;
 		iFlow.verticalSpacing = 1;
 
-        wFlow.addSpacing(8);
-		var tf = new h2d.Text(Assets.fontMedium, wFlow);
+        masterFlow.addSpacing(8);
+		var tf = new h2d.Text(Assets.fontMedium, masterFlow);
 		if( Game.ME.ca.isGamePad() )
             tf.text = "[A-Button] to buy, [B-Button] to cancel";
 		else
@@ -117,23 +95,44 @@ class ShopWindow extends dn.Process {
         var cost = inf.price;
         var money = Game.ME.money;
 
+
+		var titleBox = new h2d.Flow(f);
+		titleBox.horizontalSpacing = 8;
+		titleBox.minWidth = 100;
+		titleBox.padding = 8;
+		titleBox.verticalAlign = Middle;
+		
+		var tf = new h2d.Text(Assets.fontSmall, titleBox);
+		tf.text = inf.title;
+        tf.maxWidth = 100;
+		tf.textColor = cost<= money ? 0xFFFFFF : 0xE77272;
+
 		var box = new h2d.Flow(f);
 		box.horizontalSpacing = 8;
+		box.maxWidth = box.minWidth = 200;
 		box.padding = 8;
-        var tf = new h2d.Text(Assets.fontSmall, box);
-		tf.text = inf.title;
-        tf.maxWidth = 190;
-        tf.textColor = cost<= money ? 0xFFFFFF : 0xE77272;
+		box.verticalAlign = Middle;
+		
+		
+        var desc = new h2d.Text(Assets.fontSmall, box);
+		desc.text = inf.desc;
+        desc.maxWidth = 200;
+        desc.textColor = 0xBBBBBB;
+		
+		var priceBox = new h2d.Flow(f);
+		priceBox.horizontalSpacing = 8;
+		priceBox.maxWidth = priceBox.minWidth = 90;
+		priceBox.padding = 8;
         
         f.addSpacing(8);
         
 		if( cost>0 ) {
-			var tf = new h2d.Text(Assets.fontSmall, box);
+			var tf = new h2d.Text(Assets.fontSmall, priceBox);
 			tf.text = "$"+cost;
 			tf.textColor = cost <= money ? 0xFF9900 : 0xD20000;
 		}
 		else {
-			var tf = new h2d.Text(Assets.fontSmall, box);
+			var tf = new h2d.Text(Assets.fontSmall, priceBox);
 			tf.text = "FREE";
 			tf.textColor = 0x8CD12E;
         }
@@ -170,7 +169,7 @@ class ShopWindow extends dn.Process {
 	function close() {
 		cd.setS("closing", 99999);
 		tw.createS(root.alpha, 0, 0.1);
-		tw.createS(wFlow.y, -wFlow.outerHeight,0.1).end( function() {
+		tw.createS(masterFlow.y, -masterFlow.outerHeight,0.1).end( function() {
 			destroy();
 		});
     }
@@ -178,14 +177,13 @@ class ShopWindow extends dn.Process {
     override function update() {
         super.update();
 
-        money.text = "You have $"+Game.ME.money;
+        money.text = Std.string(Game.ME.money);
         
         
         var g = Game.ME;
 		for(i in items)
 			i.f.alpha = 0.7;
 		var i = items[curIdx];
-        description.text = i.desc;
 
 		cursor.visible = i!=null;
 		if( i!=null ) {
@@ -221,11 +219,10 @@ class ShopWindow extends dn.Process {
         
 		mask.clear();
 		mask.beginFill(0x21111F,0.75);
-        mask.drawRect(0,0,Main.ME.w(),Main.ME.h());
+		mask.drawRect(0,0,Main.ME.w(),Main.ME.h());
         
 		masterFlow.reflow();
 		masterFlow.x = Std.int( Main.ME.w()*0.5 - masterFlow.outerWidth*0.5);
         masterFlow.y = Std.int( Main.ME.h()*0.5 - masterFlow.outerHeight*0.5);
-        descFlow.minHeight = descFlow.maxHeight = wFlow.outerHeight;
     }
 }

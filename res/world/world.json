@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 48,
+	"nextUid": 50,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -162,6 +162,22 @@
 						"defaultOverride": null
 					}
 				]
+			},
+			{
+				"identifier": "Fountain",
+				"uid": 49,
+				"width": 16,
+				"height": 16,
+				"color": "#00AAFF",
+				"renderMode": "Cross",
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0.5,
+				"pivotY": 0.5,
+				"fieldDefs": []
 			}
 		],
 		"tilesets": [
@@ -613,6 +629,58 @@
 								"realEditorValues": [ {
 									"id": "V_String",
 									"params": [ "Shooter" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] }
+					]
+				}
+			]
+		},
+		{
+			"identifier": "FountainRoom",
+			"uid": 48,
+			"pxWid": 256,
+			"pxHei": 240,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 15,
+					"__gridSize": 16,
+					"levelId": 48,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 7318747,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "Fountain", "__cx": 12, "__cy": 2, "defUid": 49, "x": 200, "y": 40, "fieldInstances": [] },
+						{ "__identifier": "Mob", "__cx": 2, "__cy": 2, "defUid": 24, "x": 40, "y": 40, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Zombie",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Zombie" ]
+								} ]
+							},
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+						] },
+						{ "__identifier": "Mob", "__cx": 12, "__cy": 12, "defUid": 24, "x": 200, "y": 200, "fieldInstances": [
+							{
+								"__identifier": "MobType",
+								"__value": "Explosive",
+								"__type": "ExternEnum.MobType",
+								"defUid": 37,
+								"realEditorValues": [ {
+									"id": "V_String",
+									"params": [ "Explosive" ]
 								} ]
 							},
 							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
