@@ -35,8 +35,8 @@ class Game extends Process {
 	/** LEd world data **/
 	public var world : World;
 
-	var levelToLoad : World.World_Level;
-	public var levelLoop:Array<World.World_Level>; // TODO: Make sure rooms have a seed
+	var levelToLoad : LevelSeed;
+	public var levelLoop:Array<LevelSeed>; // TODO: Make sure rooms have a seed
 	public var levelIndex:Int = 0;
 
 	var mask : h2d.Bitmap;
@@ -67,7 +67,7 @@ class Game extends Process {
 		camera = new Camera();
 		fx = new Fx();
 		hud = new ui.Hud();
-		levelLoop = [world.all_levels.ScrollChamber];
+		levelLoop = [new LevelSeed(world.all_levels.ScrollChamber)];
 		
 		mask = new h2d.Bitmap(h2d.Tile.fromColor(0x0));
 		root.add(mask, Const.DP_UI);
@@ -229,7 +229,8 @@ class Game extends Process {
 		});
 	}
 
-	function startLevel(l : World.World_Level) {
+	function startLevel(l : LevelSeed) {
+		
 		for(e in Entity.ALL)
 			e.destroy();
 		gc();

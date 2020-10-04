@@ -6,6 +6,8 @@ class Projectile extends Entity {
 
     var owner:Entity;
     var data:Data.Projectiles;
+    var lifeSpan = 0.;
+
     public function new(x, y, angle, owner, data: Data.Projectiles) {
         ALL.push(this);
         
@@ -37,11 +39,13 @@ class Projectile extends Entity {
     }
     
     override function onTouchWallX() {
-        explode();
+        if (lifeSpan>0.1)
+            explode();
     }
 
     override function onTouchWallY() {
-        explode();
+        if (lifeSpan>0.1)
+            explode();
     }
 
     override function onTouch(e:Entity) {
@@ -57,6 +61,17 @@ class Projectile extends Entity {
     public function explode() {
         fx.explode(centerX,centerY, "explosion_green");
         destroy();
+    }
+
+    override function hit(dmg:Data.Damage, from:Null<Entity>, reduction: Float = 1) {
+        
+    }
+
+    override function update() {
+        super.update();
+        lifeSpan += tmod;
+        if (lifeSpan>data.lifespan)
+            explode();
     }
 
 }

@@ -17,16 +17,15 @@ class Level extends dn.Process {
 	public var game(get,never) : Game; inline function get_game() return Game.ME;
 	public var fx(get,never) : Fx; inline function get_fx() return Game.ME.fx;
 
-	public var wid(get,never) : Int; function get_wid() return level.l_Entities.cWid;
-	public var hei(get,never) : Int; function get_hei() return level.l_Entities.cHei;
+	public var wid(get,never) : Int; function get_wid() return 16;
+	public var hei(get,never) : Int; function get_hei() return 15;
 	
-	public var pxWid(get,never) : Int; function get_pxWid() return level.l_Entities.cWid * Const.GRID;
-	public var pxHei(get,never) : Int; function get_pxHei() return level.l_Entities.cHei * Const.GRID;
+	public var pxWid(get,never) : Int; function get_pxWid() return wid * Const.GRID;
+	public var pxHei(get,never) : Int; function get_pxHei() return hei * Const.GRID;
 
 	public var offsetX = 0;
 	public var offsetY = 0;
 
-	public var level : World.World_Level;
 	var tilesetSource : h2d.Tile;
 
 	var marks : Map< LevelMark, Map<Int,Bool> > = new Map();
@@ -40,17 +39,30 @@ class Level extends dn.Process {
 	var fgRight: h2d.Graphics;
 	var parallax:Float = 0.3;
 
-	public function new(l:World.World_Level) {
+	public function new(level:LevelSeed) {
 		super(Game.ME);
 		createRootInLayers(Game.ME.scroller, Const.DP_BG);
 		
-		level = l;
+		var l = level.getLevel();
+		level.resetSeed();
+
 		tilesetSource = hxd.Res.world.tiles.toTile();
 		
-		render();
-		//trace("Level loaded offset is at " + offsetX +", " + offsetY);
+		var bg = Res.bg.wall_simple01.toTile();
+		var floor = getRandomFloor(level);
+		
+		offsetX = M.round((bg.width - floor.width)/ 2);
+		offsetY = M.round((bg.height - floor.height)/ 2);
+		
+		var g = new Graphics(root);
+		g.drawTile(0, 0, floor);
+		g.color = level.rcolor(0.8, 0.2);
 
+		var g = new Graphics(root);
+		g.drawTile(-offsetX, -offsetY, bg);
 		var doorY:Int = Data.globals.get(doorY).value;
+		var wallTint = level.rcolor(0.8, 0.2);
+		g.color = wallTint;
 
 		if (l.l_Entities.all_Hero!=null)
 		for (e in l.l_Entities.all_Hero)
@@ -83,26 +95,29 @@ class Level extends dn.Process {
 		}
 
 
-		new Door(16,doorY, 1);
-		var d = new Door(-1,doorY, -1);
-		d.locked = true;
+		var dR =new Door(16,doorY, 1);
+		var dL = new Door(-1,doorY, -1);
+		dL.locked = true;
+
+		dR.setColor(wallTint);
+		dL.setColor(wallTint);
 
 		fgLeft = new h2d.Graphics();
 		fgRight = new h2d.Graphics();
 		game.scroller.add(fgLeft, Const.DP_TOP);
 		game.scroller.add(fgRight, Const.DP_TOP);
-		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26, - offsetY, getRandomForeground());
-		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75, -offsetY, getRandomForeground());
+		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26, - offsetY, getRandomForeground(level));
+		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75, -offsetY, getRandomForeground(level));
 		fgRight.scaleX = -1;
 	}
 
-	function getRandomFloor():Tile {
+	function getRandomFloor(level:LevelSeed):Tile {
 		var list: Array<Image> = [Res.bg.floor_simple01, Res.bg.floor_simple02];
-		return list[M.rand(list.length)].toTile();
+		return list[level.irange(list.length)].toTile();
 	}
-	function getRandomForeground():Tile {
+	function getRandomForeground(level:LevelSeed):Tile {
 		var list: Array<Image> = [Res.bg.foreground01, Res.bg.foreground02, Res.bg.foreground03, Res.bg.foreground04];
-		return list[M.rand(list.length)].toTile();
+		return list[level.irange(list.length)].toTile();
 	}
 	/**
 		Mark the level for re-render at the end of current frame (before display)
@@ -147,40 +162,13 @@ class Level extends dn.Process {
 		return !isValid(cx,cy) ? true : fastColl[coordId(cx,cy)];
 	}
 
-	/** Render current level**/
-	function render() {
-		root.removeChildren();
-
-		var bg = Res.bg.wall_simple01.toTile();
-		var floor = getRandomFloor();
-		
-		offsetX = M.round((bg.width - floor.width)/ 2);
-		offsetY = M.round((bg.height - floor.height)/ 2);
-		
-		var g = new Graphics(root);
-		g.drawTile(0, 0, floor);
-		
-		var g = new Graphics(root);
-		g.drawTile(-offsetX, -offsetY, bg);
-		
-		// var layer = level.l_Collisions;
-		// for( autoTile in layer.autoTiles ) {
-		// 	var tile = layer.tileset.getAutoLayerHeapsTile(tilesetSource, autoTile);
-		// 	tg.add(autoTile.renderX, autoTile.renderY, tile);
-		// }
-	}
-
 	override function postUpdate() {
 		super.postUpdate();
 
 		fgLeft.x = Game.ME.scroller.x * (1 - parallax);
 		fgRight.x = Game.ME.scroller.x * (1 - parallax);
-		//fgLeft.y = Game.ME.scroller.y * (1 - parallax);
-
-		if( invalidated ) {
-			invalidated = false;
-			render();
-		}
+		fgLeft.y = Game.ME.scroller.y * (1 - parallax);
+		fgRight.y = Game.ME.scroller.y * (1 - parallax);
 	}
 
 	override function onDispose() {

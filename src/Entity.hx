@@ -225,7 +225,7 @@ class Entity {
 	public inline function pretty(v,?p=1) return M.pretty(v,p);
 
 	public function angToMouse(offX, offY) {
-		return Math.atan2(Main.ME.mouseY - centerY + offY, Main.ME.mouseX - centerX + offY);
+		return Math.atan2(Main.ME.mouseY - footY + offY, Main.ME.mouseX - footX + offY);
 	}
 	public inline function angTo(e:Entity) return Math.atan2(e.footY-footY, e.footX-footX);
 	public inline function dirTo(e:Entity) return e.centerX<centerX ? -1 : 1;
