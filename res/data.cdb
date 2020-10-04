@@ -41,6 +41,10 @@
 				{
 					"id": "startingMoney",
 					"value": 30
+				},
+				{
+					"id": "colorVariation",
+					"value": 0.15
 				}
 			],
 			"separators": [],

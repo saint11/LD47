@@ -54,14 +54,15 @@ class Level extends dn.Process {
 		offsetX = M.round((bg.width - floor.width)/ 2);
 		offsetY = M.round((bg.height - floor.height)/ 2);
 		
+		var colorVariation:Float = Data.globals.get(colorVariation).value;
 		var g = new Graphics(root);
 		g.drawTile(0, 0, floor);
-		g.color = level.rcolor(0.8, 0.2);
+		g.color = level.rcolor(1 - colorVariation, colorVariation);
 
 		var g = new Graphics(root);
 		g.drawTile(-offsetX, -offsetY, bg);
 		var doorY:Int = Data.globals.get(doorY).value;
-		var wallTint = level.rcolor(0.8, 0.2);
+		var wallTint = level.rcolor(1 - colorVariation, colorVariation);
 		g.color = wallTint;
 
 		if (l.l_Entities.all_Hero!=null)
