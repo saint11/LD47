@@ -106,8 +106,8 @@ class Level extends dn.Process {
 		fgRight = new h2d.Graphics();
 		game.scroller.add(fgLeft, Const.DP_TOP);
 		game.scroller.add(fgRight, Const.DP_TOP);
-		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26, - offsetY, getRandomForeground(level));
-		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75, -offsetY, getRandomForeground(level));
+		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26, - offsetY * (2-parallax), getRandomForeground(level));
+		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75, -offsetY * (2-parallax), getRandomForeground(level));
 		fgRight.scaleX = -1;
 	}
 
