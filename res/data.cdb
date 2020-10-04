@@ -365,6 +365,10 @@
 					"display": null
 				},
 				{
+					"typeStr": "8",
+					"name": "bonus"
+				},
+				{
 					"typeStr": "1",
 					"name": "desc"
 				}
@@ -380,7 +384,8 @@
 						"x": 0,
 						"y": 0
 					},
-					"title": "Zombie Room"
+					"title": "Zombie Room",
+					"bonus": []
 				},
 				{
 					"levelName": "CrowdedRoom",
@@ -392,7 +397,8 @@
 						"size": 64,
 						"x": 0,
 						"y": 0
-					}
+					},
+					"bonus": []
 				},
 				{
 					"levelName": "TrapRoom",
@@ -404,7 +410,8 @@
 						"size": 64,
 						"x": 4,
 						"y": 0
-					}
+					},
+					"bonus": []
 				},
 				{
 					"levelName": "BombRoom",
@@ -416,7 +423,15 @@
 						"size": 64,
 						"x": 2,
 						"y": 0
-					}
+					},
+					"bonus": [
+						{
+							"bonus": [
+								0,
+								5
+							]
+						}
+					]
 				},
 				{
 					"levelName": "ShooterRoom",
@@ -428,19 +443,48 @@
 						"size": 64,
 						"x": 3,
 						"y": 0
-					}
+					},
+					"bonus": [
+						{
+							"bonus": [
+								1,
+								2
+							]
+						}
+					]
+				},
+				{
+					"levelName": "FountainRoom",
+					"title": "Fountain Room",
+					"price": 80,
+					"desc": "-2% dropped blood on all rooms",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 5,
+						"y": 0
+					},
+					"bonus": [
+						{
+							"bonus": [
+								0,
+								-2
+							]
+						}
+					]
 				},
 				{
 					"levelName": "EndGame",
 					"title": "Exit the Temple",
 					"price": 5000,
-					"desc": "No one have ever escaped",
+					"desc": "No one has ever escaped",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
 						"x": 1,
 						"y": 0
-					}
+					},
+					"bonus": []
 				}
 			],
 			"separators": [],
@@ -477,6 +521,21 @@
 			],
 			"separators": [],
 			"props": {}
+		},
+		{
+			"name": "shop@bonus",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "9:BonusTypes",
+					"name": "bonus",
+					"display": null
+				}
+			]
 		}
 	],
 	"customTypes": [
@@ -514,7 +573,16 @@
 			"name": "BonusTypes",
 			"cases": [
 				{
-					"name": "ExtraGold",
+					"name": "Money",
+					"args": [
+						{
+							"name": "percent",
+							"typeStr": "4"
+						}
+					]
+				},
+				{
+					"name": "Treasure",
 					"args": [
 						{
 							"name": "percent",
