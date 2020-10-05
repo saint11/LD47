@@ -1,7 +1,6 @@
 package en.inter;
 
 import hxsl.Types.Vec;
-import dx.Loop;
 
 class Scroll extends Interactive {
     
@@ -15,7 +14,8 @@ class Scroll extends Interactive {
         imovable = true;
         tall = true;
         
-        spr.anim.registerStateAnim("ghost_idle",0,0.1);
+        spr.anim.playAndLoop("ghost_idle");
+        spr.anim.setSpeed(0.12);
         enableShadow(2);
 
         seed = M.rand();
@@ -62,8 +62,16 @@ class Scroll extends Interactive {
         
 		if( talkTf!=null ) {
 			talkTf.x = Std.int(footX-talkTf.textWidth*0.5);
-			talkTf.y = Std.int(footY-128-talkTf.textHeight + txtY);
-		}
+			talkTf.y = Std.int(footY-118-talkTf.textHeight + txtY);
+        }
+        
+        
+        var t = game.tw.createS(spr.alpha, 1>0, 0.7);
+        t.delayMs(800);
+    }
+
+    public function bye() {
+        hasColl=false;
 
     }
 

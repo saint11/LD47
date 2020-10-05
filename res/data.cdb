@@ -877,12 +877,20 @@
 					"text": "Choose a room to add to your cycle of torment"
 				},
 				{
+					"id": "shopText2",
+					"text": "You currently have {0} rooms"
+				},
+				{
 					"id": "purge",
 					"text": "Do you want to purge this room for"
 				},
 				{
 					"id": "endCycle",
 					"text": "Cycle {0} was complete"
+				},
+				{
+					"id": "bye",
+					"text": "See you soon"
 				}
 			],
 			"separators": [],
