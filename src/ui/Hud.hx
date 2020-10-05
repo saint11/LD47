@@ -23,10 +23,15 @@ class Hud extends dn.Process {
 
 		flow = new h2d.Flow(root);
 		flow.layout = Vertical;
+		//flow.debug=true;
+		flow.verticalSpacing = 16;
 		
 		var mBox = new h2d.Flow(flow);
 		mBox.padding = 10;
 		mBox.paddingTop = 24;
+		mBox.verticalAlign = Middle;
+		
+		var icon = Assets.ui.h_get("bloodBig", mBox);
 		money = new Text(Assets.fontLarge, mBox);
 		money.dropShadow  = {dx: 2, dy: 2, color:0x0, alpha:0.9};
 		cAdd = new h3d.Vector();
@@ -40,15 +45,16 @@ class Hud extends dn.Process {
 	override function onResize() {
 		super.onResize();
 		root.setScale(Const.UI_SCALE);
+		flow.reflow();
 	}
 
 	public inline function invalidate() invalidated = true;
 
 	function render() {
-		var hero = Game.ME.hero;
+		flow.reflow();
 		life.removeChildren();
-		for(i in 0...hero.maxLife)
-			Assets.ui.h_get(i+1<=hero.life ? "lifeOn" : "lifeOff", life);
+		for(i in 0...Game.ME.playerMaxLife)
+			Assets.ui.h_get(i+1<=Game.ME.playerLife ? "lifeOn" : "lifeOff", life);
 	}
 
 	public function setMoney(v:Int) {
@@ -73,7 +79,7 @@ class Hud extends dn.Process {
 	override public function update() {
 		super.update();
 		if( cd.has("moneyShake") )
-			money.y = Math.cos(ftime*0.7)*2 * cd.getRatio("moneyShake");
+			money.y = 20 + Math.cos(ftime*0.7)*2 * cd.getRatio("moneyShake");
 		cAdd.r*=0.8;
 		cAdd.g*=0.8;
 		cAdd.b*=0.8;
