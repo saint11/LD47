@@ -1,89 +1,96 @@
 
 ui.png
-size: 512,512
+size: 2048,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 bloodBig
   rotate: false
-  xy: 1, 388
+  xy: 1, 899
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 button
   rotate: false
-  xy: 1, 1
+  xy: 1, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 cursor
   rotate: false
-  xy: 50, 437
+  xy: 50, 948
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 icon_chaingun
   rotate: false
-  xy: 1, 130
+  xy: 130, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 icon_grenade
   rotate: false
-  xy: 1, 259
+  xy: 259, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 icon_machine_gun
   rotate: false
-  xy: 130, 1
+  xy: 388, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 icon_magic
   rotate: false
-  xy: 259, 1
+  xy: 517, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 icon_shotgun
   rotate: false
-  xy: 130, 130
+  xy: 646, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 icon_sniper
   rotate: false
-  xy: 130, 259
+  xy: 775, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 lifeOff
   rotate: false
-  xy: 1, 437
+  xy: 1, 948
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 lifeOn
   rotate: false
-  xy: 50, 388
+  xy: 50, 899
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
+logo
+  rotate: false
+  xy: 1, 1
+  size: 1024, 768
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
 window
   rotate: false
-  xy: 259, 130
+  xy: 904, 770
   size: 128, 128
   orig: 128, 128
   offset: 0, 0

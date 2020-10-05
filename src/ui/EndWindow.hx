@@ -83,6 +83,10 @@ class EndWindow extends dn.Process {
 		masterFlow.x = Std.int( Main.ME.w()*0.5 - masterFlow.outerWidth*0.5);
         masterFlow.y = Std.int( Main.ME.h()*0.5 - masterFlow.outerHeight*0.5);
     }
+    
+    public function addVictoryImage() {
+        
+    }
 
     override public function onDispose() {
 		super.onDispose();

@@ -120,7 +120,10 @@ class Main extends dn.Process {
 			}, 1);
 		}
 		else
-			new Game();
+			{
+				new Game();
+				Game.ME.showLogo();
+			}
 	}
 
 	override public function onResize() {
