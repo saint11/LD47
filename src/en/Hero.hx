@@ -162,8 +162,8 @@ class Hero extends Entity {
         frictX=frictY=0.98;
         bounceFrict = 0.9999;
         bumpFrict = 0.95;
-        dx = rnd(-0.3,0.3);
-        dy = rnd(-0.3,0.3);
+        dx = rnd(-0.1,0.1);
+        dy = rnd(-0.1,0.1);
         corpse = false;
         delayer.addS(()-> {
             new EndWindow(Data.text.get(game_over).text);

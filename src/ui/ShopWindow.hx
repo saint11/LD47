@@ -93,8 +93,10 @@ class ShopWindow extends dn.Process {
 		else 
 			addItem(rooms[rooms.length - 1], i++);
 		
-		addItem(Data.shop.get(WeaponRoom), i++);
-		
+		#if debug
+			addItem(Data.shop.get(CrowdedRoom), i++);
+		#end
+
         cursor = Assets.ui.h_get("cursor",0, 0.5,0.5, iFlow);
     }
 

@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 62,
+	"nextUid": 64,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -1121,7 +1121,8 @@
 								"__type": "Float",
 								"defUid": 39,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.5 ] } ]
-							}
+							},
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 13, "__cy": 3, "defUid": 24, "x": 216, "y": 56, "fieldInstances": [
 							{
@@ -1134,7 +1135,8 @@
 									"params": [ "Zombie" ]
 								} ]
 							},
-							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] },
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 13, "__cy": 13, "defUid": 24, "x": 216, "y": 216, "fieldInstances": [
 							{
@@ -1147,7 +1149,8 @@
 									"params": [ "Zombie" ]
 								} ]
 							},
-							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] }
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 39, "realEditorValues": [] },
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 2, "__cy": 13, "defUid": 24, "x": 40, "y": 216, "fieldInstances": [
 							{
@@ -1166,7 +1169,8 @@
 								"__type": "Float",
 								"defUid": 39,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.4 ] } ]
-							}
+							},
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 7, "__cy": 11, "defUid": 24, "x": 120, "y": 184, "fieldInstances": [
 							{
@@ -1185,7 +1189,8 @@
 								"__type": "Float",
 								"defUid": 39,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.9 ] } ]
-							}
+							},
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] },
 						{ "__identifier": "Mob", "__cx": 2, "__cy": 3, "defUid": 24, "x": 40, "y": 56, "fieldInstances": [
 							{
@@ -1204,7 +1209,8 @@
 								"__type": "Float",
 								"defUid": 39,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.4 ] } ]
-							}
+							},
+							{ "__identifier": "ChanceIncrease", "__value": 0, "__type": "Float", "defUid": 52, "realEditorValues": [] }
 						] }
 					]
 				}
@@ -1425,7 +1431,10 @@
 					"seed": 7318747,
 					"gridTiles": [],
 					"entityInstances": [
-						{ "__identifier": "Fountain", "__cx": 12, "__cy": 2, "defUid": 49, "x": 200, "y": 40, "fieldInstances": [] },
+						{ "__identifier": "Fountain", "__cx": 12, "__cy": 2, "defUid": 49, "x": 200, "y": 40, "fieldInstances": [
+							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 60, "realEditorValues": [] },
+							{ "__identifier": "ChanceIncrement", "__value": 0, "__type": "Float", "defUid": 61, "realEditorValues": [] }
+						] },
 						{ "__identifier": "Mob", "__cx": 2, "__cy": 2, "defUid": 24, "x": 40, "y": 40, "fieldInstances": [
 							{
 								"__identifier": "MobType",
@@ -1849,7 +1858,8 @@
 								"defUid": 51,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
 							}
-						] }
+						] },
+						{ "__identifier": "Chest", "__cx": 12, "__cy": 7, "defUid": 56, "x": 200, "y": 120, "fieldInstances": [ { "__identifier": "Permanent", "__value": false, "__type": "Bool", "defUid": 57, "realEditorValues": [] } ] }
 					]
 				}
 			]
@@ -3157,10 +3167,10 @@
 							},
 							{
 								"__identifier": "ChanceIncrement",
-								"__value": 0.01,
+								"__value": 0.02,
 								"__type": "Float",
 								"defUid": 61,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.02 ] } ]
 							}
 						] }
 					]
