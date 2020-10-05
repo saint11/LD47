@@ -232,9 +232,16 @@ class Game extends Process {
 		tw.createS(mask.alpha, 0>1, 0.6).end(()-> {
 			levelIndex++;
 			if (levelIndex>=levelLoop.length)
+			{
 				levelIndex = 0;
-
-			levelToLoad = levelLoop[levelIndex];
+				new EndWindow(Data.text.get(endCycle).text,()->{
+					levelToLoad = levelLoop[levelIndex];
+				}, 2);
+			}
+			else 
+			{
+				levelToLoad = levelLoop[levelIndex];
+			}
 		});
 	}
 
@@ -264,7 +271,7 @@ class Game extends Process {
 	}
 
 	public function win() {
-		new EndWindow(Data.text.get(victory).text);
+		new EndWindow(Data.text.get(victory).text, ()-> { Main.ME.restartGame = true; });
 	}
 
 	public function addLevel(data:Data.Shop) {

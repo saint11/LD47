@@ -10,8 +10,8 @@ class EndWindow extends dn.Process {
     var masterFlow : h2d.Flow;
     
     public var ca : dn.heaps.Controller.ControllerAccess;
-    
-    public function new(text) {
+    var action:Void->Void;
+    public function new(text:String, action:Void->Void, timer:Float = -1) {
         super(Main.ME);
         ME = this;
 
@@ -38,14 +38,38 @@ class EndWindow extends dn.Process {
 
         Game.ME.pause();
         onResize();
+
+        this.action = action;
+
+        if (timer>0){
+            cd.setS("timer", timer);
+            cd.onComplete("timer", ()->{
+                action();
+                close();
+            });
+        }
     }
 
     override function update() {
         if (!cd.has("lock")){
             if (ca.aDown()) {
-                Main.ME.restartGame=true;
+                action();
+                close();
             }
         }
+    }
+    
+	var closed:Bool;
+    function close() {
+		if (!closed)
+		{
+			closed = true;
+			cd.setS("closing", 99999);
+			tw.createS(root.alpha, 0, 0.4);
+			tw.createS(masterFlow.y, -masterFlow.outerHeight,0.4).end( function() {
+				destroy();
+			});
+		}
     }
     
     override function onResize() {

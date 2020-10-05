@@ -23,11 +23,11 @@ class Mob extends Entity {
 
         ALL.push(this);
 
-        spr.anim.registerStateAnim("zombie_idle", 0);
-        spr.anim.registerStateAnim("zombie_walk", 1, 0.15, ()-> moving!=0);
-        spr.anim.registerStateAnim("zombie_hit", 1, 0.15, ()-> hasAffect(Stun));
-        
         data = Data.mobs.resolve(ref.f_MobType.getName());
+        
+        spr.anim.registerStateAnim(data.sprite + "_idle", 0);
+        spr.anim.registerStateAnim(data.sprite + "_walk", 1, 0.15, ()-> moving!=0);
+        spr.anim.registerStateAnim(data.sprite + "_hit", 1, 0.15, ()-> hasAffect(Stun));
         
         setAffectS(Sleep, rnd(0.5, 2) + data.sleep);
         initLife(data.hp);
@@ -70,7 +70,7 @@ class Mob extends Entity {
     override function onDie() {
         super.onDie();
         if (data.explosion!=null) {
-            fx.explode(centerX , centerY - 64, "explosion_big", false);
+            fx.explode(centerX , centerY - 64, "explosion_big", 1.25, false);
             level.addSplatter("explosion_big_ground", centerX , centerY - 64);
             for (e in Entity.ALL) {
                 if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 2) {
