@@ -53,6 +53,8 @@ class Game extends Process {
 	public var playerMaxLife: Int;
     public var weapon:Data.Weapons;
 
+	var loopCount = 0;
+
 	public function new() {
 		super(Main.ME);
 		ME = this;
@@ -234,7 +236,11 @@ class Game extends Process {
 			if (levelIndex>=levelLoop.length)
 			{
 				levelIndex = 0;
-				new EndWindow(Data.text.get(endCycle).text,()->{
+				loopCount++;
+				var txt:String = Data.text.get(endCycle).text;
+				txt = StringTools.replace(txt, "{0}",  Std.string(loopCount));
+				
+				new EndWindow(txt,()->{
 					levelToLoad = levelLoop[levelIndex];
 				}, 2);
 			}

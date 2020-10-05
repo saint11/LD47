@@ -61,7 +61,6 @@ class Mob extends Entity {
             case Shoot(min,max):
                 if (!cd.hasSetS("shooter", rnd(min,max))) {
                     var p = new Projectile(centerX, centerY, angTo(game.hero), this, data.projectile);
-                    p.spr.color = new Vec(0.3,1,0.3);
                 }
             }
         }

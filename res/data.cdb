@@ -193,13 +193,13 @@
 					"explode": true,
 					"dmgOnTouch": true,
 					"breakOnWall": false,
-					"scale": 1.5,
+					"scale": 1,
 					"image": 3,
 					"lifespanVar": 30
 				},
 				{
 					"id": "PlayerBomb",
-					"scale": 1.5,
+					"scale": 1,
 					"image": 2,
 					"speed": 0.35,
 					"friction": 0.973,
@@ -882,7 +882,7 @@
 				},
 				{
 					"id": "endCycle",
-					"text": "The cycle was complete"
+					"text": "The cycle {0} was complete"
 				}
 			],
 			"separators": [],
