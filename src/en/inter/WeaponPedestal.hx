@@ -11,8 +11,8 @@ class WeaponPedestal extends Interactive {
 
         weight = 1000;
         radius = 1.5 * Const.GRID;
-        spr.anim.registerStateAnim("fountain",0,0.2, ()->!expired);
-        spr.anim.registerStateAnim("fountain_expired",0,0.2, ()->expired);
+        spr.anim.registerStateAnim("pedestal",0,0.2, ()->!expired);
+        spr.anim.registerStateAnim("pesdestal_expired",0,0.2, ()->expired);
         spr.setCenterRatio();
 
         var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun, GrenadeLauncher];

@@ -889,8 +889,20 @@
 					"text": "Cycle {0} was complete"
 				},
 				{
-					"id": "seeya",
+					"id": "seeya1",
 					"text": "See you soon"
+				},
+				{
+					"id": "seeya2",
+					"text": "Fetch me some blood"
+				},
+				{
+					"id": "seeya3",
+					"text": "Be carefull!"
+				},
+				{
+					"id": "seeya4",
+					"text": "I don't think I'll see you again"
 				}
 			],
 			"separators": [],
