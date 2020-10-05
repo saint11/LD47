@@ -1431,7 +1431,7 @@
 					"seed": 7318747,
 					"gridTiles": [],
 					"entityInstances": [
-						{ "__identifier": "Fountain", "__cx": 12, "__cy": 2, "defUid": 49, "x": 200, "y": 40, "fieldInstances": [
+						{ "__identifier": "Fountain", "__cx": 7, "__cy": 7, "defUid": 49, "x": 120, "y": 120, "fieldInstances": [
 							{ "__identifier": "Chance", "__value": 1, "__type": "Float", "defUid": 60, "realEditorValues": [] },
 							{ "__identifier": "ChanceIncrement", "__value": 0, "__type": "Float", "defUid": 61, "realEditorValues": [] }
 						] },
@@ -1547,136 +1547,6 @@
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
 							}
 						] },
-						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 5, "defUid": 45, "x": 104, "y": 88, "fieldInstances": [
-							{
-								"__identifier": "Auto",
-								"__value": true,
-								"__type": "Bool",
-								"defUid": 46,
-								"realEditorValues": [ {
-									"id": "V_Bool",
-									"params": [ true ]
-								} ]
-							},
-							{
-								"__identifier": "ChanceIncrease",
-								"__value": 0.01,
-								"__type": "Float",
-								"defUid": 50,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
-							},
-							{
-								"__identifier": "Chance",
-								"__value": 0,
-								"__type": "Float",
-								"defUid": 51,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
-							}
-						] },
-						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 7, "defUid": 45, "x": 104, "y": 120, "fieldInstances": [
-							{
-								"__identifier": "Auto",
-								"__value": true,
-								"__type": "Bool",
-								"defUid": 46,
-								"realEditorValues": [ {
-									"id": "V_Bool",
-									"params": [ true ]
-								} ]
-							},
-							{
-								"__identifier": "ChanceIncrease",
-								"__value": 0.01,
-								"__type": "Float",
-								"defUid": 50,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
-							},
-							{
-								"__identifier": "Chance",
-								"__value": 0,
-								"__type": "Float",
-								"defUid": 51,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
-							}
-						] },
-						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 7, "defUid": 45, "x": 136, "y": 120, "fieldInstances": [
-							{
-								"__identifier": "Auto",
-								"__value": true,
-								"__type": "Bool",
-								"defUid": 46,
-								"realEditorValues": [ {
-									"id": "V_Bool",
-									"params": [ true ]
-								} ]
-							},
-							{
-								"__identifier": "ChanceIncrease",
-								"__value": 0.01,
-								"__type": "Float",
-								"defUid": 50,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
-							},
-							{
-								"__identifier": "Chance",
-								"__value": 0,
-								"__type": "Float",
-								"defUid": 51,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
-							}
-						] },
-						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 9, "defUid": 45, "x": 104, "y": 152, "fieldInstances": [
-							{
-								"__identifier": "Auto",
-								"__value": true,
-								"__type": "Bool",
-								"defUid": 46,
-								"realEditorValues": [ {
-									"id": "V_Bool",
-									"params": [ true ]
-								} ]
-							},
-							{
-								"__identifier": "ChanceIncrease",
-								"__value": 0.01,
-								"__type": "Float",
-								"defUid": 50,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
-							},
-							{
-								"__identifier": "Chance",
-								"__value": 0,
-								"__type": "Float",
-								"defUid": 51,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
-							}
-						] },
-						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 5, "defUid": 45, "x": 136, "y": 88, "fieldInstances": [
-							{
-								"__identifier": "Auto",
-								"__value": true,
-								"__type": "Bool",
-								"defUid": 46,
-								"realEditorValues": [ {
-									"id": "V_Bool",
-									"params": [ true ]
-								} ]
-							},
-							{
-								"__identifier": "ChanceIncrease",
-								"__value": 0.01,
-								"__type": "Float",
-								"defUid": 50,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
-							},
-							{
-								"__identifier": "Chance",
-								"__value": 0,
-								"__type": "Float",
-								"defUid": 51,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
-							}
-						] },
 						{ "__identifier": "TrapFloor", "__cx": 6, "__cy": 11, "defUid": 45, "x": 104, "y": 184, "fieldInstances": [
 							{
 								"__identifier": "Auto",
@@ -1756,32 +1626,6 @@
 							}
 						] },
 						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 11, "defUid": 45, "x": 136, "y": 184, "fieldInstances": [
-							{
-								"__identifier": "Auto",
-								"__value": true,
-								"__type": "Bool",
-								"defUid": 46,
-								"realEditorValues": [ {
-									"id": "V_Bool",
-									"params": [ true ]
-								} ]
-							},
-							{
-								"__identifier": "ChanceIncrease",
-								"__value": 0.01,
-								"__type": "Float",
-								"defUid": 50,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
-							},
-							{
-								"__identifier": "Chance",
-								"__value": 0,
-								"__type": "Float",
-								"defUid": 51,
-								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
-							}
-						] },
-						{ "__identifier": "TrapFloor", "__cx": 8, "__cy": 9, "defUid": 45, "x": 136, "y": 152, "fieldInstances": [
 							{
 								"__identifier": "Auto",
 								"__value": true,

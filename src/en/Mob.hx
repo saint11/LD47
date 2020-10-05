@@ -70,7 +70,8 @@ class Mob extends Entity {
     override function onDie() {
         super.onDie();
         if (data.explosion!=null) {
-            fx.explode(centerX , centerY - 64, "explosion_big", 1.2);
+            fx.explode(centerX , centerY - 64, "explosion_big", false);
+            level.addSplatter("explosion_big_ground", centerX , centerY - 64);
             for (e in Entity.ALL) {
                 if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 2) {
                     e.hit(data.explosion,this);
@@ -78,6 +79,8 @@ class Mob extends Entity {
                     e.hit(data.explosion,this, 0.5);
                 }
             }
+        } else {
+            fx.explode(footX , footY - 32, "blood_splatter", true);
         }
         // Drop loot
         if (loot)

@@ -68,7 +68,8 @@ class Projectile extends Entity {
 
     public function explode() {
         if (data.explode) {
-            fx.explode(centerX , centerY - 64, "explosion_big", 1.2);
+            fx.explode(centerX , centerY - 64, "explosion_big", false);
+            level.addSplatter("explosion_big_ground", centerX , centerY);
             for (e in Entity.ALL) {
                 var mul = 1.;
                 if (e == owner) 
@@ -81,7 +82,7 @@ class Projectile extends Entity {
                 }
             }
         } else {
-            fx.explode(centerX,centerY, "explosion_green");
+            fx.explode(centerX,centerY, "explosion_green", false);
         }
 
         destroy();

@@ -149,10 +149,12 @@ class Fx extends dn.Process {
 	}
 
 	
-    public function explode(centerX,centerY, explosionName, scale=1.) {
+    public function explode(x ,y, explosionName, trail:Bool) {
 		var tile = Assets.fx.tile;
-		var p = allocTopNormal(tile, centerX, centerY);
+		var p = allocTopNormal(tile, x , y);
         p.playAnimAndKill(Assets.fx, explosionName, 0.3);
-        p.scale = scale;
+		
+		if (trail)
+			p.onKill = ()-> level.addSplatter(explosionName + "_ground", x, y);
     }
 }

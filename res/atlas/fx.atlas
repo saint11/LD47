@@ -1,19 +1,75 @@
 
 fx.png
-size: 512,512
+size: 512,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+blood_splatter_0000
+  rotate: false
+  xy: 1, 497
+  size: 90, 108
+  orig: 128, 128
+  offset: 15, 13
+  index: -1
+blood_splatter_0001
+  rotate: false
+  xy: 366, 455
+  size: 94, 109
+  orig: 128, 128
+  offset: 13, 12
+  index: -1
+blood_splatter_0002
+  rotate: false
+  xy: 270, 422
+  size: 95, 111
+  orig: 128, 128
+  offset: 14, 12
+  index: -1
+blood_splatter_0003
+  rotate: false
+  xy: 171, 415
+  size: 98, 100
+  orig: 128, 128
+  offset: 13, 20
+  index: -1
+blood_splatter_0004
+  rotate: false
+  xy: 1, 217
+  size: 122, 100
+  orig: 128, 128
+  offset: 5, 2
+  index: -1
+blood_splatter_0005
+  rotate: false
+  xy: 1, 318
+  size: 116, 94
+  orig: 128, 128
+  offset: 8, 2
+  index: -1
+blood_splatter_0006
+  rotate: false
+  xy: 1, 413
+  size: 116, 83
+  orig: 128, 128
+  offset: 8, 2
+  index: -1
+blood_splatter_ground
+  rotate: false
+  xy: 305, 384
+  size: 116, 37
+  orig: 128, 128
+  offset: 8, 2
+  index: -1
 explosion_big_0000
   rotate: false
-  xy: 164, 217
+  xy: 176, 216
   size: 128, 198
   orig: 256, 256
   offset: 55, 15
   index: -1
 explosion_big_0001
   rotate: false
-  xy: 1, 217
+  xy: 176, 1
   size: 162, 214
   orig: 256, 256
   offset: 42, 11
@@ -27,112 +83,119 @@ explosion_big_0002
   index: -1
 explosion_big_0003
   rotate: false
-  xy: 176, 1
+  xy: 339, 1
   size: 147, 171
   orig: 256, 256
   offset: 54, 14
   index: -1
 explosion_big_0004
   rotate: false
-  xy: 324, 1
+  xy: 339, 173
   size: 139, 159
   orig: 256, 256
   offset: 62, 15
   index: -1
 explosion_big_0005
   rotate: false
-  xy: 324, 161
+  xy: 422, 333
   size: 78, 121
   orig: 256, 256
   offset: 81, 51
   index: -1
 explosion_big_0006
   rotate: false
-  xy: 293, 283
+  xy: 118, 318
   size: 52, 98
   orig: 256, 256
   offset: 99, 66
   index: -1
 explosion_big_0007
   rotate: false
-  xy: 215, 416
+  xy: 124, 217
   size: 34, 88
   orig: 256, 256
   offset: 120, 70
   index: -1
 explosion_big_0008
   rotate: false
-  xy: 164, 416
+  xy: 487, 1
   size: 12, 14
   orig: 256, 256
   offset: 117, 108
   index: -1
 explosion_big_0009
   rotate: false
-  xy: 148, 498
+  xy: 500, 1
   size: 9, 12
   orig: 256, 256
   offset: 114, 115
   index: -1
 explosion_big_0010
   rotate: false
-  xy: 1, 505
+  xy: 508, 14
   size: 3, 3
   orig: 256, 256
   offset: 0, 253
   index: -1
+explosion_big_ground
+  rotate: false
+  xy: 305, 333
+  size: 116, 50
+  orig: 256, 256
+  offset: 67, 0
+  index: -1
 explosion_green_0000
   rotate: false
-  xy: 403, 216
+  xy: 118, 417
   size: 52, 46
   orig: 100, 100
   offset: 24, 29
   index: -1
 explosion_green_0001
   rotate: false
-  xy: 148, 432
+  xy: 92, 570
   size: 66, 65
   orig: 100, 100
   offset: 17, 20
   index: -1
 explosion_green_0002
   rotate: false
-  xy: 1, 432
+  xy: 92, 497
   size: 73, 72
   orig: 100, 100
   offset: 15, 14
   index: -1
 explosion_green_0003
   rotate: false
-  xy: 75, 432
+  xy: 166, 516
   size: 72, 72
   orig: 100, 100
   offset: 14, 13
   index: -1
 explosion_green_0004
   rotate: false
-  xy: 250, 416
+  xy: 1, 606
   size: 65, 61
   orig: 100, 100
   offset: 14, 21
   index: -1
 explosion_green_0005
   rotate: false
-  xy: 403, 161
+  xy: 239, 534
   size: 63, 54
   orig: 100, 100
   offset: 14, 22
   index: -1
 explosion_green_0006
   rotate: false
-  xy: 158, 498
+  xy: 500, 14
   size: 7, 7
   orig: 100, 100
   offset: 67, 68
   index: -1
 explosion_green_0007
   rotate: false
-  xy: 1, 505
+  xy: 508, 14
   size: 3, 3
   orig: 100, 100
   offset: 0, 97
