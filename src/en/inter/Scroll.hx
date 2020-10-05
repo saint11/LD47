@@ -26,6 +26,8 @@ class Scroll extends Interactive {
             if (txt!=null)
                 sayWords(txt);
         });
+
+        gravity = 0;
     }
 
     function getLine(loop:Int) {
@@ -37,14 +39,6 @@ class Scroll extends Interactive {
         return null;
     }
 
-    override function update() {
-        super.update();
-
-        altitude = 10 + Math.sin(ftime * 0.05) * 5;
-
-        spr.alpha = 0.5 + Math.sin(ftime * 0.02) * 0.2;
-    }
-    
     override function dispose() {
         super.dispose();
         level.scroll=null;
@@ -57,22 +51,42 @@ class Scroll extends Interactive {
         super.onActivate(by);
         new ui.ShopWindow(seed);
     }
+
+    var done=false;
     override function postUpdate() {
         super.postUpdate();
-        
+        if (!done)
+        {
+            if (game.cd.has("leave"))
+            {
+                var f = game.cd.getRatio("leave");
+                altitude = 10 + Math.sin(ftime * 0.05) * 5 + (1 - f) * 100;
+                spr.alpha = (0.5 + Math.sin(ftime * 0.02) * 0.2 ) * f;
+            }
+            else {
+                altitude = 10 + Math.sin(ftime * 0.05) * 5;
+                spr.alpha = 0.5 + Math.sin(ftime * 0.02) * 0.2;
+            }
+            shadow.alpha = spr.alpha;
+        }
 		if( talkTf!=null ) {
 			talkTf.x = Std.int(footX-talkTf.textWidth*0.5);
-			talkTf.y = Std.int(footY-118-talkTf.textHeight + txtY);
+			talkTf.y = Std.int(footY-118-talkTf.textHeight + txtY - altitude);
         }
-        
-        
-        var t = game.tw.createS(spr.alpha, 1>0, 0.7);
-        t.delayMs(800);
     }
-
     public function bye() {
         hasColl=false;
-
+        spr.anim.play("ghost_idle").setSpeed(0.25)
+            .chain("ghost_leave").setSpeed(0.1)
+            .chainLoop("ghost_spin").setSpeed(0.1);
+        sayWords( Data.text.get(seeya).text) ;
+        
+        game.cd.setS("leave",2);
+        game.cd.onComplete("leave", ()->{
+            done= true;
+        });
+        
+        level.scroll = null;
     }
 
     function clearWords(?immediate=false) {
@@ -81,7 +95,7 @@ class Scroll extends Interactive {
 				talkTf.remove();
 			else {
 				var e = talkTf;
-				game.tw.createS(e.alpha, 0, 1.3).end( e.remove );
+				game.tw.createS(e.alpha, 0, 2).end( e.remove );
 			}
 			talkTf = null;
 		}
