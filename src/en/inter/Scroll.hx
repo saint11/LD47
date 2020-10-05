@@ -125,7 +125,7 @@ class Scroll extends Interactive {
 		game.tw.createS(txtY, 0>-64, str.length*0.1);
 
 		game.delayer.cancelById("clearSay"+uid);
-		game.delayer.addS("clearSay"+uid, clearWords.bind(), 2+str.length*0.1);
+		game.delayer.addS("clearSay"+uid, clearWords.bind(), 2+str.length*0.06);
     }
     
 }
