@@ -610,7 +610,7 @@
 					"levelName": "CrowdedRoom",
 					"title": "Crowded Room",
 					"price": 3,
-					"desc": "They must be having a party",
+					"desc": "They must be having a party.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -631,7 +631,7 @@
 							]
 						}
 					],
-					"desc": "+10% dropped blood no all rooms, this room gets much more dangerous with time",
+					"desc": "Starts easy, gets more dangerous with time. +10% dropped blood in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -643,7 +643,7 @@
 					"levelName": "TrapRoom",
 					"title": "Trap Room",
 					"price": 30,
-					"desc": "+2% dropped blood and treasure chance on all rooms",
+					"desc": "Traps! +2% dropped blood and treasure chance in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -815,7 +815,7 @@
 				},
 				{
 					"id": "game_over",
-					"text": "You have been consumed by the temple. Press SPACE to restart;",
+					"text": "You have been consumed by the temple. Press SPACE to restart.",
 					"stun": 0
 				}
 			],

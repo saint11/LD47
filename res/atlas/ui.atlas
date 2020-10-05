@@ -4,6 +4,13 @@ size: 512,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+bloodBig
+  rotate: false
+  xy: 1, 388
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
 button
   rotate: false
   xy: 1, 1
@@ -13,7 +20,7 @@ button
   index: -1
 cursor
   rotate: false
-  xy: 50, 388
+  xy: 50, 437
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
@@ -41,14 +48,14 @@ icon_shotgun
   index: -1
 lifeOff
   rotate: false
-  xy: 1, 388
+  xy: 1, 437
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 lifeOn
   rotate: false
-  xy: 1, 437
+  xy: 50, 388
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
