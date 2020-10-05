@@ -84,7 +84,8 @@ class Projectile extends Entity {
                 if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 2) {
                     e.hit(data.dmg,this, mul);
                 } else if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 3) {
-                    e.hit(data.dmg,this, 0.5 * mul);
+                    if (!e.is(Hero))
+                        e.hit(data.dmg,this, 0.5 * mul);
                 }
             }
         } else {

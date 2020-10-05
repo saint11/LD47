@@ -19,7 +19,7 @@ class Purge extends Interactive {
         radius = 1 * Const.GRID;
         spr.anim.registerStateAnim("purge",0,0.2, ()->!expired);
         spr.anim.registerStateAnim("purge_off",0,0.2, ()->expired);
-        spr.setCenterRatio(0.5, 1.1);
+        spr.setCenterRatio(0.5, 0.5);
 
         var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
         var i = possibleWeapons.length;

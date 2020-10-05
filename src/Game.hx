@@ -1,3 +1,4 @@
+import hxsl.Types.Vec;
 import h2d.Bitmap;
 import h2d.Graphics;
 import en.Hero;
@@ -85,14 +86,13 @@ class Game extends Process {
 		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
 		#if debug
 		//var possibleWeapons:Array<Data.WeaponsKind> = [Sniper];
+		money=10000;
 		#end
         weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
-		//weapon = Data.weapons.get(Shotgun);
 
 		startLevel(levelLoop[0]);
 
 		Process.resizeAll();
-		//trace(Lang.t._("Game is ready."));
 	}
 
 	/**
@@ -303,7 +303,20 @@ class Game extends Process {
 	}
 
 	public function win() {
-		new EndWindow(Data.text.get(victory).text, ()-> { Main.ME.restartGame = true; });
+		Main.ME.bgmVolume=0;
+		Main.ME.lobbyVolume=0;
+		Assets.SBANK.victory().play(true);
+		
+		mask.visible =true;
+		mask.color = new Vec(1,1,1);
+		tw.createS(mask.alpha,0>1,0.8).onEnd = ()->{
+			var e = new EndWindow(Data.text.get(victory).text, ()-> {
+				Assets.SBANK.victory().stop();
+				Main.ME.restartGame = true;
+				//e.addVictoryImage();
+			});
+		}
+
 	}
 
 	public function addLevel(data:Data.Shop) {
@@ -325,6 +338,16 @@ class Game extends Process {
 					bonusTreasure += chance/100;
 			}
 		}
+	}
+
+	public function showLogo() {
+		mask
+		var logo = Assets.ui.getBitmap("logo");
+		logo.x = w()/2 - logo.width/2;
+		logo.y = h()/2 - logo.height/2;
+
+		root.add(logo, Const.DP_UI);
+		
 	}
 }
 
