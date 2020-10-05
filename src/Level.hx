@@ -43,10 +43,13 @@ class Level extends dn.Process {
 	var fgRight: h2d.Graphics;
 	var parallax:Float = 0.3;
 
+	public var splater : h2d.Graphics;
+	var seed:LevelSeed;
 	public function new(level:LevelSeed) {
 		super(Game.ME);
 		createRootInLayers(Game.ME.scroller, Const.DP_BG);
 		
+		seed = level;
 		var l = level.getLevel();
 		level.resetSeed();
 
@@ -59,12 +62,14 @@ class Level extends dn.Process {
 		offsetY = M.round((bg.height - floor.height)/ 2);
 		
 		var colorVariation:Float = Data.globals.get(colorVariation).value;
-		var g = new Graphics(root);
-		g.drawTile(0, 0, floor);
-		var floorColor = g.color = level.rcolor(1 - colorVariation, colorVariation);
-		g.scaleX = level.getDir();
-		if (g.scaleX<0)
-			g.x += g.tile.width;
+		var floorG = new Graphics(root);
+		floorG.drawTile(0, 0, floor);
+		var floorColor = floorG.color = level.rcolor(1 - colorVariation, colorVariation);
+		floorG.scaleX = level.getDir();
+		if (floorG.scaleX<0)
+			floorG.x += floorG.tile.width;
+
+		splater = new h2d.Graphics(root);
 
 		var g = new Graphics(root);
 		g.drawTile(-offsetX, -offsetY, bg);
@@ -150,6 +155,11 @@ class Level extends dn.Process {
 		fgLeft.drawTile(-offsetX * (2-parallax) - pxWid * 0.26 - 200, - offsetY * (2-parallax), getRandomForeground(level));
 		fgRight.drawTile(-offsetX * (2-parallax) - pxWid * 0.75 - 200, -offsetY * (2-parallax), getRandomForeground(level));
 		fgRight.scaleX = -1;
+
+		
+		for(s in level.splatters) {
+			addSplatterGfx(s.str, s.x, s.y);
+		}
 	}
 
 	function getRandomFloor(level:LevelSeed):Tile {
@@ -225,4 +235,18 @@ class Level extends dn.Process {
 			return false;
 		}
 	}
+
+	public function addSplatter(spr:String, x:Float, y:Float) {
+		
+		addSplatterGfx(spr, x,y);
+
+		seed.splatters.push({x:x, y:y, str:spr});
+	}
+
+	function addSplatterGfx(spr:String, x:Float, y:Float) {
+		var tile = Assets.fx.getTile(spr);
+		
+		splater.drawTile(x-tile.width/2,y + tile.height/2, tile);
+	}
+
 }

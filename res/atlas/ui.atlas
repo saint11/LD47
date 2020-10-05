@@ -25,23 +25,30 @@ cursor
   orig: 32, 32
   offset: 0, 0
   index: -1
-icon_machine_gun
+grenade
   rotate: false
   xy: 1, 130
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-icon_magic
+icon_machine_gun
   rotate: false
   xy: 1, 259
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-icon_shotgun
+icon_magic
   rotate: false
   xy: 130, 1
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+icon_shotgun
+  rotate: false
+  xy: 259, 1
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
@@ -62,7 +69,7 @@ lifeOn
   index: -1
 window
   rotate: false
-  xy: 259, 1
+  xy: 130, 130
   size: 128, 128
   orig: 128, 128
   offset: 0, 0

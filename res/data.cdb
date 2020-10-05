@@ -554,7 +554,7 @@
 				{
 					"id": "shrapnel",
 					"amount": 1,
-					"push": 0.2,
+					"push": 0.3,
 					"stunTime": 0.4
 				},
 				{
@@ -577,18 +577,12 @@
 				},
 				{
 					"id": "bomb",
-					"amount": 2,
+					"amount": 1,
 					"push": 1,
 					"stunTime": 0.4
 				},
 				{
 					"id": "trap_damage",
-					"amount": 1,
-					"push": 0.1,
-					"stunTime": 0.1
-				},
-				{
-					"id": "shrapnel",
 					"amount": 1,
 					"push": 0.1,
 					"stunTime": 0.1

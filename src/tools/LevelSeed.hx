@@ -12,6 +12,8 @@ class LevelSeed {
 
     public var loop:Int;
 
+    public var splatters:Array<{x:Float, y:Float, str:String}> = [];
+
     public function new(level:World.World_Level, data:Data.Shop) {
         this.level = level;
         this.data = data;
