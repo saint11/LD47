@@ -894,15 +894,35 @@
 				},
 				{
 					"id": "seeya2",
-					"text": "Fetch me some blood"
+					"text": "Byeee"
 				},
 				{
 					"id": "seeya3",
-					"text": "Be carefull!"
+					"text": "Be careful"
 				},
 				{
 					"id": "seeya4",
 					"text": "I don't think I'll see you again"
+				},
+				{
+					"id": "seeya5",
+					"text": "Go get 'em"
+				},
+				{
+					"id": "seeya6",
+					"text": "Don't die"
+				},
+				{
+					"id": "seeya7",
+					"text": "Come back soon"
+				},
+				{
+					"id": "seeya8",
+					"text": "I'll be waiting"
+				},
+				{
+					"id": "seeya9",
+					"text": "Buh-bye"
 				}
 			],
 			"separators": [],
@@ -939,7 +959,7 @@
 			],
 			"lines": [
 				{
-					"text": "Give me blood :)",
+					"text": "Give me blood",
 					"loop": 0
 				},
 				{
@@ -949,6 +969,30 @@
 				{
 					"loop": 3,
 					"text": "Oh, you again?"
+				},
+				{
+					"loop": 5,
+					"text": "Hiiiii"
+				},
+				{
+					"loop": 8,
+					"text": "Still alive? Wow"
+				},
+				{
+					"loop": 10,
+					"text": "Yum yum yum blood"
+				},
+				{
+					"loop": 15,
+					"text": "Tired of me yet?"
+				},
+				{
+					"loop": 20,
+					"text": "More blood please"
+				},
+				{
+					"loop": 25,
+					"text": "Oh hi, you're still here"
 				}
 			],
 			"separators": [],
