@@ -35,7 +35,7 @@ class WeaponPedestal extends Interactive {
         super.activate(by);
         if (!expired) {
             expired = true;
-            Assets.SBANK.weapon(1);
+            Assets.SBANK.weapon(0.6);
             Game.ME.weapon = weapon;
             sprSquashX = 1.3;
             sprSquashY = 0.8;
