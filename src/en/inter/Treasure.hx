@@ -32,7 +32,8 @@ class Treasure extends Interactive {
         super.activate(by);
         if (!expired) {
             expired = true;
-                
+            Assets.SBANK.open_treasure(0.7);
+
             var droppedBlood = M.ceil(M.randRange(Data.globals.get(fountainMoneyMin).value, Data.globals.get(fountainMoneyMax).value) * Game.ME.bonusMoney);
             for (i in 0...droppedBlood) {
                 
@@ -40,7 +41,7 @@ class Treasure extends Interactive {
                     var c = new Collectible(cx,cy);
                     c.dx = rnd(-0.5, 0.5);
                     c.dy = rnd(-0.5, 0.5);
-                }, i*50);
+                }, i*30);
             }
             
             setSquashX(1.1);
@@ -54,8 +55,8 @@ class Treasure extends Interactive {
 
         if (!spawned && level.isComplete()) {
             spawned=true;
-
-            if (rnd(0,1)<Game.ME.bonusTreasure){
+            if (rnd(0,1)<Game.ME.bonusTreasure) {
+                Assets.SBANK.treasure(0.7);
                 hasColl=true;
                 entityVisible = true;
                 

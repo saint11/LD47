@@ -515,14 +515,14 @@ p_simple_03
   orig: 48, 48
   offset: 6, 9
   index: -1
-pedestal
+pedestal_00
   rotate: false
   xy: 716, 881
   size: 113, 114
   orig: 128, 128
   offset: 6, 7
   index: -1
-pedestal_expired
+pedestal_expired_00
   rotate: false
   xy: 874, 929
   size: 113, 114

@@ -26,7 +26,7 @@ class Collectible extends Entity {
             dy = Math.sin(a) * 0.3;
 
            if (distPx(game.hero)<8) {
-                Game.ME.addMoney(1);
+                Game.ME.addMoney(1, true);
                 destroy();
             }
         }

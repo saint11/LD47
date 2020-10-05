@@ -54,11 +54,12 @@ class Game extends Process {
     public var weapon:Data.Weapons;
 
 	public var loopCount = 0;
-
+	
+	public var moneySfx = [Assets.SBANK.drop1(),  Assets.SBANK.drop1()];
 	public function new() {
 		super(Main.ME);
 		ME = this;
-
+		
 		ca = Main.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
 		ca.setRightDeadZone(0.2);
@@ -82,6 +83,9 @@ class Game extends Process {
 		addMoney(Data.globals.get(startingMoney).value);
 		
 		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
+		#if debug
+		var possibleWeapons:Array<Data.WeaponsKind> = [Sniper];
+		#end
         weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
 		//weapon = Data.weapons.get(Shotgun);
 
@@ -287,11 +291,15 @@ class Game extends Process {
 		});
 	}
 
-	public function addMoney(amount:Int) {
+	public function addMoney(amount:Int, sound:Bool=false) {
 		money += amount;
 		
 		hud.setMoney(money);
 		amount>0 ? hud.blinkWhite() : hud.blinkRed();
+
+		if (sound && !cd.hasSetMs("moneySfx",50)) {
+			moneySfx[M.rand(moneySfx.length)].play(0.3);
+		}
 	}
 
 	public function win() {

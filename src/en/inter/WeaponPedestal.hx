@@ -12,10 +12,14 @@ class WeaponPedestal extends Interactive {
         weight = 1000;
         radius = 1.5 * Const.GRID;
         spr.anim.registerStateAnim("pedestal",0,0.2, ()->!expired);
-        spr.anim.registerStateAnim("pesdestal_expired",0,0.2, ()->expired);
+        spr.anim.registerStateAnim("pedestal_expired",0,0.2, ()->expired);
         spr.setCenterRatio();
 
-        var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun, GrenadeLauncher];
+        var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun, GrenadeLauncher, Sniper, Chaingun];
+
+        if (level.seed.loop>2)
+            possibleWeapons  = [GrenadeLauncher, Sniper, Chaingun];
+
         var i = possibleWeapons.length;
         while(--i >= 0) {
             if (Data.weapons.get(possibleWeapons[i]) == Game.ME.weapon)
@@ -31,7 +35,7 @@ class WeaponPedestal extends Interactive {
         super.activate(by);
         if (!expired) {
             expired = true;
-
+            Assets.SBANK.weapon(1);
             Game.ME.weapon = weapon;
             sprSquashX = 1.3;
             sprSquashY = 0.8;

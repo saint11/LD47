@@ -158,7 +158,7 @@ class Main extends dn.Process {
 		curLobbyVolume = M.lerp(curLobbyVolume, lobbyVolume * 0.45, 0.1);
 		dn.heaps.Sfx.setGroupVolume(1, curLobbyVolume);
 
-		curBgmVolume = M.lerp(curBgmVolume, bgmVolume * 0.45, 0.1);
+		curBgmVolume = M.lerp(curBgmVolume, bgmVolume * 0.6, 0.1);
 		dn.heaps.Sfx.setGroupVolume(2, curBgmVolume);
 	}
 }

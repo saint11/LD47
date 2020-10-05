@@ -28,7 +28,7 @@ class Projectile extends Entity {
         dx = Math.cos(angle)*tmod*data.speed;
         dy = Math.sin(angle)*tmod*data.speed;
 
-        var imgs = ["simple", "shrapnel","bomb","bomb_en"];
+        var imgs = ["simple", "shrapnel","bomb","bomb_en","enemy"];
         spr.anim.registerStateAnim("p_" + imgs[data.image.toInt()], 0, 0.1);
         spr.setCenterRatio();
         weight = 0;
@@ -88,8 +88,12 @@ class Projectile extends Entity {
                 }
             }
         } else {
-            var s = sfxPop[Std.random(sfxPop.length)]();
-            s.play(rnd(0.4,0.6));
+            
+            if (!game.cd.hasSetMs("projectileSfx",50)) {
+                var s = sfxPop[Std.random(sfxPop.length)]();
+                s.play(rnd(0.4,0.6));
+            }
+
             fx.explode(centerX,centerY, "explosion_green", false);
         }
 

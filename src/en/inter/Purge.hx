@@ -4,8 +4,6 @@ import ui.PurgeUi;
 
 class Purge extends Interactive {
     var expired : Bool = false;
-    var weapon : Data.Weapons;
-
     var spawned:Bool = false;
 
     var l:LevelSeed;
@@ -29,7 +27,6 @@ class Purge extends Interactive {
             if (Data.weapons.get(possibleWeapons[i]) == Game.ME.weapon)
                 possibleWeapons.remove(possibleWeapons[i]);
         }
-        weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
     }
 
     override function activate(by:Hero) {
@@ -42,7 +39,6 @@ class Purge extends Interactive {
     public function expire() {
         expired = true;
 
-        Game.ME.weapon = weapon;
         sprSquashX = 1.3;
         sprSquashY = 0.8;
 
@@ -52,8 +48,10 @@ class Purge extends Interactive {
 
         game.addMoney(-Data.globals.get(purgePrice).value);
 
-        if (l!=null)
+        if (l!=null) {
             game.levelLoop.remove(l);
+            game.levelIndex--;
+        }
     }
 
     

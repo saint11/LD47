@@ -24,7 +24,7 @@ class Scroll extends Interactive {
         cd.onComplete("say", ()->{
             var txt = getLine(Game.ME.loopCount);
             if (txt!=null) {
-                Assets.SBANK.ghost_talk(0.6);
+                Assets.SBANK.ghost_talk(0.45);
                 sayWords(txt);
             }
         });
@@ -96,7 +96,7 @@ class Scroll extends Interactive {
             ];
 
             sayWords( Data.text.get(bye[M.rand(bye.length)]).text) ;
-            Assets.SBANK.ghost_bye(0.6);
+            Assets.SBANK.ghost_bye(0.45);
         }
         
         game.cd.setS("leave",2);
@@ -113,7 +113,7 @@ class Scroll extends Interactive {
 				talkTf.remove();
 			else {
 				var e = talkTf;
-				game.tw.createS(e.alpha, 0, 2).end( e.remove );
+				game.tw.createS(e.alpha, 0, 1.5).end( e.remove );
 			}
 			talkTf = null;
 		}

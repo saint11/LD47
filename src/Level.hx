@@ -44,7 +44,9 @@ class Level extends dn.Process {
 	var parallax:Float = 0.3;
 
 	public var splater : h2d.Graphics;
-	var seed:LevelSeed;
+	public var seed:LevelSeed;
+
+	var roomComplete:Bool = false;
 
 	public function new(level:LevelSeed) {
 		super(Game.ME);
@@ -169,6 +171,8 @@ class Level extends dn.Process {
 		for(s in level.splatters) {
 			addSplatterGfx(s.str, s.x, s.y);
 		}
+
+		game.hud.sayRoomName(level);
 	}
 
 	function getRandomFloor(level:LevelSeed):Tile {
@@ -229,6 +233,13 @@ class Level extends dn.Process {
 		fgRight.x = Game.ME.scroller.x * (1 - parallax);
 		fgLeft.y = Game.ME.scroller.y * (1 - parallax);
 		fgRight.y = Game.ME.scroller.y * (1 - parallax);
+
+		if (!roomComplete && isComplete()) {
+			roomComplete=true;
+			
+			if (game.levelIndex>0)
+				Assets.SBANK.complete_room(1);
+		}
 	}
 
 	override function onDispose() {

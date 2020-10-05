@@ -60,7 +60,7 @@
 				},
 				{
 					"id": "purgePrice",
-					"value": 25
+					"value": 100
 				}
 			],
 			"separators": [],
@@ -79,7 +79,7 @@
 					"display": null
 				},
 				{
-					"typeStr": "5:simple,shrapnel,bomb,bomb_en",
+					"typeStr": "5:simple,shrapnel,bomb,bomb_en,enemy",
 					"name": "image"
 				},
 				{
@@ -178,7 +178,7 @@
 					"dmgOnTouch": true,
 					"breakOnWall": true,
 					"scale": 1.2,
-					"image": 0,
+					"image": 4,
 					"lifespanVar": 0
 				},
 				{
@@ -228,6 +228,38 @@
 					"scale": 0.5,
 					"image": 1,
 					"lifespanVar": 4
+				},
+				{
+					"id": "ChaingunBullet",
+					"scale": 0.75,
+					"image": 1,
+					"speed": 0.45,
+					"friction": 0.98,
+					"jump": 0,
+					"gravity": 0,
+					"startAltitude": 32,
+					"dmg": "chaingun",
+					"explode": false,
+					"dmgOnTouch": true,
+					"breakOnWall": true,
+					"lifespan": 35,
+					"lifespanVar": 8
+				},
+				{
+					"id": "SniperBullet",
+					"scale": 1,
+					"image": 1,
+					"speed": 1.4,
+					"friction": 0.93,
+					"jump": 0,
+					"gravity": 0,
+					"startAltitude": 32,
+					"dmg": "sniper",
+					"explode": false,
+					"dmgOnTouch": true,
+					"breakOnWall": true,
+					"lifespan": 40,
+					"lifespanVar": 0
 				}
 			],
 			"separators": [],
@@ -301,9 +333,27 @@
 					"icon": "grenade",
 					"projectile": "PlayerBomb",
 					"stun": 0.4,
-					"interval": 1,
+					"interval": 1.1,
 					"bullets": 1,
 					"spread": 7
+				},
+				{
+					"id": "Sniper",
+					"icon": "sniper",
+					"projectile": "SniperBullet",
+					"stun": 0.9,
+					"interval": 1,
+					"bullets": 1,
+					"spread": 5
+				},
+				{
+					"id": "Chaingun",
+					"icon": "chaingun",
+					"projectile": "ChaingunBullet",
+					"stun": 0.2,
+					"interval": 0.1,
+					"bullets": 1,
+					"spread": 10
 				}
 			],
 			"separators": [],
@@ -405,7 +455,7 @@
 							]
 						}
 					],
-					"hp": 6,
+					"hp": 5,
 					"moveSpeed": 0.003,
 					"touchDamage": "zombie_touch",
 					"money": [
@@ -607,9 +657,21 @@
 				},
 				{
 					"id": "player_bomb",
-					"amount": 4,
+					"amount": 3,
 					"push": 0.2,
 					"stunTime": 0.5
+				},
+				{
+					"id": "chaingun",
+					"amount": 1,
+					"push": 0.2,
+					"stunTime": 0.3
+				},
+				{
+					"id": "sniper",
+					"amount": 6,
+					"push": 0.2,
+					"stunTime": 0.8
 				}
 			],
 			"separators": [],
@@ -669,14 +731,21 @@
 					"levelName": "CrowdedRoom",
 					"title": "Crowded Room",
 					"price": 3,
-					"desc": "They must be having a party.",
+					"desc": "+5% dropped blood in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
 						"x": 0,
 						"y": 0
 					},
-					"bonus": [],
+					"bonus": [
+						{
+							"bonus": [
+								0,
+								5
+							]
+						}
+					],
 					"purgeChance": 0.05
 				},
 				{
@@ -731,7 +800,7 @@
 					"levelName": "BombRoom",
 					"title": "Bomb Room",
 					"price": 10,
-					"desc": "+5% dropped blood in all rooms.",
+					"desc": "+10% dropped blood in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -742,7 +811,7 @@
 						{
 							"bonus": [
 								0,
-								5
+								10
 							]
 						}
 					],
@@ -814,7 +883,7 @@
 				{
 					"levelName": "TreasureRoom",
 					"title": "Treasure Room",
-					"price": 80,
+					"price": 70,
 					"bonus": [],
 					"desc": "Not suspicious at all.",
 					"icon": {
@@ -828,7 +897,7 @@
 				{
 					"levelName": "WeaponRoom",
 					"title": "Weapon Room",
-					"price": 80,
+					"price": 70,
 					"bonus": [],
 					"desc": "What could possibly go wrong?",
 					"icon": {
@@ -932,6 +1001,22 @@
 				{
 					"id": "seeya9",
 					"text": "Buh-bye"
+				},
+				{
+					"id": "hudLoopCountNever",
+					"text": "Welcome to the {0}"
+				},
+				{
+					"id": "hudLoopCount",
+					"text": "You visited this chamber {0} times"
+				},
+				{
+					"id": "hudLoopCountOnce",
+					"text": "You visited this chamber once"
+				},
+				{
+					"id": "chamberName",
+					"text": "Ethernal Chamber"
 				}
 			],
 			"separators": [],

@@ -8,6 +8,10 @@ class Hud extends dn.Process {
 	public var level(get,never) : Level; inline function get_level() return Game.ME.level;
 
 	var flow : h2d.Flow;
+	var tFlow : h2d.Flow;
+	var rName : Text;
+	var visited : Text;
+
 	var invalidated = true;
 
 	var life : h2d.Flow;
@@ -21,6 +25,13 @@ class Hud extends dn.Process {
 		createRootInLayers(game.root, Const.DP_UI);
 		root.filter = new h2d.filter.ColorMatrix(); // force pixel perfect rendering
 
+		tFlow = new h2d.Flow(root);
+		tFlow.layout = Vertical;
+		tFlow.verticalAlign = Left;
+		tFlow.padding = 48;
+		rName = new Text(Assets.fontLarge,tFlow);
+		visited = new Text(Assets.fontMedium, tFlow);
+
 		flow = new h2d.Flow(root);
 		flow.layout = Vertical;
 		//flow.debug=true;
@@ -33,7 +44,7 @@ class Hud extends dn.Process {
 		
 		var icon = Assets.ui.h_get("bloodBig", mBox);
 		money = new Text(Assets.fontLarge, mBox);
-		money.dropShadow  = {dx: 2, dy: 2, color:0x0, alpha:0.9};
+		money.dropShadow  = {dx: 0, dy: 2, color:0x0, alpha:0.9};
 		cAdd = new h3d.Vector();
 		money.colorAdd = cAdd;
 		setMoney(game.money);
@@ -42,10 +53,39 @@ class Hud extends dn.Process {
 		life.layout = Vertical;
 	}
 
+	public function sayRoomName(l:LevelSeed) {
+		var name = Data.text.get(chamberName).text;
+		if (l.data!=null)
+			name = l.data.title;
+		
+		rName.text = name;
+		if (l.loop==0)
+			visited.text = StringTools.replace(Data.text.get(hudLoopCountNever).text, "{0}", name);
+		else if (l.loop==1)
+			visited.text = Data.text.get(hudLoopCountOnce).text;
+		else 
+			visited.text = StringTools.replace(Data.text.get(hudLoopCount).text, "{0}", Std.string(l.loop));
+
+		rName.alpha=0;
+		visited.alpha=0;
+
+		game.tw.createS(rName.alpha, 1, 1);
+		game.tw.createS(visited.alpha, 1, 2);
+
+		game.delayer.addS(()->{
+			game.tw.createS(rName.alpha, 0, 1);
+			game.tw.createS(visited.alpha, 0, 1);
+		}, 5);
+	}
+
 	override function onResize() {
 		super.onResize();
 		root.setScale(Const.UI_SCALE);
 		flow.reflow();
+		
+		tFlow.reflow();
+		tFlow.x = Std.int( Main.ME.w() - tFlow.outerWidth);
+        tFlow.y = Std.int( Main.ME.h() - tFlow.outerHeight);
 	}
 
 	public inline function invalidate() invalidated = true;
