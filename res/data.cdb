@@ -449,7 +449,7 @@
 					],
 					"projectile": "EnemyFire",
 					"sleep": 0,
-					"sprite": "zombie"
+					"sprite": "shooter"
 				},
 				{
 					"id": "Bomber",
