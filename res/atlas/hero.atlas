@@ -34,7 +34,7 @@ hero_idle_d_01
   index: -1
 hero_idle_d_02
   rotate: false
-  xy: 101, 349
+  xy: 308, 389
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
@@ -62,7 +62,7 @@ hero_idle_d_05
   index: -1
 hero_idle_d_06
   rotate: false
-  xy: 101, 349
+  xy: 308, 389
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
@@ -90,7 +90,7 @@ hero_idle_d_09
   index: -1
 hero_idle_d_10
   rotate: false
-  xy: 101, 349
+  xy: 308, 389
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
@@ -111,14 +111,14 @@ hero_idle_d_12
   index: -1
 hero_idle_d_13
   rotate: false
-  xy: 216, 322
+  xy: 211, 322
   size: 96, 87
   orig: 240, 240
   offset: 62, 0
   index: -1
 hero_idle_d_14
   rotate: false
-  xy: 1, 351
+  xy: 404, 393
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
@@ -146,7 +146,7 @@ hero_idle_d_17
   index: -1
 hero_idle_d_18
   rotate: false
-  xy: 101, 349
+  xy: 308, 389
   size: 95, 86
   orig: 240, 240
   offset: 63, 0
@@ -202,84 +202,84 @@ hero_walk_d_05
   index: -1
 hero_walk_r_00
   rotate: false
-  xy: 427, 301
-  size: 78, 92
+  xy: 188, 485
+  size: 76, 92
   orig: 240, 240
-  offset: 90, 1
+  offset: 92, 1
   index: -1
 hero_walk_r_01
   rotate: false
-  xy: 1, 438
-  size: 92, 84
+  xy: 288, 476
+  size: 89, 78
   orig: 240, 240
-  offset: 78, 3
+  offset: 81, 9
   index: -1
 hero_walk_r_02
   rotate: false
   xy: 1, 273
-  size: 99, 77
+  size: 98, 76
   orig: 240, 240
-  offset: 73, 0
+  offset: 74, 1
   index: -1
 hero_walk_r_03
   rotate: false
-  xy: 97, 436
-  size: 92, 93
+  xy: 427, 301
+  size: 78, 91
   orig: 240, 240
-  offset: 76, 0
+  offset: 90, 2
   index: -1
 hero_walk_r_04
   rotate: false
-  xy: 354, 217
-  size: 109, 83
+  xy: 111, 265
+  size: 99, 80
   orig: 240, 240
-  offset: 61, 4
+  offset: 71, 7
   index: -1
 hero_walk_r_05
   rotate: false
-  xy: 197, 410
-  size: 93, 77
+  xy: 196, 410
+  size: 91, 74
   orig: 240, 240
-  offset: 79, 0
+  offset: 81, 3
   index: -1
 hero_walk_u_00
   rotate: false
-  xy: 1, 523
+  xy: 97, 442
   size: 90, 97
   orig: 240, 240
   offset: 78, 2
   index: -1
 hero_walk_u_01
   rotate: false
-  xy: 313, 389
+  xy: 100, 346
   size: 95, 95
   orig: 240, 240
   offset: 72, 0
   index: -1
 hero_walk_u_02
   rotate: false
-  xy: 225, 238
+  xy: 354, 217
   size: 104, 83
   orig: 240, 240
   offset: 66, 1
   index: -1
 hero_walk_u_03
   rotate: false
-  xy: 291, 485
+  xy: 1, 446
   size: 90, 97
   orig: 240, 240
   offset: 68, 2
   index: -1
 hero_walk_u_04
   rotate: false
-  xy: 409, 394
+  xy: 1, 350
   size: 95, 95
   orig: 240, 240
   offset: 69, 0
   index: -1
 hero_walk_u_05
   rotate: false
-  xy: 111, 265
+  xy: 225, 238
   size: 104, 83
   orig: 240, 240
   offset: 66, 1
