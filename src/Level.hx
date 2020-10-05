@@ -79,10 +79,16 @@ class Level extends dn.Process {
 		var doorY:Int = Data.globals.get(doorY).value;
 		var wallTint = level.rcolor(1 - colorVariation, colorVariation);
 		g.color = wallTint;
+		
+		if (game.levelIndex==0){
+			var d = Assets.tiles.h_get("maindoor", g);
+			d.y = 616;
+			d.color = wallTint;
+		}
+		
 		g.scaleX = level.getDir();
 		if (g.scaleX<0)
 			g.x += offsetX/2 + g.tile.width/4;
-
 
 		// Load a bunch of entities
 

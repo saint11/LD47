@@ -114,7 +114,9 @@ class Main extends dn.Process {
 		else
 		{
 			new Game();
+			#if !debug
 			Game.ME.showLogo();
+			#end
 		}
 	}
 
