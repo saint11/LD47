@@ -1,5 +1,6 @@
 package en;
 
+import dn.Delayer;
 import ui.EndWindow;
 import Data.Damage;
 import hxd.Key;
@@ -13,9 +14,13 @@ class Hero extends Entity {
     var moveSpeedX :Float;
     var moveSpeedY :Float;
 
+    var delayer:Delayer;
+
     public function new(cx, cy) {
         super(cx, cy);
         Game.ME.camera.trackTarget(this, true);
+
+        delayer = new Delayer(30);
         
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
         moveSpeedX = Data.globals.get(playerMoveSpeedX).value;
@@ -26,6 +31,9 @@ class Hero extends Entity {
         spr.anim.registerStateAnim("hero_walk_u", 1, Data.animations.get(hero_walk).speed, ()-> moveY < 0);
         spr.anim.registerStateAnim("hero_walk_d", 1, Data.animations.get(hero_walk).speed, ()-> moveY > 0);
         spr.anim.registerStateAnim("hero_walk_r", 2, Data.animations.get(hero_walk).speed  * 0.8, ()-> moveX != 0);
+        
+        spr.anim.registerStateAnim("hero_hit", 5, Data.animations.get(hero_walk).speed  * 0.8, ()-> hasAffect(Stun));
+        spr.anim.registerStateAnim("hero_corpse", 10, Data.animations.get(hero_walk).speed  * 0.8, ()-> life<=0);
 
         spr.setCenterRatio(0.5, 1);
         
@@ -38,12 +46,18 @@ class Hero extends Entity {
     override function update() {
         super.update();
 
+        delayer.update(tmod);
+
+        if(life<=0) {
+            return;
+        }
+
         if (cd.getRatio("doorEnter")>0) {
             var d = cd.getRatio("doorEnter");
             shadow.alpha = d;
             spr.alpha = d;
             sprScaleX = sprScaleY = 0.8 + d * 0.2;
-        } else if (!hasAffect(Stun)) {
+        } else if (!hasAffect(Stun) && !hasAffect(Stuck)) {
             var ca = Game.ME.ca;
 
             moveX = moveY = 0;
@@ -88,7 +102,7 @@ class Hero extends Entity {
         }
 
         cd.setS("player_shoot", weapon.interval);
-        setAffectS(Stun, weapon.stun);
+        setAffectS(Stuck, weapon.stun);
         cancelVelocities();
     }
 
@@ -119,15 +133,18 @@ class Hero extends Entity {
     override function hit(dmg:Damage, from:Null<Entity>, reduction: Float = 1) {
         super.hit(dmg, from, reduction);
         
-        Game.ME.playerLife=life;
-        hud.invalidate();
-        
-        setAffectS(Invulnerable, 1);
-        setAffectS(Stun, dmg.stunTime);
+        if (!hasAffect(Invulnerable)){
 
-        Game.ME.addSlowMo("hit", 0.5, 0.1);
-        Game.ME.stopFrame();
-        Game.ME.camera.shakeS(0.1,1);
+            Game.ME.playerLife=life;
+            hud.invalidate();
+            
+            setAffectS(Invulnerable, 1.5);
+            setAffectS(Stun, dmg.stunTime);
+            
+            Game.ME.addSlowMo("hit", 0.5, 0.1);
+            Game.ME.stopFrame();
+            Game.ME.camera.shakeS(0.1,1);
+        }
     }
 
     public function stop() {
@@ -136,13 +153,24 @@ class Hero extends Entity {
     }
 
     override function onDie() {
-        super.onDie();
+        
+        jump(4);
+        frictX=frictY=0.99;
+        bounceFrict = 0.99;
+        bumpFrict = 0.99;
+        dx = rnd(-1,1);
+        dy = rnd(-1,1);
 
-        new EndWindow(Data.text.get(game_over).text);
+        delayer.addS(()->{
+            new EndWindow(Data.text.get(game_over).text);
+
+        }, Data.globals.get(afterDeathTimer));
+        
     }
 
     override function dispose() {
         super.dispose();
         Game.ME.playerLife=life;
     }
+
 }

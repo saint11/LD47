@@ -83,7 +83,7 @@ class Entity {
 	public var entityVisible = true;
 
 	// Hit points
-	public var life(default,null) : Int;
+	public var life(default,null) : Int = 1;
 	public var maxLife(default,null) : Int;
 	public var lastDmgSource(default,null) : Null<Entity>;
 
@@ -668,7 +668,7 @@ class Entity {
 	}
 
 	function hasCircColl() {
-		return !destroyed && hasColl && (altitude<=8 || tall);
+		return !destroyed && hasColl && (altitude<=8 || tall) && isAlive();
 	}
 	
 	function hasCircCollWith(e:Entity) {

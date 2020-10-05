@@ -40,7 +40,7 @@
 				},
 				{
 					"id": "startingMoney",
-					"value": 500
+					"value": 25
 				},
 				{
 					"id": "colorVariation",
@@ -53,6 +53,10 @@
 				{
 					"id": "fountainMoneyMax",
 					"value": 100
+				},
+				{
+					"id": "afterDeathTimer",
+					"value": 4
 				}
 			],
 			"separators": [],

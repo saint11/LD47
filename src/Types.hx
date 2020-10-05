@@ -1,5 +1,6 @@
 enum Affect {
 	Stun;
+	Stuck;
 	Invulnerable;
 	Sleep;
 }
