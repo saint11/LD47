@@ -801,22 +801,20 @@
 					"typeStr": "1",
 					"name": "text",
 					"display": null
-				},
-				{
-					"typeStr": "4",
-					"name": "stun"
 				}
 			],
 			"lines": [
 				{
 					"id": "victory",
-					"text": "You have survived the temple. Press SPACE to restart.",
-					"stun": 0
+					"text": "You have survived the temple. Press SPACE to restart."
 				},
 				{
 					"id": "game_over",
-					"text": "You have been consumed by the temple. Press SPACE to restart;",
-					"stun": 0
+					"text": "You have been consumed by the temple. Press SPACE to restart;"
+				},
+				{
+					"id": "shopText",
+					"text": "Choose a room to be added to your tormented cycle"
 				}
 			],
 			"separators": [],
