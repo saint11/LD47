@@ -79,7 +79,7 @@ class Game extends Process {
 
 		addMoney(Data.globals.get(startingMoney).value);
 		
-		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
+		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun, GrenadeLauncher];
         weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
 		//weapon = Data.weapons.get(Shotgun);
 

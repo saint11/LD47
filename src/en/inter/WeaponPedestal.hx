@@ -15,7 +15,7 @@ class WeaponPedestal extends Interactive {
         spr.anim.registerStateAnim("fountain_expired",0,0.2, ()->expired);
         spr.setCenterRatio();
 
-        var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
+        var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun, GrenadeLauncher];
         var i = possibleWeapons.length;
         while(--i >= 0) {
             if (Data.weapons.get(possibleWeapons[i]) == Game.ME.weapon)

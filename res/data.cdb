@@ -57,6 +57,10 @@
 				{
 					"id": "afterDeathTimer",
 					"value": 4
+				},
+				{
+					"id": "purgePrice",
+					"value": 25
 				}
 			],
 			"separators": [],
@@ -195,17 +199,33 @@
 					"lifespanVar": 30
 				},
 				{
+					"id": "PlayerBomb",
+					"scale": 1.5,
+					"image": 0,
+					"speed": 0.35,
+					"friction": 0.973,
+					"jump": 3,
+					"gravity": 0.6,
+					"startAltitude": 4,
+					"dmg": "player_bomb",
+					"explode": true,
+					"dmgOnTouch": true,
+					"breakOnWall": false,
+					"lifespan": 80,
+					"lifespanVar": 10
+				},
+				{
 					"id": "Shrapnel",
 					"speed": 1.2,
 					"friction": 0.9,
 					"jump": 0,
 					"gravity": 0,
 					"startAltitude": 32,
-					"dmg": "machine_gun_bullet",
+					"dmg": "shrapnel",
 					"explode": false,
 					"dmgOnTouch": true,
 					"breakOnWall": true,
-					"lifespan": 10,
+					"lifespan": 9,
 					"scale": 0.5,
 					"image": 1,
 					"lifespanVar": 4
@@ -276,6 +296,15 @@
 					"bullets": 5,
 					"spread": 18,
 					"icon": "shotgun"
+				},
+				{
+					"id": "GrenadeLauncher",
+					"icon": "grenade",
+					"projectile": "PlayerBomb",
+					"stun": 0.4,
+					"interval": 1,
+					"bullets": 1,
+					"spread": 7
 				}
 			],
 			"separators": [],
@@ -523,6 +552,12 @@
 					"stunTime": 0.05
 				},
 				{
+					"id": "shrapnel",
+					"amount": 1,
+					"push": 0.2,
+					"stunTime": 0.4
+				},
+				{
 					"id": "enemy_bullet",
 					"amount": 1,
 					"push": 0.1,
@@ -531,7 +566,7 @@
 				{
 					"id": "zombie_touch",
 					"amount": 1,
-					"push": 0.5,
+					"push": 0.4,
 					"stunTime": 0.2
 				},
 				{
@@ -557,6 +592,12 @@
 					"amount": 1,
 					"push": 0.1,
 					"stunTime": 0.1
+				},
+				{
+					"id": "player_bomb",
+					"amount": 4,
+					"push": 0.2,
+					"stunTime": 0.5
 				}
 			],
 			"separators": [],
@@ -577,6 +618,11 @@
 				{
 					"typeStr": "14",
 					"name": "icon"
+				},
+				{
+					"typeStr": "4",
+					"name": "purgeChance",
+					"display": null
 				},
 				{
 					"typeStr": "3",
@@ -604,7 +650,8 @@
 						"y": 0
 					},
 					"title": "Zombie Room",
-					"bonus": []
+					"bonus": [],
+					"purgeChance": 0.05
 				},
 				{
 					"levelName": "CrowdedRoom",
@@ -617,7 +664,8 @@
 						"x": 0,
 						"y": 0
 					},
-					"bonus": []
+					"bonus": [],
+					"purgeChance": 0.05
 				},
 				{
 					"levelName": "EvolvingRoom",
@@ -637,7 +685,8 @@
 						"size": 64,
 						"x": 6,
 						"y": 0
-					}
+					},
+					"purgeChance": 0.02
 				},
 				{
 					"levelName": "TrapRoom",
@@ -663,7 +712,8 @@
 								2
 							]
 						}
-					]
+					],
+					"purgeChance": 0.08
 				},
 				{
 					"levelName": "BombRoom",
@@ -683,7 +733,8 @@
 								5
 							]
 						}
-					]
+					],
+					"purgeChance": 0.1
 				},
 				{
 					"levelName": "ExplosiveRoom",
@@ -703,7 +754,8 @@
 						"size": 64,
 						"x": 2,
 						"y": 0
-					}
+					},
+					"purgeChance": 0.1
 				},
 				{
 					"levelName": "ShooterRoom",
@@ -723,7 +775,8 @@
 								8
 							]
 						}
-					]
+					],
+					"purgeChance": 0.13
 				},
 				{
 					"levelName": "FountainRoom",
@@ -743,7 +796,8 @@
 								-5
 							]
 						}
-					]
+					],
+					"purgeChance": 0.01
 				},
 				{
 					"levelName": "TreasureRoom",
@@ -756,7 +810,8 @@
 						"size": 64,
 						"x": 7,
 						"y": 0
-					}
+					},
+					"purgeChance": 0.005
 				},
 				{
 					"levelName": "WeaponRoom",
@@ -769,7 +824,8 @@
 						"size": 64,
 						"x": 0,
 						"y": 1
-					}
+					},
+					"purgeChance": 0.005
 				},
 				{
 					"levelName": "EndGame",
@@ -782,7 +838,8 @@
 						"x": 1,
 						"y": 0
 					},
-					"bonus": []
+					"bonus": [],
+					"purgeChance": 0
 				}
 			],
 			"separators": [
@@ -815,6 +872,10 @@
 				{
 					"id": "shopText",
 					"text": "Choose a room to add to your cycle of torment"
+				},
+				{
+					"id": "purge",
+					"text": "Do you want to purge this room for"
 				}
 			],
 			"separators": [],
