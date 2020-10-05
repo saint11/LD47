@@ -882,7 +882,7 @@
 				},
 				{
 					"id": "endCycle",
-					"text": "The cycle {0} was complete"
+					"text": "Cycle {0} was complete"
 				}
 			],
 			"separators": [],
@@ -902,6 +902,37 @@
 					"display": null
 				}
 			]
+		},
+		{
+			"name": "dialog",
+			"columns": [
+				{
+					"typeStr": "3",
+					"name": "loop",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "text",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"text": "Give me blood",
+					"loop": 0
+				},
+				{
+					"loop": 1,
+					"text": "That was easy, wasn't it?"
+				},
+				{
+					"loop": 3,
+					"text": "Oh, you again?"
+				}
+			],
+			"separators": [],
+			"props": {}
 		}
 	],
 	"customTypes": [

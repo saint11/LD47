@@ -53,7 +53,7 @@ class Game extends Process {
 	public var playerMaxLife: Int;
     public var weapon:Data.Weapons;
 
-	var loopCount = 0;
+	public var loopCount = 0;
 
 	public function new() {
 		super(Main.ME);
@@ -81,7 +81,7 @@ class Game extends Process {
 
 		addMoney(Data.globals.get(startingMoney).value);
 		
-		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun, GrenadeLauncher];
+		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
         weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
 		//weapon = Data.weapons.get(Shotgun);
 
