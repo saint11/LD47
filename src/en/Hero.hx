@@ -161,10 +161,10 @@ class Hero extends Entity {
         dx = rnd(-1,1);
         dy = rnd(-1,1);
 
-        delayer.addS(()->{
+        delayer.addS(()-> {
             new EndWindow(Data.text.get(game_over).text);
 
-        }, Data.globals.get(afterDeathTimer));
+        }, Data.globals.get(afterDeathTimer).value);
         
     }
 
