@@ -78,7 +78,9 @@ class Game extends Process {
 		hud = new ui.Hud();
 		levelLoop = [new LevelSeed(world.all_levels.ScrollChamber, null)];
 		
-		mask = new h2d.Bitmap(h2d.Tile.fromColor(0x0));
+		mask = new h2d.Bitmap(h2d.Tile.fromColor(0xFFFFFF));
+		mask.color = new Vec(0,0,0);
+
 		root.add(mask, Const.DP_UI);
 
 		addMoney(Data.globals.get(startingMoney).value);
@@ -243,8 +245,6 @@ class Game extends Process {
 				levelIndex = 0;
 				loopCount++;
 				
-				Main.ME.bgmVolume = 0;
-
 				var txt:String = Data.text.get(endCycle).text;
 				txt = StringTools.replace(txt, "{0}",  Std.string(loopCount));
 				
@@ -278,7 +278,7 @@ class Game extends Process {
 		mask.visible=true;
 		tw.createS(mask.alpha, 1>0, 0.6).end(()->{
 			
-			if (l==levelLoop[0]){
+			if (levelIndex==0){
 				Main.ME.bgmVolume = 0;
 				Main.ME.lobbyVolume = 1;
 			}
@@ -302,17 +302,19 @@ class Game extends Process {
 		}
 	}
 
+	public var victoryMusic = false;
 	public function win() {
-		Main.ME.bgmVolume=0;
-		Main.ME.lobbyVolume=0;
-		Assets.SBANK.victory().play(true);
+		victoryMusic  = true;
+		var victoryMusic = Assets.SBANK.victory();
+		victoryMusic.play(true);
 		
 		mask.visible =true;
 		mask.color = new Vec(1,1,1);
 		tw.createS(mask.alpha,0>1,0.8).onEnd = ()->{
 			var e = new EndWindow(Data.text.get(victory).text, ()-> {
-				Assets.SBANK.victory().stop();
+				victoryMusic.stop();
 				Main.ME.restartGame = true;
+				Main.ME.reloadMusic();
 				//e.addVictoryImage();
 			});
 		}
@@ -341,13 +343,23 @@ class Game extends Process {
 	}
 
 	public function showLogo() {
-		mask
+		pause();
+		
 		var logo = Assets.ui.getBitmap("logo");
-		logo.x = w()/2 - logo.width/2;
-		logo.y = h()/2 - logo.height/2;
+		var b = logo.getBounds();
+		logo.x = w()/2 - b.width/2;
+		logo.y = h()/2 - b.height/2 + 50;
+
+		Main.ME.tw.createS(logo.alpha,0>1,1);
+
+		var y = logo.y -50;
+		Main.ME.tw.createS(logo.y,y,2);
 
 		root.add(logo, Const.DP_UI);
-		
+		Main.ME.delayer.addS(()->{
+			resume();
+			Main.ME.tw.createS(logo.alpha,1>0,0.5);
+		}, 3);
 	}
 }
 

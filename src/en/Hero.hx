@@ -144,9 +144,9 @@ class Hero extends Entity {
 
     override function hit(dmg:Damage, from:Null<Entity>, reduction: Float = 1) {
         super.hit(dmg, from, reduction);
-        Assets.SBANK.dmg(0.75);
-
+        
         if (!hasAffect(Invulnerable) && Game.ME.playerLife>0){
+            Assets.SBANK.dmg(0.75);
 
             Game.ME.playerLife=life;
             hud.invalidate();

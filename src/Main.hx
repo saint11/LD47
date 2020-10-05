@@ -1,4 +1,5 @@
 
+import hxsl.Types.Vec;
 import ui.PurgeUi;
 import en.inter.Purge;
 import ui.EndWindow;
@@ -25,6 +26,8 @@ class Main extends dn.Process {
 	var curLobbyVolume:Float = 0;
 	var curBgmVolume:Float = 0;
 
+	var bgm:dn.heaps.Sfx;
+	var lobbyBgm:dn.heaps.Sfx;
 
 	public function new(s:h2d.Scene) {
 		super();
@@ -90,19 +93,8 @@ class Main extends dn.Process {
 	}
 
 
-	var bgm:dn.heaps.Sfx;
-	var lobbyBgm:dn.heaps.Sfx;
 	public function startGame() {
-
-		if (lobbyBgm!=null)
-			lobbyBgm.stop();
-		lobbyBgm = Assets.SBANK.lobby();
-		lobbyBgm.playOnGroup(1, true);
-		
-		if (bgm!=null)
-			bgm.stop();
-		bgm = Assets.SBANK.bgm();
-		bgm.playOnGroup(2, true);
+		reloadMusic();
 
 		if(ShopWindow.ME!=null)
 			ShopWindow.ME.destroy();
@@ -116,14 +108,14 @@ class Main extends dn.Process {
 		if( Game.ME!=null ) {
 			Game.ME.destroy();
 			delayer.addF(function() {
-				new Game();
+				new Game();		
 			}, 1);
 		}
 		else
-			{
-				new Game();
-				Game.ME.showLogo();
-			}
+		{
+			new Game();
+			Game.ME.showLogo();
+		}
 	}
 
 	override public function onResize() {
@@ -158,10 +150,35 @@ class Main extends dn.Process {
 	override function fixedUpdate() {
 		super.fixedUpdate();
 		
-		curLobbyVolume = M.lerp(curLobbyVolume, lobbyVolume * 0.5, 0.1);
-		dn.heaps.Sfx.setGroupVolume(1, curLobbyVolume);
+		if (!Game.ME.victoryMusic && EndWindow.ME==null) {
+			curLobbyVolume = M.lerp(curLobbyVolume, lobbyVolume * 0.5, 0.1);
+			dn.heaps.Sfx.setGroupVolume(1, curLobbyVolume);
+			
+			curBgmVolume = M.lerp(curBgmVolume, bgmVolume * 0.7, 0.1);
+			dn.heaps.Sfx.setGroupVolume(2, curBgmVolume);
+		}
+		else 
+		{
+			dn.heaps.Sfx.setGroupVolume(1, 0);
+			dn.heaps.Sfx.setGroupVolume(2, 0);
+		}
+	}
 
-		curBgmVolume = M.lerp(curBgmVolume, bgmVolume * 0.7, 0.1);
-		dn.heaps.Sfx.setGroupVolume(2, curBgmVolume);
+	public function reloadMusic() {
+		if (lobbyBgm==null){
+			lobbyBgm = Assets.SBANK.lobby();
+			lobbyBgm.playOnGroup(1, true);
+		}// else lobbyBgm.stop();
+		
+		if (bgm==null) {
+			bgm = Assets.SBANK.bgm();
+			bgm.playOnGroup(2, true);
+		}// else bgm.stop();
+		
+
+		// delayer.addF(()->{
+		// 	bgm.playOnGroup(2, true);
+		// 	lobbyBgm.playOnGroup(1, true);
+		// },1);
 	}
 }

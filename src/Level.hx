@@ -243,6 +243,9 @@ class Level extends dn.Process {
 			if (game.levelIndex>0)
 				Assets.SBANK.complete_room(0.7);
 		}
+
+		if (Game.ME.levelIndex==0)
+			Main.ME.lobbyVolume=1;
 	}
 
 	override function onDispose() {
