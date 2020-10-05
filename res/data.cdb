@@ -79,9 +79,8 @@
 					"display": null
 				},
 				{
-					"typeStr": "5:simple,shrapnel",
-					"name": "image",
-					"display": null
+					"typeStr": "5:simple,shrapnel,bomb,bomb_en",
+					"name": "image"
 				},
 				{
 					"typeStr": "4",
@@ -194,14 +193,14 @@
 					"explode": true,
 					"dmgOnTouch": true,
 					"breakOnWall": false,
-					"scale": 1.5,
-					"image": 0,
+					"scale": 1,
+					"image": 3,
 					"lifespanVar": 30
 				},
 				{
 					"id": "PlayerBomb",
-					"scale": 1.5,
-					"image": 0,
+					"scale": 1,
+					"image": 2,
 					"speed": 0.35,
 					"friction": 0.973,
 					"jump": 3,
@@ -354,6 +353,11 @@
 					"display": null
 				},
 				{
+					"typeStr": "1",
+					"name": "sprite",
+					"display": null
+				},
+				{
 					"typeStr": "4",
 					"name": "moveSpeed"
 				},
@@ -404,7 +408,8 @@
 						2,
 						5
 					],
-					"sleep": 1
+					"sleep": 1,
+					"sprite": "zombie"
 				},
 				{
 					"id": "Explosive",
@@ -422,7 +427,8 @@
 						4
 					],
 					"explosion": "bomb",
-					"sleep": 0
+					"sleep": 0,
+					"sprite": "goo"
 				},
 				{
 					"id": "Shooter",
@@ -442,7 +448,8 @@
 						10
 					],
 					"projectile": "EnemyFire",
-					"sleep": 0
+					"sleep": 0,
+					"sprite": "zombie"
 				},
 				{
 					"id": "Bomber",
@@ -468,7 +475,8 @@
 						15
 					],
 					"projectile": "Bomb",
-					"sleep": 2
+					"sleep": 2,
+					"sprite": "bomber"
 				},
 				{
 					"id": "Tank",
@@ -494,7 +502,8 @@
 					"money": [
 						20,
 						30
-					]
+					],
+					"sprite": "zombie"
 				}
 			],
 			"separators": [],
@@ -870,6 +879,10 @@
 				{
 					"id": "purge",
 					"text": "Do you want to purge this room for"
+				},
+				{
+					"id": "endCycle",
+					"text": "Cycle {0} was complete"
 				}
 			],
 			"separators": [],
@@ -889,6 +902,37 @@
 					"display": null
 				}
 			]
+		},
+		{
+			"name": "dialog",
+			"columns": [
+				{
+					"typeStr": "3",
+					"name": "loop",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "text",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"text": "Give me blood",
+					"loop": 0
+				},
+				{
+					"loop": 1,
+					"text": "That was easy, wasn't it?"
+				},
+				{
+					"loop": 3,
+					"text": "Oh, you again?"
+				}
+			],
+			"separators": [],
+			"props": {}
 		}
 	],
 	"customTypes": [

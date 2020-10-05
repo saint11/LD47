@@ -120,8 +120,13 @@ class Hero extends Entity {
     }
 
     public function enterDoor(door:Door) {
+        if (game.playerLife<=0)
+            return;
+
         hasColl=false;
         cd.setS("doorEnter",.5);
+        
+
         cd.onComplete("doorEnter", ()-> {
             entityVisible = false;
             game.loadNextLevel();
@@ -169,7 +174,7 @@ class Hero extends Entity {
         corpse = false;
         spr.y = 8;
         delayer.addS(()-> {
-            new EndWindow(Data.text.get(game_over).text);
+            new EndWindow(Data.text.get(game_over).text, ()-> {Main.ME.restartGame = true;} );
 
         }, Data.globals.get(afterDeathTimer).value);
         

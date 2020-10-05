@@ -37,5 +37,6 @@ class Assets {
 		fx = dn.heaps.assets.Atlas.load("atlas/fx.atlas");
 
 		tiles.defineAnim("trap_floor", "0(35),1,2,3,4(5),4(5)");
+		tiles.defineAnim("spike", "0(35),1,2,3,4(5),4(5)");
 	}
 }

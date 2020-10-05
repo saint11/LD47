@@ -23,7 +23,7 @@ class Projectile extends Entity {
         dx = Math.cos(angle)*tmod*data.speed;
         dy = Math.sin(angle)*tmod*data.speed;
 
-        var imgs = ["simple", "shrapnel"];
+        var imgs = ["simple", "shrapnel","bomb","bomb_en"];
         spr.anim.registerStateAnim("p_" + imgs[data.image.toInt()], 0, 0.1);
         spr.setCenterRatio();
         weight = 0;

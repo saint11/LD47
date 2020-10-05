@@ -83,7 +83,7 @@ class Level extends dn.Process {
 
 		// Load a bunch of entities
 
-		if (l.l_Entities.all_Hero!=null)
+		if (l.l_Entities.all_Hero!=null && Game.ME.loopCount==0)
 		for (e in l.l_Entities.all_Hero)
 			Game.ME.hero = new Hero(e.cx,e.cy);	
 		else 
@@ -112,11 +112,19 @@ class Level extends dn.Process {
 		if (l.l_Entities.all_TrapFloor!=null)
 		for (e in l.l_Entities.all_TrapFloor) {
 			if (level.range(1) < e.f_Chance + e.f_ChanceIncrease * level.loop) {
-				var trap = new FloorTrap(e.cx, e.cy, e);
+				var trap = new FloorTrap(e.cx, e.cy, e.f_Auto, true);
 				trap.color = floorColor;
 			}
 		}
 
+		if (l.l_Entities.all_TrapFloorSm!=null)
+		for (e in l.l_Entities.all_TrapFloorSm) {
+			if (level.range(1) < e.f_Chance + e.f_ChanceIncrement * level.loop) {
+				var trap = new FloorTrap(e.cx, e.cy, true, false);
+				trap.color = floorColor;
+			}
+		}
+	
 		if (l.l_Entities.all_Fountain!=null)
 		for (e in l.l_Entities.all_Fountain) {
 			if (level.range(1) < e.f_Chance + e.f_ChanceIncrement * level.loop) {

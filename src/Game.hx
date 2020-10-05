@@ -53,6 +53,8 @@ class Game extends Process {
 	public var playerMaxLife: Int;
     public var weapon:Data.Weapons;
 
+	public var loopCount = 0;
+
 	public function new() {
 		super(Main.ME);
 		ME = this;
@@ -79,7 +81,7 @@ class Game extends Process {
 
 		addMoney(Data.globals.get(startingMoney).value);
 		
-		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun, GrenadeLauncher];
+		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
         weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
 		//weapon = Data.weapons.get(Shotgun);
 
@@ -232,9 +234,20 @@ class Game extends Process {
 		tw.createS(mask.alpha, 0>1, 0.6).end(()-> {
 			levelIndex++;
 			if (levelIndex>=levelLoop.length)
+			{
 				levelIndex = 0;
-
-			levelToLoad = levelLoop[levelIndex];
+				loopCount++;
+				var txt:String = Data.text.get(endCycle).text;
+				txt = StringTools.replace(txt, "{0}",  Std.string(loopCount));
+				
+				new EndWindow(txt,()->{
+					levelToLoad = levelLoop[levelIndex];
+				}, 2);
+			}
+			else 
+			{
+				levelToLoad = levelLoop[levelIndex];
+			}
 		});
 	}
 
@@ -264,7 +277,7 @@ class Game extends Process {
 	}
 
 	public function win() {
-		new EndWindow(Data.text.get(victory).text);
+		new EndWindow(Data.text.get(victory).text, ()-> { Main.ME.restartGame = true; });
 	}
 
 	public function addLevel(data:Data.Shop) {
