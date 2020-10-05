@@ -23,8 +23,10 @@ class Scroll extends Interactive {
         cd.setS("say",1);
         cd.onComplete("say", ()->{
             var txt = getLine(Game.ME.loopCount);
-            if (txt!=null)
+            if (txt!=null) {
+                Assets.SBANK.ghost_talk(0.8);
                 sayWords(txt);
+            }
         });
 
         gravity = 0;
@@ -80,14 +82,22 @@ class Scroll extends Interactive {
             .chain("ghost_leave").setSpeed(0.1)
             .chainLoop("ghost_spin").setSpeed(0.1);
 
-        if (rnd(0,1)<0.1)
-            sayWords( Data.text.get(seeya1).text) ;
-        else if (rnd(0,1)<0.2)
-            sayWords( Data.text.get(seeya2).text) ;
-        else if (rnd(0,1)<0.3)
-            sayWords( Data.text.get(seeya3).text) ;
-        else if (rnd(0,1)<0.5)
-            sayWords( Data.text.get(seeya3).text) ;
+        if (rnd(0,1)<0.1) {
+            var bye: Array<Data.TextKind> = [
+                seeya1,
+                seeya2,
+                seeya3,
+                seeya4,
+                seeya5,
+                seeya6,
+                seeya7,
+                seeya8,
+                seeya9,
+            ];
+
+            sayWords( Data.text.get(bye[M.rand(bye.length)]).text) ;
+            Assets.SBANK.ghost_bye(0.8);
+        }
         
         game.cd.setS("leave",2);
         game.cd.onComplete("leave", ()->{

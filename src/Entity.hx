@@ -149,7 +149,7 @@ class Entity {
 	}
 
 	public function hit(dmg:Data.Damage, from:Null<Entity>, reduction:Float = 1) {
-		if( !isAlive() || dmg.amount<=0 || hasAffect(Invulnerable))
+		if( !isAlive() || dmg.amount<=0 || hasAffect(Invulnerable) || life<=0)
 			return;
 
 		jump(2 + dmg.push*reduction );

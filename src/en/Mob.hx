@@ -69,6 +69,8 @@ class Mob extends Entity {
     override function onDie() {
         super.onDie();
         if (data.explosion!=null) {
+            Assets.SBANK.boom(1);
+
             fx.explode(centerX , centerY - 64, "explosion_big", 1.25, false);
             level.addSplatter("explosion_big_ground", centerX , centerY - 64);
             for (e in Entity.ALL) {
@@ -84,6 +86,14 @@ class Mob extends Entity {
         // Drop loot
         if (loot)
         {
+            var all = [
+				Assets.SBANK.splat1,
+				Assets.SBANK.splat2,
+				Assets.SBANK.splat3
+            ];
+            var s = all[Std.random(all.length)]();
+            s.play(1);
+            
             var droppedBlood = M.ceil(M.randRange(moneyMin, moneyMax) * Game.ME.bonusMoney);
             for (i in 0...droppedBlood) {
                 var c = new Collectible(cx,cy);

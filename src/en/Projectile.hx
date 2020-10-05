@@ -1,7 +1,12 @@
 package en;
 
 class Projectile extends Entity {
-    
+    static var sfxPop = [
+        Assets.SBANK.pop1,
+        Assets.SBANK.pop2,
+        Assets.SBANK.pop3,
+        Assets.SBANK.pop4,
+    ];
     public var ALL:Array<Projectile> = [];
 
     var owner:Entity;
@@ -68,6 +73,7 @@ class Projectile extends Entity {
 
     public function explode() {
         if (data.explode) {
+            Assets.SBANK.boom(1);
             fx.explode(centerX , centerY - 64, "explosion_big", false);
             level.addSplatter("explosion_big_ground", centerX , centerY);
             for (e in Entity.ALL) {
@@ -82,6 +88,8 @@ class Projectile extends Entity {
                 }
             }
         } else {
+            var s = sfxPop[Std.random(sfxPop.length)]();
+            s.play(rnd(0.4,0.6));
             fx.explode(centerX,centerY, "explosion_green", false);
         }
 

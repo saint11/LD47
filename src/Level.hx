@@ -45,6 +45,9 @@ class Level extends dn.Process {
 
 	public var splater : h2d.Graphics;
 	var seed:LevelSeed;
+
+	public var bgmVolume:Float = 0;
+
 	public function new(level:LevelSeed) {
 		super(Game.ME);
 		createRootInLayers(Game.ME.scroller, Const.DP_BG);
@@ -219,6 +222,12 @@ class Level extends dn.Process {
 	/** Return TRUE if "Collisions" layer contains a collision value **/
 	public inline function hasCollision(cx,cy) : Bool {
 		return !isValid(cx,cy) ? true : fastColl[coordId(cx,cy)];
+	}
+
+	override function update() {
+		super.update();
+		
+		dn.heaps.Sfx.setGroupVolume(1, M.lerp(dn.heaps.Sfx.getGroupVolume(1), bgmVolume, 0.1));
 	}
 
 	override function postUpdate() {
