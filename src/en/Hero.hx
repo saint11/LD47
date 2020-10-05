@@ -143,7 +143,8 @@ class Hero extends Entity {
 
     override function hit(dmg:Damage, from:Null<Entity>, reduction: Float = 1) {
         super.hit(dmg, from, reduction);
-        
+        Assets.SBANK.dmg(1);
+
         if (!hasAffect(Invulnerable)){
 
             Game.ME.playerLife=life;
@@ -164,7 +165,7 @@ class Hero extends Entity {
     }
 
     override function onDie() {
-        
+        Assets.SBANK.game_over(1);
         jump(5);
         frictX=frictY=0.98;
         bounceFrict = 0.9999;
@@ -172,12 +173,12 @@ class Hero extends Entity {
         dx = rnd(-0.1,0.1);
         dy = rnd(-0.1,0.1);
         corpse = false;
-        spr.y = 8;
+        spr.x = 8;
+        spr.y = 12;
         delayer.addS(()-> {
             new EndWindow(Data.text.get(game_over).text, ()-> {Main.ME.restartGame = true;} );
 
         }, Data.globals.get(afterDeathTimer).value);
-        
     }
 
     override function dispose() {

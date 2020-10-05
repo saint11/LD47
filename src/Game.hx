@@ -55,9 +55,15 @@ class Game extends Process {
 
 	public var loopCount = 0;
 
+
+	var lobbyBgm:dn.heaps.Sfx;
+
 	public function new() {
 		super(Main.ME);
 		ME = this;
+
+		lobbyBgm = Assets.SBANK.lobby();
+		lobbyBgm.playOnGroup(1, true);
 
 		ca = Main.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
@@ -240,6 +246,8 @@ class Game extends Process {
 				var txt:String = Data.text.get(endCycle).text;
 				txt = StringTools.replace(txt, "{0}",  Std.string(loopCount));
 				
+				Assets.SBANK.next(1);
+
 				new EndWindow(txt,()->{
 					levelToLoad = levelLoop[levelIndex];
 				}, 2);
@@ -250,9 +258,8 @@ class Game extends Process {
 			}
 		});
 	}
-
+	
 	function startLevel(l : LevelSeed) {
-
 		for(e in Entity.ALL)
 			e.destroy();
 		gc();
@@ -261,6 +268,13 @@ class Game extends Process {
 			level.destroy();
 
 		level = new Level(l);
+		
+		if (l==levelLoop[0]){
+			level.bgmVolume=1;
+		}
+		else {
+			level.bgmVolume=0;
+		}
 		
 		Process.resizeAll();
 
