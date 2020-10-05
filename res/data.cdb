@@ -959,40 +959,112 @@
 			],
 			"lines": [
 				{
-					"text": "Give me blood",
+					"text": "Bring me blood and I'll set you free!",
 					"loop": 0
 				},
 				{
 					"loop": 1,
-					"text": "That was easy, wasn't it?"
+					"text": "You made it back!"
+				},
+				{
+					"loop": 2,
+					"text": "Wait, you're still here?"
 				},
 				{
 					"loop": 3,
-					"text": "Oh, you again?"
+					"text": "Third time's a charm..."
+				},
+				{
+					"loop": 4,
+					"text": "This seems promising..."
 				},
 				{
 					"loop": 5,
-					"text": "Hiiiii"
+					"text": "I NEED BLOOD!!"
+				},
+				{
+					"loop": 6,
+					"text": "That was easy, wasn't it?"
+				},
+				{
+					"loop": 7,
+					"text": "Look who comes crawling back!"
 				},
 				{
 					"loop": 8,
-					"text": "Still alive? Wow"
+					"text": "Oops you did it again..."
+				},
+				{
+					"loop": 9,
+					"text": "Hiiiiii!"
 				},
 				{
 					"loop": 10,
-					"text": "Yum yum yum blood"
+					"text": "What choice do you have?"
+				},
+				{
+					"loop": 11,
+					"text": "What comes around goes around."
+				},
+				{
+					"loop": 12,
+					"text": "Huh, not dead yet?"
+				},
+				{
+					"loop": 13,
+					"text": "Hope you're having a bloody good time!"
+				},
+				{
+					"loop": 14,
+					"text": "Oh, you again?"
 				},
 				{
 					"loop": 15,
+					"text": "Yum yum yum, blood!"
+				},
+				{
+					"loop": 16,
+					"text": "Once more! With feeling!"
+				},
+				{
+					"loop": 17,
 					"text": "Tired of me yet?"
 				},
 				{
+					"loop": 18,
+					"text": "Here we go again..."
+				},
+				{
+					"loop": 19,
+					"text": "Whew! That was a tough one!"
+				},
+				{
 					"loop": 20,
-					"text": "More blood please"
+					"text": "You know what the definition of insanity is, right?"
+				},
+				{
+					"loop": 21,
+					"text": "Have you reached Nirvana yet?"
+				},
+				{
+					"loop": 22,
+					"text": "Getting close to freedom?"
+				},
+				{
+					"loop": 23,
+					"text": "Can we hurry this up? I have a date with Ouroboros."
+				},
+				{
+					"loop": 24,
+					"text": "Feeling loopy?"
 				},
 				{
 					"loop": 25,
-					"text": "Oh hi, you're still here"
+					"text": "Blood is thicker than water, and I'm thirsty!"
+				},
+				{
+					"loop": 26,
+					"text": "You know, I feel like this relationship is one sided."
 				}
 			],
 			"separators": [],
