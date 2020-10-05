@@ -43,7 +43,7 @@ class Mob extends Entity {
         for (a in data.ai)
             ai.push(a.ai);
 
-        enableShadow();
+        enableShadow(data.shadowScale);
     }
 
     override function update() {

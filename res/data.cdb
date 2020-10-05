@@ -413,6 +413,10 @@
 				},
 				{
 					"typeStr": "4",
+					"name": "shadowScale"
+				},
+				{
+					"typeStr": "4",
 					"name": "moveSpeed"
 				},
 				{
@@ -469,7 +473,8 @@
 					"sleep": 1,
 					"sprite": "zombie",
 					"animSpeed": 1,
-					"jumpSpeed": 0
+					"jumpSpeed": 0,
+					"shadowScale": 1
 				},
 				{
 					"id": "Explosive",
@@ -490,7 +495,8 @@
 					"sleep": 0,
 					"sprite": "goo",
 					"animSpeed": 1,
-					"jumpSpeed": 0
+					"jumpSpeed": 0,
+					"shadowScale": 1
 				},
 				{
 					"id": "Shooter",
@@ -513,7 +519,8 @@
 					"sleep": 0,
 					"sprite": "shooter",
 					"animSpeed": 1.5,
-					"jumpSpeed": 0
+					"jumpSpeed": 0,
+					"shadowScale": 1
 				},
 				{
 					"id": "Bomber",
@@ -542,7 +549,8 @@
 					"sleep": 2,
 					"sprite": "bomber",
 					"animSpeed": 1,
-					"jumpSpeed": 0
+					"jumpSpeed": 0,
+					"shadowScale": 1
 				},
 				{
 					"id": "Tank",
@@ -576,9 +584,10 @@
 						30,
 						50
 					],
-					"sprite": "zombie",
+					"sprite": "tank",
 					"animSpeed": 1,
-					"jumpSpeed": 0.22
+					"jumpSpeed": 0.22,
+					"shadowScale": 1.5
 				},
 				{
 					"id": "Jumper",
@@ -606,7 +615,8 @@
 						10,
 						15
 					],
-					"jumpSpeed": 0.4
+					"jumpSpeed": 0.4,
+					"shadowScale": 0
 				}
 			],
 			"separators": [],
