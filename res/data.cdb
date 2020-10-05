@@ -631,7 +631,7 @@
 							]
 						}
 					],
-					"desc": "Starts easy, gets more dangerous with time. +10% dropped blood in all rooms.",
+					"desc": "+10% dropped blood in all rooms. This room gets more dangerous with time!",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -643,7 +643,7 @@
 					"levelName": "TrapRoom",
 					"title": "Trap Room",
 					"price": 30,
-					"desc": "Traps! +2% dropped blood and treasure chance in all rooms.",
+					"desc": "+2% dropped blood and treasure chance in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -669,7 +669,7 @@
 					"levelName": "BombRoom",
 					"title": "Bomb Room",
 					"price": 10,
-					"desc": "+5% dropped blood on all rooms",
+					"desc": "+5% dropped blood in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -697,7 +697,7 @@
 							]
 						}
 					],
-					"desc": "+15% dropped blood on all rooms",
+					"desc": "+15% dropped blood in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -709,7 +709,7 @@
 					"levelName": "ShooterRoom",
 					"title": "Shooter Room",
 					"price": 15,
-					"desc": "+8% chance of a chest on all rooms",
+					"desc": "+8% chance of treasure in all rooms.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -729,7 +729,7 @@
 					"levelName": "FountainRoom",
 					"title": "Fountain Room",
 					"price": 50,
-					"desc": "-5% dropped blood on all rooms",
+					"desc": "-5% dropped blood on all rooms. This room will heal you.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -750,7 +750,7 @@
 					"title": "Treasure Room",
 					"price": 80,
 					"bonus": [],
-					"desc": "Not suspicious at all",
+					"desc": "Not suspicious at all.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -763,7 +763,7 @@
 					"title": "Weapon Room",
 					"price": 80,
 					"bonus": [],
-					"desc": "There are even more hidden artifacts down here",
+					"desc": "What could possibly go wrong?",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
