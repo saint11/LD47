@@ -789,8 +789,8 @@
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
-						"x": 0,
-						"y": 0
+						"x": 4,
+						"y": 1
 					},
 					"bonus": [
 						{
@@ -858,8 +858,8 @@
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
-						"x": 2,
-						"y": 0
+						"x": 5,
+						"y": 1
 					},
 					"bonus": [
 						{
@@ -1027,8 +1027,8 @@
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
-						"x": 4,
-						"y": 0
+						"x": 6,
+						"y": 1
 					}
 				},
 				{
