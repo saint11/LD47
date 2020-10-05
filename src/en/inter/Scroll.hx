@@ -79,7 +79,15 @@ class Scroll extends Interactive {
         spr.anim.play("ghost_idle").setSpeed(0.25)
             .chain("ghost_leave").setSpeed(0.1)
             .chainLoop("ghost_spin").setSpeed(0.1);
-        sayWords( Data.text.get(seeya).text) ;
+
+        if (rnd(0,1)<0.1)
+            sayWords( Data.text.get(seeya1).text) ;
+        else if (rnd(0,1)<0.2)
+            sayWords( Data.text.get(seeya2).text) ;
+        else if (rnd(0,1)<0.3)
+            sayWords( Data.text.get(seeya3).text) ;
+        else if (rnd(0,1)<0.5)
+            sayWords( Data.text.get(seeya3).text) ;
         
         game.cd.setS("leave",2);
         game.cd.onComplete("leave", ()->{
