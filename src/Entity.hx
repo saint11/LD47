@@ -544,7 +544,7 @@ class Entity {
 				var d = distPx(e);
 				if( d< radius+e.radius  ) {
 					
-					var repel = 0.05;
+					var repel = 0.05*tmod;
 					var a = Math.atan2(e.footY-footY, e.footX-footX);
 					
 					if (!imovable) {

@@ -23,7 +23,7 @@ class Fountain extends Interactive {
             sprSquashX = 1.3;
             sprSquashY = 0.8;
 
-            fx.flashBangS(0xFF99AA, 0.25);
+            fx.flashBangS(0xFF99AA, 0.55, 1);
         }
     }
 

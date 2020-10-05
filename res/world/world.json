@@ -11,7 +11,7 @@
 	"defaultPivotY": 0.5,
 	"defaultGridSize": 16,
 	"bgColor": "#1A212E",
-	"nextUid": 58,
+	"nextUid": 62,
 	"minifyJson": false,
 	"exportTiled": false,
 	"defs": {
@@ -214,8 +214,8 @@
 			{
 				"identifier": "Fountain",
 				"uid": 49,
-				"width": 16,
-				"height": 16,
+				"width": 32,
+				"height": 32,
 				"color": "#00AAFF",
 				"renderMode": "Cross",
 				"tilesetId": null,
@@ -225,7 +225,40 @@
 				"limitBehavior": "DiscardOldOnes",
 				"pivotX": 0.5,
 				"pivotY": 0.5,
-				"fieldDefs": []
+				"fieldDefs": [
+					{
+						"identifier": "Chance",
+						"__type": "Float",
+						"uid": 60,
+						"type": "F_Float",
+						"isArray": false,
+						"canBeNull": false,
+						"arrayMinLength": null,
+						"arrayMaxLength": null,
+						"editorDisplayMode": "Hidden",
+						"editorDisplayPos": "Above",
+						"editorAlwaysShow": false,
+						"min": null,
+						"max": null,
+						"defaultOverride": { "id": "V_Float", "params": [ 1 ] }
+					},
+					{
+						"identifier": "ChanceIncrement",
+						"__type": "Float",
+						"uid": 61,
+						"type": "F_Float",
+						"isArray": false,
+						"canBeNull": false,
+						"arrayMinLength": null,
+						"arrayMaxLength": null,
+						"editorDisplayMode": "Hidden",
+						"editorDisplayPos": "Above",
+						"editorAlwaysShow": false,
+						"min": null,
+						"max": null,
+						"defaultOverride": null
+					}
+				]
 			},
 			{
 				"identifier": "Chest",
@@ -259,6 +292,22 @@
 						"defaultOverride": null
 					}
 				]
+			},
+			{
+				"identifier": "WeaponStand",
+				"uid": 58,
+				"width": 32,
+				"height": 32,
+				"color": "#F457FF",
+				"renderMode": "Cross",
+				"tilesetId": null,
+				"tileId": null,
+				"tileRenderMode": "Stretch",
+				"maxPerLevel": 0,
+				"limitBehavior": "DiscardOldOnes",
+				"pivotX": 0.5,
+				"pivotY": 0.5,
+				"fieldDefs": []
 			}
 		],
 		"tilesets": [
@@ -3070,6 +3119,48 @@
 								"__type": "Float",
 								"defUid": 52,
 								"realEditorValues": [ { "id": "V_Float", "params": [ 0.03 ] } ]
+							}
+						] }
+					]
+				}
+			]
+		},
+		{
+			"identifier": "WeaponRoom",
+			"uid": 59,
+			"pxWid": 256,
+			"pxHei": 240,
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 16,
+					"__cHei": 15,
+					"__gridSize": 16,
+					"levelId": 59,
+					"layerDefUid": 20,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"intGrid": [],
+					"autoTiles": [],
+					"seed": 8137618,
+					"gridTiles": [],
+					"entityInstances": [
+						{ "__identifier": "WeaponStand", "__cx": 8, "__cy": 3, "defUid": 58, "x": 136, "y": 56, "fieldInstances": [] },
+						{ "__identifier": "Fountain", "__cx": 8, "__cy": 11, "defUid": 49, "x": 136, "y": 184, "fieldInstances": [
+							{
+								"__identifier": "Chance",
+								"__value": 0,
+								"__type": "Float",
+								"defUid": 60,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0 ] } ]
+							},
+							{
+								"__identifier": "ChanceIncrement",
+								"__value": 0.01,
+								"__type": "Float",
+								"defUid": 61,
+								"realEditorValues": [ { "id": "V_Float", "params": [ 0.01 ] } ]
 							}
 						] }
 					]

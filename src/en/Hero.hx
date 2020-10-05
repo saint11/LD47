@@ -82,7 +82,7 @@ class Hero extends Entity {
 
     function shoot(x:Float,y:Float, offX:Float, offY:Float) {
         var weapon = Game.ME.weapon;
-        
+
         for (i in 0...weapon.bullets){
             new Projectile(x + offX,y + offY, angToMouse(offX,offY) + rnd(-weapon.spread, weapon.spread) * M.DEG_RAD, this, weapon.projectile);
         }
@@ -124,6 +124,10 @@ class Hero extends Entity {
         
         setAffectS(Invulnerable, 1);
         setAffectS(Stun, dmg.stunTime);
+
+        Game.ME.addSlowMo("hit", 0.5, 0.1);
+        Game.ME.stopFrame();
+        Game.ME.camera.shakeS(0.1,1);
     }
 
     public function stop() {

@@ -1,3 +1,4 @@
+import en.inter.WeaponPedestal;
 import en.inter.Treasure;
 import en.inter.Fountain;
 import en.FloorTrap;
@@ -109,7 +110,9 @@ class Level extends dn.Process {
 
 		if (l.l_Entities.all_Fountain!=null)
 		for (e in l.l_Entities.all_Fountain) {
-			new Fountain(e.cx, e.cy);
+			if (level.range(1) < e.f_Chance + e.f_ChanceIncrement * level.loop) {
+				new Fountain(e.cx, e.cy);
+			}
 		}
 
 		if (l.l_Entities.all_Chest!=null)
@@ -117,6 +120,11 @@ class Level extends dn.Process {
 			new Treasure(e.cx, e.cy,e);
 		}
 
+		if (l.l_Entities.all_WeaponStand!=null)
+		for (e in l.l_Entities.all_WeaponStand) {
+			new WeaponPedestal(e.cx, e.cy,e);
+		}
+	
 		var dR =new Door(16,doorY, 1);
 		var dL = new Door(-1,doorY, -1);
 		dL.locked = true;

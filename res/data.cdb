@@ -40,7 +40,7 @@
 				},
 				{
 					"id": "startingMoney",
-					"value": 50
+					"value": 500
 				},
 				{
 					"id": "colorVariation",
@@ -155,7 +155,7 @@
 					"explode": false,
 					"dmgOnTouch": true,
 					"breakOnWall": true,
-					"lifespan": 30,
+					"lifespan": 25,
 					"lifespanVar": 3
 				},
 				{
@@ -219,6 +219,11 @@
 					"display": null
 				},
 				{
+					"typeStr": "1",
+					"name": "icon",
+					"display": null
+				},
+				{
 					"typeStr": "6:projectiles",
 					"name": "projectile"
 				},
@@ -247,23 +252,26 @@
 					"interval": 0.5,
 					"stun": 0.2,
 					"bullets": 1,
-					"spread": 0
+					"spread": 0,
+					"icon": "magic"
 				},
 				{
 					"id": "DevilGun",
 					"projectile": "SmallBullet",
-					"interval": 0.1,
+					"interval": 0.2,
 					"stun": 0,
 					"bullets": 1,
-					"spread": 6
+					"spread": 9,
+					"icon": "machine_gun"
 				},
 				{
 					"id": "Shotgun",
 					"projectile": "Shrapnel",
 					"stun": 0.3,
 					"interval": 1,
-					"bullets": 4,
-					"spread": 15
+					"bullets": 5,
+					"spread": 18,
+					"icon": "shotgun"
 				}
 			],
 			"separators": [],
@@ -619,7 +627,7 @@
 							]
 						}
 					],
-					"desc": "+10% dropped blood no all rooms, this room gets more dangerous with time",
+					"desc": "+10% dropped blood no all rooms, this room gets much more dangerous with time",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
@@ -747,6 +755,19 @@
 					}
 				},
 				{
+					"levelName": "WeaponRoom",
+					"title": "Weapon Room",
+					"price": 80,
+					"bonus": [],
+					"desc": "There are even more hidden artifacts down here",
+					"icon": {
+						"file": "room_icons.png",
+						"size": 64,
+						"x": 0,
+						"y": 1
+					}
+				},
+				{
 					"levelName": "EndGame",
 					"title": "Exit the Temple",
 					"price": 5000,
@@ -761,7 +782,7 @@
 				}
 			],
 			"separators": [
-				9
+				10
 			],
 			"props": {}
 		},

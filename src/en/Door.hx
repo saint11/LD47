@@ -50,7 +50,7 @@ class Door extends Entity {
                 doorTop.sprSquashX = 1.25;
             }
 
-            if (game.hero.hasColl && distCase(game.hero, 0, 0.25)<2) {
+            if (game.hero.hasColl && distCase(game.hero, 0, 0.75)<1.5) {
                 game.hero.enterDoor(this);
             }
         }

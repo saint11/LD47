@@ -109,4 +109,8 @@ class Mob extends Entity {
             }
         }
     }
+
+    override function hit(dmg:Damage, from:Null<Entity>, reduction:Float = 1) {
+        super.hit(dmg, from, reduction);
+    }
 }
