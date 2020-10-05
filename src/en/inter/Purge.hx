@@ -42,6 +42,7 @@ class Purge extends Interactive {
         sprSquashX = 1.3;
         sprSquashY = 0.8;
 
+        Assets.SBANK.purge(1);
         fx.flashBangS(0xFF0000, 0.85, 2);
 
         game.camera.bump(0,20);
@@ -61,7 +62,8 @@ class Purge extends Interactive {
 
         if (!spawned && level.isComplete()) {
             spawned=true;
-
+            
+            Assets.SBANK.purge_spawn(1);
             fx.flashBangS(0xFF0000, 0.35, 1);
 
             hasColl=true;

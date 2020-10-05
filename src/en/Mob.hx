@@ -1,5 +1,6 @@
 package en;
 
+import haxe.macro.Expr.Case;
 import dn.Rand;
 import Data.Damage;
 import h3d.IDrawable;
@@ -27,6 +28,7 @@ class Mob extends Entity {
         
         spr.anim.registerStateAnim(data.sprite + "_walk", 0, 0.1 * data.animSpeed); //fallback
         spr.anim.registerStateAnim(data.sprite + "_idle", 1, 0.1 * data.animSpeed, ()-> hasAffect(Sleep));
+        spr.anim.registerStateAnim(data.sprite + "_charge", 1, 0.1 * data.animSpeed, ()-> isChargingAction("jump"));
         spr.anim.registerStateAnim(data.sprite + "_walk", 2, 0.15 * data.animSpeed, ()-> moving!=0);
         spr.anim.registerStateAnim(data.sprite + "_hit", 3, 0.15 * data.animSpeed, ()-> hasAffect(Stun));
         
@@ -54,14 +56,40 @@ class Mob extends Entity {
             case Idle, Explode:
                 
             case Chase:
-                var a = angTo(game.hero);
-                moving=data.moveSpeed;
-                dx += Math.cos(a)*tmod*data.moveSpeed;
-                dy += Math.sin(a)*tmod*data.moveSpeed;
-                dir = -dirTo(game.hero);
+                if(!isChargingAction("jump") && altitude<=2) {
+                    var a = angTo(game.hero);
+                    moving=data.moveSpeed;
+                    dx += Math.cos(a)*tmod*data.moveSpeed;
+                    dy += Math.sin(a)*tmod*data.moveSpeed;
+                    dir = -dirTo(game.hero);
+                    
+                    frictX = 0.82;
+                    frictY = 0.82;
+                }
             case Shoot(min,max):
                 if (!cd.hasSetS("shooter", rnd(min,max))) {
                     var p = new Projectile(centerX, centerY, angTo(game.hero), this, data.projectile);
+                }
+            case CrossShoot(min,max):
+                if (!cd.hasSetS("crossShoot", rnd(min,max))) {
+                    var p = new Projectile(centerX, centerY, 0 * M.DEG_RAD, this, data.projectile);
+                    var p = new Projectile(centerX, centerY, 90 * M.DEG_RAD, this, data.projectile);
+                    var p = new Projectile(centerX, centerY, 180 * M.DEG_RAD, this, data.projectile);
+                    var p = new Projectile(centerX, centerY, -90 * M.DEG_RAD, this, data.projectile);
+                }
+            case Jump(range, delay):
+                var a = angTo(game.hero);
+
+                if (distCase(game.hero)<range) {
+                    chargeAction("jump", delay, ()->{
+                        moving=data.moveSpeed;
+                        dx += Math.cos(a)*tmod*data.jumpSpeed;
+                        dy += Math.sin(a)*tmod*data.jumpSpeed;
+                        jump(3);
+                        frictX = 0.95;
+                        frictY = 0.95;
+                        dir = -dirTo(game.hero);
+                    });
                 }
             }
         }

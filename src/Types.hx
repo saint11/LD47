@@ -13,4 +13,6 @@ enum MobType {
 	Explosive;
 	Shooter;
 	Bomber;
+	Tank;
+	Jumper;
 }

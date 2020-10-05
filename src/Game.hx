@@ -84,7 +84,7 @@ class Game extends Process {
 		
 		var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
 		#if debug
-		var possibleWeapons:Array<Data.WeaponsKind> = [Sniper];
+		//var possibleWeapons:Array<Data.WeaponsKind> = [Sniper];
 		#end
         weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
 		//weapon = Data.weapons.get(Shotgun);
