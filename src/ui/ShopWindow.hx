@@ -38,8 +38,13 @@ class ShopWindow extends dn.Process {
 		masterBox.verticalAlign = Middle;
 		masterBox.horizontalAlign = Middle;
 		var helpTxt = new Text(Assets.fontMedium, masterBox);
-		helpTxt.text = Data.text.get(shopText).text;
+		helpTxt.text = Data.text.get(shopText).text ;
 		helpTxt.alpha=0.9;
+		if (Game.ME.levelLoop.length>1){
+			var helpTxt = new Text(Assets.fontMedium, masterBox);
+			helpTxt.text = StringTools.replace(Data.text.get(shopText2).text, "{0}", Std.string(Game.ME.levelLoop.length-1)) ;
+			helpTxt.alpha=0.7;
+		}
 
 		masterFlow = new h2d.Flow(masterBox);
 		masterFlow.padding = 32;
@@ -170,7 +175,7 @@ class ShopWindow extends dn.Process {
 				else 
 				{
 					Game.ME.addLevel(inf);
-					Game.ME.level.scroll.destroy();
+					Game.ME.level.scroll.bye();
 					Game.ME.addMoney(-cost);
 				}
 			}
