@@ -173,6 +173,9 @@ class Level extends dn.Process {
 		}
 
 		game.hud.sayRoomName(level);
+
+		if (isComplete())
+			roomComplete=true;
 	}
 
 	function getRandomFloor(level:LevelSeed):Tile {
@@ -238,7 +241,7 @@ class Level extends dn.Process {
 			roomComplete=true;
 			
 			if (game.levelIndex>0)
-				Assets.SBANK.complete_room(1);
+				Assets.SBANK.complete_room(0.7);
 		}
 	}
 

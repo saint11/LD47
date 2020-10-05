@@ -20,12 +20,12 @@ class Collectible extends Entity {
         super.update();
 
         if (!cd.has("cooldown"))
-        if(distCase(game.hero) < Data.globals.get(bloodPickUpRange).value) {
+        if((distCase(game.hero) < Data.globals.get(bloodPickUpRange).value )|| level.isComplete()) {
             var a = angTo(game.hero);
             dx = Math.cos(a) * 0.3;
             dy = Math.sin(a) * 0.3;
 
-           if (distPx(game.hero)<8) {
+           if (distPx(game.hero)<8 ) {
                 Game.ME.addMoney(1, true);
                 destroy();
             }

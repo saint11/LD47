@@ -25,7 +25,8 @@ class FloorTrap extends Entity {
             if (!auto)
                 spr.anim.registerStateAnim("spike_stop", 5, 0.2, ()-> return level.isComplete() || cd.has("wait") );
             spr.anim.registerStateAnim("spike", 0, 0.2);
-            radius = 0.8 * Const.GRID/2;
+            sprScaleX = sprScaleX = 0.9;
+            radius = 0.7 * Const.GRID/2;
             cd.setS("wait", rnd(0,2));
         }
         spr.setCenterRatio(0.5, 0.6);

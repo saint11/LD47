@@ -155,10 +155,10 @@ class Main extends dn.Process {
 	override function fixedUpdate() {
 		super.fixedUpdate();
 		
-		curLobbyVolume = M.lerp(curLobbyVolume, lobbyVolume * 0.45, 0.1);
+		curLobbyVolume = M.lerp(curLobbyVolume, lobbyVolume * 0.5, 0.1);
 		dn.heaps.Sfx.setGroupVolume(1, curLobbyVolume);
 
-		curBgmVolume = M.lerp(curBgmVolume, bgmVolume * 0.6, 0.1);
+		curBgmVolume = M.lerp(curBgmVolume, bgmVolume * 0.7, 0.1);
 		dn.heaps.Sfx.setGroupVolume(2, curBgmVolume);
 	}
 }

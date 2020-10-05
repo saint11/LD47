@@ -8,7 +8,7 @@ class Purge extends Interactive {
 
     var l:LevelSeed;
     public function new(x,y, l:LevelSeed) {
-        super(x,y);
+        super(x,y-1);
 
         this.l = l;
         

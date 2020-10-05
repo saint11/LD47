@@ -126,11 +126,12 @@ class Scroll extends Interactive {
 		game.scroller.add(talkTf, Const.DP_UI);
 		talkTf.text = str;
 		talkTf.textColor = c;
-        talkTf.maxWidth = 250;
-        talkTf.color = new Vec(1, 0.6, 0.45 );
-        talkTf.dropShadow = {dx:  0,dy: 4, color: 0x0, alpha: 1};
+        talkTf.maxWidth = 290;
+        //talkTf.color = new Vec(1, 0.6, 0.45 );
+        //talkTf.dropShadow = {dx:  0,dy: 4, color: 0x0, alpha: 1};
+        //talkTf.textAlign = Center;
+
         var e = talkTf;
-        
 		game.tw.createS(e.alpha, 0>1, 0.7);
 		game.tw.createS(txtY, 0>-64, str.length*0.1);
 
