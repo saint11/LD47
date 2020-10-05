@@ -894,7 +894,7 @@
 				},
 				{
 					"levelName": "ShooterRoom",
-					"title": "Shooter Room",
+					"title": "Garden",
 					"price": 15,
 					"desc": "+8% chance of treasure in all rooms.",
 					"icon": {
