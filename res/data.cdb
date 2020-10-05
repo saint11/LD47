@@ -1016,7 +1016,7 @@
 				},
 				{
 					"id": "chamberName",
-					"text": "Ethernal Chamber"
+					"text": "Eternal Chamber"
 				}
 			],
 			"separators": [],
@@ -1062,11 +1062,11 @@
 				},
 				{
 					"loop": 2,
-					"text": "Wait, you're still here?"
+					"text": "Third time's a charm..."
 				},
 				{
 					"loop": 3,
-					"text": "Third time's a charm..."
+					"text": "Wait, you're still here?"
 				},
 				{
 					"loop": 4,
