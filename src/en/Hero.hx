@@ -22,6 +22,8 @@ class Hero extends Entity {
         super(cx, cy);
         Game.ME.camera.trackTarget(this, true);
 
+        radius = Const.GRID*0.25;
+
         delayer = new Delayer(30);
         
         maxSpeed = Data.globals.get(playerMaxMoveSpeed).value;
@@ -146,7 +148,7 @@ class Hero extends Entity {
             setAffectS(Stun, dmg.stunTime);
             
             Game.ME.addSlowMo("hit", 0.5, 0.1);
-            Game.ME.stopFrame();
+            //Game.ME.stopFrame();
             Game.ME.camera.shakeS(0.1,1);
         }
     }
@@ -165,6 +167,7 @@ class Hero extends Entity {
         dx = rnd(-0.1,0.1);
         dy = rnd(-0.1,0.1);
         corpse = false;
+        spr.y = 8;
         delayer.addS(()-> {
             new EndWindow(Data.text.get(game_over).text);
 

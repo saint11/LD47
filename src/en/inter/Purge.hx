@@ -1,18 +1,27 @@
 package en.inter;
 
+import ui.PurgeUi;
+
 class Purge extends Interactive {
     var expired : Bool = false;
-    var icon : HSprite;
     var weapon : Data.Weapons;
 
-    public function new(x,y) {
+    var spawned:Bool = false;
+
+    var l:LevelSeed;
+    public function new(x,y, l:LevelSeed) {
         super(x,y);
 
+        this.l = l;
+        
+        hasColl=false;
+        entityVisible = false;
+
         weight = 1000;
-        radius = 1.5 * Const.GRID;
-        spr.anim.registerStateAnim("fountain",0,0.2, ()->!expired);
-        spr.anim.registerStateAnim("fountain_expired",0,0.2, ()->expired);
-        spr.setCenterRatio();
+        radius = 1 * Const.GRID;
+        spr.anim.registerStateAnim("purge",0,0.2, ()->!expired);
+        spr.anim.registerStateAnim("purge_off",0,0.2, ()->expired);
+        spr.setCenterRatio(0.5, 1.1);
 
         var possibleWeapons:Array<Data.WeaponsKind> = [MagicMissile, DevilGun, Shotgun];
         var i = possibleWeapons.length;
@@ -21,26 +30,47 @@ class Purge extends Interactive {
                 possibleWeapons.remove(possibleWeapons[i]);
         }
         weapon = Data.weapons.get(possibleWeapons[M.rand(possibleWeapons.length)]);
-
-        icon = Assets.ui.h_get("icon_" + weapon.icon, spr);
-        icon.setCenterRatio();
     }
 
     override function activate(by:Hero) {
         super.activate(by);
         if (!expired) {
-            expired = true;
+            new PurgeUi(this);
+        }
+    }
 
-            Game.ME.weapon = weapon;
-            sprSquashX = 1.3;
-            sprSquashY = 0.8;
+    public function expire() {
+        expired = true;
 
-            fx.flashBangS(0xFF99AA, 0.55, 1);
+        Game.ME.weapon = weapon;
+        sprSquashX = 1.3;
+        sprSquashY = 0.8;
 
-            game.camera.bump(0,20);
+        fx.flashBangS(0xFF0000, 0.85, 2);
 
-            game.tw.createS(icon.scaleX,1.2>0, 0.3);
-            game.tw.createS(icon.scaleY,1.1>0, 0.3);
+        game.camera.bump(0,20);
+
+        game.addMoney(-Data.globals.get(purgePrice).value);
+
+        if (l!=null)
+            game.levelLoop.remove(l);
+    }
+
+    
+    override function update() {
+        super.update();
+        //d.update(tmod);
+
+        if (!spawned && level.isComplete()) {
+            spawned=true;
+
+            fx.flashBangS(0xFF0000, 0.35, 1);
+
+            hasColl=true;
+            entityVisible = true;
+            
+            setSquashX(0.5);
+            setSquashY(0.2);
         }
     }
 }

@@ -1,4 +1,6 @@
 
+import ui.PurgeUi;
+import en.inter.Purge;
 import ui.EndWindow;
 import ui.ShopWindow;
 import Data;
@@ -86,6 +88,9 @@ class Main extends dn.Process {
 
 		if (EndWindow.ME!=null)
 			EndWindow.ME.destroy();
+
+		if (PurgeUi.ME !=null)
+			PurgeUi.ME.destroy();
 
 		if( Game.ME!=null ) {
 			Game.ME.destroy();

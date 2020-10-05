@@ -70,10 +70,14 @@ class Projectile extends Entity {
         if (data.explode) {
             fx.explode(centerX , centerY - 64, "explosion_big", 1.2);
             for (e in Entity.ALL) {
+                var mul = 1.;
+                if (e == owner) 
+                    mul = 0.25;
+
                 if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 2) {
-                    e.hit(data.dmg,this);
+                    e.hit(data.dmg,this, mul);
                 } else if (e.hasCircColl() && e.hasCircCollWith(this) && distCase(e) < 3) {
-                    e.hit(data.dmg,this, 0.5);
+                    e.hit(data.dmg,this, 0.5 * mul);
                 }
             }
         } else {

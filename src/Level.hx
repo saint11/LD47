@@ -1,3 +1,4 @@
+import en.inter.Purge;
 import en.inter.WeaponPedestal;
 import en.inter.Treasure;
 import en.inter.Fountain;
@@ -74,6 +75,9 @@ class Level extends dn.Process {
 		if (g.scaleX<0)
 			g.x += offsetX/2 + g.tile.width/4;
 
+
+		// Load a bunch of entities
+
 		if (l.l_Entities.all_Hero!=null)
 		for (e in l.l_Entities.all_Hero)
 			Game.ME.hero = new Hero(e.cx,e.cy);	
@@ -125,6 +129,13 @@ class Level extends dn.Process {
 			new WeaponPedestal(e.cx, e.cy,e);
 		}
 	
+		// Check for purging item
+		if (level.data!=null)
+		if (rnd(0,1) < level.loop * level.data.purgeChance && Game.ME.money>Data.globals.get(purgePrice).value)
+		{
+			new Purge(M.round(wid/2), 0, level);
+		}
+
 		var dR =new Door(16,doorY, 1);
 		var dL = new Door(-1,doorY, -1);
 		dL.locked = true;
