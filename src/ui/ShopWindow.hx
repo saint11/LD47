@@ -11,6 +11,7 @@ class ShopWindow extends dn.Process {
 
 	var mask : h2d.Graphics;
 	var iFlow : h2d.Flow;
+	var masterBox : h2d.Flow;
 	var masterFlow : h2d.Flow;
     
     var money : h2d.Text;
@@ -31,15 +32,23 @@ class ShopWindow extends dn.Process {
         
 		mask = new h2d.Graphics(root);
         tw.createS(mask.alpha, 0>1, 0.3);
-        
 
-		masterFlow = new h2d.Flow(root);
+		masterBox = new h2d.Flow(root);
+		masterBox.layout = Vertical;
+		masterBox.verticalAlign = Middle;
+		masterBox.horizontalAlign = Middle;
+		var helpTxt = new Text(Assets.fontMedium, masterBox);
+		helpTxt.text = Data.text.get(shopText).text;
+		helpTxt.alpha=0.9;
+
+		masterFlow = new h2d.Flow(masterBox);
 		masterFlow.padding = 32;
 		masterFlow.layout = Vertical;
 		masterFlow.horizontalAlign = Middle;
 		masterFlow.backgroundTile = Assets.ui.getTile("window");
         masterFlow.borderHeight = masterFlow.borderWidth = 32;
-
+		
+		var icon = Assets.ui.h_get("bloodBig", masterFlow);
 		money = new h2d.Text(Assets.fontLarge, masterFlow);
 		money.textColor = 0xFF3333;
 		masterFlow.getProperties(money).paddingBottom = 32;
@@ -138,8 +147,9 @@ class ShopWindow extends dn.Process {
         f.addSpacing(8);
         
 		if( cost>0 ) {
+			var icon = Assets.tiles.h_get("blood", priceBox);
 			var tf = new h2d.Text(Assets.fontMedium, priceBox);
-			tf.text = "$"+cost;
+			tf.text = Std.string(cost);
 			tf.textColor = cost <= money ? 0xFF9900 : 0xD20000;
 		}
 		else {
@@ -174,13 +184,18 @@ class ShopWindow extends dn.Process {
 			cb:interact,
 		});
 	}
-    
+	
+	var closed:Bool;
 	function close() {
-		cd.setS("closing", 99999);
-		tw.createS(root.alpha, 0, 0.4);
-		tw.createS(masterFlow.y, -masterFlow.outerHeight,0.4).end( function() {
-			destroy();
-		});
+		if (!closed)
+		{
+			closed = true;
+			cd.setS("closing", 99999);
+			tw.createS(root.alpha, 0, 0.4);
+			tw.createS(masterFlow.y, -masterFlow.outerHeight,0.4).end( function() {
+				destroy();
+			});
+		}
     }
     
     override function update() {
@@ -230,8 +245,8 @@ class ShopWindow extends dn.Process {
 		mask.beginFill(0x21111F,0.75);
 		mask.drawRect(0,0,Main.ME.w(),Main.ME.h());
         
-		masterFlow.reflow();
-		masterFlow.x = Std.int( Main.ME.w()*0.5 - masterFlow.outerWidth*0.5);
-        masterFlow.y = Std.int( Main.ME.h()*0.5 - masterFlow.outerHeight*0.5);
+		masterBox.reflow();
+		masterBox.x = Std.int( Main.ME.w()*0.5 - masterBox.outerWidth*0.5);
+        masterBox.y = Std.int( Main.ME.h()*0.5 - masterBox.outerHeight*0.5);
     }
 }
