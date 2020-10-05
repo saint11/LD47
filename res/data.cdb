@@ -773,9 +773,9 @@
 				},
 				{
 					"levelName": "EndGame",
-					"title": "Exit the Temple",
+					"title": "The Exit",
 					"price": 5000,
-					"desc": "No one has ever escaped",
+					"desc": "No one has ever escaped!",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
