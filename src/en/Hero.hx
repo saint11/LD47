@@ -104,6 +104,7 @@ class Hero extends Entity {
         var weapon = Game.ME.weapon;
 
         for (i in 0...weapon.bullets){
+            fx.explode(x + offX,y + offY-120, "magic", false);
             new Projectile(x + offX,y + offY, angToMouse(offX,offY) + rnd(-weapon.spread, weapon.spread) * M.DEG_RAD, this, weapon.projectile);
         }
 
