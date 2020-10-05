@@ -24,7 +24,7 @@ class Scroll extends Interactive {
         cd.onComplete("say", ()->{
             var txt = getLine(Game.ME.loopCount);
             if (txt!=null) {
-                Assets.SBANK.ghost_talk(0.8);
+                Assets.SBANK.ghost_talk(0.6);
                 sayWords(txt);
             }
         });
@@ -96,7 +96,7 @@ class Scroll extends Interactive {
             ];
 
             sayWords( Data.text.get(bye[M.rand(bye.length)]).text) ;
-            Assets.SBANK.ghost_bye(0.8);
+            Assets.SBANK.ghost_bye(0.6);
         }
         
         game.cd.setS("leave",2);

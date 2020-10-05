@@ -20,6 +20,12 @@ class Main extends dn.Process {
 
 	public var restartGame:Bool;
 
+	public var lobbyVolume:Float = 0;
+	public var bgmVolume:Float = 0;
+	var curLobbyVolume:Float = 0;
+	var curBgmVolume:Float = 0;
+
+
 	public function new(s:h2d.Scene) {
 		super();
 		ME = this;
@@ -80,9 +86,24 @@ class Main extends dn.Process {
 		// Start
 		new dn.heaps.GameFocusHelper(Boot.ME.s2d, Assets.fontMedium);
 		delayer.addF( startGame, 1 );
+
 	}
 
+
+	var bgm:dn.heaps.Sfx;
+	var lobbyBgm:dn.heaps.Sfx;
 	public function startGame() {
+
+		if (lobbyBgm!=null)
+			lobbyBgm.stop();
+		lobbyBgm = Assets.SBANK.lobby();
+		lobbyBgm.playOnGroup(1, true);
+		
+		if (bgm!=null)
+			bgm.stop();
+		bgm = Assets.SBANK.bgm();
+		bgm.playOnGroup(2, true);
+
 		if(ShopWindow.ME!=null)
 			ShopWindow.ME.destroy();
 
@@ -129,5 +150,15 @@ class Main extends dn.Process {
 			restartGame=false;
 			startGame();
 		}
+	}
+
+	override function fixedUpdate() {
+		super.fixedUpdate();
+		
+		curLobbyVolume = M.lerp(curLobbyVolume, lobbyVolume * 0.45, 0.1);
+		dn.heaps.Sfx.setGroupVolume(1, curLobbyVolume);
+
+		curBgmVolume = M.lerp(curBgmVolume, bgmVolume * 0.45, 0.1);
+		dn.heaps.Sfx.setGroupVolume(2, curBgmVolume);
 	}
 }

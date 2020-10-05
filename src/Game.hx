@@ -55,15 +55,9 @@ class Game extends Process {
 
 	public var loopCount = 0;
 
-
-	var lobbyBgm:dn.heaps.Sfx;
-
 	public function new() {
 		super(Main.ME);
 		ME = this;
-
-		lobbyBgm = Assets.SBANK.lobby();
-		lobbyBgm.playOnGroup(1, true);
 
 		ca = Main.ME.controller.createAccess("game");
 		ca.setLeftDeadZone(0.2);
@@ -202,9 +196,10 @@ class Game extends Process {
 		for(e in Entity.ALL) if( !e.destroyed ) e.fixedUpdate();
 	}
 
+	
 	override function update() {
 		super.update();
-
+		
 		// Z sort
 		//if( !cd.hasSetS("zsort",0.1) )
 		Entity.ALL.sort( function(a,b) return Reflect.compare(a.z, b.z) );
@@ -243,6 +238,9 @@ class Game extends Process {
 			{
 				levelIndex = 0;
 				loopCount++;
+				
+				Main.ME.bgmVolume = 0;
+
 				var txt:String = Data.text.get(endCycle).text;
 				txt = StringTools.replace(txt, "{0}",  Std.string(loopCount));
 				
@@ -269,18 +267,24 @@ class Game extends Process {
 
 		level = new Level(l);
 		
-		if (l==levelLoop[0]){
-			level.bgmVolume=1;
-		}
-		else {
-			level.bgmVolume=0;
-		}
-		
+
 		Process.resizeAll();
 
 		levelToLoad=null;
 		mask.visible=true;
-		tw.createS(mask.alpha, 1>0, 0.6).end(()->mask.visible=false);
+		tw.createS(mask.alpha, 1>0, 0.6).end(()->{
+			
+			if (l==levelLoop[0]){
+				Main.ME.bgmVolume = 0;
+				Main.ME.lobbyVolume = 1;
+			}
+			else {
+				Main.ME.bgmVolume = 1;
+				Main.ME.lobbyVolume = 0;
+			}
+
+			mask.visible=false;
+		});
 	}
 
 	public function addMoney(amount:Int) {

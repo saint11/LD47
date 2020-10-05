@@ -25,8 +25,9 @@ class Assets {
 			return;
 		initDone = true;
 
-		Sfx.setGroupVolume(0, 1); //sfx
-		Sfx.setGroupVolume(1, 0.75); //music
+		Sfx.setGroupVolume(0, 0.75); //sfx
+		Sfx.setGroupVolume(1, 0.45); // lobby music
+		Sfx.setGroupVolume(2, 0.45); // bgm music
 
 		fontPixel = hxd.Res.fonts.minecraftiaOutline.toFont();
 		fontTiny = hxd.Res.fonts.barlow_condensed_medium_regular_9.toFont();

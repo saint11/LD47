@@ -25,9 +25,10 @@ class Mob extends Entity {
 
         data = Data.mobs.resolve(ref.f_MobType.getName());
         
-        spr.anim.registerStateAnim(data.sprite + "_idle", 0);
-        spr.anim.registerStateAnim(data.sprite + "_walk", 1, 0.15, ()-> moving!=0);
-        spr.anim.registerStateAnim(data.sprite + "_hit", 1, 0.15, ()-> hasAffect(Stun));
+        spr.anim.registerStateAnim(data.sprite + "_walk", 0, 0.1 * data.animSpeed); //fallback
+        spr.anim.registerStateAnim(data.sprite + "_idle", 1, 0.1 * data.animSpeed, ()-> hasAffect(Sleep));
+        spr.anim.registerStateAnim(data.sprite + "_walk", 2, 0.15 * data.animSpeed, ()-> moving!=0);
+        spr.anim.registerStateAnim(data.sprite + "_hit", 3, 0.15 * data.animSpeed, ()-> hasAffect(Stun));
         
         setAffectS(Sleep, rnd(0.5, 2) + data.sleep);
         initLife(data.hp);

@@ -353,6 +353,10 @@
 					"display": null
 				},
 				{
+					"typeStr": "4",
+					"name": "animSpeed"
+				},
+				{
 					"typeStr": "1",
 					"name": "sprite",
 					"display": null
@@ -409,7 +413,8 @@
 						5
 					],
 					"sleep": 1,
-					"sprite": "zombie"
+					"sprite": "zombie",
+					"animSpeed": 1
 				},
 				{
 					"id": "Explosive",
@@ -428,7 +433,8 @@
 					],
 					"explosion": "bomb",
 					"sleep": 0,
-					"sprite": "goo"
+					"sprite": "goo",
+					"animSpeed": 1
 				},
 				{
 					"id": "Shooter",
@@ -449,7 +455,8 @@
 					],
 					"projectile": "EnemyFire",
 					"sleep": 0,
-					"sprite": "shooter"
+					"sprite": "shooter",
+					"animSpeed": 1.5
 				},
 				{
 					"id": "Bomber",
@@ -476,7 +483,8 @@
 					],
 					"projectile": "Bomb",
 					"sleep": 2,
-					"sprite": "bomber"
+					"sprite": "bomber",
+					"animSpeed": 1
 				},
 				{
 					"id": "Tank",
@@ -503,7 +511,8 @@
 						20,
 						30
 					],
-					"sprite": "zombie"
+					"sprite": "zombie",
+					"animSpeed": 1
 				}
 			],
 			"separators": [],
@@ -558,7 +567,7 @@
 					"id": "machine_gun_bullet",
 					"amount": 1,
 					"push": 0.1,
-					"stunTime": 0.05
+					"stunTime": 0.15
 				},
 				{
 					"id": "shrapnel",
@@ -594,7 +603,7 @@
 					"id": "trap_damage",
 					"amount": 1,
 					"push": 0.1,
-					"stunTime": 0.1
+					"stunTime": 0.2
 				},
 				{
 					"id": "player_bomb",

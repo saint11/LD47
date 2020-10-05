@@ -1,5 +1,6 @@
 package ui;
 
+import format.abc.Data.ABCData;
 import dn.Rand;
 import h2d.Interactive;
 import h3d.scene.World;
@@ -74,7 +75,8 @@ class ShopWindow extends dn.Process {
         cd.setS("lock", 0.2);
         refresh(seed);
         onResize();
-        Game.ME.pause();
+		Game.ME.pause();
+		Assets.SBANK.shop(1);
     }
 
     function refresh(seed) {
@@ -181,7 +183,10 @@ class ShopWindow extends dn.Process {
 			}
 		}
 		
-        f.interactive.onOver = (e)-> curIdx = index;
+        f.interactive.onOver = (e)-> {
+			Assets.SBANK.select(1);
+			curIdx = index;
+		}
         f.interactive.onClick = (e)-> interact();
         
 		items.push( {
@@ -196,6 +201,7 @@ class ShopWindow extends dn.Process {
 	function close() {
 		if (!closed)
 		{
+			Assets.SBANK.accept(0.8);
 			closed = true;
 			cd.setS("closing", 99999);
 			tw.createS(root.alpha, 0, 0.4);
@@ -222,12 +228,15 @@ class ShopWindow extends dn.Process {
 			cursor.x = 5 - M.fabs(Math.sin(ftime*0.2)*5);
 			cursor.y += ( i.f.y + i.f.outerHeight*0.5 - cursor.y ) * 0.3;
 
-			if( ca.downPressed() && curIdx<items.length-1 )
+			if( ca.downPressed() && curIdx<items.length-1 ){
+				Assets.SBANK.select(1);
 				curIdx++;
+			}
 
-			if( ca.upPressed() && curIdx>0 )
+			if( ca.upPressed() && curIdx>0 ){
+				Assets.SBANK.select(1);
 				curIdx--;
-
+			}
 			if( !cd.has("lock") && ca.aPressed() )
 				i.cb();
 			
