@@ -492,8 +492,8 @@
 						4
 					],
 					"explosion": "bomb",
-					"sleep": 0,
-					"sprite": "goo",
+					"sleep": 1,
+					"sprite": "head",
 					"animSpeed": 1,
 					"jumpSpeed": 0,
 					"shadowScale": 1
@@ -917,7 +917,7 @@
 					"levelName": "FountainRoom",
 					"title": "Fountain Room",
 					"price": 50,
-					"desc": "-5% dropped blood on all rooms. This room will heal you.",
+					"desc": "-5% dropped blood in all rooms. This room will heal you.",
 					"icon": {
 						"file": "room_icons.png",
 						"size": 64,
