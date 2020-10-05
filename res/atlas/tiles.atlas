@@ -683,6 +683,27 @@ spike_stop_0000
   orig: 96, 96
   offset: 10, 12
   index: -1
+tank_charge_00
+  rotate: false
+  xy: 1, 135
+  size: 165, 163
+  orig: 240, 240
+  offset: 32, 4
+  index: -1
+tank_charge_01
+  rotate: false
+  xy: 1, 1
+  size: 167, 133
+  orig: 240, 240
+  offset: 29, 4
+  index: -1
+tank_charge_02
+  rotate: false
+  xy: 336, 144
+  size: 154, 122
+  orig: 240, 240
+  offset: 44, 4
+  index: -1
 tank_hit_00
   rotate: false
   xy: 1, 685
