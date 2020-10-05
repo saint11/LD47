@@ -13,21 +13,21 @@ blood_splatter_0000
   index: -1
 blood_splatter_0001
   rotate: false
-  xy: 366, 455
+  xy: 280, 523
   size: 94, 109
   orig: 128, 128
   offset: 13, 12
   index: -1
 blood_splatter_0002
   rotate: false
-  xy: 270, 422
+  xy: 379, 455
   size: 95, 111
   orig: 128, 128
   offset: 14, 12
   index: -1
 blood_splatter_0003
   rotate: false
-  xy: 171, 415
+  xy: 280, 422
   size: 98, 100
   orig: 128, 128
   offset: 13, 20
@@ -153,35 +153,35 @@ explosion_green_0000
   index: -1
 explosion_green_0001
   rotate: false
-  xy: 92, 570
+  xy: 74, 637
   size: 66, 65
   orig: 100, 100
   offset: 17, 20
   index: -1
 explosion_green_0002
   rotate: false
-  xy: 92, 497
+  xy: 92, 564
   size: 73, 72
   orig: 100, 100
   offset: 15, 14
   index: -1
 explosion_green_0003
   rotate: false
-  xy: 166, 516
+  xy: 1, 606
   size: 72, 72
   orig: 100, 100
   offset: 14, 13
   index: -1
 explosion_green_0004
   rotate: false
-  xy: 1, 606
+  xy: 214, 493
   size: 65, 61
   orig: 100, 100
   offset: 14, 21
   index: -1
 explosion_green_0005
   rotate: false
-  xy: 239, 534
+  xy: 214, 555
   size: 63, 54
   orig: 100, 100
   offset: 14, 22
@@ -199,4 +199,39 @@ explosion_green_0007
   size: 3, 3
   orig: 100, 100
   offset: 0, 97
+  index: -1
+magic_00
+  rotate: false
+  xy: 1, 679
+  size: 66, 45
+  orig: 240, 240
+  offset: 77, 12
+  index: -1
+magic_01
+  rotate: false
+  xy: 166, 610
+  size: 71, 58
+  orig: 240, 240
+  offset: 78, 6
+  index: -1
+magic_02
+  rotate: false
+  xy: 118, 493
+  size: 95, 70
+  orig: 240, 240
+  offset: 63, 4
+  index: -1
+magic_03
+  rotate: false
+  xy: 171, 415
+  size: 108, 77
+  orig: 240, 240
+  offset: 58, 2
+  index: -1
+magic_04
+  rotate: false
+  xy: 508, 14
+  size: 3, 3
+  orig: 240, 240
+  offset: 0, 237
   index: -1
