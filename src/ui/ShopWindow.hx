@@ -146,6 +146,11 @@ class ShopWindow extends dn.Process {
 		
         var desc = new h2d.Text(Assets.fontSmall, box);
 		desc.text = inf.desc;
+		
+		if (inf.levelName == EndGame && M.rand(100)==1) {
+			desc.text += " "+ Data.text.get(grej).text;
+		}
+
         desc.maxWidth = 200;
         desc.textColor = 0xBBBBBB;
 		

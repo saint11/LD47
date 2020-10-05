@@ -1168,6 +1168,10 @@
 				{
 					"id": "chamberName",
 					"text": "Eternal Chamber"
+				},
+				{
+					"id": "grej",
+					"text": " Except Greg."
 				}
 			],
 			"separators": [],
