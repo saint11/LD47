@@ -84,8 +84,8 @@ class Hud extends dn.Process {
 		flow.reflow();
 		
 		tFlow.reflow();
-		tFlow.x = Std.int( Main.ME.w() - tFlow.outerWidth);
-        tFlow.y = Std.int( Main.ME.h() - tFlow.outerHeight);
+		tFlow.x = Std.int( Main.ME.w()/Const.UI_SCALE - tFlow.outerWidth);
+        tFlow.y = Std.int( Main.ME.h()/Const.UI_SCALE - tFlow.outerHeight);
 	}
 
 	public inline function invalidate() invalidated = true;

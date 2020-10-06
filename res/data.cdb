@@ -504,8 +504,8 @@
 						{
 							"ai": [
 								2,
-								1,
-								2
+								2,
+								3.5
 							]
 						}
 					],
@@ -762,6 +762,10 @@
 					"name": "bonus"
 				},
 				{
+					"typeStr": "3",
+					"name": "afterLoop"
+				},
+				{
 					"typeStr": "1",
 					"name": "desc"
 				}
@@ -779,7 +783,8 @@
 					},
 					"title": "Zombie Room",
 					"bonus": [],
-					"purgeChance": 0.05
+					"purgeChance": 0.05,
+					"afterLoop": 0
 				},
 				{
 					"levelName": "CrowdedRoom",
@@ -800,7 +805,8 @@
 							]
 						}
 					],
-					"purgeChance": 0.05
+					"purgeChance": 0.05,
+					"afterLoop": 0
 				},
 				{
 					"levelName": "EvolvingRoom",
@@ -821,7 +827,8 @@
 						"x": 6,
 						"y": 0
 					},
-					"purgeChance": 0.02
+					"purgeChance": 0.02,
+					"afterLoop": 0
 				},
 				{
 					"levelName": "TrapRoom",
@@ -848,7 +855,8 @@
 							]
 						}
 					],
-					"purgeChance": 0.08
+					"purgeChance": 0.08,
+					"afterLoop": 0
 				},
 				{
 					"levelName": "BombRoom",
@@ -869,7 +877,8 @@
 							]
 						}
 					],
-					"purgeChance": 0.1
+					"purgeChance": 0.1,
+					"afterLoop": 0
 				},
 				{
 					"levelName": "ExplosiveRoom",
@@ -890,7 +899,8 @@
 						"x": 2,
 						"y": 0
 					},
-					"purgeChance": 0.1
+					"purgeChance": 0.1,
+					"afterLoop": 0
 				},
 				{
 					"levelName": "ShooterRoom",
@@ -911,7 +921,8 @@
 							]
 						}
 					],
-					"purgeChance": 0.13
+					"purgeChance": 0.13,
+					"afterLoop": 1
 				},
 				{
 					"levelName": "FountainRoom",
@@ -932,7 +943,8 @@
 							]
 						}
 					],
-					"purgeChance": 0.01
+					"purgeChance": 0.01,
+					"afterLoop": 2
 				},
 				{
 					"levelName": "TreasureRoom",
@@ -946,7 +958,8 @@
 						"x": 7,
 						"y": 0
 					},
-					"purgeChance": 0.005
+					"purgeChance": 0.005,
+					"afterLoop": 2
 				},
 				{
 					"levelName": "WeaponRoom",
@@ -960,7 +973,8 @@
 						"x": 0,
 						"y": 1
 					},
-					"purgeChance": 0.005
+					"purgeChance": 0.005,
+					"afterLoop": 2
 				},
 				{
 					"levelName": "DiningRoom",
@@ -987,7 +1001,8 @@
 						"size": 64,
 						"x": 1,
 						"y": 1
-					}
+					},
+					"afterLoop": 3
 				},
 				{
 					"levelName": "SpikeChamber",
@@ -1008,7 +1023,8 @@
 						"size": 64,
 						"x": 4,
 						"y": 0
-					}
+					},
+					"afterLoop": 3
 				},
 				{
 					"levelName": "TortureChamber",
@@ -1029,7 +1045,8 @@
 						"size": 64,
 						"x": 6,
 						"y": 1
-					}
+					},
+					"afterLoop": 3
 				},
 				{
 					"levelName": "GhostChamber",
@@ -1043,7 +1060,8 @@
 						"size": 64,
 						"x": 2,
 						"y": 1
-					}
+					},
+					"afterLoop": 5
 				},
 				{
 					"levelName": "SlimeChamber",
@@ -1057,7 +1075,8 @@
 						"size": 64,
 						"x": 3,
 						"y": 1
-					}
+					},
+					"afterLoop": 4
 				},
 				{
 					"levelName": "EndGame",
@@ -1071,7 +1090,8 @@
 						"y": 0
 					},
 					"bonus": [],
-					"purgeChance": 0
+					"purgeChance": 0,
+					"afterLoop": 0
 				}
 			],
 			"separators": [

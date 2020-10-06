@@ -85,7 +85,12 @@ class ShopWindow extends dn.Process {
 		
 		var rnd= new Rand(seed);
 		var i = 0;
-		var rooms = Data.shop.all.toArrayCopy();
+		var rooms: Array<Data.Shop> = [];
+		for (r in Data.shop.all)
+		{
+			if (r.afterLoop<=Game.ME.loopCount)
+				rooms.push(r);
+		}
 
 		var tooPricey = true;
 		for	(n in 0...3) {
@@ -268,7 +273,7 @@ class ShopWindow extends dn.Process {
 		mask.drawRect(0,0,Main.ME.w(),Main.ME.h());
         
 		masterBox.reflow();
-		masterBox.x = Std.int( Main.ME.w()*0.5 - masterBox.outerWidth*0.5);
+		masterBox.x = Std.int( Main.ME.w()*0.5- masterBox.outerWidth*0.5);
         masterBox.y = Std.int( Main.ME.h()*0.5 - masterBox.outerHeight*0.5);
     }
 }
