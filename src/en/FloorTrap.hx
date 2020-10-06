@@ -34,6 +34,11 @@ class FloorTrap extends Entity {
         spr.setCenterRatio(0.5, 0.6);
     }
 
+    override function update() {
+        super.update();
+        spr.color = color;
+    }
+
     override function onTouch(other:Entity) {
         super.onTouch(other);
         
